@@ -1,0 +1,31 @@
+{
+  "verification_tracking": {
+    "content_id": "unique_identifier_for_content",
+    "content_type": "article/video/image",
+    "content_summary": "brief_description_or_summary_of_the_content",
+    "verification_status": {
+      "verified": "boolean",
+      "not_verified": "boolean",
+      "suspicious": "boolean"
+    },
+    "details": [
+      {
+        "fact_id": "unique_identifier_for_fact",
+        "statement": "specific_statement_or_claim_made_in_the_content",
+        "assessment": {
+          "verified": "boolean",
+          "not_verified": "boolean",
+          "suspicious": "boolean"
+        },
+        "notes": "notes_about_the_verification_or_suspicions",
+        "verified_by": "entity_that_verified_or_flagged_the_statement",
+        "verification_date": "YYYY-MM-DD"
+      }
+    ],
+    "overall_assessment": {
+      "reliability_rating": "scale_or_metric_to_rate_overall_reliability",
+      "assessment_summary": "overall_summary_of_content's_reliability_and_accuracy",
+      "reviewer_notes": "additional_notes_or_comments_by_the_reviewer"
+    }
+  }
+}

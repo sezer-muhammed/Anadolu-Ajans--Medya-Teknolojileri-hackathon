@@ -1,0 +1,45 @@
+{
+  "content_object_analysis": {
+    "content_id": "unique_identifier_for_content",
+    "content_type": "article/video/image",
+    "detected_objects": [
+      {
+        "object_id": "unique_identifier_for_object",
+        "name": "name_or_type_of_object",
+        "category": "general_category_of_object",
+        "appearance": {
+          "first_detected": "timestamp_or_location_in_content",
+          "last_detected": "timestamp_or_location_in_content",
+          "duration_visible": "time_or_frames_object_is_visible",
+          "frequency_of_appearance": "number_of_times_object_appears"
+        },
+        "location_in_content": {
+          "initial_coordinates": "x,y,z",
+          "final_coordinates": "x,y,z",
+          "path": "description_or_data_of_movement_path"
+        },
+        "attributes": {
+          "size": "dimensions_or_scale_of_object",
+          "color": "primary_and_secondary_colors",
+          "material": "construction_material_if_known",
+          "condition": "new/used/damaged"
+        },
+        "contextual_relevance": {
+          "role_in_content": "background/central/interactive",
+          "emotional_impact": "how_object_contributes_to_overall_emotion",
+          "symbolic_meaning": "any_symbolic_or_cultural_significance"
+        },
+        "interactions": {
+          "interaction_with_people": "description_of_how_people_interact_with_object",
+          "interaction_with_environment": "description_of_how_object_interacts_with_its_surroundings",
+          "associated_actions": "actions_taken_with_or towards the object"
+        }
+      }
+    ],
+    "overall_insights": {
+      "dominant_objects": "objects_with_most_significance_or_screen_time",
+      "recurring_patterns": "notable_patterns_or_themes_in_object_appearance",
+      "analyzer_notes": "additional_notes_or_observations_by_the_analyzer"
+    }
+  }
+}
