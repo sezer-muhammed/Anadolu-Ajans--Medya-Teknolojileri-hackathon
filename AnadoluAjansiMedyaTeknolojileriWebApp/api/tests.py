@@ -1,10 +1,13 @@
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
 from rest_framework import status
+from django.contrib.auth.models import User
 from .models import ImageUpload, TextUpload, VoiceUpload
 
 class ImageUploadTestCase(APITestCase):
     def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
         # Set up any initial data or settings you need for the tests
         self.image = SimpleUploadedFile(name='test_image.jpg', content=b'', content_type='image/jpeg')
         self.url = '/images/'
@@ -25,8 +28,11 @@ class ImageUploadTestCase(APITestCase):
 
 class TextUploadTestCase(APITestCase):
     def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
+
         self.text = 'Sample text'
-        self.url = '/texts/'
+        self.url = '/api/texts/'
 
     def test_create_text(self):
         response = self.client.post(self.url, {'text': self.text})
@@ -42,6 +48,9 @@ class TextUploadTestCase(APITestCase):
 
 class VoiceUploadTestCase(APITestCase):
     def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
+
         self.voice_file = SimpleUploadedFile(name='test_voice.mp3', content=b'Some audio content', content_type='audio/mpeg')
         self.url = '/voices/'
 

@@ -1,0 +1,13 @@
+# Common Git ignore files
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+dist/
+build/
+*.log
+*.swp
+*.swo
+*.pyc
+__pycache__/
+media/
