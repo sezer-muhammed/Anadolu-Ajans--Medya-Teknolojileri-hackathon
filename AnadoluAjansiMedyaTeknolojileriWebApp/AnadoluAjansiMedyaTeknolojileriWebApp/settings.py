@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     
     'api',
+    'meta_models_management',
 ]
 
 MIDDLEWARE = [
