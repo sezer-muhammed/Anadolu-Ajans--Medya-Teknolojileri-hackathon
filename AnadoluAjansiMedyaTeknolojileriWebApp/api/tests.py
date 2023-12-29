@@ -1,3 +1,6 @@
+import os
+import glob
+from django.core.files import File  # Import the File class
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
 from rest_framework import status
@@ -8,9 +11,17 @@ class ImageUploadTestCase(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(username='testuser', password='12345')
         self.client.login(username='testuser', password='12345')
-        # Set up any initial data or settings you need for the tests
-        self.image = SimpleUploadedFile(name='test_image.jpg', content=b'', content_type='image/jpeg')
-        self.url = '/images/'
+
+        # Define the path to your sample image
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        image_path = os.path.join(base_dir, 'api', 'test_media', 'base_test_image.jpg')
+
+        # Open the sample image and read it
+        with open(image_path, 'rb') as image_file:
+            image = File(image_file)
+            self.image = SimpleUploadedFile(name='test_image.jpg', content=image_file.read(), content_type='image/jpeg')
+
+        self.url = '/api/images/'
 
     def test_create_image(self):
         # Test creating an image through the API
@@ -24,6 +35,23 @@ class ImageUploadTestCase(APITestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
+
+    def tearDown(self):
+        # Define the path to your media/images folder
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        media_image_path = os.path.join(base_dir, 'media', 'images')
+
+        # Pattern to match all files starting with 'test_' in the media/images directory
+        test_files_pattern = os.path.join(media_image_path, 'test_*')
+
+        # Use glob to find all matching files
+        test_files = glob.glob(test_files_pattern)
+
+        # Remove each file
+        for file in test_files:
+            os.remove(file)
+
+        super().tearDown()  # Call the tearDown method of the superclass.
 
 
 class TextUploadTestCase(APITestCase):
@@ -52,7 +80,7 @@ class VoiceUploadTestCase(APITestCase):
         self.client.login(username='testuser', password='12345')
 
         self.voice_file = SimpleUploadedFile(name='test_voice.mp3', content=b'Some audio content', content_type='audio/mpeg')
-        self.url = '/voices/'
+        self.url = '/api/voices/'
 
     def test_create_voice(self):
         response = self.client.post(self.url, {'voice_file': self.voice_file})
@@ -65,3 +93,19 @@ class VoiceUploadTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
 
+    def tearDown(self):
+        # Define the path to your media/images folder
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        media_image_path = os.path.join(base_dir, 'media', 'voices')
+
+        # Pattern to match all files starting with 'test_' in the media/images directory
+        test_files_pattern = os.path.join(media_image_path, 'test_*')
+
+        # Use glob to find all matching files
+        test_files = glob.glob(test_files_pattern)
+
+        # Remove each file
+        for file in test_files:
+            os.remove(file)
+
+        super().tearDown()  # Call the tearDown method of the superclass.
