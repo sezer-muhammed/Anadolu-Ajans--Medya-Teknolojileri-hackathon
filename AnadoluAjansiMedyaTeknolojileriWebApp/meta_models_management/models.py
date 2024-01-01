@@ -64,19 +64,7 @@ class AIDetection(models.Model):
     text_extraction = models.ManyToManyField(TextExtraction, related_name='ai_detection_texts')
 
 class AdditionalMetadata(models.Model):
-    """
-    Represents additional metadata associated with a model.
-    
-    Attributes:
-        source_attributes (ManyToManyField): The source attributes associated with the metadata.
-        content_themes (ManyToManyField): The content themes associated with the metadata.
-        audience (ManyToManyField): The audience associated with the metadata.
-        geographic_relevance (ManyToManyField): The geographic relevance associated with the metadata.
-        temporal_relevance (ManyToManyField): The temporal relevance associated with the metadata.
-        technical_level (ManyToManyField): The technical level associated with the metadata.
-        sentiment_trends (ManyToManyField): The sentiment trends associated with the metadata.
-        influencer_tags (ManyToManyField): The influencer tags associated with the metadata.
-    """
+
     source_attributes = models.ManyToManyField(SourceAttribute, related_name='additional_metadata_source_attributes')
     content_themes = models.ManyToManyField(ContentTheme, related_name='additional_metadata_content_themes')
     audience = models.ManyToManyField(Audience, related_name='additional_metadata_audience')
@@ -87,18 +75,7 @@ class AdditionalMetadata(models.Model):
     influencer_tags = models.ManyToManyField(InfluencerTag, related_name='additional_metadata_influencer_tags')
 
 class InputRecord(models.Model):
-    """
-    Represents an input record in the system.
 
-    Attributes:
-        input_id (str): The ID of the input.
-        input_type (str): The type of the input.
-        timestamp (str): The timestamp of the input. Consider using DateTimeField if the format is consistent.
-        source_info (SourceInfo): The source information associated with the input.
-        content_analysis (ContentAnalysis): The content analysis associated with the input.
-        ai_analysis (AIDetection): The AI analysis associated with the input.
-        additional_metadata (AdditionalMetadata): Additional metadata associated with the input.
-    """
     input_id = models.CharField(max_length=200)
     input_type = models.CharField(max_length=50)
     timestamp = models.CharField(max_length=50)  # Consider using DateTimeField if the format is consistent

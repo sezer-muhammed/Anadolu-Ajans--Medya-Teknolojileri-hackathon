@@ -4,9 +4,41 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<!-- Main content of the homepage -->
-<div class="container mt-4">
-    <h1>Welcome to the Homepage!</h1>
-    <p>This page is initially empty, designed to showcase the navbar.</p>
+<div class="container">
+    <h1>Welcome to the Upload Page</h1>
+    <p>Upload your images, texts, and voice files here.</p>
+    
+    <!-- Display form errors -->
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            Please correct the errors below.
+        </div>
+    {% endif %}
+
+    <!-- Form for uploading files and text -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- File input for images -->
+        <div class="form-group">
+            <label for="id_images">Upload Images:</label>
+            <input type="file" name="images" id="id_images" multiple accept="image/*" class="form-control">
+        </div>
+
+        <!-- Textarea for text -->
+        <div class="form-group">
+            <label for="id_texts">Enter Text:</label>
+            <textarea name="texts" id="id_texts" rows="5" class="form-control"></textarea>
+        </div>
+
+        <!-- File input for voices -->
+        <div class="form-group">
+            <label for="id_voices">Upload Voice Files:</label>
+            <input type="file" name="voices" id="id_voices" multiple accept="audio/*" class="form-control">
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
 </div>
 {% endblock %}
