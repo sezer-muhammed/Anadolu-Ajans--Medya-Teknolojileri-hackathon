@@ -1,0 +1,46 @@
+<!-- navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- Toggler for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% for app in navbar %}
+                    <!-- Dropdown for App Name -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink{{ forloop.counter }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ app.app_name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink{{ forloop.counter }}">
+                            <!-- App Home Link -->
+                            <li><a class="dropdown-item" href="{{ app.links.0.url }}">{{ app.links.0.title }}</a></li>
+                            <!-- Divider Line -->
+                            <li><hr class="dropdown-divider"></li>
+                            <!-- App Features Links -->
+                            {% for link in app.links %}
+                                {% if not forloop.first %}
+                                    <!-- Non-Home Links -->
+                                    {% if link.title != 'App1 Home' %}
+                                        {% if link.dropdown %}
+                                            <!-- Dropdown Feature Links -->
+                                            {% for item in link.dropdown %}
+                                                <li><a class="dropdown-item" href="{{ item.url }}">{{ item.title }}</a></li>
+                                            {% endfor %}
+                                        {% else %}
+                                            <!-- Single Feature Link -->
+                                            <li><a class="dropdown-item" href="{{ link.url }}">{{ link.title }}</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

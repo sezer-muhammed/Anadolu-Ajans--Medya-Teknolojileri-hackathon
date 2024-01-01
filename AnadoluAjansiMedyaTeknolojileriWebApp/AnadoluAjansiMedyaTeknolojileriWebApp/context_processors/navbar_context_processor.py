@@ -8,8 +8,8 @@ def aggregated_navbar(request):
     aggregated_navbar = []
 
     for app in settings.INSTALLED_APPS:
-        navbar_path = os.path.join(settings.BASE_DIR, app, 'partials', 'navbar.json')
-        
+        navbar_path = os.path.join(settings.BASE_DIR, app, 'config', 'navbar.json')
+
         if os.path.isfile(navbar_path):
             with open(navbar_path, 'r') as file:
                 try:
