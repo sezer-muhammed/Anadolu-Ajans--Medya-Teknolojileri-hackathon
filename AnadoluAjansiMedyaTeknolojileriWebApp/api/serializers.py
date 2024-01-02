@@ -14,4 +14,4 @@ class TextUploadSerializer(serializers.ModelSerializer):
 class VoiceUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = VoiceUpload
-        fields = ['voice_file']
+        fields = ['voice_file', 'transcript']

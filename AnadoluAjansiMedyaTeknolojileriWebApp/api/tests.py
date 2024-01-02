@@ -5,6 +5,8 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.contrib.auth.models import User
+from faker import Faker
+
 from .models import ImageUpload, TextUpload, VoiceUpload
 
 class ImageUploadTestCase(APITestCase):
@@ -79,19 +81,32 @@ class VoiceUploadTestCase(APITestCase):
         self.user = User.objects.create_user(username='testuser', password='12345')
         self.client.login(username='testuser', password='12345')
 
+        # Initialize Faker
+        self.fake = Faker()
+
         self.voice_file = SimpleUploadedFile(name='test_voice.mp3', content=b'Some audio content', content_type='audio/mpeg')
         self.url = '/api/voices/'
 
     def test_create_voice(self):
-        response = self.client.post(self.url, {'voice_file': self.voice_file})
+        # Use Faker to generate random text
+        fake_transcript = self.fake.paragraph(nb_sentences=5)
+        
+        response = self.client.post(self.url, {'voice_file': self.voice_file, 'transcript': fake_transcript})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(VoiceUpload.objects.count(), 1)
 
+        voice_upload = VoiceUpload.objects.first()
+        
+        self.assertEqual(voice_upload.transcript, fake_transcript)  # Check if the transcript matches the fake one
+
     def test_retrieve_voices(self):
-        self.client.post(self.url, {'voice_file': self.voice_file})
+        fake_transcript = self.fake.paragraph(nb_sentences=5)
+        self.client.post(self.url, {'voice_file': self.voice_file, 'transcript': fake_transcript})
+        
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
+        
 
     def tearDown(self):
         # Define the path to your media/images folder
