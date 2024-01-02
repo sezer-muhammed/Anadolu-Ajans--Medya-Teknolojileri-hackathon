@@ -6,6 +6,8 @@ router = DefaultRouter()
 router.register(r'images', views.ImageUploadViewSet)
 router.register(r'texts', views.TextUploadViewSet)
 router.register(r'voices', views.VoiceUploadViewSet)
+router.register(r'inputrecords', views.InputRecordViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
