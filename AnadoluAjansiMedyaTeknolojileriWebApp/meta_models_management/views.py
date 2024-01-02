@@ -20,3 +20,16 @@ class HomeView(View):
 
         # If the form is not valid, render the page again with the form (errors will show)
         return render(request, 'meta_models_management/home.html', {'form': form})
+    
+
+class SmartSearch(View):
+    template_name = 'PLACEHOLDER.html'
+
+    def get(self, request, *args, **kwargs):
+        pass
+
+    def construct_context(self, request):
+        pass
+
+    def send_query_to_gpt(self, query):
+        pass
