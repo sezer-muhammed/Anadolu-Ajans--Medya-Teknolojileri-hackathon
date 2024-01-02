@@ -1,0 +1,36 @@
+{
+    "input_id": "",
+    "input_type": "",
+    "timestamp": "",
+    "source_info": {
+        "source": "",
+        "city": "",
+        "country": "",
+        "location": {
+            "latitude": null,
+            "longitude": null
+        }
+    },
+    "content_analysis": {
+        "detailed_description": "",
+        "summary": "",
+        "keywords": [""]
+    },
+    "ai_analysis": {
+        "emotion_analysis": {
+            "associated_emotions": [""]
+        },
+        "object_detection": [""],
+        "text_extraction": [""]
+    },
+    "additional_metadata": {
+        "source_attributes": [""],
+        "content_themes": [""],
+        "audience": [""],
+        "geographic_relevance": [""],
+        "temporal_relevance": [""],
+        "technical_level": [""],
+        "sentiment_trends": [""],
+        "influencer_tags": [""]
+    }
+}

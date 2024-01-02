@@ -4,3 +4,5 @@ Django
 djangorestframework
 Pillow
 Faker
+google-generativeai
+python-decouple
