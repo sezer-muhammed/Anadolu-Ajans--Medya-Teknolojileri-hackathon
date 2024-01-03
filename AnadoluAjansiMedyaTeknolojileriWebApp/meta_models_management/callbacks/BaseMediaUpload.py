@@ -5,9 +5,8 @@ from ..serializers import InputRecordSerializer
 
 import json
 
-with open('meta_models_management\config\InputRecordSerializerJson.json') as f:
+with open('meta_models_management/config/InputRecordSerializerJson.json') as f:
     data = json.load(f)
-    print(data)
 
 def clean_json_string(result: str) -> str:
     """
@@ -39,7 +38,6 @@ def uploaded_file_analyse_callback(instance):
     response = gemini_model.generate_content(prompt_parts)
     json_data = clean_json_string(response)
 
-    print(json_data)
     json_data = json.loads(json_data)
 
     serializer = InputRecordSerializer(data=json_data)

@@ -11,7 +11,7 @@ class ImageUpload(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        uploaded_file_callback(self)
+        #uploaded_file_callback(self)
 
 class TextUpload(models.Model):
     text = models.TextField()
@@ -26,4 +26,4 @@ class VoiceUpload(models.Model):
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        uploaded_file_callback(self)
+        #uploaded_file_callback(self)
