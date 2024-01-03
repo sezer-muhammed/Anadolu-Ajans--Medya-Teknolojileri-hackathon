@@ -65,18 +65,18 @@ class AIDetection(models.Model):
 
 class AdditionalMetadata(models.Model):
 
-    source_attributes = models.ManyToManyField(SourceAttribute, related_name='additional_metadata_source_attributes')
-    content_themes = models.ManyToManyField(ContentTheme, related_name='additional_metadata_content_themes')
-    audience = models.ManyToManyField(Audience, related_name='additional_metadata_audience')
-    geographic_relevance = models.ManyToManyField(GeographicRelevance, related_name='additional_metadata_geographic_relevance')
-    temporal_relevance = models.ManyToManyField(TemporalRelevance, related_name='additional_metadata_temporal_relevance')
-    technical_level = models.ManyToManyField(TechnicalLevel, related_name='additional_metadata_technical_level')
-    sentiment_trends = models.ManyToManyField(SentimentTrend, related_name='additional_metadata_sentiment_trends')
-    influencer_tags = models.ManyToManyField(InfluencerTag, related_name='additional_metadata_influencer_tags')
+    source_attributes = models.ManyToManyField(SourceAttribute, related_name='additional_metadata_source_attributes', blank=True)
+    content_themes = models.ManyToManyField(ContentTheme, related_name='additional_metadata_content_themes', blank=True)
+    audience = models.ManyToManyField(Audience, related_name='additional_metadata_audience', blank=True)
+    geographic_relevance = models.ManyToManyField(GeographicRelevance, related_name='additional_metadata_geographic_relevance', blank=True)
+    temporal_relevance = models.ManyToManyField(TemporalRelevance, related_name='additional_metadata_temporal_relevance', blank=True)
+    technical_level = models.ManyToManyField(TechnicalLevel, related_name='additional_metadata_technical_level', blank=True)
+    sentiment_trends = models.ManyToManyField(SentimentTrend, related_name='additional_metadata_sentiment_trends', blank=True)
+    influencer_tags = models.ManyToManyField(InfluencerTag, related_name='additional_metadata_influencer_tags', blank=True)
 
 class InputRecord(models.Model):
 
-    input_id = models.CharField(max_length=200)
+    input_id = models.CharField(max_length=400)
     input_type = models.CharField(max_length=50)
     timestamp = models.CharField(max_length=50)  # Consider using DateTimeField if the format is consistent
     source_info = models.OneToOneField(SourceInfo, on_delete=models.CASCADE)

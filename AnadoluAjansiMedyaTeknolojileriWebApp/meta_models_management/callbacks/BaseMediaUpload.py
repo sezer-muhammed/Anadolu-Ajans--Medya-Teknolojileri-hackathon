@@ -35,19 +35,29 @@ class InputRecordGenerator:
 
         return json_part
 
+    def generate_optimized_prompt(self, instance, data):
+        prompt_parts = [
+            "Analyze the uploaded text and generate a response in JSON format. ",
+            "The uploaded text is: '", str(instance.text), "'. ",
+            "Fill the JSON with realistic and relevant values. ",
+            "Ensure all fields are complete and adhere to these rules: ",
+            "- 'input_id' should not exceed 200 characters. ",
+            "- 'timestamp' should be a current and valid timestamp. ",
+            "- 'source_info' should include 'city', 'country', 'latitude', and 'longitude', none of which can be null. ",
+            "- 'content_analysis.keywords' should be a list of dictionaries, not strings. ",
+            "Use the following JSON as a guide: ", str(data), " ",
+            "Remember, use double quotes (\") for JSON strings and single quotes (') for the text within this prompt. "
+        ]
+        return ''.join(prompt_parts)
+
+
+
     def uploaded_file_analyse_callback(self, instance):
         # Instantiate the Gemini model
         gemini_model = GeminiModel()
-
-        # Define the prompt for content generation
-        prompt_parts = [
-            "Analyze the uploaded file: ", 
-            str(instance.text), 
-            f"And fill the json with realistic values fill as much as possible. use the json: {self.data}. Only response as json code. put \" for json str and use ' for text."
-        ]
         
         # Generate and process the response
-        response = gemini_model.generate_content(prompt_parts)
+        response = gemini_model.generate_content(self.generate_optimized_prompt(instance, self.data))
         json_data = self.clean_json_string(response)
 
         json_data = json.loads(json_data)
@@ -56,3 +66,6 @@ class InputRecordGenerator:
         serializer = InputRecordSerializer(data=json_data)
         if serializer.is_valid():
             serializer.save()
+        else:
+        # Log or print the errors for debugging
+            print("Serializer errors:", serializer.errors)

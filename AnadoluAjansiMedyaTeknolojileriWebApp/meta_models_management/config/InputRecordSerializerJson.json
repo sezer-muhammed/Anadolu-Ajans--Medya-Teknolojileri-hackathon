@@ -1,36 +1,74 @@
 {
-    "input_id": "",
-    "input_type": "",
-    "timestamp": "",
+    "input_id": "5ce639a9-5abe-4609-a4b9-6cf5fe3a43c7",
+    "input_type": "position",
+    "timestamp": "2015-02-19T09:19:24",
     "source_info": {
-        "source": "",
-        "city": "",
-        "country": "",
-        "location": {
-            "latitude": null,
-            "longitude": null
-        }
+      "source": "Ayers, Hardy and Harrison",
+      "city": "Lake Jennifer",
+      "country": "Taiwan",
+      "location": {
+        "latitude": -6.5099845,
+        "longitude": 124.305184
+      }
     },
     "content_analysis": {
-        "detailed_description": "",
-        "summary": "",
-        "keywords": [""]
+      "detailed_description": "Thousand defense form policy ask. Firm bed method. Quality commercial we customer.",
+      "summary": "Admit film heavy price back themselves tend.",
+      "keywords": [
+        {"value": "sister"},
+        {"value": "site"},
+        {"value": "let"}
+      ]
     },
     "ai_analysis": {
-        "emotion_analysis": {
-            "associated_emotions": [""]
-        },
-        "object_detection": [""],
-        "text_extraction": [""]
+      "emotion_analysis": {
+        "associated_emotions": [
+          {"emotion": "meeting"},
+          {"emotion": "within"}
+        ]
+      },
+      "object_detection": [
+        {"name": "wrong", "status": "pass", "action": "administration"},
+        {"name": "understand", "status": "especially", "action": "performance"}
+      ],
+      "text_extraction": [
+        {"text": "Human treat beat."},
+        {"text": "Development bag mind party."}
+      ]
     },
     "additional_metadata": {
-        "source_attributes": [""],
-        "content_themes": [""],
-        "audience": [""],
-        "geographic_relevance": [""],
-        "temporal_relevance": [""],
-        "technical_level": [""],
-        "sentiment_trends": [""],
-        "influencer_tags": [""]
+      "source_attributes": [
+        {"attribute": "election"},
+        {"attribute": "think"}
+      ],
+      "content_themes": [
+        {"theme": "dinner"},
+        {"theme": "fill"}
+      ],
+      "audience": [
+        {"audience_type": "discussion"},
+        {"audience_type": "activity"}
+      ],
+      "geographic_relevance": [
+        {"geography": "so"},
+        {"geography": "which"}
+      ],
+      "temporal_relevance": [
+        {"temporal": "1990-10-28"},
+        {"temporal": "1996-05-20"}
+      ],
+      "technical_level": [
+        {"level": "goal"},
+        {"level": "catch"}
+      ],
+      "sentiment_trends": [
+        {"trend": "scientist"},
+        {"trend": "bar"}
+      ],
+      "influencer_tags": [
+        {"tag": "agreement"},
+        {"tag": "them"}
+      ]
     }
-}
+  }
+  
