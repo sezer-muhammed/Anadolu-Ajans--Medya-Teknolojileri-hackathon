@@ -27,7 +27,7 @@ class GeminiModel:
                                            generation_config=self.generation_config,
                                            safety_settings=self.safety_settings)
 
-    def generate_content(self, prompt_parts):
+    def generate_content(self, prompt_parts, media=None):
         """
         Generates content based on the given prompt parts.
 
@@ -37,12 +37,6 @@ class GeminiModel:
         Returns:
         str: The generated text response.
         """
+        # TODO Add media handler for images
         response = self.model.generate_content(prompt_parts)
         return response.text
-
-# Usage
-#gemini_model = GeminiModel()
-#prompt_parts = [f"Write a raw json for testing, fill with realistic values, use the json:"]
-#response = gemini_model.generate_content(prompt_parts)
-#print(response)
-
