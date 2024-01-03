@@ -8,12 +8,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.8, 3.9, 3.11]
+        python-version: [3.11]
 
     steps:
     - uses: actions/checkout@v3
@@ -29,3 +28,5 @@ jobs:
       run: |
         cd AnadoluAjansiMedyaTeknolojileriWebApp
         python manage.py test
+      env:
+        GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
