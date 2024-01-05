@@ -124,88 +124,85 @@ class InputRecordSerializer(serializers.ModelSerializer):
         model = InputRecord
         fields = ('input_id', 'input_type', 'timestamp', 'source_info', 'content_analysis',
                   'ai_analysis', 'additional_metadata')
-        
-"""
+
     def create(self, validated_data):
-        # Extract and remove the nested data from validated_data
         source_info_data = validated_data.pop('source_info')
+        source_location_data = source_info_data.pop('location')
         content_analysis_data = validated_data.pop('content_analysis')
         ai_analysis_data = validated_data.pop('ai_analysis')
         additional_metadata_data = validated_data.pop('additional_metadata')
-        
-        # Create SourceLocation instance
-        location_data = source_info_data.pop('location')
-        location = SourceLocation.objects.create(**location_data)
 
-        # Create SourceInfo instance
+        # Handling SourceInfo and SourceLocation
+        location = SourceLocation.objects.create(**source_location_data)
         source_info = SourceInfo.objects.create(location=location, **source_info_data)
 
-        # Create EmotionAnalysis instance
+        # Handling ContentAnalysis and nested Keywords
+        keywords_data = content_analysis_data.pop('keywords')
+        content_analysis = ContentAnalysis.objects.create(**content_analysis_data)
+        # Now, create Keyword instances and add them to the ContentAnalysis
+        for keyword_data in keywords_data:
+            # Create each keyword
+            keyword_instance, created = Keyword.objects.get_or_create(**keyword_data)
+            # Add the keyword to the ManyToMany field in ContentAnalysis
+            content_analysis.keywords.add(keyword_instance)
+
+        # Handling AIDetection and nested details
         emotion_analysis_data = ai_analysis_data.pop('emotion_analysis')
+        object_detection_data = ai_analysis_data.pop('object_detection')
+        text_extraction_data = ai_analysis_data.pop('text_extraction')
+
+        associated_emotions_data = emotion_analysis_data.pop('associated_emotions')
         emotion_analysis = EmotionAnalysis.objects.create(**emotion_analysis_data)
 
-        # Create AIDetection instance
+        # After creating EmotionAnalysis, create AssociatedEmotion instances
+        # Then, add them to the EmotionAnalysis using .set()
+        associated_emotions_instances = []
+        for associated_emotion_data in associated_emotions_data:
+            associated_emotion, created = AssociatedEmotion.objects.get_or_create(**associated_emotion_data)
+            associated_emotions_instances.append(associated_emotion)
+
+        # Use .set() to assign the associated emotions to the emotion_analysis instance
+        emotion_analysis.associated_emotions.set(associated_emotions_instances)
+
+        # Continue creating AIDetection and related instances
         ai_detection = AIDetection.objects.create(emotion_analysis=emotion_analysis, **ai_analysis_data)
+        for object_data in object_detection_data:
+            object_instance, created = Object.objects.get_or_create(**object_data)
+            ai_detection.object_detection.add(object_instance)
 
-        # Create AdditionalMetadata instance
-        additional_metadata = AdditionalMetadata.objects.create(**additional_metadata_data)
+        for text_data in text_extraction_data:
+            text_instance, created = TextExtraction.objects.get_or_create(**text_data)
+            ai_detection.text_extraction.add(text_instance)
 
-        content_analysis_data['detailed_description'] = "test"
-        content_analysis_data['summary'] = "test"
-        content_analysis = ContentAnalysis.objects.create(**content_analysis_data)
-        # Handle many-to-many fields for content_analysis (Keywords)
-        keywords_data = content_analysis_data.pop('keywords', [])
-        keyword_instances = [Keyword.objects.create(**kw_data) for kw_data in keywords_data]
-        content_analysis.keywords.set(keyword_instances)
 
-        # Handle many-to-many fields for ai_analysis (AssociatedEmotions)
-        emotions_data = ai_analysis_data.get('emotion_analysis', {}).pop('associated_emotions', [])
-        emotion_instances = [AssociatedEmotion.objects.create(**emo_data) for emo_data in emotions_data]
-        ai_detection.emotion_analysis.associated_emotions.set(emotion_instances)
+        additional_metadata = AdditionalMetadata.objects.create()
 
-        # Handle many-to-many fields for ai_analysis (Object Detection)
-        objects_data = ai_analysis_data.pop('object_detection', [])
-        object_instances = [Object.objects.create(**obj_data) for obj_data in objects_data]
-        ai_detection.object_detection.set(object_instances)
+        # Define a dictionary for mapping the field name to its corresponding model and serializer
+        field_model_serializer_mapping = {
+            'source_attributes': (SourceAttribute, SourceAttributeSerializer),
+            'content_themes': (ContentTheme, ContentThemeSerializer),
+            'audience': (Audience, AudienceSerializer),
+            'geographic_relevance': (GeographicRelevance, GeographicRelevanceSerializer),
+            'temporal_relevance': (TemporalRelevance, TemporalRelevanceSerializer),
+            'technical_level': (TechnicalLevel, TechnicalLevelSerializer),
+            'sentiment_trends': (SentimentTrend, SentimentTrendSerializer),
+            'influencer_tags': (InfluencerTag, InfluencerTagSerializer)
+        }
 
-        # Handle many-to-many fields for ai_analysis (Text Extraction)
-        texts_data = ai_analysis_data.pop('text_extraction', [])
-        text_instances = [TextExtraction.objects.create(**text_data) for text_data in texts_data]
-        ai_detection.text_extraction.set(text_instances)
+        # Iterate through each ManyToMany field in AdditionalMetadata
+        for field_name, (ModelClass, SerializerClass) in field_model_serializer_mapping.items():
+            detail_list = additional_metadata_data.get(field_name, [])
 
-        # Source Attributes
-        source_attrs = [SourceAttribute.objects.create(**attr_data) for attr_data in additional_metadata_data.pop('source_attributes', [])]
-        additional_metadata.source_attributes.set(source_attrs)
+            # Create or get instances for each item in the list
+            instances = []
+            for item_data in detail_list:
+                instance, created = ModelClass.objects.get_or_create(**item_data)
+                instances.append(instance)
 
-        # Content Themes
-        content_themes = [ContentTheme.objects.create(**theme_data) for theme_data in additional_metadata_data.pop('content_themes', [])]
-        additional_metadata.content_themes.set(content_themes)
+            # Set the ManyToMany relationship
+            getattr(additional_metadata, field_name).set(instances)
 
-        # Audience
-        audiences = [Audience.objects.create(**audience_data) for audience_data in additional_metadata_data.pop('audience', [])]
-        additional_metadata.audience.set(audiences)
-
-        # Geographic Relevance
-        geographics = [GeographicRelevance.objects.create(**geo_data) for geo_data in additional_metadata_data.pop('geographic_relevance', [])]
-        additional_metadata.geographic_relevance.set(geographics)
-
-        # Temporal Relevance
-        temporals = [TemporalRelevance.objects.create(**temporal_data) for temporal_data in additional_metadata_data.pop('temporal_relevance', [])]
-        additional_metadata.temporal_relevance.set(temporals)
-
-        # Technical Level
-        technical_levels = [TechnicalLevel.objects.create(**tech_level_data) for tech_level_data in additional_metadata_data.pop('technical_level', [])]
-        additional_metadata.technical_level.set(technical_levels)
-
-        # Sentiment Trends
-        sentiments = [SentimentTrend.objects.create(**sentiment_data) for sentiment_data in additional_metadata_data.pop('sentiment_trends', [])]
-        additional_metadata.sentiment_trends.set(sentiments)
-
-        # Influencer Tags
-        tags = [InfluencerTag.objects.create(**tag_data) for tag_data in additional_metadata_data.pop('influencer_tags', [])]
-        additional_metadata.influencer_tags.set(tags)
-
-        # Create the main InputRecord instance without many-to-many fields
+        # Finally creating the InputRecord
         input_record = InputRecord.objects.create(
             source_info=source_info,
             content_analysis=content_analysis,
@@ -215,4 +212,3 @@ class InputRecordSerializer(serializers.ModelSerializer):
         )
 
         return input_record
-"""
