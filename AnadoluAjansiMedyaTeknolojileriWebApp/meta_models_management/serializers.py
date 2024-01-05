@@ -141,10 +141,14 @@ class InputRecordSerializer(serializers.ModelSerializer):
         content_analysis = ContentAnalysis.objects.create(**content_analysis_data)
         # Now, create Keyword instances and add them to the ContentAnalysis
         for keyword_data in keywords_data:
-            # Create each keyword
-            keyword_instance, created = Keyword.objects.get_or_create(**keyword_data)
-            # Add the keyword to the ManyToMany field in ContentAnalysis
-            content_analysis.keywords.add(keyword_instance)
+            try:
+                keyword_instance, created = Keyword.objects.get_or_create(**keyword_data)
+                content_analysis.keywords.add(keyword_instance)
+            except Keyword.MultipleObjectsReturned:
+                # Handle the exception if multiple Keyword entries are found
+                keyword_instances = Keyword.objects.filter(**keyword_data)
+                for instance in keyword_instances:
+                    content_analysis.keywords.add(instance)
 
         # Handling AIDetection and nested details
         emotion_analysis_data = ai_analysis_data.pop('emotion_analysis')
@@ -158,21 +162,50 @@ class InputRecordSerializer(serializers.ModelSerializer):
         # Then, add them to the EmotionAnalysis using .set()
         associated_emotions_instances = []
         for associated_emotion_data in associated_emotions_data:
-            associated_emotion, created = AssociatedEmotion.objects.get_or_create(**associated_emotion_data)
-            associated_emotions_instances.append(associated_emotion)
+            try:
+                # Try to get or create the AssociatedEmotion instance
+                associated_emotion, created = AssociatedEmotion.objects.get_or_create(**associated_emotion_data)
+                associated_emotions_instances.append(associated_emotion)
+            except AssociatedEmotion.MultipleObjectsReturned:
+                # Handle the case where multiple objects are returned.
+                # You might want to log this issue, merge entries, or pick the first one.
+                associated_emotions = AssociatedEmotion.objects.filter(**associated_emotion_data)
+                if associated_emotions.exists():
+                    # For simplicity, we're just taking the first one here.
+                    associated_emotion = associated_emotions.first()
+                    associated_emotions_instances.append(associated_emotion)
+
 
         # Use .set() to assign the associated emotions to the emotion_analysis instance
         emotion_analysis.associated_emotions.set(associated_emotions_instances)
 
         # Continue creating AIDetection and related instances
         ai_detection = AIDetection.objects.create(emotion_analysis=emotion_analysis, **ai_analysis_data)
+        # Handling Object Detection Data
         for object_data in object_detection_data:
-            object_instance, created = Object.objects.get_or_create(**object_data)
-            ai_detection.object_detection.add(object_instance)
+            try:
+                object_instance, created = Object.objects.get_or_create(**object_data)
+                ai_detection.object_detection.add(object_instance)
+            except Object.MultipleObjectsReturned:
+                # Handle the case where multiple objects are returned
+                object_instances = Object.objects.filter(**object_data)
+                if object_instances.exists():
+                    # For simplicity, taking the first one here
+                    object_instance = object_instances.first()
+                    ai_detection.object_detection.add(object_instance)
 
+        # Handling Text Extraction Data
         for text_data in text_extraction_data:
-            text_instance, created = TextExtraction.objects.get_or_create(**text_data)
-            ai_detection.text_extraction.add(text_instance)
+            try:
+                text_instance, created = TextExtraction.objects.get_or_create(**text_data)
+                ai_detection.text_extraction.add(text_instance)
+            except TextExtraction.MultipleObjectsReturned:
+                # Handle the case where multiple objects are returned
+                text_instances = TextExtraction.objects.filter(**text_data)
+                if text_instances.exists():
+                    # For simplicity, taking the first one here
+                    text_instance = text_instances.first()
+                    ai_detection.text_extraction.add(text_instance)
 
 
         additional_metadata = AdditionalMetadata.objects.create()
@@ -192,14 +225,15 @@ class InputRecordSerializer(serializers.ModelSerializer):
         # Iterate through each ManyToMany field in AdditionalMetadata
         for field_name, (ModelClass, SerializerClass) in field_model_serializer_mapping.items():
             detail_list = additional_metadata_data.get(field_name, [])
-
-            # Create or get instances for each item in the list
             instances = []
             for item_data in detail_list:
-                instance, created = ModelClass.objects.get_or_create(**item_data)
-                instances.append(instance)
-
-            # Set the ManyToMany relationship
+                try:
+                    instance, created = ModelClass.objects.get_or_create(**item_data)
+                    instances.append(instance)
+                except ModelClass.MultipleObjectsReturned:
+                    # Handle the exception if multiple entries are found
+                    instance_list = ModelClass.objects.filter(**item_data)
+                    instances.extend(instance_list)
             getattr(additional_metadata, field_name).set(instances)
 
         # Finally creating the InputRecord
