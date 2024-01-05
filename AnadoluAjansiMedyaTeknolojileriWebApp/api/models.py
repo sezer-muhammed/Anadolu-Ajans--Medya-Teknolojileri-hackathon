@@ -33,8 +33,8 @@ class TextUpload(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         # Handle text uploads
-        #handler = UploadedFileHandler()
-        #handler.uploaded_file_callback(self)
+        handler = UploadedFileHandler()
+        handler.uploaded_file_callback(self)
 
 class VoiceUpload(models.Model):
     voice_file = models.FileField(upload_to='voices/', validators=[validate_file_extension])
