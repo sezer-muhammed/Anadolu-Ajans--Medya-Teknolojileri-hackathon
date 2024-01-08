@@ -159,6 +159,30 @@ class AdditionalMetadataSerializer(serializers.ModelSerializer):
 
 
 class InputRecordSerializer(serializers.ModelSerializer):
+    """
+    A serializer for InputRecord model that handles nested serialization.
+
+    It uses nested serializers for SourceInfo, ContentAnalysis, AIDetection,
+    and AdditionalMetadata. It also provides a custom create method to
+    handle the creation of related objects.
+
+    Attributes
+    ----------
+    source_info : SourceInfoSerializer
+        A nested serializer for source information.
+    content_analysis : ContentAnalysisSerializer
+        A nested serializer for content analysis details.
+    ai_analysis : AIDetectionSerializer
+        A nested serializer for AI detection details.
+    additional_metadata : AdditionalMetadataSerializer
+        A nested serializer for additional metadata.
+
+    Methods
+    -------
+    create(validated_data: dict)
+        Creates an InputRecord instance along with nested relationships based
+        on validated data.
+    """
     source_info = SourceInfoSerializer()
     content_analysis = ContentAnalysisSerializer()
     ai_analysis = AIDetectionSerializer()
@@ -177,6 +201,40 @@ class InputRecordSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
+        """
+        Creates an InputRecord along with its related instances based on validated data.
+
+        This method orchestrates the creation of an InputRecord instance along with
+        its nested relationships. It handles the creation of SourceInfo, ContentAnalysis,
+        AIDetection, and AdditionalMetadata instances. It also manages many-to-many
+        relationships and handles exceptions for multiple returned objects.
+
+        Parameters
+        ----------
+        validated_data : dict
+            The data validated by the serializer that is used to create the InputRecord
+            and its related instances.
+
+        Returns
+        -------
+        InputRecord
+            The newly created InputRecord instance with all related objects.
+
+        Raises
+        ------
+        Keyword.MultipleObjectsReturned
+            If multiple Keyword instances are returned when attempting to get or create.
+        AssociatedEmotion.MultipleObjectsReturned
+            If multiple AssociatedEmotion instances are returned when attempting to get or create.
+        Object.MultipleObjectsReturned
+            If multiple Object instances are returned when attempting to get or create.
+        TextExtraction.MultipleObjectsReturned
+            If multiple TextExtraction instances are returned when attempting to get or create.
+        ModelClass.MultipleObjectsReturned
+            If multiple instances of a model are returned when attempting to get or create, where
+            ModelClass is a placeholder for any model class involved in creating
+            AdditionalMetadata relationships.
+        """
         source_info_data = validated_data.pop("source_info")
         source_location_data = source_info_data.pop("location")
         content_analysis_data = validated_data.pop("content_analysis")
