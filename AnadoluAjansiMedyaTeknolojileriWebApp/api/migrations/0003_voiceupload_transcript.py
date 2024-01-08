@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('api', '0002_alter_voiceupload_voice_file'),
+        ("api", "0002_alter_voiceupload_voice_file"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='voiceupload',
-            name='transcript',
+            model_name="voiceupload",
+            name="transcript",
             field=models.TextField(blank=True),
         ),
     ]

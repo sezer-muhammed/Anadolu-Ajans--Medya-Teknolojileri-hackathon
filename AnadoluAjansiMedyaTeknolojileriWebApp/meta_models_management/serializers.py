@@ -1,94 +1,128 @@
 from rest_framework import serializers
-from .models import (InputRecord, SourceInfo, SourceLocation, ContentAnalysis, Keyword, EmotionAnalysis,
-                     AssociatedEmotion, Object, TextExtraction, AIDetection, AdditionalMetadata,
-                     SourceAttribute, ContentTheme, Audience, GeographicRelevance, TemporalRelevance,
-                     TechnicalLevel, SentimentTrend, InfluencerTag)
+from .models import (
+    InputRecord,
+    SourceInfo,
+    SourceLocation,
+    ContentAnalysis,
+    Keyword,
+    EmotionAnalysis,
+    AssociatedEmotion,
+    Object,
+    TextExtraction,
+    AIDetection,
+    AdditionalMetadata,
+    SourceAttribute,
+    ContentTheme,
+    Audience,
+    GeographicRelevance,
+    TemporalRelevance,
+    TechnicalLevel,
+    SentimentTrend,
+    InfluencerTag,
+)
+
 
 class KeywordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Keyword
-        fields = ('value',)
+        fields = ("value",)
+
 
 class AssociatedEmotionSerializer(serializers.ModelSerializer):
     class Meta:
         model = AssociatedEmotion
-        fields = ('emotion',)
+        fields = ("emotion",)
+
 
 class ObjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Object
-        fields = ('name', 'status', 'action')
+        fields = ("name", "status", "action")
+
 
 class TextExtractionSerializer(serializers.ModelSerializer):
     class Meta:
         model = TextExtraction
-        fields = ('text',)
+        fields = ("text",)
+
 
 class SourceAttributeSerializer(serializers.ModelSerializer):
     class Meta:
         model = SourceAttribute
-        fields = ('attribute',)
+        fields = ("attribute",)
+
 
 class ContentThemeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContentTheme
-        fields = ('theme',)
+        fields = ("theme",)
+
 
 class AudienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Audience
-        fields = ('audience_type',)
+        fields = ("audience_type",)
+
 
 class GeographicRelevanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = GeographicRelevance
-        fields = ('geography',)
+        fields = ("geography",)
+
 
 class TemporalRelevanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = TemporalRelevance
-        fields = ('temporal',)
+        fields = ("temporal",)
+
 
 class TechnicalLevelSerializer(serializers.ModelSerializer):
     class Meta:
         model = TechnicalLevel
-        fields = ('level',)
+        fields = ("level",)
+
 
 class SentimentTrendSerializer(serializers.ModelSerializer):
     class Meta:
         model = SentimentTrend
-        fields = ('trend',)
+        fields = ("trend",)
+
 
 class InfluencerTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = InfluencerTag
-        fields = ('tag',)
+        fields = ("tag",)
+
 
 class SourceLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = SourceLocation
-        fields = ('latitude', 'longitude')
+        fields = ("latitude", "longitude")
+
 
 class SourceInfoSerializer(serializers.ModelSerializer):
     location = SourceLocationSerializer()
 
     class Meta:
         model = SourceInfo
-        fields = ('source', 'city', 'country', 'location')
+        fields = ("source", "city", "country", "location")
+
 
 class ContentAnalysisSerializer(serializers.ModelSerializer):
     keywords = KeywordSerializer(many=True)
 
     class Meta:
         model = ContentAnalysis
-        fields = ('detailed_description', 'summary', 'keywords')
+        fields = ("detailed_description", "summary", "keywords")
+
 
 class EmotionAnalysisSerializer(serializers.ModelSerializer):
     associated_emotions = AssociatedEmotionSerializer(many=True)
 
     class Meta:
         model = EmotionAnalysis
-        fields = ('associated_emotions',)
+        fields = ("associated_emotions",)
+
 
 class AIDetectionSerializer(serializers.ModelSerializer):
     emotion_analysis = EmotionAnalysisSerializer()
@@ -97,7 +131,8 @@ class AIDetectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AIDetection
-        fields = ('emotion_analysis', 'object_detection', 'text_extraction')
+        fields = ("emotion_analysis", "object_detection", "text_extraction")
+
 
 class AdditionalMetadataSerializer(serializers.ModelSerializer):
     source_attributes = SourceAttributeSerializer(many=True)
@@ -111,8 +146,17 @@ class AdditionalMetadataSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AdditionalMetadata
-        fields = ('source_attributes', 'content_themes', 'audience', 'geographic_relevance', 'temporal_relevance',
-                  'technical_level', 'sentiment_trends', 'influencer_tags')
+        fields = (
+            "source_attributes",
+            "content_themes",
+            "audience",
+            "geographic_relevance",
+            "temporal_relevance",
+            "technical_level",
+            "sentiment_trends",
+            "influencer_tags",
+        )
+
 
 class InputRecordSerializer(serializers.ModelSerializer):
     source_info = SourceInfoSerializer()
@@ -122,27 +166,36 @@ class InputRecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = InputRecord
-        fields = ('input_id', 'input_type', 'timestamp', 'source_info', 'content_analysis',
-                  'ai_analysis', 'additional_metadata')
+        fields = (
+            "input_id",
+            "input_type",
+            "timestamp",
+            "source_info",
+            "content_analysis",
+            "ai_analysis",
+            "additional_metadata",
+        )
 
     def create(self, validated_data):
-        source_info_data = validated_data.pop('source_info')
-        source_location_data = source_info_data.pop('location')
-        content_analysis_data = validated_data.pop('content_analysis')
-        ai_analysis_data = validated_data.pop('ai_analysis')
-        additional_metadata_data = validated_data.pop('additional_metadata')
+        source_info_data = validated_data.pop("source_info")
+        source_location_data = source_info_data.pop("location")
+        content_analysis_data = validated_data.pop("content_analysis")
+        ai_analysis_data = validated_data.pop("ai_analysis")
+        additional_metadata_data = validated_data.pop("additional_metadata")
 
         # Handling SourceInfo and SourceLocation
         location = SourceLocation.objects.create(**source_location_data)
         source_info = SourceInfo.objects.create(location=location, **source_info_data)
 
         # Handling ContentAnalysis and nested Keywords
-        keywords_data = content_analysis_data.pop('keywords')
+        keywords_data = content_analysis_data.pop("keywords")
         content_analysis = ContentAnalysis.objects.create(**content_analysis_data)
         # Now, create Keyword instances and add them to the ContentAnalysis
         for keyword_data in keywords_data:
             try:
-                keyword_instance, created = Keyword.objects.get_or_create(**keyword_data)
+                keyword_instance, created = Keyword.objects.get_or_create(
+                    **keyword_data
+                )
                 content_analysis.keywords.add(keyword_instance)
             except Keyword.MultipleObjectsReturned:
                 # Handle the exception if multiple Keyword entries are found
@@ -151,11 +204,11 @@ class InputRecordSerializer(serializers.ModelSerializer):
                     content_analysis.keywords.add(instance)
 
         # Handling AIDetection and nested details
-        emotion_analysis_data = ai_analysis_data.pop('emotion_analysis')
-        object_detection_data = ai_analysis_data.pop('object_detection')
-        text_extraction_data = ai_analysis_data.pop('text_extraction')
+        emotion_analysis_data = ai_analysis_data.pop("emotion_analysis")
+        object_detection_data = ai_analysis_data.pop("object_detection")
+        text_extraction_data = ai_analysis_data.pop("text_extraction")
 
-        associated_emotions_data = emotion_analysis_data.pop('associated_emotions')
+        associated_emotions_data = emotion_analysis_data.pop("associated_emotions")
         emotion_analysis = EmotionAnalysis.objects.create(**emotion_analysis_data)
 
         # After creating EmotionAnalysis, create AssociatedEmotion instances
@@ -164,23 +217,28 @@ class InputRecordSerializer(serializers.ModelSerializer):
         for associated_emotion_data in associated_emotions_data:
             try:
                 # Try to get or create the AssociatedEmotion instance
-                associated_emotion, created = AssociatedEmotion.objects.get_or_create(**associated_emotion_data)
+                associated_emotion, created = AssociatedEmotion.objects.get_or_create(
+                    **associated_emotion_data
+                )
                 associated_emotions_instances.append(associated_emotion)
             except AssociatedEmotion.MultipleObjectsReturned:
                 # Handle the case where multiple objects are returned.
                 # You might want to log this issue, merge entries, or pick the first one.
-                associated_emotions = AssociatedEmotion.objects.filter(**associated_emotion_data)
+                associated_emotions = AssociatedEmotion.objects.filter(
+                    **associated_emotion_data
+                )
                 if associated_emotions.exists():
                     # For simplicity, we're just taking the first one here.
                     associated_emotion = associated_emotions.first()
                     associated_emotions_instances.append(associated_emotion)
 
-
         # Use .set() to assign the associated emotions to the emotion_analysis instance
         emotion_analysis.associated_emotions.set(associated_emotions_instances)
 
         # Continue creating AIDetection and related instances
-        ai_detection = AIDetection.objects.create(emotion_analysis=emotion_analysis, **ai_analysis_data)
+        ai_detection = AIDetection.objects.create(
+            emotion_analysis=emotion_analysis, **ai_analysis_data
+        )
         # Handling Object Detection Data
         for object_data in object_detection_data:
             try:
@@ -197,7 +255,9 @@ class InputRecordSerializer(serializers.ModelSerializer):
         # Handling Text Extraction Data
         for text_data in text_extraction_data:
             try:
-                text_instance, created = TextExtraction.objects.get_or_create(**text_data)
+                text_instance, created = TextExtraction.objects.get_or_create(
+                    **text_data
+                )
                 ai_detection.text_extraction.add(text_instance)
             except TextExtraction.MultipleObjectsReturned:
                 # Handle the case where multiple objects are returned
@@ -207,23 +267,28 @@ class InputRecordSerializer(serializers.ModelSerializer):
                     text_instance = text_instances.first()
                     ai_detection.text_extraction.add(text_instance)
 
-
         additional_metadata = AdditionalMetadata.objects.create()
 
         # Define a dictionary for mapping the field name to its corresponding model and serializer
         field_model_serializer_mapping = {
-            'source_attributes': (SourceAttribute, SourceAttributeSerializer),
-            'content_themes': (ContentTheme, ContentThemeSerializer),
-            'audience': (Audience, AudienceSerializer),
-            'geographic_relevance': (GeographicRelevance, GeographicRelevanceSerializer),
-            'temporal_relevance': (TemporalRelevance, TemporalRelevanceSerializer),
-            'technical_level': (TechnicalLevel, TechnicalLevelSerializer),
-            'sentiment_trends': (SentimentTrend, SentimentTrendSerializer),
-            'influencer_tags': (InfluencerTag, InfluencerTagSerializer)
+            "source_attributes": (SourceAttribute, SourceAttributeSerializer),
+            "content_themes": (ContentTheme, ContentThemeSerializer),
+            "audience": (Audience, AudienceSerializer),
+            "geographic_relevance": (
+                GeographicRelevance,
+                GeographicRelevanceSerializer,
+            ),
+            "temporal_relevance": (TemporalRelevance, TemporalRelevanceSerializer),
+            "technical_level": (TechnicalLevel, TechnicalLevelSerializer),
+            "sentiment_trends": (SentimentTrend, SentimentTrendSerializer),
+            "influencer_tags": (InfluencerTag, InfluencerTagSerializer),
         }
 
         # Iterate through each ManyToMany field in AdditionalMetadata
-        for field_name, (ModelClass, SerializerClass) in field_model_serializer_mapping.items():
+        for field_name, (
+            ModelClass,
+            SerializerClass,
+        ) in field_model_serializer_mapping.items():
             detail_list = additional_metadata_data.get(field_name, [])
             instances = []
             for item_data in detail_list:

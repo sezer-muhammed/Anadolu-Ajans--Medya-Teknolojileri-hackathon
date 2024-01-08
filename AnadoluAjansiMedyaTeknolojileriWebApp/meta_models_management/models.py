@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Models for each list of strings
 class Keyword(models.Model):
     """
@@ -10,11 +11,13 @@ class Keyword(models.Model):
     value : models.CharField
         The keyword text itself.
     """
+
     value = models.CharField(max_length=200)
-    
+
     def __str__(self):
         """Returns the string representation of the Keyword."""
         return self.value
+
 
 class AssociatedEmotion(models.Model):
     """
@@ -25,11 +28,13 @@ class AssociatedEmotion(models.Model):
     emotion : models.CharField
         The type or name of the emotion.
     """
+
     emotion = models.CharField(max_length=200)
-    
+
     def __str__(self):
         """Returns the string representation of the AssociatedEmotion."""
         return self.emotion
+
 
 class Object(models.Model):
     """
@@ -44,13 +49,15 @@ class Object(models.Model):
     action : models.CharField
         The action or activity associated with the object.
     """
+
     name = models.CharField(max_length=200)
     status = models.CharField(max_length=200)
     action = models.CharField(max_length=200)
-    
+
     def __str__(self):
         """Returns a formatted string representation of the Object."""
         return f"{self.name} ({self.status}) - {self.action}"
+
 
 class TextExtraction(models.Model):
     """
@@ -61,6 +68,7 @@ class TextExtraction(models.Model):
     text : models.CharField
         The extracted text content, limited to a certain length.
     """
+
     text = models.CharField(max_length=1000)
 
     def __str__(self):
@@ -297,7 +305,6 @@ class SourceLocation(models.Model):
         return f"Latitude: {self.latitude}, Longitude: {self.longitude}"
 
 
-
 class SourceInfo(models.Model):
     """
     Represents the source information, typically used to describe where or from whom a piece of content originates.
@@ -336,7 +343,6 @@ class SourceInfo(models.Model):
         return f"{self.source} - {self.city}, {self.country}"
 
 
-
 class ContentAnalysis(models.Model):
     """
     Represents the analysis of content, including detailed descriptions, summaries, and associated keywords.
@@ -358,7 +364,7 @@ class ContentAnalysis(models.Model):
 
     detailed_description = models.TextField()
     summary = models.TextField()
-    keywords = models.ManyToManyField(Keyword, related_name='content_analysis_keywords')
+    keywords = models.ManyToManyField(Keyword, related_name="content_analysis_keywords")
 
     def __str__(self):
         """
@@ -370,7 +376,6 @@ class ContentAnalysis(models.Model):
             A truncated summary of the content analysis for display.
         """
         return self.summary[:50] + "..."
-
 
 
 class EmotionAnalysis(models.Model):
@@ -388,7 +393,9 @@ class EmotionAnalysis(models.Model):
         Returns a human-readable string representation of the object.
     """
 
-    associated_emotions = models.ManyToManyField(AssociatedEmotion, related_name='emotion_analysis_emotions')
+    associated_emotions = models.ManyToManyField(
+        AssociatedEmotion, related_name="emotion_analysis_emotions"
+    )
 
     def __str__(self):
         """
@@ -399,7 +406,12 @@ class EmotionAnalysis(models.Model):
         str
             A concatenated string of the first three associated emotions followed by an ellipsis.
         """
-        return ", ".join([emotion.emotion for emotion in self.associated_emotions.all()[:3]]) + "..."
+        return (
+            ", ".join(
+                [emotion.emotion for emotion in self.associated_emotions.all()[:3]]
+            )
+            + "..."
+        )
 
 
 class AIDetection(models.Model):
@@ -422,8 +434,12 @@ class AIDetection(models.Model):
     """
 
     emotion_analysis = models.OneToOneField(EmotionAnalysis, on_delete=models.CASCADE)
-    object_detection = models.ManyToManyField(Object, related_name='ai_detection_objects')
-    text_extraction = models.ManyToManyField(TextExtraction, related_name='ai_detection_texts')
+    object_detection = models.ManyToManyField(
+        Object, related_name="ai_detection_objects"
+    )
+    text_extraction = models.ManyToManyField(
+        TextExtraction, related_name="ai_detection_texts"
+    )
 
     def __str__(self):
         """
@@ -436,7 +452,7 @@ class AIDetection(models.Model):
         """
         return f"AIDetection {self.id}"
 
-    
+
 class AdditionalMetadata(models.Model):
     """
     Represents additional metadata associated with content.
@@ -466,14 +482,36 @@ class AdditionalMetadata(models.Model):
         Returns a human-readable string representation of the object.
     """
 
-    source_attributes = models.ManyToManyField(SourceAttribute, related_name='additional_metadata_source_attributes', blank=True)
-    content_themes = models.ManyToManyField(ContentTheme, related_name='additional_metadata_content_themes', blank=True)
-    audience = models.ManyToManyField(Audience, related_name='additional_metadata_audience', blank=True)
-    geographic_relevance = models.ManyToManyField(GeographicRelevance, related_name='additional_metadata_geographic_relevance', blank=True)
-    temporal_relevance = models.ManyToManyField(TemporalRelevance, related_name='additional_metadata_temporal_relevance', blank=True)
-    technical_level = models.ManyToManyField(TechnicalLevel, related_name='additional_metadata_technical_level', blank=True)
-    sentiment_trends = models.ManyToManyField(SentimentTrend, related_name='additional_metadata_sentiment_trends', blank=True)
-    influencer_tags = models.ManyToManyField(InfluencerTag, related_name='additional_metadata_influencer_tags', blank=True)
+    source_attributes = models.ManyToManyField(
+        SourceAttribute,
+        related_name="additional_metadata_source_attributes",
+        blank=True,
+    )
+    content_themes = models.ManyToManyField(
+        ContentTheme, related_name="additional_metadata_content_themes", blank=True
+    )
+    audience = models.ManyToManyField(
+        Audience, related_name="additional_metadata_audience", blank=True
+    )
+    geographic_relevance = models.ManyToManyField(
+        GeographicRelevance,
+        related_name="additional_metadata_geographic_relevance",
+        blank=True,
+    )
+    temporal_relevance = models.ManyToManyField(
+        TemporalRelevance,
+        related_name="additional_metadata_temporal_relevance",
+        blank=True,
+    )
+    technical_level = models.ManyToManyField(
+        TechnicalLevel, related_name="additional_metadata_technical_level", blank=True
+    )
+    sentiment_trends = models.ManyToManyField(
+        SentimentTrend, related_name="additional_metadata_sentiment_trends", blank=True
+    )
+    influencer_tags = models.ManyToManyField(
+        InfluencerTag, related_name="additional_metadata_influencer_tags", blank=True
+    )
 
     def __str__(self):
         """
@@ -486,7 +524,7 @@ class AdditionalMetadata(models.Model):
         """
         return f"Metadata {self.id}"
 
-    
+
 class InputRecord(models.Model):
     """
     Represents an input record with associated metadata and analyses.
@@ -498,7 +536,7 @@ class InputRecord(models.Model):
     input_type : str
         The type or category of the input.
     timestamp : str
-        A string representing the timestamp of the input record. 
+        A string representing the timestamp of the input record.
         Consider using DateTimeField if the format is consistent.
     source_info : SourceInfo
         A one-to-one relationship to the SourceInfo model, representing the source information.
@@ -517,11 +555,15 @@ class InputRecord(models.Model):
 
     input_id = models.CharField(max_length=400)
     input_type = models.CharField(max_length=50)
-    timestamp = models.CharField(max_length=50)  # Consider using DateTimeField if the format is consistent
+    timestamp = models.CharField(
+        max_length=50
+    )  # Consider using DateTimeField if the format is consistent
     source_info = models.OneToOneField(SourceInfo, on_delete=models.CASCADE)
     content_analysis = models.OneToOneField(ContentAnalysis, on_delete=models.CASCADE)
     ai_analysis = models.OneToOneField(AIDetection, on_delete=models.CASCADE)
-    additional_metadata = models.OneToOneField(AdditionalMetadata, on_delete=models.CASCADE)
+    additional_metadata = models.OneToOneField(
+        AdditionalMetadata, on_delete=models.CASCADE
+    )
 
     def __str__(self):
         """
@@ -533,4 +575,3 @@ class InputRecord(models.Model):
             A string containing the input_id, input_type, and timestamp.
         """
         return f"{self.input_id} - {self.input_type} at {self.timestamp}"
-
