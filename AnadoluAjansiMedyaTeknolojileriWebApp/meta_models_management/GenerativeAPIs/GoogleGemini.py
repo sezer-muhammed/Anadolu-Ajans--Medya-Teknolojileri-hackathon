@@ -1,10 +1,11 @@
 import google.generativeai as genai
 from decouple import config
 
+
 class GeminiModel:
     def __init__(self):
         # Configure the API key
-        genai.configure(api_key=config('GOOGLE_GEMINI_API_KEY'))
+        genai.configure(api_key=config("GOOGLE_GEMINI_API_KEY"))
 
         # Set up the generation configuration
         self.generation_config = {
@@ -16,16 +17,30 @@ class GeminiModel:
 
         # Set up the safety settings
         self.safety_settings = [
-            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+            {
+                "category": "HARM_CATEGORY_HARASSMENT",
+                "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+            },
+            {
+                "category": "HARM_CATEGORY_HATE_SPEECH",
+                "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+            },
+            {
+                "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+            },
+            {
+                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+            },
         ]
 
         # Initialize the model
-        self.model = genai.GenerativeModel(model_name="gemini-pro",
-                                           generation_config=self.generation_config,
-                                           safety_settings=self.safety_settings)
+        self.model = genai.GenerativeModel(
+            model_name="gemini-pro",
+            generation_config=self.generation_config,
+            safety_settings=self.safety_settings,
+        )
 
     def generate_content(self, prompt_parts, media=None):
         """

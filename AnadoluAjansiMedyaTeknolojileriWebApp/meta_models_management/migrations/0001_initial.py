@@ -5,171 +5,426 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AssociatedEmotion',
+            name="AssociatedEmotion",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('emotion', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("emotion", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='Audience',
+            name="Audience",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('audience_type', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("audience_type", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='ContentTheme',
+            name="ContentTheme",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('theme', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("theme", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='GeographicRelevance',
+            name="GeographicRelevance",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('geography', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("geography", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='InfluencerTag',
+            name="InfluencerTag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tag', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("tag", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='Keyword',
+            name="Keyword",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('value', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("value", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='Object',
+            name="Object",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('status', models.CharField(max_length=200)),
-                ('action', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("status", models.CharField(max_length=200)),
+                ("action", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='SentimentTrend',
+            name="SentimentTrend",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('trend', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("trend", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='SourceAttribute',
+            name="SourceAttribute",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('attribute', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("attribute", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='SourceInfo',
+            name="SourceInfo",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('source', models.CharField(max_length=200)),
-                ('city', models.CharField(max_length=100)),
-                ('country', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("source", models.CharField(max_length=200)),
+                ("city", models.CharField(max_length=100)),
+                ("country", models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
-            name='SourceLocation',
+            name="SourceLocation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latitude', models.FloatField()),
-                ('longitude', models.FloatField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("latitude", models.FloatField()),
+                ("longitude", models.FloatField()),
             ],
         ),
         migrations.CreateModel(
-            name='TechnicalLevel',
+            name="TechnicalLevel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('level', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("level", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='TemporalRelevance',
+            name="TemporalRelevance",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('temporal', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("temporal", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='TextExtraction',
+            name="TextExtraction",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField(max_length=1000)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("text", models.CharField(max_length=1000)),
             ],
         ),
         migrations.CreateModel(
-            name='EmotionAnalysis',
+            name="EmotionAnalysis",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('associated_emotions', models.ManyToManyField(related_name='emotion_analysis_emotions', to='meta_models_management.associatedemotion')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "associated_emotions",
+                    models.ManyToManyField(
+                        related_name="emotion_analysis_emotions",
+                        to="meta_models_management.associatedemotion",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='AIDetection',
+            name="AIDetection",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('emotion_analysis', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='meta_models_management.emotionanalysis')),
-                ('object_detection', models.ManyToManyField(related_name='ai_detection_objects', to='meta_models_management.object')),
-                ('text_extraction', models.ManyToManyField(related_name='ai_detection_texts', to='meta_models_management.textextraction')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "emotion_analysis",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="meta_models_management.emotionanalysis",
+                    ),
+                ),
+                (
+                    "object_detection",
+                    models.ManyToManyField(
+                        related_name="ai_detection_objects",
+                        to="meta_models_management.object",
+                    ),
+                ),
+                (
+                    "text_extraction",
+                    models.ManyToManyField(
+                        related_name="ai_detection_texts",
+                        to="meta_models_management.textextraction",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='AdditionalMetadata',
+            name="AdditionalMetadata",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('audience', models.ManyToManyField(related_name='additional_metadata_audience', to='meta_models_management.audience')),
-                ('content_themes', models.ManyToManyField(related_name='additional_metadata_content_themes', to='meta_models_management.contenttheme')),
-                ('geographic_relevance', models.ManyToManyField(related_name='additional_metadata_geographic_relevance', to='meta_models_management.geographicrelevance')),
-                ('influencer_tags', models.ManyToManyField(related_name='additional_metadata_influencer_tags', to='meta_models_management.influencertag')),
-                ('sentiment_trends', models.ManyToManyField(related_name='additional_metadata_sentiment_trends', to='meta_models_management.sentimenttrend')),
-                ('source_attributes', models.ManyToManyField(related_name='additional_metadata_source_attributes', to='meta_models_management.sourceattribute')),
-                ('technical_level', models.ManyToManyField(related_name='additional_metadata_technical_level', to='meta_models_management.technicallevel')),
-                ('temporal_relevance', models.ManyToManyField(related_name='additional_metadata_temporal_relevance', to='meta_models_management.temporalrelevance')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "audience",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_audience",
+                        to="meta_models_management.audience",
+                    ),
+                ),
+                (
+                    "content_themes",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_content_themes",
+                        to="meta_models_management.contenttheme",
+                    ),
+                ),
+                (
+                    "geographic_relevance",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_geographic_relevance",
+                        to="meta_models_management.geographicrelevance",
+                    ),
+                ),
+                (
+                    "influencer_tags",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_influencer_tags",
+                        to="meta_models_management.influencertag",
+                    ),
+                ),
+                (
+                    "sentiment_trends",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_sentiment_trends",
+                        to="meta_models_management.sentimenttrend",
+                    ),
+                ),
+                (
+                    "source_attributes",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_source_attributes",
+                        to="meta_models_management.sourceattribute",
+                    ),
+                ),
+                (
+                    "technical_level",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_technical_level",
+                        to="meta_models_management.technicallevel",
+                    ),
+                ),
+                (
+                    "temporal_relevance",
+                    models.ManyToManyField(
+                        related_name="additional_metadata_temporal_relevance",
+                        to="meta_models_management.temporalrelevance",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ContentAnalysis',
+            name="ContentAnalysis",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('detailed_description', models.TextField()),
-                ('summary', models.TextField()),
-                ('keywords', models.ManyToManyField(related_name='content_analysis_keywords', to='meta_models_management.keyword')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("detailed_description", models.TextField()),
+                ("summary", models.TextField()),
+                (
+                    "keywords",
+                    models.ManyToManyField(
+                        related_name="content_analysis_keywords",
+                        to="meta_models_management.keyword",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='InputRecord',
+            name="InputRecord",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('input_id', models.CharField(max_length=200)),
-                ('input_type', models.CharField(max_length=50)),
-                ('timestamp', models.CharField(max_length=50)),
-                ('additional_metadata', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='meta_models_management.additionalmetadata')),
-                ('ai_analysis', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='meta_models_management.aidetection')),
-                ('content_analysis', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='meta_models_management.contentanalysis')),
-                ('source_info', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='meta_models_management.sourceinfo')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("input_id", models.CharField(max_length=200)),
+                ("input_type", models.CharField(max_length=50)),
+                ("timestamp", models.CharField(max_length=50)),
+                (
+                    "additional_metadata",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="meta_models_management.additionalmetadata",
+                    ),
+                ),
+                (
+                    "ai_analysis",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="meta_models_management.aidetection",
+                    ),
+                ),
+                (
+                    "content_analysis",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="meta_models_management.contentanalysis",
+                    ),
+                ),
+                (
+                    "source_info",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="meta_models_management.sourceinfo",
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='sourceinfo',
-            name='location',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='meta_models_management.sourcelocation'),
+            model_name="sourceinfo",
+            name="location",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="meta_models_management.sourcelocation",
+            ),
         ),
     ]
