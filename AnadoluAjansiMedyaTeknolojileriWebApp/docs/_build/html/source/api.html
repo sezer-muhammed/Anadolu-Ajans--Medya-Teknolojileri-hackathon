@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>api package &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+  <title>API Package Documentation &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="meta_models_management package" href="meta_models_management.html" />
-    <link rel="prev" title="Welcome to test’s documentation!" href="../index.html" /> 
+    <link rel="next" title="Meta Models Management Package Documentation" href="meta_models_management.html" />
+    <link rel="prev" title="Welcome to Anadolu Ajansı Medya Teknolojileri Web App’s Documentation!" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,158 +42,89 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">api package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.admin">api.admin module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.admin.ImageUploadAdmin"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.ImageUploadAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin.list_display</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.ImageUploadAdmin.list_filter"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin.list_filter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.ImageUploadAdmin.media"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin.media</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.ImageUploadAdmin.search_fields"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin.search_fields</span></code></a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Package Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#admin-module">admin Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api.admin.ImageUploadAdmin"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api.admin.TextUploadAdmin"><code class="docutils literal notranslate"><span class="pre">TextUploadAdmin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api.admin.VoiceUploadAdmin"><code class="docutils literal notranslate"><span class="pre">VoiceUploadAdmin</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#api.admin.TextUploadAdmin"><code class="docutils literal notranslate"><span class="pre">TextUploadAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.TextUploadAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">TextUploadAdmin.list_display</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.TextUploadAdmin.list_filter"><code class="docutils literal notranslate"><span class="pre">TextUploadAdmin.list_filter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.TextUploadAdmin.media"><code class="docutils literal notranslate"><span class="pre">TextUploadAdmin.media</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.TextUploadAdmin.search_fields"><code class="docutils literal notranslate"><span class="pre">TextUploadAdmin.search_fields</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apps-module">apps Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api.apps.ApiConfig"><code class="docutils literal notranslate"><span class="pre">ApiConfig</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#api.admin.VoiceUploadAdmin"><code class="docutils literal notranslate"><span class="pre">VoiceUploadAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.VoiceUploadAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">VoiceUploadAdmin.list_display</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.VoiceUploadAdmin.list_filter"><code class="docutils literal notranslate"><span class="pre">VoiceUploadAdmin.list_filter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.VoiceUploadAdmin.media"><code class="docutils literal notranslate"><span class="pre">VoiceUploadAdmin.media</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.admin.VoiceUploadAdmin.search_fields"><code class="docutils literal notranslate"><span class="pre">VoiceUploadAdmin.search_fields</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.apps">api.apps module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.apps.ApiConfig"><code class="docutils literal notranslate"><span class="pre">ApiConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.apps.ApiConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">ApiConfig.default_auto_field</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.apps.ApiConfig.name"><code class="docutils literal notranslate"><span class="pre">ApiConfig.name</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.models">api.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#models-module">models Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api.models.ImageUpload"><code class="docutils literal notranslate"><span class="pre">ImageUpload</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ImageUpload.DoesNotExist</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ImageUpload.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.id"><code class="docutils literal notranslate"><span class="pre">ImageUpload.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.image"><code class="docutils literal notranslate"><span class="pre">ImageUpload.image</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.objects"><code class="docutils literal notranslate"><span class="pre">ImageUpload.objects</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.save"><code class="docutils literal notranslate"><span class="pre">ImageUpload.save()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api.models.TextUpload"><code class="docutils literal notranslate"><span class="pre">TextUpload</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">TextUpload.DoesNotExist</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">TextUpload.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.id"><code class="docutils literal notranslate"><span class="pre">TextUpload.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.objects"><code class="docutils literal notranslate"><span class="pre">TextUpload.objects</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.save"><code class="docutils literal notranslate"><span class="pre">TextUpload.save()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.text"><code class="docutils literal notranslate"><span class="pre">TextUpload.text</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.models.UploadedFileHandler"><code class="docutils literal notranslate"><span class="pre">UploadedFileHandler</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.UploadedFileHandler.__init__"><code class="docutils literal notranslate"><span class="pre">UploadedFileHandler.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.UploadedFileHandler.uploaded_file_callback"><code class="docutils literal notranslate"><span class="pre">UploadedFileHandler.uploaded_file_callback()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api.models.VoiceUpload"><code class="docutils literal notranslate"><span class="pre">VoiceUpload</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.DoesNotExist</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.id"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.objects"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.objects</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.save"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.save()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.transcript"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.transcript</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.voice_file"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.voice_file</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.serializers">api.serializers module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#serializers-module">serializers Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api.serializers.ImageUploadSerializer"><code class="docutils literal notranslate"><span class="pre">ImageUploadSerializer</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#api.serializers.TextUploadSerializer"><code class="docutils literal notranslate"><span class="pre">TextUploadSerializer</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#api.serializers.VoiceUploadSerializer"><code class="docutils literal notranslate"><span class="pre">VoiceUploadSerializer</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.tests">api.tests module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tests-module">tests Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api.tests.ImageUploadTestCase"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#api.tests.ImageUploadTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase.setUp()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.tests.ImageUploadTestCase.tearDown"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase.tearDown()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.ImageUploadTestCase.test_create_image"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase.test_create_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.ImageUploadTestCase.test_retrieve_images"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase.test_retrieve_images()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api.tests.TextUploadTestCase"><code class="docutils literal notranslate"><span class="pre">TextUploadTestCase</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#api.tests.TextUploadTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">TextUploadTestCase.setUp()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.TextUploadTestCase.test_create_text"><code class="docutils literal notranslate"><span class="pre">TextUploadTestCase.test_create_text()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.TextUploadTestCase.test_retrieve_texts"><code class="docutils literal notranslate"><span class="pre">TextUploadTestCase.test_retrieve_texts()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api.tests.VoiceUploadTestCase"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#api.tests.VoiceUploadTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase.setUp()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.tests.VoiceUploadTestCase.tearDown"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase.tearDown()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.VoiceUploadTestCase.test_create_voice"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase.test_create_voice()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.VoiceUploadTestCase.test_retrieve_voices"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase.test_retrieve_voices()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.urls">api.urls module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.validators">api.validators module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.validators.validate_file_extension"><code class="docutils literal notranslate"><span class="pre">validate_file_extension()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api.views">api.views module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#urls-module">urls Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validators-module">validators Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#views-module">views Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api.views.ImageUploadViewSet"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.basename"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.description"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.detail"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.name"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.queryset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.serializer_class</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.suffix</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api.views.InputRecordViewSet"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.basename"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.description"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.detail"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.name"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.queryset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.serializer_class</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.suffix</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api.views.TextUploadViewSet"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.basename"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.description"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.detail"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.name"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.queryset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.serializer_class</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.suffix</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api.views.VoiceUploadViewSet"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.basename"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.description"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.detail"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.name"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.queryset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.serializer_class</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.suffix</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-api">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module Contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="meta_models_management.html">meta_models_management package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="meta_models_management.html">Meta Models Management Package Documentation</a></li>
 </ul>
 
         </div>
@@ -210,7 +141,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">api package</li>
+      <li class="breadcrumb-item active">API Package Documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/source/api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -220,111 +151,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="api-package">
-<h1>api package<a class="headerlink" href="#api-package" title="Link to this heading"></a></h1>
-<section id="module-api.admin">
-<span id="api-admin-module"></span><h2>api.admin module<a class="headerlink" href="#module-api.admin" title="Link to this heading"></a></h2>
-<dl class="py class">
+  <section id="api-package-documentation">
+<h1>API Package Documentation<a class="headerlink" href="#api-package-documentation" title="Link to this heading"></a></h1>
+<p>This section documents the modules in the API package of the Anadolu Ajansı Medya Teknolojileri Web App. Here you’ll find details on how the API interfaces are structured, how data is managed, and how requests and responses are handled.</p>
+<section id="admin-module">
+<h2>admin Module<a class="headerlink" href="#admin-module" title="Link to this heading"></a></h2>
+<p>Documentation for the admin module, detailing how models are registered and managed in the Django admin interface.</p>
+<dl class="py class" id="module-api.admin">
 <dt class="sig sig-object py" id="api.admin.ImageUploadAdmin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.admin.</span></span><span class="sig-name descname"><span class="pre">ImageUploadAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/admin.html#ImageUploadAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.admin.ImageUploadAdmin" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.ImageUploadAdmin.list_display">
-<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'image']</span></em><a class="headerlink" href="#api.admin.ImageUploadAdmin.list_display" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.ImageUploadAdmin.list_filter">
-<span class="sig-name descname"><span class="pre">list_filter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#api.admin.ImageUploadAdmin.list_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="api.admin.ImageUploadAdmin.media">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#api.admin.ImageUploadAdmin.media" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.ImageUploadAdmin.search_fields">
-<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#api.admin.ImageUploadAdmin.search_fields" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="api.admin.TextUploadAdmin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.admin.</span></span><span class="sig-name descname"><span class="pre">TextUploadAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/admin.html#TextUploadAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.admin.TextUploadAdmin" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.TextUploadAdmin.list_display">
-<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'text']</span></em><a class="headerlink" href="#api.admin.TextUploadAdmin.list_display" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.TextUploadAdmin.list_filter">
-<span class="sig-name descname"><span class="pre">list_filter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#api.admin.TextUploadAdmin.list_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="api.admin.TextUploadAdmin.media">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#api.admin.TextUploadAdmin.media" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.TextUploadAdmin.search_fields">
-<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['text']</span></em><a class="headerlink" href="#api.admin.TextUploadAdmin.search_fields" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="api.admin.VoiceUploadAdmin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.admin.</span></span><span class="sig-name descname"><span class="pre">VoiceUploadAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/admin.html#VoiceUploadAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.admin.VoiceUploadAdmin" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.VoiceUploadAdmin.list_display">
-<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'voice_file']</span></em><a class="headerlink" href="#api.admin.VoiceUploadAdmin.list_display" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.VoiceUploadAdmin.list_filter">
-<span class="sig-name descname"><span class="pre">list_filter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#api.admin.VoiceUploadAdmin.list_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="api.admin.VoiceUploadAdmin.media">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#api.admin.VoiceUploadAdmin.media" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.admin.VoiceUploadAdmin.search_fields">
-<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#api.admin.VoiceUploadAdmin.search_fields" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </section>
-<section id="module-api.apps">
-<span id="api-apps-module"></span><h2>api.apps module<a class="headerlink" href="#module-api.apps" title="Link to this heading"></a></h2>
-<dl class="py class">
+<section id="apps-module">
+<h2>apps Module<a class="headerlink" href="#apps-module" title="Link to this heading"></a></h2>
+<p>Documentation for the apps module, describing the app configuration and setup.</p>
+<dl class="py class" id="module-api.apps">
 <dt class="sig sig-object py" id="api.apps.ApiConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.apps.</span></span><span class="sig-name descname"><span class="pre">ApiConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/apps.html#ApiConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.apps.ApiConfig" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/applications/#django.apps.AppConfig" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></a></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.apps.ApiConfig.default_auto_field">
-<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#api.apps.ApiConfig.default_auto_field" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.apps.ApiConfig.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'api'</span></em><a class="headerlink" href="#api.apps.ApiConfig.name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </section>
-<section id="module-api.models">
-<span id="api-models-module"></span><h2>api.models module<a class="headerlink" href="#module-api.models" title="Link to this heading"></a></h2>
-<dl class="py class">
+<section id="models-module">
+<h2>models Module<a class="headerlink" href="#models-module" title="Link to this heading"></a></h2>
+<p>Documentation for the models module, detailing the database models used in the API.</p>
+<dl class="py class" id="module-api.models">
 <dt class="sig sig-object py" id="api.models.ImageUpload">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.</span></span><span class="sig-name descname"><span class="pre">ImageUpload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#ImageUpload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.ImageUpload" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/instances/#django.db.models.Model" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
@@ -347,25 +212,6 @@
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#api.models.ImageUpload.MultipleObjectsReturned" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/exceptions/#django.core.exceptions.MultipleObjectsReturned" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></a></p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ImageUpload.id">
-<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#api.models.ImageUpload.id" title="Link to this definition"></a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
-<p>Primary key: ID</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ImageUpload.image">
-<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#api.models.ImageUpload.image" title="Link to this definition"></a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ImageField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageField</span></code></a></p>
-<p>Image</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ImageUpload.objects">
-<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.ImageUpload.objects" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="api.models.ImageUpload.save">
@@ -403,18 +249,6 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/exceptions/#django.core.exceptions.MultipleObjectsReturned" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></a></p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.TextUpload.id">
-<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#api.models.TextUpload.id" title="Link to this definition"></a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
-<p>Primary key: ID</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.TextUpload.objects">
-<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.TextUpload.objects" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="api.models.TextUpload.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#TextUpload.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.TextUpload.save" title="Link to this definition"></a></dt>
@@ -423,32 +257,6 @@ control the saving process.</p>
 <p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
 that the “save” must be an SQL insert or update (or equivalent for
 non-SQL backends), respectively. Normally, they should not be set.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.TextUpload.text">
-<span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#api.models.TextUpload.text" title="Link to this definition"></a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.TextField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextField</span></code></a></p>
-<p>Text</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="api.models.UploadedFileHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.</span></span><span class="sig-name descname"><span class="pre">UploadedFileHandler</span></span><a class="reference internal" href="../_modules/api/models.html#UploadedFileHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.UploadedFileHandler" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="api.models.UploadedFileHandler.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#UploadedFileHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.UploadedFileHandler.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.models.UploadedFileHandler.uploaded_file_callback">
-<span class="sig-name descname"><span class="pre">uploaded_file_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#UploadedFileHandler.uploaded_file_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.UploadedFileHandler.uploaded_file_callback" title="Link to this definition"></a></dt>
-<dd><p>Handles the callback for an uploaded file.</p>
-<p>Parameters:
-instance: The instance of the file or data that was uploaded.</p>
 </dd></dl>
 
 </dd></dl>
@@ -478,18 +286,6 @@ instance: The instance of the file or data that was uploaded.</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/exceptions/#django.core.exceptions.MultipleObjectsReturned" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></a></p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.VoiceUpload.id">
-<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#api.models.VoiceUpload.id" title="Link to this definition"></a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
-<p>Primary key: ID</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.VoiceUpload.objects">
-<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.VoiceUpload.objects" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="api.models.VoiceUpload.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#VoiceUpload.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.VoiceUpload.save" title="Link to this definition"></a></dt>
@@ -500,26 +296,13 @@ that the “save” must be an SQL insert or update (or equivalent for
 non-SQL backends), respectively. Normally, they should not be set.</p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.VoiceUpload.transcript">
-<span class="sig-name descname"><span class="pre">transcript</span></span><a class="headerlink" href="#api.models.VoiceUpload.transcript" title="Link to this definition"></a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.TextField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextField</span></code></a></p>
-<p>Transcript</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.VoiceUpload.voice_file">
-<span class="sig-name descname"><span class="pre">voice_file</span></span><a class="headerlink" href="#api.models.VoiceUpload.voice_file" title="Link to this definition"></a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.FileField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileField</span></code></a></p>
-<p>Voice file</p>
-</dd></dl>
-
 </dd></dl>
 
 </section>
-<section id="module-api.serializers">
-<span id="api-serializers-module"></span><h2>api.serializers module<a class="headerlink" href="#module-api.serializers" title="Link to this heading"></a></h2>
-<dl class="py class">
+<section id="serializers-module">
+<h2>serializers Module<a class="headerlink" href="#serializers-module" title="Link to this heading"></a></h2>
+<p>Documentation for the serializers module, detailing how data is converted to and from Python objects and JSON.</p>
+<dl class="py class" id="module-api.serializers">
 <dt class="sig sig-object py" id="api.serializers.ImageUploadSerializer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">ImageUploadSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/serializers.html#ImageUploadSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.ImageUploadSerializer" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
@@ -538,9 +321,10 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 </dd></dl>
 
 </section>
-<section id="module-api.tests">
-<span id="api-tests-module"></span><h2>api.tests module<a class="headerlink" href="#module-api.tests" title="Link to this heading"></a></h2>
-<dl class="py class">
+<section id="tests-module">
+<h2>tests Module<a class="headerlink" href="#tests-module" title="Link to this heading"></a></h2>
+<p>Documentation for the tests module, detailing the test cases for the API.</p>
+<dl class="py class" id="module-api.tests">
 <dt class="sig sig-object py" id="api.tests.ImageUploadTestCase">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.tests.</span></span><span class="sig-name descname"><span class="pre">ImageUploadTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#ImageUploadTestCase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.ImageUploadTestCase" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APITestCase</span></code></p>
@@ -556,16 +340,6 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <dd><p>Hook method for deconstructing the test fixture after testing it.</p>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="api.tests.ImageUploadTestCase.test_create_image">
-<span class="sig-name descname"><span class="pre">test_create_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#ImageUploadTestCase.test_create_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.ImageUploadTestCase.test_create_image" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.tests.ImageUploadTestCase.test_retrieve_images">
-<span class="sig-name descname"><span class="pre">test_retrieve_images</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#ImageUploadTestCase.test_retrieve_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.ImageUploadTestCase.test_retrieve_images" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -577,16 +351,6 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#TextUploadTestCase.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.TextUploadTestCase.setUp" title="Link to this definition"></a></dt>
 <dd><p>Hook method for setting up the test fixture before exercising it.</p>
 </dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.tests.TextUploadTestCase.test_create_text">
-<span class="sig-name descname"><span class="pre">test_create_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#TextUploadTestCase.test_create_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.TextUploadTestCase.test_create_text" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.tests.TextUploadTestCase.test_retrieve_texts">
-<span class="sig-name descname"><span class="pre">test_retrieve_texts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#TextUploadTestCase.test_retrieve_texts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.TextUploadTestCase.test_retrieve_texts" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -606,71 +370,29 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <dd><p>Hook method for deconstructing the test fixture after testing it.</p>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="api.tests.VoiceUploadTestCase.test_create_voice">
-<span class="sig-name descname"><span class="pre">test_create_voice</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#VoiceUploadTestCase.test_create_voice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.VoiceUploadTestCase.test_create_voice" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.tests.VoiceUploadTestCase.test_retrieve_voices">
-<span class="sig-name descname"><span class="pre">test_retrieve_voices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/tests.html#VoiceUploadTestCase.test_retrieve_voices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.tests.VoiceUploadTestCase.test_retrieve_voices" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </section>
-<section id="module-api.urls">
-<span id="api-urls-module"></span><h2>api.urls module<a class="headerlink" href="#module-api.urls" title="Link to this heading"></a></h2>
+<section id="urls-module">
+<h2>urls Module<a class="headerlink" href="#urls-module" title="Link to this heading"></a></h2>
+<p>Documentation for the URLs module, detailing the API endpoints and their configuration.</p>
 </section>
-<section id="module-api.validators">
-<span id="api-validators-module"></span><h2>api.validators module<a class="headerlink" href="#module-api.validators" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="api.validators.validate_file_extension">
-<span class="sig-prename descclassname"><span class="pre">api.validators.</span></span><span class="sig-name descname"><span class="pre">validate_file_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/validators.html#validate_file_extension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.validators.validate_file_extension" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+<section id="validators-module">
+<span id="module-api.urls"></span><h2>validators Module<a class="headerlink" href="#validators-module" title="Link to this heading"></a></h2>
+<p>Documentation for the validators module, detailing validation checks and routines.</p>
 </section>
-<section id="module-api.views">
-<span id="api-views-module"></span><h2>api.views module<a class="headerlink" href="#module-api.views" title="Link to this heading"></a></h2>
-<dl class="py class">
+<section id="views-module">
+<span id="module-api.validators"></span><h2>views Module<a class="headerlink" href="#views-module" title="Link to this heading"></a></h2>
+<p>Documentation for the views module, detailing the views and logic for handling requests.</p>
+<dl class="py class" id="module-api.views">
 <dt class="sig sig-object py" id="api.views.ImageUploadViewSet">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.views.</span></span><span class="sig-name descname"><span class="pre">ImageUploadViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/views.html#ImageUploadViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.views.ImageUploadViewSet" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.ImageUploadViewSet.basename">
-<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.ImageUploadViewSet.basename" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.ImageUploadViewSet.description">
-<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.ImageUploadViewSet.description" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.ImageUploadViewSet.detail">
-<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.ImageUploadViewSet.detail" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.ImageUploadViewSet.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.ImageUploadViewSet.name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.ImageUploadViewSet.queryset">
-<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuerySet</span></em><a class="headerlink" href="#api.views.ImageUploadViewSet.queryset" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.views.ImageUploadViewSet.serializer_class">
 <span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.views.ImageUploadViewSet.serializer_class" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#api.serializers.ImageUploadSerializer" title="api.serializers.ImageUploadSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageUploadSerializer</span></code></a></p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.ImageUploadViewSet.suffix">
-<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.ImageUploadViewSet.suffix" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -679,40 +401,10 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.views.</span></span><span class="sig-name descname"><span class="pre">InputRecordViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/views.html#InputRecordViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.views.InputRecordViewSet" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet.basename">
-<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.InputRecordViewSet.basename" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet.description">
-<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.InputRecordViewSet.description" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet.detail">
-<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.InputRecordViewSet.detail" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.InputRecordViewSet.name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet.queryset">
-<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuerySet</span></em><a class="headerlink" href="#api.views.InputRecordViewSet.queryset" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="api.views.InputRecordViewSet.serializer_class">
 <span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.views.InputRecordViewSet.serializer_class" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="meta_models_management.html#meta_models_management.serializers.InputRecordSerializer" title="meta_models_management.serializers.InputRecordSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputRecordSerializer</span></code></a></p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet.suffix">
-<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.InputRecordViewSet.suffix" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -721,40 +413,10 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.views.</span></span><span class="sig-name descname"><span class="pre">TextUploadViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/views.html#TextUploadViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.views.TextUploadViewSet" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.TextUploadViewSet.basename">
-<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.TextUploadViewSet.basename" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.TextUploadViewSet.description">
-<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.TextUploadViewSet.description" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.TextUploadViewSet.detail">
-<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.TextUploadViewSet.detail" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.TextUploadViewSet.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.TextUploadViewSet.name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.TextUploadViewSet.queryset">
-<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuerySet</span></em><a class="headerlink" href="#api.views.TextUploadViewSet.queryset" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="api.views.TextUploadViewSet.serializer_class">
 <span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.views.TextUploadViewSet.serializer_class" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#api.serializers.TextUploadSerializer" title="api.serializers.TextUploadSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextUploadSerializer</span></code></a></p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.TextUploadViewSet.suffix">
-<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.TextUploadViewSet.suffix" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -763,55 +425,26 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.views.</span></span><span class="sig-name descname"><span class="pre">VoiceUploadViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/views.html#VoiceUploadViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.views.VoiceUploadViewSet" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.VoiceUploadViewSet.basename">
-<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.VoiceUploadViewSet.basename" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.VoiceUploadViewSet.description">
-<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.VoiceUploadViewSet.description" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.VoiceUploadViewSet.detail">
-<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.VoiceUploadViewSet.detail" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.VoiceUploadViewSet.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.VoiceUploadViewSet.name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.VoiceUploadViewSet.queryset">
-<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuerySet</span></em><a class="headerlink" href="#api.views.VoiceUploadViewSet.queryset" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="api.views.VoiceUploadViewSet.serializer_class">
 <span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.views.VoiceUploadViewSet.serializer_class" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#api.serializers.VoiceUploadSerializer" title="api.serializers.VoiceUploadSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceUploadSerializer</span></code></a></p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.VoiceUploadViewSet.suffix">
-<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#api.views.VoiceUploadViewSet.suffix" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </section>
-<section id="module-api">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-api" title="Link to this heading"></a></h2>
-</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<p>Overview of the API module and its contents.</p>
+<span class="target" id="module-api"></span></section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to test’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="meta_models_management.html" class="btn btn-neutral float-right" title="meta_models_management package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Anadolu Ajansı Medya Teknolojileri Web App’s Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="meta_models_management.html" class="btn btn-neutral float-right" title="Meta Models Management Package Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

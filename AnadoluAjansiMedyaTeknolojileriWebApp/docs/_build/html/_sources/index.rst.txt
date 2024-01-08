@@ -1,22 +1,93 @@
-.. test documentation master file, created by
-   sphinx-quickstart on Mon Jan  8 13:16:40 2024.
+.. Anadolu Ajansı Medya Teknolojileri Web App documentation master file, created by
+   sphinx-quickstart on Mon Jan 8 13:16:40 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to test's documentation!
-================================
+Welcome to Anadolu Ajansı Medya Teknolojileri Web App's Documentation!
+=======================================================================
+
+This documentation provides a detailed guide to the API usage, examples for pages, and more. Whether you're a developer looking to integrate with our API, or you're interested in understanding the inner workings of the Anadolu Ajansı Medya Teknolojileri Web App, you'll find the necessary information here.
+
+Getting Started
+---------------
+
+If you're new to Anadolu Ajansı Medya Teknolojileri Web App, this section will help you get started.
+
+.. toctree::
+   :maxdepth: 1
+
+   getting_started
+
+API Reference
+-------------
+
+Find detailed information about our API endpoints, how to interact with them, and example requests and responses.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    source/api
+
+Meta Models Management
+----------------------
+
+Understand how meta models are managed within the Web App and how you can interact with them.
+
+.. toctree::
+   :maxdepth: 2
+
    source/meta_models_management
 
+Advanced Topics
+---------------
 
-Indices and tables
+Dive deeper into the advanced features and functionalities of the Web App.
+
+.. toctree::
+   :maxdepth: 1
+
+   advanced_topics
+
+Contributing
+------------
+
+Interested in contributing? Here's how you can help.
+
+.. toctree::
+   :maxdepth: 1
+
+   contributing
+
+Frequently Asked Questions
+--------------------------
+
+Quick answers to common questions.
+
+.. toctree::
+   :maxdepth: 1
+
+   faq
+
+Changelog
+---------
+
+Stay up-to-date with the changes and improvements made over time.
+
+.. toctree::
+   :maxdepth: 1
+
+   changelog
+
+Indices and Tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. image:: _static/logo.png
+   :alt: Anadolu Ajansı Medya Teknolojileri Web App Logo
+
+.. todo:: List of things that need to be done or improved in the documentation.
+
+.. seealso:: Links to other relevant documentation or resources.

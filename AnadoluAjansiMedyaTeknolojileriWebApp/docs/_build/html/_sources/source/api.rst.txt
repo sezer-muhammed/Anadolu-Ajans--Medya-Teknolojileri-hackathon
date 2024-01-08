@@ -1,74 +1,85 @@
-api package
-===========
+API Package Documentation
+=========================
 
-api.admin module
-----------------
+This section documents the modules in the API package of the Anadolu Ajansı Medya Teknolojileri Web App. Here you'll find details on how the API interfaces are structured, how data is managed, and how requests and responses are handled.
+
+admin Module
+------------
+
+Documentation for the admin module, detailing how models are registered and managed in the Django admin interface.
 
 .. automodule:: api.admin
    :members:
-   :undoc-members:
    :show-inheritance:
 
-api.apps module
----------------
+apps Module
+-----------
+
+Documentation for the apps module, describing the app configuration and setup.
 
 .. automodule:: api.apps
    :members:
-   :undoc-members:
    :show-inheritance:
 
-api.models module
------------------
+models Module
+-------------
+
+Documentation for the models module, detailing the database models used in the API.
 
 .. automodule:: api.models
    :members:
-   :undoc-members:
    :show-inheritance:
 
-api.serializers module
-----------------------
+serializers Module
+------------------
+
+Documentation for the serializers module, detailing how data is converted to and from Python objects and JSON.
 
 .. automodule:: api.serializers
    :members:
-   :undoc-members:
    :show-inheritance:
 
-api.tests module
-----------------
+tests Module
+------------
+
+Documentation for the tests module, detailing the test cases for the API.
 
 .. automodule:: api.tests
    :members:
-   :undoc-members:
    :show-inheritance:
 
-api.urls module
----------------
+urls Module
+-----------
+
+Documentation for the URLs module, detailing the API endpoints and their configuration.
 
 .. automodule:: api.urls
    :members:
-   :undoc-members:
    :show-inheritance:
 
-api.validators module
----------------------
+validators Module
+-----------------
+
+Documentation for the validators module, detailing validation checks and routines.
 
 .. automodule:: api.validators
    :members:
-   :undoc-members:
    :show-inheritance:
 
-api.views module
-----------------
+views Module
+------------
+
+Documentation for the views module, detailing the views and logic for handling requests.
 
 .. automodule:: api.views
    :members:
-   :undoc-members:
    :show-inheritance:
 
-Module contents
+Module Contents
 ---------------
+
+Overview of the API module and its contents.
 
 .. automodule:: api
    :members:
-   :undoc-members:
    :show-inheritance:

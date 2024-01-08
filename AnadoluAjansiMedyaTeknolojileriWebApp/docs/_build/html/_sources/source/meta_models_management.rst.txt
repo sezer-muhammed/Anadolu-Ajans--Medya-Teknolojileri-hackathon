@@ -1,85 +1,88 @@
-meta\_models\_management package
-================================
+Meta Models Management Package Documentation
+============================================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   meta_models_management.migrations
+This section documents the modules in the Meta Models Management package of the Anadolu Ajansı Medya Teknolojileri Web App. It provides details on the management of meta models, including their creation, manipulation, and serialization.
 
 Submodules
 ----------
 
-meta\_models\_management.admin module
--------------------------------------
+Admin Module
+------------
+
+Documentation for the admin module, detailing how meta models are registered and managed in the Django admin interface.
 
 .. automodule:: meta_models_management.admin
    :members:
-   :undoc-members:
    :show-inheritance:
 
-meta\_models\_management.apps module
-------------------------------------
+Apps Module
+-----------
+
+Documentation for the apps module, describing the app configuration and setup for meta models management.
 
 .. automodule:: meta_models_management.apps
    :members:
-   :undoc-members:
    :show-inheritance:
 
-meta\_models\_management.forms module
--------------------------------------
+Forms Module
+------------
+
+Documentation for the forms module, detailing forms used in the management of meta models.
 
 .. automodule:: meta_models_management.forms
    :members:
-   :undoc-members:
    :show-inheritance:
 
-meta\_models\_management.models module
---------------------------------------
+Models Module
+-------------
+
+Documentation for the models module, detailing the database models used in the meta models management.
 
 .. automodule:: meta_models_management.models
    :members:
-   :undoc-members:
    :show-inheritance:
 
-meta\_models\_management.serializers module
--------------------------------------------
+Serializers Module
+------------------
+
+Documentation for the serializers module, detailing how meta model data is converted to and from Python objects and JSON.
 
 .. automodule:: meta_models_management.serializers
    :members:
-   :undoc-members:
    :show-inheritance:
 
-meta\_models\_management.tests module
--------------------------------------
+Tests Module
+------------
+
+Documentation for the tests module, detailing the test cases for meta models management functionality.
 
 .. automodule:: meta_models_management.tests
    :members:
-   :undoc-members:
    :show-inheritance:
 
-meta\_models\_management.urls module
-------------------------------------
+URLs Module
+-----------
+
+Documentation for the URLs module, detailing the endpoints and their configuration for meta models management.
 
 .. automodule:: meta_models_management.urls
    :members:
-   :undoc-members:
    :show-inheritance:
 
-meta\_models\_management.views module
--------------------------------------
+Views Module
+------------
+
+Documentation for the views module, detailing the views and logic for handling requests related to meta models management.
 
 .. automodule:: meta_models_management.views
    :members:
-   :undoc-members:
    :show-inheritance:
 
-Module contents
+Module Contents
 ---------------
+
+Overview of the Meta Models Management module and its contents.
 
 .. automodule:: meta_models_management
    :members:
-   :undoc-members:
    :show-inheritance:
