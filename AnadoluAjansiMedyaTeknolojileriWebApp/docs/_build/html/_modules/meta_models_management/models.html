@@ -73,6 +73,7 @@
   <h1>Source code for meta_models_management.models</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
+
 <span class="c1"># Models for each list of strings</span>
 <div class="viewcode-block" id="Keyword">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Keyword">[docs]</a>
@@ -85,14 +86,16 @@
 <span class="sd">    value : models.CharField</span>
 <span class="sd">        The keyword text itself.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">value</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-    
+
 <div class="viewcode-block" id="Keyword.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Keyword.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the string representation of the Keyword.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
 </div>
+
 
 
 <div class="viewcode-block" id="AssociatedEmotion">
@@ -106,14 +109,16 @@
 <span class="sd">    emotion : models.CharField</span>
 <span class="sd">        The type or name of the emotion.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">emotion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-    
+
 <div class="viewcode-block" id="AssociatedEmotion.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AssociatedEmotion.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the string representation of the AssociatedEmotion.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">emotion</span></div>
 </div>
+
 
 
 <div class="viewcode-block" id="Object">
@@ -131,16 +136,18 @@
 <span class="sd">    action : models.CharField</span>
 <span class="sd">        The action or activity associated with the object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     <span class="n">action</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-    
+
 <div class="viewcode-block" id="Object.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Object.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a formatted string representation of the Object.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">) - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span></div>
 </div>
+
 
 
 <div class="viewcode-block" id="TextExtraction">
@@ -154,6 +161,7 @@
 <span class="sd">    text : models.CharField</span>
 <span class="sd">        The extracted text content, limited to a certain length.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TextExtraction.__str__">
@@ -448,7 +456,6 @@
 
 
 
-
 <div class="viewcode-block" id="SourceInfo">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SourceInfo">[docs]</a>
 <span class="k">class</span> <span class="nc">SourceInfo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
@@ -493,7 +500,6 @@
 
 
 
-
 <div class="viewcode-block" id="ContentAnalysis">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.ContentAnalysis">[docs]</a>
 <span class="k">class</span> <span class="nc">ContentAnalysis</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
@@ -517,7 +523,7 @@
 
     <span class="n">detailed_description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
     <span class="n">summary</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
-    <span class="n">keywords</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;content_analysis_keywords&#39;</span><span class="p">)</span>
+    <span class="n">keywords</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;content_analysis_keywords&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ContentAnalysis.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.ContentAnalysis.__str__">[docs]</a>
@@ -532,7 +538,6 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span></div>
 </div>
-
 
 
 
@@ -553,7 +558,9 @@
 <span class="sd">        Returns a human-readable string representation of the object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">associated_emotions</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">AssociatedEmotion</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;emotion_analysis_emotions&#39;</span><span class="p">)</span>
+    <span class="n">associated_emotions</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">AssociatedEmotion</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;emotion_analysis_emotions&quot;</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="EmotionAnalysis.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.EmotionAnalysis.__str__">[docs]</a>
@@ -566,7 +573,12 @@
 <span class="sd">        str</span>
 <span class="sd">            A concatenated string of the first three associated emotions followed by an ellipsis.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">emotion</span><span class="o">.</span><span class="n">emotion</span> <span class="k">for</span> <span class="n">emotion</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">associated_emotions</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]])</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span></div>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">emotion</span><span class="o">.</span><span class="n">emotion</span> <span class="k">for</span> <span class="n">emotion</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">associated_emotions</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="o">+</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">)</span></div>
 </div>
 
 
@@ -593,8 +605,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">emotion_analysis</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">EmotionAnalysis</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
-    <span class="n">object_detection</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Object</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;ai_detection_objects&#39;</span><span class="p">)</span>
-    <span class="n">text_extraction</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">TextExtraction</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;ai_detection_texts&#39;</span><span class="p">)</span>
+    <span class="n">object_detection</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">Object</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;ai_detection_objects&quot;</span>
+    <span class="p">)</span>
+    <span class="n">text_extraction</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">TextExtraction</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;ai_detection_texts&quot;</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="AIDetection.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AIDetection.__str__">[docs]</a>
@@ -611,7 +627,7 @@
 </div>
 
 
-    
+
 <div class="viewcode-block" id="AdditionalMetadata">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AdditionalMetadata">[docs]</a>
 <span class="k">class</span> <span class="nc">AdditionalMetadata</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
@@ -643,14 +659,36 @@
 <span class="sd">        Returns a human-readable string representation of the object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">source_attributes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">SourceAttribute</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_source_attributes&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">content_themes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">ContentTheme</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_content_themes&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">audience</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Audience</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_audience&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">geographic_relevance</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">GeographicRelevance</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_geographic_relevance&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">temporal_relevance</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">TemporalRelevance</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_temporal_relevance&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">technical_level</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">TechnicalLevel</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_technical_level&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">sentiment_trends</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">SentimentTrend</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_sentiment_trends&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">influencer_tags</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">InfluencerTag</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_influencer_tags&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">source_attributes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">SourceAttribute</span><span class="p">,</span>
+        <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_source_attributes&quot;</span><span class="p">,</span>
+        <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">content_themes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">ContentTheme</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_content_themes&quot;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">audience</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">Audience</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_audience&quot;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">geographic_relevance</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">GeographicRelevance</span><span class="p">,</span>
+        <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_geographic_relevance&quot;</span><span class="p">,</span>
+        <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">temporal_relevance</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">TemporalRelevance</span><span class="p">,</span>
+        <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_temporal_relevance&quot;</span><span class="p">,</span>
+        <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">technical_level</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">TechnicalLevel</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_technical_level&quot;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">sentiment_trends</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">SentimentTrend</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_sentiment_trends&quot;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">influencer_tags</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">InfluencerTag</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;additional_metadata_influencer_tags&quot;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="AdditionalMetadata.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AdditionalMetadata.__str__">[docs]</a>
@@ -667,7 +705,7 @@
 </div>
 
 
-    
+
 <div class="viewcode-block" id="InputRecord">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.InputRecord">[docs]</a>
 <span class="k">class</span> <span class="nc">InputRecord</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
@@ -681,7 +719,7 @@
 <span class="sd">    input_type : str</span>
 <span class="sd">        The type or category of the input.</span>
 <span class="sd">    timestamp : str</span>
-<span class="sd">        A string representing the timestamp of the input record. </span>
+<span class="sd">        A string representing the timestamp of the input record.</span>
 <span class="sd">        Consider using DateTimeField if the format is consistent.</span>
 <span class="sd">    source_info : SourceInfo</span>
 <span class="sd">        A one-to-one relationship to the SourceInfo model, representing the source information.</span>
@@ -700,11 +738,15 @@
 
     <span class="n">input_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
     <span class="n">input_type</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># Consider using DateTimeField if the format is consistent</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span>
+    <span class="p">)</span>  <span class="c1"># Consider using DateTimeField if the format is consistent</span>
     <span class="n">source_info</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">SourceInfo</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
     <span class="n">content_analysis</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">ContentAnalysis</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
     <span class="n">ai_analysis</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">AIDetection</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
-    <span class="n">additional_metadata</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">AdditionalMetadata</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">additional_metadata</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span>
+        <span class="n">AdditionalMetadata</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="InputRecord.__str__">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.InputRecord.__str__">[docs]</a>
@@ -719,7 +761,6 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_id</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_type</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">&quot;</span></div>
 </div>
-
 
 </pre></div>
 

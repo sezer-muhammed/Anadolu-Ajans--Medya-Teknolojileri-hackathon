@@ -76,13 +76,14 @@
 <span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">CombinedUploadForm</span><span class="p">,</span> <span class="n">SearchForm</span>
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">InputRecord</span>
 
+
 <div class="viewcode-block" id="HomeView">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.HomeView">[docs]</a>
 <span class="k">class</span> <span class="nc">HomeView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A view that handles the main page requests for the Meta Models Management module.</span>
 
-<span class="sd">    This view responds to both GET and POST requests. </span>
+<span class="sd">    This view responds to both GET and POST requests.</span>
 <span class="sd">    For GET, it simply displays a form. For POST, it processes submitted data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -117,14 +118,14 @@
 <span class="sd">            Rendered web page with the context data (form instance).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">CombinedUploadForm</span><span class="p">()</span>  <span class="c1"># Instantiate a new form instance</span>
-        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;meta_models_management/home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/home.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
 
 
 <div class="viewcode-block" id="HomeView.post">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.HomeView.post">[docs]</a>
     <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Handle POST requests: create a form instance with POST data and files, </span>
+<span class="sd">        Handle POST requests: create a form instance with POST data and files,</span>
 <span class="sd">        then check if it&#39;s valid, save it, and redirect or re-render with errors.</span>
 
 <span class="sd">        Parameters</span>
@@ -139,19 +140,20 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        HttpResponse</span>
-<span class="sd">            Redirects to a new URL on successful form submission or </span>
+<span class="sd">            Redirects to a new URL on successful form submission or</span>
 <span class="sd">            re-renders the page with form errors if the form is invalid.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">CombinedUploadForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
-        
+
         <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
             <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># Save the form and handle the file and text uploads</span>
-            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/meta_models_management/&#39;</span><span class="p">)</span>  <span class="c1"># Redirect to success URL</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/meta_models_management/&quot;</span><span class="p">)</span>  <span class="c1"># Redirect to success URL</span>
 
-        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;meta_models_management/home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+        <span class="c1"># If the form is not valid, render the page again with the form (errors will show)</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/home.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
 </div>
 
-    
+
 
 <div class="viewcode-block" id="SmartSearch">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.SmartSearch">[docs]</a>
@@ -184,14 +186,16 @@
 <span class="sd">            Rendered web page with the context data (search form instance).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">()</span>  <span class="c1"># Instantiate a new search form instance</span>
-        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;meta_models_management/smart_search.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+            <span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/smart_search.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">}</span>
+        <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="SmartSearch.post">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.SmartSearch.post">[docs]</a>
     <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Handle POST requests: create a form instance with POST data, </span>
+<span class="sd">        Handle POST requests: create a form instance with POST data,</span>
 <span class="sd">        apply dynamic filters based on the form input, and render the results page or re-render with errors.</span>
 
 <span class="sd">        Parameters</span>
@@ -206,7 +210,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        HttpResponse</span>
-<span class="sd">            Redirects to the results page with the search results and form data or </span>
+<span class="sd">            Redirects to the results page with the search results and form data or</span>
 <span class="sd">            re-renders the search page with form errors if the form is invalid.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
@@ -218,20 +222,21 @@
             <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
                     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">InputRecord</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
-                        <span class="n">filter_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s1">__icontains&#39;</span>
+                        <span class="n">filter_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">__icontains&quot;</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="n">related_model</span><span class="p">,</span> <span class="n">related_field</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                        <span class="n">filter_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">related_model</span><span class="si">}</span><span class="s1">__</span><span class="si">{</span><span class="n">related_field</span><span class="si">}</span><span class="s1">__icontains&#39;</span>
+                        <span class="n">related_model</span><span class="p">,</span> <span class="n">related_field</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                        <span class="n">filter_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">related_model</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">related_field</span><span class="si">}</span><span class="s2">__icontains&quot;</span>
                     <span class="n">filter_args</span><span class="p">[</span><span class="n">filter_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
             <span class="n">input_records</span> <span class="o">=</span> <span class="n">input_records</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">filter_args</span><span class="p">)</span>
 
-            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;smart_search_results.html&#39;</span><span class="p">,</span> <span class="p">{</span>
-                <span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span>
-                <span class="s1">&#39;input_records&#39;</span><span class="p">:</span> <span class="n">input_records</span>
-            <span class="p">})</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+                <span class="n">request</span><span class="p">,</span>
+                <span class="s2">&quot;smart_search_results.html&quot;</span><span class="p">,</span>
+                <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span> <span class="s2">&quot;input_records&quot;</span><span class="p">:</span> <span class="n">input_records</span><span class="p">},</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;smart_search.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;smart_search.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
 </div>
 
 </pre></div>

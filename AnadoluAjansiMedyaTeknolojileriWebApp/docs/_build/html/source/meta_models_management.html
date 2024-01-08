@@ -49,6 +49,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#admin-module">Admin Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.AIDetectionAdmin"><code class="docutils literal notranslate"><span class="pre">AIDetectionAdmin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.AIDetectionAdmin.emotion_analysis_preview"><code class="docutils literal notranslate"><span class="pre">AIDetectionAdmin.emotion_analysis_preview()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.AIDetectionAdmin.get_search_results"><code class="docutils literal notranslate"><span class="pre">AIDetectionAdmin.get_search_results()</span></code></a></li>
 </ul>
 </li>
@@ -316,11 +317,74 @@
 <dt class="sig sig-object py" id="meta_models_management.admin.AIDetectionAdmin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">meta_models_management.admin.</span></span><span class="sig-name descname"><span class="pre">AIDetectionAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/admin.html#AIDetectionAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.admin.AIDetectionAdmin" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Custom admin interface for the AIDetection model.</p>
+<p>This class customizes the display and functionality of the AIDetection model
+in the Django admin site, providing a more tailored administrative interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_display</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields to display in the list view. Includes the ‘id’ and a preview of ‘emotion_analysis’.</p></li>
+<li><p><strong>filter_horizontal</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields to display with a horizontal filter interface. Includes ‘object_detection’ and ‘text_extraction’.</p></li>
+<li><p><strong>raw_id_fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields that will be displayed with a lookup widget. Includes ‘emotion_analysis’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">emotion_analysis_preview(obj):</span></span></dt>
+<dd><p>Provides a string representation of the ‘emotion_analysis’ field for the list display.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_search_results(request,</span> <span class="pre">queryset,</span> <span class="pre">search_term):</span></span></dt>
+<dd><p>Enhances the search functionality by including related models’ fields in the search.</p>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>This customization allows for a more in-depth search capability, including fields
+from related models in the search and adjusting the display of records in the list view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="meta_models_management.admin.AIDetectionAdmin.emotion_analysis_preview">
+<span class="sig-name descname"><span class="pre">emotion_analysis_preview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/admin.html#AIDetectionAdmin.emotion_analysis_preview"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.admin.AIDetectionAdmin.emotion_analysis_preview" title="Link to this definition"></a></dt>
+<dd><p>Provides a string representation of the ‘emotion_analysis’ field for the list display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> (<a class="reference internal" href="#meta_models_management.models.AIDetection" title="meta_models_management.models.AIDetection"><em>AIDetection</em></a>) – The instance of AIDetection being rendered in the list view.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>str</em> – A string representation of the ‘emotion_analysis’ field.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method is used to provide a more readable and concise preview of the
+‘emotion_analysis’ field in the admin list view.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="meta_models_management.admin.AIDetectionAdmin.get_search_results">
 <span class="sig-name descname"><span class="pre">get_search_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queryset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_term</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/admin.html#AIDetectionAdmin.get_search_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.admin.AIDetectionAdmin.get_search_results" title="Link to this definition"></a></dt>
-<dd><p>Return a tuple containing a queryset to implement the search
-and a boolean indicating if the results may contain duplicates.</p>
+<dd><p>Customizes the admin search results to include related model fields.</p>
+<p>This method extends the default search functionality to include fields
+from related models, allowing for a more comprehensive search across
+various related data points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HttpRequest object.</p></li>
+<li><p><strong>queryset</strong> (<em>QuerySet</em>) – The original queryset.</p></li>
+<li><p><strong>search_term</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The term to search for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>tuple</em> – A tuple containing the modified queryset and a boolean indicating
+whether to use distinct.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The search includes fields such as ‘emotion_analysis’, ‘object_detection’,
+and ‘text_extraction’ from the related models. The method uses the ‘|’
+operator to combine querysets for each field.</p>
 </dd></dl>
 
 </dd></dl>
@@ -329,11 +393,50 @@ and a boolean indicating if the results may contain duplicates.</p>
 <dt class="sig sig-object py" id="meta_models_management.admin.AdditionalMetadataAdmin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">meta_models_management.admin.</span></span><span class="sig-name descname"><span class="pre">AdditionalMetadataAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/admin.html#AdditionalMetadataAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.admin.AdditionalMetadataAdmin" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Custom admin interface for the AdditionalMetadata model.</p>
+<p>This class customizes the display and functionality of the AdditionalMetadata model
+in the Django admin site, providing a more tailored administrative interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_display</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields to display in the list view. Currently displays the ‘id’ field.</p></li>
+<li><p><strong>filter_horizontal</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields to display with a horizontal filter interface.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_search_results(request,</span> <span class="pre">queryset,</span> <span class="pre">search_term):</span></span></dt>
+<dd><p>Enhances the search functionality by including related models’ fields in the search.</p>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>This customization allows for a more in-depth search capability, including fields
+from related models in the search and adjusting the display of records in the list view.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="meta_models_management.admin.AdditionalMetadataAdmin.get_search_results">
 <span class="sig-name descname"><span class="pre">get_search_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queryset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_term</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/admin.html#AdditionalMetadataAdmin.get_search_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.admin.AdditionalMetadataAdmin.get_search_results" title="Link to this definition"></a></dt>
-<dd><p>Return a tuple containing a queryset to implement the search
-and a boolean indicating if the results may contain duplicates.</p>
+<dd><p>Customizes the admin search results to include related model fields.</p>
+<p>This method extends the default search functionality to include fields
+from related models, allowing for a more comprehensive search across
+various related data points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HttpRequest object.</p></li>
+<li><p><strong>queryset</strong> (<em>QuerySet</em>) – The original queryset.</p></li>
+<li><p><strong>search_term</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The term to search for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>tuple</em> – A tuple containing the modified queryset and a boolean indicating
+whether to use distinct.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The search includes fields such as ‘source_attributes’, ‘content_themes’,
+‘audience’, and others from the related models. The method uses the ‘|’
+operator to combine querysets for each field.</p>
 </dd></dl>
 
 </dd></dl>
@@ -398,11 +501,51 @@ and a boolean indicating if the results may contain duplicates.</p>
 <dt class="sig sig-object py" id="meta_models_management.admin.InputRecordAdmin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">meta_models_management.admin.</span></span><span class="sig-name descname"><span class="pre">InputRecordAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/admin.html#InputRecordAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.admin.InputRecordAdmin" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Custom admin interface for the InputRecord model.</p>
+<p>This class customizes the display and functionality of the InputRecord model
+in the Django admin site, providing a more tailored administrative interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_display</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields to display in the list view.</p></li>
+<li><p><strong>search_fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields to search in the search box.</p></li>
+<li><p><strong>raw_id_fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Fields that will be displayed with a lookup widget.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_search_results(request,</span> <span class="pre">queryset,</span> <span class="pre">search_term):</span></span></dt>
+<dd><p>Enhances the search functionality by including related models’ fields in the search.</p>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>This customization allows for a more in-depth search capability, including fields
+from related models in the search and adjusting the display of records in the list view.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="meta_models_management.admin.InputRecordAdmin.get_search_results">
 <span class="sig-name descname"><span class="pre">get_search_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queryset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_term</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/admin.html#InputRecordAdmin.get_search_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.admin.InputRecordAdmin.get_search_results" title="Link to this definition"></a></dt>
-<dd><p>Return a tuple containing a queryset to implement the search
-and a boolean indicating if the results may contain duplicates.</p>
+<dd><p>Customizes the admin search results to include related model fields.</p>
+<p>This method extends the default search functionality to include fields
+from related models, allowing for a more comprehensive search across
+various related data points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HttpRequest object.</p></li>
+<li><p><strong>queryset</strong> (<em>QuerySet</em>) – The original queryset.</p></li>
+<li><p><strong>search_term</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The term to search for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>tuple</em> – A tuple containing the modified queryset and a boolean indicating
+whether to use distinct.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The search includes the ‘source_info’, ‘content_analysis’, ‘ai_analysis’,
+and ‘additional_metadata’ fields from related models. The method uses
+the ‘|’ operator to combine querysets for each field.</p>
 </dd></dl>
 
 </dd></dl>
@@ -485,6 +628,29 @@ and a boolean indicating if the results may contain duplicates.</p>
 <dt class="sig sig-object py" id="meta_models_management.forms.CombinedUploadForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">meta_models_management.forms.</span></span><span class="sig-name descname"><span class="pre">CombinedUploadForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/forms.html#CombinedUploadForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.forms.CombinedUploadForm" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/forms/modelforms/#django.forms.ModelForm" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></a></p>
+<p>A form for handling the combined upload of images, texts, and voice files.</p>
+<p>This form allows for the upload of multiple files and text blocks, handling each
+type of media differently. Images and voices are uploaded as files, while texts
+are input as character fields.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> (<em>FileField</em>) – A field for uploading multiple image files. Not required.</p></li>
+<li><p><strong>texts</strong> (<em>CharField</em>) – A field for inputting text. Text blocks are split by double new lines. Not required.</p></li>
+<li><p><strong>voices</strong> (<em>FileField</em>) – A field for uploading multiple voice files. Not required.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">save(commit=True):</span></span></dt>
+<dd><p>Saves the uploaded files and texts to their respective models. Handles custom
+saving logic for multiple files and text blocks.</p>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>The actual saving to the database is handled in the custom <cite>save</cite> method, which
+needs to be called explicitly after form validation.</p>
 <p><strong>Form fields:</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">images</span></code>: Images (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.FileField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileField</span></code></a>)</p></li>
@@ -500,9 +666,23 @@ and a boolean indicating if the results may contain duplicates.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="meta_models_management.forms.CombinedUploadForm.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/forms.html#CombinedUploadForm.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.forms.CombinedUploadForm.save" title="Link to this definition"></a></dt>
-<dd><p>Save this form’s self.instance object if commit=True. Otherwise, add
-a save_m2m() method to the form which can be called after the instance
-is saved manually at a later time. Return the model instance.</p>
+<dd><p>Saves the uploaded files and texts to their respective models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>commit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to commit the save to the database immediately. Default is True.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>object</em> – The instance of the form’s model with the uploaded data saved.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValidationError</strong> – If the form is invalid.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method handles custom saving logic for multiple files and text blocks.
+Images are saved to the ImageUpload model, texts to the TextUpload model,
+and voices to the VoiceUpload model. Texts are split by double new lines
+and each non-whitespace block is saved separately.</p>
 </dd></dl>
 
 </dd></dl>
@@ -511,6 +691,35 @@ is saved manually at a later time. Return the model instance.</p>
 <dt class="sig sig-object py" id="meta_models_management.forms.SearchForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">meta_models_management.forms.</span></span><span class="sig-name descname"><span class="pre">SearchForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/meta_models_management/forms.html#SearchForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#meta_models_management.forms.SearchForm" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.Form" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<p>A form for conducting complex searches across various related models.</p>
+<p>This form allows for querying a database using various criteria from different models,
+enabling a detailed and refined search process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_id</strong> (<em>CharField</em>) – Field for querying by Input ID. Optional.</p></li>
+<li><p><strong>input_type</strong> (<em>CharField</em>) – Field for querying by Input Type. Optional.</p></li>
+<li><p><strong>timestamp</strong> (<em>CharField</em>) – Field for querying by Timestamp. Optional.</p></li>
+<li><p><strong>keyword</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting a keyword. Optional.</p></li>
+<li><p><strong>emotion</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting an associated emotion. Optional.</p></li>
+<li><p><strong>object_name</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting an object. Optional.</p></li>
+<li><p><strong>text_extraction</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting text extraction. Optional.</p></li>
+<li><p><strong>source_attribute</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting a source attribute. Optional.</p></li>
+<li><p><strong>content_theme</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting a content theme. Optional.</p></li>
+<li><p><strong>audience_type</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting an audience type. Optional.</p></li>
+<li><p><strong>geographic_relevance</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting geographic relevance. Optional.</p></li>
+<li><p><strong>temporal_relevance</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting temporal relevance. Optional.</p></li>
+<li><p><strong>technical_level</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting a technical level. Optional.</p></li>
+<li><p><strong>sentiment_trend</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting a sentiment trend. Optional.</p></li>
+<li><p><strong>influencer_tag</strong> (<em>ModelChoiceField</em>) – Dropdown for selecting an influencer tag. Optional.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This form does not directly interact with any specific database model but is
+designed to facilitate searching across multiple related models. The fields
+are meant to correspond with various attributes of the records in the database,
+allowing for a multifaceted search.</p>
 <p><strong>Form fields:</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">input_id</span></code>: Input Id (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
