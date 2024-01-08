@@ -11,12 +11,13 @@ This documentation provides a detailed guide to the API usage, examples for page
 Getting Started
 ---------------
 
-If you're new to Anadolu Ajansı Medya Teknolojileri Web App, this section will help you get started.
+.. todo::
+   Create a 'Getting Started' guide detailing the initial setup, basic configuration, and a simple "Hello World" example.
 
 .. toctree::
    :maxdepth: 1
 
-   getting_started
+   getting_started  # Placeholder for future content
 
 API Reference
 -------------
@@ -41,42 +42,46 @@ Understand how meta models are managed within the Web App and how you can intera
 Advanced Topics
 ---------------
 
-Dive deeper into the advanced features and functionalities of the Web App.
+.. todo::
+   Provide in-depth documentation on more complex or less commonly used features of the application.
 
 .. toctree::
    :maxdepth: 1
 
-   advanced_topics
+   advanced_topics  # Placeholder for future content
 
 Contributing
 ------------
 
-Interested in contributing? Here's how you can help.
+.. todo::
+   Outline how developers can contribute to the project. Include guidelines for code style, reporting bugs, and submitting pull requests.
 
 .. toctree::
    :maxdepth: 1
 
-   contributing
+   contributing  # Placeholder for future content
 
 Frequently Asked Questions
 --------------------------
 
-Quick answers to common questions.
+.. todo::
+   Compile a list of frequently asked questions and their answers.
 
 .. toctree::
    :maxdepth: 1
 
-   faq
+   faq  # Placeholder for future content
 
 Changelog
 ---------
 
-Stay up-to-date with the changes and improvements made over time.
+.. todo::
+   Maintain a log of all notable changes made to the project.
 
 .. toctree::
    :maxdepth: 1
 
-   changelog
+   changelog  # Placeholder for future content
 
 Indices and Tables
 ==================
@@ -85,9 +90,14 @@ Indices and Tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. image:: _static/logo.png
+.. todo::
+   Add an image/logo once available.
+
+.. image:: _static/logo.png  # Placeholder for future image
    :alt: Anadolu Ajansı Medya Teknolojileri Web App Logo
 
-.. todo:: List of things that need to be done or improved in the documentation.
+.. todo::
+   List of things that need to be done or improved in the documentation.
 
-.. seealso:: Links to other relevant documentation or resources.
+.. seealso::
+   Links to other relevant documentation or resources. Add as they become available.

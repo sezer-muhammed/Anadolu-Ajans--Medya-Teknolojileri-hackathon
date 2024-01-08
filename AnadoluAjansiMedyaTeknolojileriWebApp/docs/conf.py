@@ -23,6 +23,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx_rtd_theme',
+    'sphinx.ext.napoleon',  # Add this line for Napoleon
 ]
 
 # Theme options and customization
@@ -62,3 +63,12 @@ sphinxcontrib_django_settings = {
 
 # If you have a custom user model and want to document it properly
 django_settings_module = os.environ['DJANGO_SETTINGS_MODULE']
+
+# Napoleon settings
+napoleon_google_docstring = False  # False for NumPy style
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = True
+napoleon_include_private_with_doc = True
+napoleon_include_special_with_doc = True
+napoleon_use_ivar = True
+napoleon_use_rtype = False  # Use with napoleon_use_param = True for more compact docstrings
