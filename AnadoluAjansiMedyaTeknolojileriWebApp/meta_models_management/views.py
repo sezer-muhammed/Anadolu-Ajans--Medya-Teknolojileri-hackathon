@@ -133,7 +133,7 @@ class SmartSearch(View):
 
             return render(
                 request,
-                "smart_search_results.html",
+                "meta_models_management/smart_search_results.html",
                 {"form": form, "input_records": input_records},
             )
         else:
