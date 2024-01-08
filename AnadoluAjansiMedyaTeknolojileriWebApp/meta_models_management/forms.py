@@ -204,3 +204,8 @@ class SearchForm(forms.Form):
 
     # You can add as many fields as you want from related models.
     # Note: If the related fields have many possible values, you might want to use AJAX to load options dynamically.
+    def __init__(self, *args, **kwargs):
+            super(SearchForm, self).__init__(*args, **kwargs)
+            for name, field in self.fields.items():
+                if isinstance(field, forms.ModelChoiceField):
+                    field.is_model_choice_field = True

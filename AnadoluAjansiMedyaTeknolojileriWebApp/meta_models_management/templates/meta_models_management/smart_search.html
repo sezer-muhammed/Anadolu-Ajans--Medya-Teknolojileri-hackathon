@@ -1,14 +1,92 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}Smart Search{% endblock %}
+{% block extra_css %}
+<!-- Your existing extra CSS -->
+<style>
+  /* Additional styles for the enhanced search form */
+  .search-form .form-group {
+    margin-bottom: 15px;
+  }
+  .custom-range-label {
+    display: block;
+  }
+</style>
+{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>Smart Search</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">Smart Search</h2>
+            <form method="post" action="" id="smartSearchForm">
+                {% csrf_token %}
+                <!-- Input Group with Addons -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">
+                        <i class="fas fa-id-badge"></i>
+                    </span>
+                    {{ form.input_id }}
+                </div>
+
+                <!-- Input Type with Tooltip -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="Enter input type">
+                        <i class="fas fa-keyboard"></i>
+                    </span>
+                    {{ form.input_type }}
+                </div>
+
+                <!-- Timestamp with Tooltip -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="Select timestamp">
+                        <i class="fas fa-clock"></i>
+                    </span>
+                    {{ form.timestamp }}
+                </div>
+
+                {% for field in form.visible_fields %}
+                    <!-- Check if field has choices attribute, indicating a choice field -->
+                    {% if field.field.choices %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                            <select class="selectpicker form-control" data-live-search="true" id="{{ field.id_for_label }}" name="{{ field.html_name }}">
+                                {% for choice in field.field.choices %}
+                                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary mt-3">Search</button>
+            </form>
+        </div>
+    </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<script>
+  $(function () {
+    // Initialize tooltips
+    $('[data-toggle="tooltip"]').tooltip();
+
+    // Initialize live search on select elements
+    $('.selectpicker').selectpicker();
+
+    // Custom script for live search feature
+    $('#smartSearchForm input[type="text"]').on('keyup', function() {
+      // Implement live search logic here
+    });
+
+    // Initialize slider
+    var slider = document.getElementById("customRange");
+    slider.oninput = function() {
+      // Implement slider logic here
+    }
+  });
+</script>
 {% endblock %}
