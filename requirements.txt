@@ -6,3 +6,4 @@ Pillow
 Faker
 google-generativeai
 python-decouple
+sphinx_rtd_theme
