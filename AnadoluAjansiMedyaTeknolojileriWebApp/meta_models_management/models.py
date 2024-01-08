@@ -17,15 +17,18 @@ class Object(models.Model):
     name = models.CharField(max_length=200)
     status = models.CharField(max_length=200)
     action = models.CharField(max_length=200)
-
+    
     def __str__(self):
-        return f"{self.name} - {self.status}"
+        """String representation of the Object."""
+        return f"{self.name} ({self.status}) - {self.action}"
 
 class TextExtraction(models.Model):
     text = models.CharField(max_length=1000)
 
     def __str__(self):
-        return f"{self.text[:50]}..."  # Show first 50 characters
+        """String representation of the TextExtraction."""
+        # Returns the first 50 characters plus an ellipsis if the text is longer
+        return f"{self.text[:50]}..." if len(self.text) > 50 else self.text
 
 class SourceAttribute(models.Model):
     attribute = models.CharField(max_length=200)
@@ -80,6 +83,10 @@ class SourceLocation(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
 
+    def __str__(self):
+        return f"Latitude: {self.latitude}, Longitude: {self.longitude}"
+
+
 class SourceInfo(models.Model):
     source = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
@@ -87,7 +94,8 @@ class SourceInfo(models.Model):
     location = models.OneToOneField(SourceLocation, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.source} in {self.city}, {self.country}"
+        return f"{self.source} - {self.city}, {self.country}"
+
 
 class ContentAnalysis(models.Model):
     detailed_description = models.TextField()
@@ -95,13 +103,15 @@ class ContentAnalysis(models.Model):
     keywords = models.ManyToManyField(Keyword, related_name='content_analysis_keywords')
 
     def __str__(self):
-        return f"{self.summary[:50]}..."
+        return self.summary[:50] + "..."
+
 
 class EmotionAnalysis(models.Model):
     associated_emotions = models.ManyToManyField(AssociatedEmotion, related_name='emotion_analysis_emotions')
 
-    def __str__(self) -> str:
-        return f"{self.associated_emotions.all()}"
+    def __str__(self):
+        return ", ".join([emotion.emotion for emotion in self.associated_emotions.all()[:3]]) + "..."
+
 
 class AIDetection(models.Model):
     emotion_analysis = models.OneToOneField(EmotionAnalysis, on_delete=models.CASCADE)
@@ -109,8 +119,8 @@ class AIDetection(models.Model):
     text_extraction = models.ManyToManyField(TextExtraction, related_name='ai_detection_texts')
 
     def __str__(self):
-        return f"{self.emotion_analysis} - {self.object_detection.all()} - {self.text_extraction.all()}"
-
+        return f"AIDetection {self.id}"
+    
 class AdditionalMetadata(models.Model):
 
     source_attributes = models.ManyToManyField(SourceAttribute, related_name='additional_metadata_source_attributes', blank=True)
@@ -123,10 +133,9 @@ class AdditionalMetadata(models.Model):
     influencer_tags = models.ManyToManyField(InfluencerTag, related_name='additional_metadata_influencer_tags', blank=True)
 
     def __str__(self):
-        return f"{self.source_attributes.all()} - {self.content_themes.all()} - {self.audience.all()} - {self.geographic_relevance.all()} - {self.temporal_relevance.all()} - {self.technical_level.all()} - {self.sentiment_trends.all()} - {self.influencer_tags.all()}"
-
+        return f"Metadata {self.id}"
+    
 class InputRecord(models.Model):
-
     input_id = models.CharField(max_length=400)
     input_type = models.CharField(max_length=50)
     timestamp = models.CharField(max_length=50)  # Consider using DateTimeField if the format is consistent
@@ -136,4 +145,4 @@ class InputRecord(models.Model):
     additional_metadata = models.OneToOneField(AdditionalMetadata, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.input_id} - {self.input_type} - {self.timestamp} - {self.source_info} - {self.content_analysis} - {self.ai_analysis} - {self.additional_metadata}"
+        return f"{self.input_id} - {self.input_type} at {self.timestamp}"
