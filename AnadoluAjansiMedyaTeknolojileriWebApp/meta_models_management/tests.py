@@ -10,7 +10,20 @@ from datetime import datetime
 from django.conf import settings
 
 class InputRecordSerializerTestCase(TestCase):
+    """
+    Test cases for serialization and deserialization of InputRecord instances.
+
+    This class contains setup for creating a user and various related objects for testing,
+    as well as test cases for saving, retrieving, and interacting with InputRecord instances via the API.
+    """
     def setUp(self):
+        """
+        Set up the test environment by creating a user, related objects, and an InputRecord instance.
+
+        This method runs before every individual test. It sets up a user for authentication, 
+        creates various related objects such as Location, SourceInfo, ContentAnalysis, and others,
+        and finally creates an InputRecord instance with all the related objects linked.
+        """
         self.user = User.objects.create_user(username='testuser', password='12345')
         self.client.login(username='testuser', password='12345')
 
@@ -115,6 +128,13 @@ class InputRecordSerializerTestCase(TestCase):
         self.url = "/api/inputrecords/"
 
     def test_save_and_retrieve_record(self):
+        """
+        Test the serialization, validation, and saving of an InputRecord instance.
+
+        This method tests if an InputRecord can be serialized, validated, and saved correctly.
+        It also checks the serialization output by saving it to a JSON file. 
+        This test ensures that the InputRecordSerializer can handle complex nested data.
+        """
         # Serialize the data
         serializer = InputRecordSerializer(instance=self.input_record)
         serializer = InputRecordSerializer(data=serializer.data)
@@ -142,6 +162,13 @@ class InputRecordSerializerTestCase(TestCase):
             json.dump(serializer.data, outfile, indent=4)
 
     def test_api_create_input_record(self):
+        """
+        Test the creation of an InputRecord instance through the API.
+
+        This method simulates a POST request to the API with the serialized data of an InputRecord instance.
+        It then retrieves the list of all InputRecord instances via a GET request to ensure the new instance
+        has been successfully created and is retrievable from the API.
+        """
         serializer = InputRecordSerializer(instance=self.input_record)
 
         self.client.post(self.url, serializer.data)
