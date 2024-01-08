@@ -6,3 +6,5 @@ Pillow
 Faker
 google-generativeai
 python-decouple
+django-select2
+django-crispy-forms

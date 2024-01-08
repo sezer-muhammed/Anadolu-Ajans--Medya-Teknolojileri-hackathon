@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django import forms
+from django.db.models import Q
+
 from .forms import CombinedUploadForm, SearchForm
 from .models import InputRecord
 
@@ -115,26 +118,44 @@ class SmartSearch(View):
             re-renders the search page with form errors if the form is invalid.
         """
         form = SearchForm(request.POST)
+
         if form.is_valid():
-            input_records = InputRecord.objects.all()
+            input_records_query  = InputRecord.objects.all()
 
-            # Dynamically build filter arguments based on form input
-            filter_args = {}
-            for field, value in form.cleaned_data.items():
-                if value:
-                    if hasattr(InputRecord, field):
-                        filter_key = f"{field}__icontains"
-                    else:
-                        related_model, related_field = field.split("_", 1)
-                        filter_key = f"{related_model}__{related_field}__icontains"
-                    filter_args[filter_key] = value
+            input_records_query = self.apply_multichoice_filters(form, input_records_query)
 
-            input_records = input_records.filter(**filter_args)
-
-            return render(
-                request,
-                "meta_models_management/smart_search_results.html",
-                {"form": form, "input_records": input_records},
-            )
+            return render(request, "meta_models_management/smart_search_results.html", {"input_records": input_records_query })
         else:
-            return render(request, "smart_search.html", {"form": form})
+            return render(request, "meta_models_management/smart_search.html", {"form": form})
+        
+    @staticmethod
+    def apply_multichoice_filters(form, queryset):
+        """
+        Applies filters to the queryset based on selected options in multichoice fields of the form.
+
+        Parameters:
+        - form: The submitted Django form with cleaned data.
+        - queryset: The initial queryset to apply filters on.
+
+        Returns:
+        - A queryset with applied filters.
+        """
+        for field_name, field in form.fields.items():
+            if isinstance(field, forms.ModelMultipleChoiceField):
+                selected_options = form.cleaned_data.get(field_name)
+                if selected_options:
+                    # Define a mapping from form field names to model field names
+                    field_mapping = {
+                        'keyword': 'content_analysis__keywords',
+                        'emotion': 'ai_analysis__emotion_analysis__associated_emotions',
+                        # Add other mappings here as needed
+                    }
+                    model_field_name = field_mapping.get(field_name, field_name)
+
+                    # Constructing the filter argument dynamically
+                    filter_arg = {f"{model_field_name}__in": selected_options}
+
+                    # Applying the filter
+                    queryset = queryset.filter(**filter_arg).distinct()
+
+        return queryset

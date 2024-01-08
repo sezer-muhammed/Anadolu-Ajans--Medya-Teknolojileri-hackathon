@@ -1,5 +1,7 @@
 from django import forms
 from api.models import ImageUpload, TextUpload, VoiceUpload
+from django_select2 import forms as s2forms
+from django_select2.forms import Select2MultipleWidget, Select2Widget
 
 from .models import (
     Keyword,
@@ -169,43 +171,42 @@ class SearchForm(forms.Form):
     )
 
     # Fields from related models (as examples)
-    keyword = forms.ModelChoiceField(queryset=Keyword.objects.all(), required=False)
-    emotion = forms.ModelChoiceField(
-        queryset=AssociatedEmotion.objects.all(), required=False
+    keyword = forms.ModelMultipleChoiceField(
+        queryset=Keyword.objects.all(), 
+        required=False,
+        widget=s2forms.Select2MultipleWidget
     )
-    object_name = forms.ModelChoiceField(queryset=Object.objects.all(), required=False)
-    text_extraction = forms.ModelChoiceField(
-        queryset=TextExtraction.objects.all(), required=False
+    emotion = forms.ModelMultipleChoiceField(
+        queryset=AssociatedEmotion.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    source_attribute = forms.ModelChoiceField(
-        queryset=SourceAttribute.objects.all(), required=False
+    object_name = forms.ModelMultipleChoiceField(queryset=Object.objects.all(), required=False, widget=s2forms.Select2MultipleWidget)
+    text_extraction = forms.ModelMultipleChoiceField(
+        queryset=TextExtraction.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    content_theme = forms.ModelChoiceField(
-        queryset=ContentTheme.objects.all(), required=False
+    source_attribute = forms.ModelMultipleChoiceField(
+        queryset=SourceAttribute.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    audience_type = forms.ModelChoiceField(
-        queryset=Audience.objects.all(), required=False
+    content_theme = forms.ModelMultipleChoiceField(
+        queryset=ContentTheme.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    geographic_relevance = forms.ModelChoiceField(
-        queryset=GeographicRelevance.objects.all(), required=False
+    audience_type = forms.ModelMultipleChoiceField(
+        queryset=Audience.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    temporal_relevance = forms.ModelChoiceField(
-        queryset=TemporalRelevance.objects.all(), required=False
+    geographic_relevance = forms.ModelMultipleChoiceField(
+        queryset=GeographicRelevance.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    technical_level = forms.ModelChoiceField(
-        queryset=TechnicalLevel.objects.all(), required=False
+    temporal_relevance = forms.ModelMultipleChoiceField(
+        queryset=TemporalRelevance.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    sentiment_trend = forms.ModelChoiceField(
-        queryset=SentimentTrend.objects.all(), required=False
+    technical_level = forms.ModelMultipleChoiceField(
+        queryset=TechnicalLevel.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
-    influencer_tag = forms.ModelChoiceField(
-        queryset=InfluencerTag.objects.all(), required=False
+    sentiment_trend = forms.ModelMultipleChoiceField(
+        queryset=SentimentTrend.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
+    )
+    influencer_tag = forms.ModelMultipleChoiceField(
+        queryset=InfluencerTag.objects.all(), required=False, widget=s2forms.Select2MultipleWidget
     )
 
     # You can add as many fields as you want from related models.
     # Note: If the related fields have many possible values, you might want to use AJAX to load options dynamically.
-    def __init__(self, *args, **kwargs):
-            super(SearchForm, self).__init__(*args, **kwargs)
-            for name, field in self.fields.items():
-                if isinstance(field, forms.ModelChoiceField):
-                    field.is_model_choice_field = True
