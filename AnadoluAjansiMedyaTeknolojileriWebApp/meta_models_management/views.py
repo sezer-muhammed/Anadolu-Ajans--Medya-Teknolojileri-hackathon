@@ -4,26 +4,48 @@ from .forms import CombinedUploadForm, SearchForm
 from .models import InputRecord
 
 class HomeView(View):
+    """
+    View class for the home page.
+
+    This class handles the GET and POST requests for the home page.
+    GET request renders the home.html template with a new form instance.
+    POST request validates the form data, saves the form, and handles file and text uploads.
+    If the form is valid, it redirects to a new URL or the same URL with a success message.
+    If the form is not valid, it renders the home.html template with the form and displays errors.
+    """
+
     def get(self, request, *args, **kwargs):
-        # Instantiate a new form instance
         form = CombinedUploadForm()
         return render(request, 'meta_models_management/home.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
-        # Create a form instance with POST data and files
         form = CombinedUploadForm(request.POST, request.FILES)
         
         if form.is_valid():
-            # Save the form and handle the file and text uploads
             form.save()
-            # Redirect to a new URL or the same with a success message (optional)
-            return redirect('/meta_models_management/home/')  # Replace with the actual URL name for success
+            return redirect('/meta_models_management/home/')
 
-        # If the form is not valid, render the page again with the form (errors will show)
         return render(request, 'meta_models_management/home.html', {'form': form})
     
 
 class SmartSearch(View):
+    """
+    A class-based view for performing smart search functionality.
+
+    This view handles both GET and POST requests. GET request renders the search form,
+    while POST request processes the form input and applies filters to the queryset.
+
+    Attributes:
+        None
+
+    Methods:
+        get: Renders the search form.
+        post: Processes the form input and applies filters to the queryset.
+
+    Usage:
+        To use this view, simply include it in your URL configuration and specify the appropriate
+        template for rendering the search form and displaying the search results.
+    """
     def get(self, request, *args, **kwargs):
         form = SearchForm()
         return render(request, 'meta_models_management/smart_search.html', {'form': form})
