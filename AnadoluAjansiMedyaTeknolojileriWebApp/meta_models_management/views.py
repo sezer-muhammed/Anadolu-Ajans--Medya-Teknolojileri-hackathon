@@ -4,31 +4,113 @@ from .forms import CombinedUploadForm, SearchForm
 from .models import InputRecord
 
 class HomeView(View):
+    """
+    A view that handles the main page requests for the Meta Models Management module.
+
+    This view responds to both GET and POST requests. 
+    For GET, it simply displays a form. For POST, it processes submitted data.
+    """
+
     def get(self, request, *args, **kwargs):
-        # Instantiate a new form instance
-        form = CombinedUploadForm()
+        """
+        Handle GET requests: instantiate a new form instance and render the home page.
+
+        Parameters
+        ----------
+        request : HttpRequest
+            The request object used to generate the HttpResponse.
+        *args : tuple
+            Variable length argument list.
+        **kwargs : dict
+            Arbitrary keyword arguments.
+
+        Returns
+        -------
+        HttpResponse
+            Rendered web page with the context data (form instance).
+        """
+        form = CombinedUploadForm()  # Instantiate a new form instance
         return render(request, 'meta_models_management/home.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
-        # Create a form instance with POST data and files
+        """
+        Handle POST requests: create a form instance with POST data and files, 
+        then check if it's valid, save it, and redirect or re-render with errors.
+
+        Parameters
+        ----------
+        request : HttpRequest
+            The request object used to generate the HttpResponse.
+        *args : tuple
+            Variable length argument list.
+        **kwargs : dict
+            Arbitrary keyword arguments.
+
+        Returns
+        -------
+        HttpResponse
+            Redirects to a new URL on successful form submission or 
+            re-renders the page with form errors if the form is invalid.
+        """
         form = CombinedUploadForm(request.POST, request.FILES)
         
         if form.is_valid():
-            # Save the form and handle the file and text uploads
-            form.save()
-            # Redirect to a new URL or the same with a success message (optional)
-            return redirect('/meta_models_management/home/')  # Replace with the actual URL name for success
+            form.save()  # Save the form and handle the file and text uploads
+            return redirect('/meta_models_management/')  # Redirect to success URL
 
         # If the form is not valid, render the page again with the form (errors will show)
         return render(request, 'meta_models_management/home.html', {'form': form})
     
 
 class SmartSearch(View):
+    """
+    A view that handles smart search requests for input records.
+
+    It responds to both GET and POST requests. For GET, it displays the search form.
+    For POST, it processes the form, applies filters based on the input, and returns the search results.
+    """
+
     def get(self, request, *args, **kwargs):
-        form = SearchForm()
+        """
+        Handle GET requests: instantiate a new search form instance and render the search page.
+
+        Parameters
+        ----------
+        request : HttpRequest
+            The request object used to generate the HttpResponse.
+        *args : tuple
+            Variable length argument list.
+        **kwargs : dict
+            Arbitrary keyword arguments.
+
+        Returns
+        -------
+        HttpResponse
+            Rendered web page with the context data (search form instance).
+        """
+        form = SearchForm()  # Instantiate a new search form instance
         return render(request, 'meta_models_management/smart_search.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
+        """
+        Handle POST requests: create a form instance with POST data, 
+        apply dynamic filters based on the form input, and render the results page or re-render with errors.
+
+        Parameters
+        ----------
+        request : HttpRequest
+            The request object used to generate the HttpResponse.
+        *args : tuple
+            Variable length argument list.
+        **kwargs : dict
+            Arbitrary keyword arguments.
+
+        Returns
+        -------
+        HttpResponse
+            Redirects to the results page with the search results and form data or 
+            re-renders the search page with form errors if the form is invalid.
+        """
         form = SearchForm(request.POST)
         if form.is_valid():
             input_records = InputRecord.objects.all()
@@ -37,20 +119,13 @@ class SmartSearch(View):
             filter_args = {}
             for field, value in form.cleaned_data.items():
                 if value:
-                    # Determine if the field is related to InputRecord directly or through a related model
                     if hasattr(InputRecord, field):
-                        # Direct field
                         filter_key = f'{field}__icontains'
                     else:
-                        # Related model field
-                        # This assumes a naming convention where form fields for related models are named
-                        # as the related model's name in lowercase followed by an underscore and the field name
-                        # Adjust this according to your actual field naming and model structure
                         related_model, related_field = field.split('_', 1)
                         filter_key = f'{related_model}__{related_field}__icontains'
                     filter_args[filter_key] = value
 
-            # Apply the filters to the queryset
             input_records = input_records.filter(**filter_args)
 
             return render(request, 'smart_search_results.html', {
