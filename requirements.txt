@@ -7,3 +7,4 @@ Faker
 google-generativeai
 python-decouple
 sphinx_rtd_theme
+sphinxcontrib_django
