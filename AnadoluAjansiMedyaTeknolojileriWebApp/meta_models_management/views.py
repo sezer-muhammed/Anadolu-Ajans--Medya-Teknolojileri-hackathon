@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import CombinedUploadForm
+from .forms import CombinedUploadForm, SearchForm
+from .models import InputRecord
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
@@ -23,13 +24,38 @@ class HomeView(View):
     
 
 class SmartSearch(View):
-    template_name = 'PLACEHOLDER.html'
-
     def get(self, request, *args, **kwargs):
-        pass
+        form = SearchForm()
+        return render(request, 'meta_models_management/smart_search.html', {'form': form})
 
-    def construct_context(self, request):
-        pass
+    def post(self, request, *args, **kwargs):
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            input_records = InputRecord.objects.all()
 
-    def send_query_to_gpt(self, query):
-        pass
+            # Dynamically build filter arguments based on form input
+            filter_args = {}
+            for field, value in form.cleaned_data.items():
+                if value:
+                    # Determine if the field is related to InputRecord directly or through a related model
+                    if hasattr(InputRecord, field):
+                        # Direct field
+                        filter_key = f'{field}__icontains'
+                    else:
+                        # Related model field
+                        # This assumes a naming convention where form fields for related models are named
+                        # as the related model's name in lowercase followed by an underscore and the field name
+                        # Adjust this according to your actual field naming and model structure
+                        related_model, related_field = field.split('_', 1)
+                        filter_key = f'{related_model}__{related_field}__icontains'
+                    filter_args[filter_key] = value
+
+            # Apply the filters to the queryset
+            input_records = input_records.filter(**filter_args)
+
+            return render(request, 'smart_search_results.html', {
+                'form': form,
+                'input_records': input_records
+            })
+        else:
+            return render(request, 'smart_search.html', {'form': form})
