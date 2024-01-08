@@ -3,7 +3,38 @@ from decouple import config
 
 
 class GeminiModel:
+    """
+    A class to interact with Google's Gemini Generative AI model.
+
+    It configures the model with specific generation settings and safety settings to
+    ensure the generated content adheres to certain standards. It provides a method
+    to generate content based on a given prompt.
+
+    Attributes
+    ----------
+    generation_config : dict
+        Configuration settings for the generative model including temperature,
+        top_p, top_k, and max_output_tokens.
+    safety_settings : list
+        A list of dictionaries specifying the safety categories and thresholds for content generation.
+    model : genai.GenerativeModel
+        The Gemini Generative AI model configured with the specified settings.
+
+    Methods
+    -------
+    __init__()
+        Initializes the GeminiModel with specified generation and safety settings.
+    generate_content(prompt_parts: str, media=None) -> str
+        Generates content based on the given prompt and optional media.
+    """
     def __init__(self):
+        """
+        Initializes the GeminiModel with specified generation and safety settings.
+
+        It configures the model using the GOOGLE_GEMINI_API_KEY from the environment
+        and sets up the generation and safety configurations. It initializes the
+        genai.GenerativeModel with these settings.
+        """
         # Configure the API key
         genai.configure(api_key=config("GOOGLE_GEMINI_API_KEY"))
 
@@ -44,14 +75,23 @@ class GeminiModel:
 
     def generate_content(self, prompt_parts, media=None):
         """
-        Generates content based on the given prompt parts.
+        Generates content based on the given prompt and optional media.
 
-        Parameters:
-        prompt_parts (list): A list of strings, each representing a part of the prompt.
+        It uses the configured Gemini generative model to generate content based
+        on the provided prompt. It can optionally include media in the generation
+        process. The method returns the generated text.
 
-        Returns:
-        str: The generated text response.
+        Parameters
+        ----------
+        prompt_parts : str
+            The prompt to guide the content generation.
+        media
+            Optional media to include in the content generation process.
+
+        Returns
+        -------
+        str
+            The generated content as a text string.
         """
-        # TODO Add media handler for images
         response = self.model.generate_content(prompt_parts)
         return response.text

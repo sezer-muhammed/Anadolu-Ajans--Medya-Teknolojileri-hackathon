@@ -1,74 +1,76 @@
 {
-    "input_id": "5ce639a9-5abe-4609-a4b9-6cf5fe3a43c7",
-    "input_type": "position",
-    "timestamp": "2015-02-19T09:19:24",
+  "instructions": "Generate a detailed and realistic JSON response for an input record. Each field should contain relevant and contextually appropriate data. Reflect a scenario where the input is an article or a document being analyzed for content, source, sentiment, and other metadata.",
+  "template": {
+    "input_id": "<Unique Identifier for the Input Record>",
+    "input_type": "<Type of Input (e.g., article, tweet, report)>",
+    "timestamp": "<Timestamp of the Input Creation in ISO 8601 format>",
     "source_info": {
-      "source": "Ayers, Hardy and Harrison",
-      "city": "Lake Jennifer",
-      "country": "Taiwan",
+      "source": "<Name of the Source (e.g., publication, website, author)>",
+      "city": "<City where the source is located>",
+      "country": "<Country where the source is located>",
       "location": {
-        "latitude": -6.5099845,
-        "longitude": 124.305184
+        "latitude": "<Latitude of the Source>",
+        "longitude": "<Longitude of the Source>"
       }
     },
     "content_analysis": {
-      "detailed_description": "Thousand defense form policy ask. Firm bed method. Quality commercial we customer.",
-      "summary": "Admit film heavy price back themselves tend.",
+      "detailed_description": "<A detailed description of the content>",
+      "summary": "<A concise summary of the content>",
       "keywords": [
-        {"value": "sister"},
-        {"value": "site"},
-        {"value": "let"}
+        {"value": "<Primary Keyword 1>"},
+        {"value": "<Primary Keyword 2>"},
+        {"value": "<Primary Keyword 3>"}
       ]
     },
     "ai_analysis": {
       "emotion_analysis": {
         "associated_emotions": [
-          {"emotion": "meeting"},
-          {"emotion": "within"}
+          {"emotion": "<Primary Emotion Detected>"},
+          {"emotion": "<Secondary Emotion Detected>"}
         ]
       },
       "object_detection": [
-        {"name": "wrong", "status": "pass", "action": "administration"},
-        {"name": "understand", "status": "especially", "action": "performance"}
+        {"name": "<Name of the Detected Object>", "status": "<Detection Status>", "action": "<Recommended Action>"},
+        {"name": "<Another Detected Object>", "status": "<Detection Status>", "action": "<Recommended Action>"}
       ],
       "text_extraction": [
-        {"text": "Human treat beat."},
-        {"text": "Development bag mind party."}
+        {"text": "<Extracted Text Segment 1>"},
+        {"text": "<Extracted Text Segment 2>"}
       ]
     },
     "additional_metadata": {
       "source_attributes": [
-        {"attribute": "election"},
-        {"attribute": "think"}
+        {"attribute": "<Attribute of the Source 1>"},
+        {"attribute": "<Attribute of the Source 2>"}
       ],
       "content_themes": [
-        {"theme": "dinner"},
-        {"theme": "fill"}
+        {"theme": "<Main Theme of the Content 1>"},
+        {"theme": "<Main Theme of the Content 2>"}
       ],
       "audience": [
-        {"audience_type": "discussion"},
-        {"audience_type": "activity"}
+        {"audience_type": "<Intended Audience Type 1>"},
+        {"audience_type": "<Intended Audience Type 2>"}
       ],
       "geographic_relevance": [
-        {"geography": "so"},
-        {"geography": "which"}
+        {"geography": "<Geographic Area Relevant to the Content 1>"},
+        {"geography": "<Geographic Area Relevant to the Content 2>"}
       ],
       "temporal_relevance": [
-        {"temporal": "1990-10-28"},
-        {"temporal": "1996-05-20"}
+        {"temporal": "<Relevant Time Period or Date 1>"},
+        {"temporal": "<Relevant Time Period or Date 2>"}
       ],
       "technical_level": [
-        {"level": "goal"},
-        {"level": "catch"}
+        {"level": "<Technical Complexity Level of the Content 1>"},
+        {"level": "<Technical Complexity Level of the Content 2>"}
       ],
       "sentiment_trends": [
-        {"trend": "scientist"},
-        {"trend": "bar"}
+        {"trend": "<Predominant Sentiment Trend in the Content 1>"},
+        {"trend": "<Predominant Sentiment Trend in the Content 2>"}
       ],
       "influencer_tags": [
-        {"tag": "agreement"},
-        {"tag": "them"}
+        {"tag": "<Tag Related to Key Influencers or Stakeholders 1>"},
+        {"tag": "<Tag Related to Key Influencers or Stakeholders 2>"}
       ]
     }
   }
-  
+}
