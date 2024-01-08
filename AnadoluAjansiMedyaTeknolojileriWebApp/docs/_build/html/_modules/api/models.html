@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api.models &#8212; test test documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script src="../../_static/documentation_options.js?v=93654010"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for api.models</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">.validators</span> <span class="kn">import</span> <span class="n">validate_file_extension</span>
+
+<span class="kn">from</span> <span class="nn">meta_models_management.callbacks.BaseMediaUpload</span> <span class="kn">import</span> <span class="n">InputRecordGenerator</span>
+
+<div class="viewcode-block" id="UploadedFileHandler">
+<a class="viewcode-back" href="../../source/api.html#api.models.UploadedFileHandler">[docs]</a>
+<span class="k">class</span> <span class="nc">UploadedFileHandler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Initialize any necessary attributes or configurations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generator</span> <span class="o">=</span> <span class="n">InputRecordGenerator</span><span class="p">()</span>
+        
+<div class="viewcode-block" id="UploadedFileHandler.uploaded_file_callback">
+<a class="viewcode-back" href="../../source/api.html#api.models.UploadedFileHandler.uploaded_file_callback">[docs]</a>
+    <span class="k">def</span> <span class="nf">uploaded_file_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles the callback for an uploaded file.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        instance: The instance of the file or data that was uploaded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Use the uploaded_file_analyse_callback method from the generator instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generator</span><span class="o">.</span><span class="n">uploaded_file_analyse_callback</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ImageUpload">
+<a class="viewcode-back" href="../../source/api.html#api.models.ImageUpload">[docs]</a>
+<span class="k">class</span> <span class="nc">ImageUpload</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s1">&#39;images/&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ImageUpload.save">
+<a class="viewcode-back" href="../../source/api.html#api.models.ImageUpload.save">[docs]</a>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+</div>
+
+        <span class="c1"># If you want to handle image uploads, uncomment the following lines</span>
+        <span class="c1"># handler = UploadedFileHandler()</span>
+        <span class="c1"># handler.uploaded_file_callback(self)</span>
+
+<div class="viewcode-block" id="TextUpload">
+<a class="viewcode-back" href="../../source/api.html#api.models.TextUpload">[docs]</a>
+<span class="k">class</span> <span class="nc">TextUpload</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+
+<div class="viewcode-block" id="TextUpload.save">
+<a class="viewcode-back" href="../../source/api.html#api.models.TextUpload.save">[docs]</a>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+</div>
+
+        <span class="c1"># Handle text uploads</span>
+        <span class="c1"># handler = UploadedFileHandler()</span>
+        <span class="c1"># handler.uploaded_file_callback(self)</span>
+
+<div class="viewcode-block" id="VoiceUpload">
+<a class="viewcode-back" href="../../source/api.html#api.models.VoiceUpload">[docs]</a>
+<span class="k">class</span> <span class="nc">VoiceUpload</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">voice_file</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s1">&#39;voices/&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">validate_file_extension</span><span class="p">])</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Add a field for the transcript</span>
+
+<div class="viewcode-block" id="VoiceUpload.save">
+<a class="viewcode-back" href="../../source/api.html#api.models.VoiceUpload.save">[docs]</a>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+</div>
+
+        <span class="c1"># If you want to handle voice uploads, uncomment the following lines</span>
+        <span class="c1"># handler = UploadedFileHandler()</span>
+        <span class="c1"># handler.uploaded_file_callback(self)</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">test</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/api.html">api package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/meta_models_management.html">meta_models_management package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, test.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

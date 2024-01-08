@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meta_models_management.admin &#8212; test test documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script src="../../_static/documentation_options.js?v=93654010"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for meta_models_management.admin</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">AssociatedEmotion</span><span class="p">,</span> <span class="n">Object</span><span class="p">,</span> <span class="n">TextExtraction</span><span class="p">,</span> <span class="n">SourceAttribute</span><span class="p">,</span>
+                     <span class="n">ContentTheme</span><span class="p">,</span> <span class="n">Audience</span><span class="p">,</span> <span class="n">GeographicRelevance</span><span class="p">,</span> <span class="n">TemporalRelevance</span><span class="p">,</span>
+                     <span class="n">TechnicalLevel</span><span class="p">,</span> <span class="n">SentimentTrend</span><span class="p">,</span> <span class="n">InfluencerTag</span><span class="p">,</span> <span class="n">SourceLocation</span><span class="p">,</span>
+                     <span class="n">SourceInfo</span><span class="p">,</span> <span class="n">ContentAnalysis</span><span class="p">,</span> <span class="n">EmotionAnalysis</span><span class="p">,</span> <span class="n">AIDetection</span><span class="p">,</span>
+                     <span class="n">AdditionalMetadata</span><span class="p">,</span> <span class="n">InputRecord</span><span class="p">)</span>
+
+<div class="viewcode-block" id="KeywordAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.KeywordAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">KeywordAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">KeywordAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AssociatedEmotionAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.AssociatedEmotionAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">AssociatedEmotionAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;emotion&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;emotion&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">AssociatedEmotion</span><span class="p">,</span> <span class="n">AssociatedEmotionAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ObjectAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.ObjectAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">ObjectAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Object</span><span class="p">,</span> <span class="n">ObjectAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TextExtractionAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.TextExtractionAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">TextExtractionAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;text_excerpt&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="TextExtractionAdmin.text_excerpt">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.TextExtractionAdmin.text_excerpt">[docs]</a>
+    <span class="k">def</span> <span class="nf">text_excerpt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a shorter excerpt of the text for the admin list display.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span></div>
+
+    <span class="n">text_excerpt</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Excerpt&#39;</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">TextExtraction</span><span class="p">,</span> <span class="n">TextExtractionAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SourceAttributeAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.SourceAttributeAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">SourceAttributeAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;attribute&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;attribute&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">SourceAttribute</span><span class="p">,</span> <span class="n">SourceAttributeAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ContentThemeAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.ContentThemeAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">ContentThemeAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;theme&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;theme&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">ContentTheme</span><span class="p">,</span> <span class="n">ContentThemeAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AudienceAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.AudienceAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">AudienceAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;audience_type&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;audience_type&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Audience</span><span class="p">,</span> <span class="n">AudienceAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GeographicRelevanceAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.GeographicRelevanceAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">GeographicRelevanceAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;geography&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;geography&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">GeographicRelevance</span><span class="p">,</span> <span class="n">GeographicRelevanceAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TemporalRelevanceAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.TemporalRelevanceAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">TemporalRelevanceAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;temporal&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;temporal&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">TemporalRelevance</span><span class="p">,</span> <span class="n">TemporalRelevanceAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TechnicalLevelAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.TechnicalLevelAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">TechnicalLevelAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">TechnicalLevel</span><span class="p">,</span> <span class="n">TechnicalLevelAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SentimentTrendAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.SentimentTrendAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">SentimentTrendAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;trend&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;trend&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">SentimentTrend</span><span class="p">,</span> <span class="n">SentimentTrendAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="InfluencerTagAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.InfluencerTagAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">InfluencerTagAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;tag&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;tag&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">InfluencerTag</span><span class="p">,</span> <span class="n">InfluencerTagAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SourceLocationAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.SourceLocationAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">SourceLocationAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">SourceLocation</span><span class="p">,</span> <span class="n">SourceLocationAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SourceInfoAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.SourceInfoAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">SourceInfoAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">)</span>
+    <span class="n">raw_id_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,)</span></div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">SourceInfo</span><span class="p">,</span> <span class="n">SourceInfoAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ContentAnalysisAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.ContentAnalysisAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">ContentAnalysisAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;summary_short&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="s1">&#39;detailed_description&#39;</span><span class="p">,)</span>
+    <span class="n">filter_horizontal</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;keywords&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="ContentAnalysisAdmin.summary_short">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.ContentAnalysisAdmin.summary_short">[docs]</a>
+    <span class="k">def</span> <span class="nf">summary_short</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">summary</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span></div>
+
+    <span class="n">summary_short</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Summary Excerpt&#39;</span>
+
+<div class="viewcode-block" id="ContentAnalysisAdmin.get_search_results">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.ContentAnalysisAdmin.get_search_results">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_search_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">):</span>
+        <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContentAnalysisAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_search_results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">search_term</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">keywords__value__icontains</span><span class="o">=</span><span class="n">search_term</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span></div>
+</div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">ContentAnalysis</span><span class="p">,</span> <span class="n">ContentAnalysisAdmin</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="EmotionAnalysisAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.EmotionAnalysisAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">EmotionAnalysisAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;emotions_short&#39;</span><span class="p">,)</span>
+    <span class="n">filter_horizontal</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;associated_emotions&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="EmotionAnalysisAdmin.emotions_short">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.EmotionAnalysisAdmin.emotions_short">[docs]</a>
+    <span class="k">def</span> <span class="nf">emotions_short</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="n">emotions</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">emotion</span><span class="o">.</span><span class="n">emotion</span> <span class="k">for</span> <span class="n">emotion</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">associated_emotions</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">emotions</span><span class="si">}</span><span class="s2">...&quot;</span> <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">associated_emotions</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">emotions</span></div>
+
+    <span class="n">emotions_short</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Associated Emotions (Preview)&#39;</span>
+
+<div class="viewcode-block" id="EmotionAnalysisAdmin.get_search_results">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.EmotionAnalysisAdmin.get_search_results">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_search_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">):</span>
+        <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">EmotionAnalysisAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_search_results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">search_term</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">associated_emotions__emotion__icontains</span><span class="o">=</span><span class="n">search_term</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span></div>
+</div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">EmotionAnalysis</span><span class="p">,</span> <span class="n">EmotionAnalysisAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AIDetectionAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.AIDetectionAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">AIDetectionAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;emotion_analysis_preview&#39;</span><span class="p">,)</span>
+    <span class="n">filter_horizontal</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;object_detection&#39;</span><span class="p">,</span> <span class="s1">&#39;text_extraction&#39;</span><span class="p">,)</span>
+    <span class="n">raw_id_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;emotion_analysis&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="AIDetectionAdmin.emotion_analysis_preview">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.AIDetectionAdmin.emotion_analysis_preview">[docs]</a>
+    <span class="k">def</span> <span class="nf">emotion_analysis_preview</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">emotion_analysis</span><span class="p">)</span></div>
+
+    <span class="n">emotion_analysis_preview</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Emotion Analysis&#39;</span>
+
+<div class="viewcode-block" id="AIDetectionAdmin.get_search_results">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.AIDetectionAdmin.get_search_results">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_search_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">):</span>
+        <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">AIDetectionAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_search_results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">search_term</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">emotion_analysis__associated_emotions__emotion__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">object_detection__name__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">text_extraction__text__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span></div>
+</div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">AIDetection</span><span class="p">,</span> <span class="n">AIDetectionAdmin</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AdditionalMetadataAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.AdditionalMetadataAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">AdditionalMetadataAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,)</span>
+    <span class="n">filter_horizontal</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;source_attributes&#39;</span><span class="p">,</span> <span class="s1">&#39;content_themes&#39;</span><span class="p">,</span> <span class="s1">&#39;audience&#39;</span><span class="p">,</span> <span class="s1">&#39;geographic_relevance&#39;</span><span class="p">,</span> <span class="s1">&#39;temporal_relevance&#39;</span><span class="p">,</span> <span class="s1">&#39;technical_level&#39;</span><span class="p">,</span> <span class="s1">&#39;sentiment_trends&#39;</span><span class="p">,</span> <span class="s1">&#39;influencer_tags&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="AdditionalMetadataAdmin.get_search_results">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.AdditionalMetadataAdmin.get_search_results">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_search_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">):</span>
+        <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">AdditionalMetadataAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_search_results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">search_term</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">source_attributes__attribute__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">content_themes__theme__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">audience__audience_type__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">geographic_relevance__geography__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">temporal_relevance__temporal__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">technical_level__level__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">sentiment_trends__trend__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">influencer_tags__tag__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span></div>
+</div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">AdditionalMetadata</span><span class="p">,</span> <span class="n">AdditionalMetadataAdmin</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="InputRecordAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.InputRecordAdmin">[docs]</a>
+<span class="k">class</span> <span class="nc">InputRecordAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;input_id&#39;</span><span class="p">,</span> <span class="s1">&#39;input_type&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;source_info&#39;</span><span class="p">,</span> <span class="s1">&#39;content_analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;ai_analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;additional_metadata&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;input_id&#39;</span><span class="p">,</span> <span class="s1">&#39;input_type&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,)</span>
+    <span class="n">raw_id_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;source_info&#39;</span><span class="p">,</span> <span class="s1">&#39;content_analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;ai_analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;additional_metadata&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="InputRecordAdmin.get_search_results">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.admin.InputRecordAdmin.get_search_results">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_search_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">):</span>
+        <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">InputRecordAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_search_results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">search_term</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">search_term</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">source_info__source__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">content_analysis__summary__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">ai_analysis__emotion_analysis__associated_emotions__emotion__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">additional_metadata__source_attributes__attribute__icontains</span><span class="o">=</span><span class="n">search_term</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">use_distinct</span></div>
+</div>
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">InputRecord</span><span class="p">,</span> <span class="n">InputRecordAdmin</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">test</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/api.html">api package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/meta_models_management.html">meta_models_management package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, test.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

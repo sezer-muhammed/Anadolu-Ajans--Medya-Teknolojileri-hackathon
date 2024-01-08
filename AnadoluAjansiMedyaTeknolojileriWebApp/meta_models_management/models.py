@@ -2,6 +2,10 @@ from django.db import models
 
 # Models for each list of strings
 class Keyword(models.Model):
+    """
+    Represents a keyword used for categorizing content.
+    """
+
     value = models.CharField(max_length=200)
     
     def __str__(self):
