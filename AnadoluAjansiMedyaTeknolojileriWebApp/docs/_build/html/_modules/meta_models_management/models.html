@@ -1,33 +1,75 @@
 <!DOCTYPE html>
-
-<html lang="en" data-content_root="../../">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>meta_models_management.models &#8212; test test documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
-    <script src="../../_static/documentation_options.js?v=93654010"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>meta_models_management.models &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-   
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="../../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/api.html">API Package Documentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/meta_models_management.html">Meta Models Management Package Documentation</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">meta_models_management.models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <h1>Source code for meta_models_management.models</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
@@ -36,180 +78,570 @@
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Keyword">[docs]</a>
 <span class="k">class</span> <span class="nc">Keyword</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents a keyword used for categorizing content.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Represents a keyword associated with some content.</span>
 
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    value : models.CharField</span>
+<span class="sd">        The keyword text itself.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     
+<div class="viewcode-block" id="Keyword.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Keyword.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the string representation of the Keyword.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+</div>
 
 
 <div class="viewcode-block" id="AssociatedEmotion">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AssociatedEmotion">[docs]</a>
 <span class="k">class</span> <span class="nc">AssociatedEmotion</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents an emotion associated with some content.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    emotion : models.CharField</span>
+<span class="sd">        The type or name of the emotion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">emotion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     
+<div class="viewcode-block" id="AssociatedEmotion.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AssociatedEmotion.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the string representation of the AssociatedEmotion.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">emotion</span></div>
+</div>
 
 
 <div class="viewcode-block" id="Object">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Object">[docs]</a>
 <span class="k">class</span> <span class="nc">Object</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents an object detected in an image or video.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : models.CharField</span>
+<span class="sd">        The name of the object.</span>
+<span class="sd">    status : models.CharField</span>
+<span class="sd">        The status or condition of the object.</span>
+<span class="sd">    action : models.CharField</span>
+<span class="sd">        The action or activity associated with the object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     <span class="n">action</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     
+<div class="viewcode-block" id="Object.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Object.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;String representation of the Object.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a formatted string representation of the Object.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">) - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
 
 
 <div class="viewcode-block" id="TextExtraction">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.TextExtraction">[docs]</a>
 <span class="k">class</span> <span class="nc">TextExtraction</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents an extracted piece of text, typically from a larger document or data source.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : models.CharField</span>
+<span class="sd">        The extracted text content, limited to a certain length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
+<div class="viewcode-block" id="TextExtraction.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.TextExtraction.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;String representation of the TextExtraction.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a shortened string representation of the TextExtraction object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The first 50 characters of the extracted text followed by an ellipsis if the text is longer than 50 characters.</span>
+<span class="sd">            Returns the entire text if it&#39;s shorter than 50 characters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Returns the first 50 characters plus an ellipsis if the text is longer</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="SourceAttribute">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SourceAttribute">[docs]</a>
 <span class="k">class</span> <span class="nc">SourceAttribute</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents an attribute or characteristic of a source, typically used to describe additional metadata.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    attribute : models.CharField</span>
+<span class="sd">        The descriptive text of the source&#39;s attribute.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">attribute</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="SourceAttribute.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SourceAttribute.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the SourceAttribute object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the attribute itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribute</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="ContentTheme">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.ContentTheme">[docs]</a>
 <span class="k">class</span> <span class="nc">ContentTheme</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the theme of a piece of content, typically used to categorize or describe the main subject matter.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theme : models.CharField</span>
+<span class="sd">        The descriptive name or category of the content&#39;s theme.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">theme</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="ContentTheme.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.ContentTheme.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the ContentTheme object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the theme itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">theme</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="Audience">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Audience">[docs]</a>
 <span class="k">class</span> <span class="nc">Audience</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a type or category of audience for which the content is intended or most relevant.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    audience_type : models.CharField</span>
+<span class="sd">        The descriptive name or category of the audience type.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">audience_type</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="Audience.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.Audience.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the Audience object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the audience type itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">audience_type</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="GeographicRelevance">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.GeographicRelevance">[docs]</a>
 <span class="k">class</span> <span class="nc">GeographicRelevance</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the geographic relevance or focus of a piece of content, typically used to indicate the area or region the content is pertinent to.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    geography : models.CharField</span>
+<span class="sd">        The descriptive name or identifier of the geographic area or region.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">geography</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="GeographicRelevance.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.GeographicRelevance.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the GeographicRelevance object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the geographic relevance or area itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">geography</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="TemporalRelevance">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.TemporalRelevance">[docs]</a>
 <span class="k">class</span> <span class="nc">TemporalRelevance</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the time-related relevance or significance of a piece of content, typically used to indicate the period or era the content is pertinent to.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    temporal : models.CharField</span>
+<span class="sd">        The descriptive name or identifier of the temporal relevance, such as a date, period, or era.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">temporal</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="TemporalRelevance.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.TemporalRelevance.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the TemporalRelevance object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the temporal relevance or period itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temporal</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="TechnicalLevel">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.TechnicalLevel">[docs]</a>
 <span class="k">class</span> <span class="nc">TechnicalLevel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the technical level or complexity of a piece of content, typically used to indicate the expertise required to understand or interact with the content.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    level : models.CharField</span>
+<span class="sd">        The descriptive name or identifier of the technical level, such as &#39;Beginner&#39;, &#39;Intermediate&#39;, or &#39;Expert&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">level</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="TechnicalLevel.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.TechnicalLevel.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the TechnicalLevel object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the technical level itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="SentimentTrend">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SentimentTrend">[docs]</a>
 <span class="k">class</span> <span class="nc">SentimentTrend</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the sentiment trend associated with a piece of content, typically used to categorize the general feeling or attitude conveyed by the content.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    trend : models.CharField</span>
+<span class="sd">        The descriptive name or identifier of the sentiment trend, such as &#39;Positive&#39;, &#39;Negative&#39;, or &#39;Neutral&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">trend</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="SentimentTrend.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SentimentTrend.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the SentimentTrend object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the sentiment trend itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">trend</span></div>
+</div>
+
 
 
 <div class="viewcode-block" id="InfluencerTag">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.InfluencerTag">[docs]</a>
 <span class="k">class</span> <span class="nc">InfluencerTag</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a tag associated with an influencer or prominent figure, typically used to categorize or describe the themes and topics they are known for.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tag : models.CharField</span>
+<span class="sd">        The descriptive name or identifier of the influencer tag.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">tag</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
+<div class="viewcode-block" id="InfluencerTag.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.InfluencerTag.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the InfluencerTag object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The text of the influencer tag itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span></div>
+</div>
+
 
 
 <span class="c1"># Main models</span>
 <div class="viewcode-block" id="SourceLocation">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SourceLocation">[docs]</a>
 <span class="k">class</span> <span class="nc">SourceLocation</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a geographical location with latitude and longitude, typically used to indicate where an event occurred or where a piece of content is relevant.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    latitude : models.FloatField</span>
+<span class="sd">        The latitude of the location. Positive values indicate latitudes north of the equator, and negative values indicate latitudes south.</span>
+<span class="sd">    longitude : models.FloatField</span>
+<span class="sd">        The longitude of the location. Positive values indicate longitudes east of the Prime Meridian, and negative values indicate longitudes west.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">latitude</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
     <span class="n">longitude</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
 
+<div class="viewcode-block" id="SourceLocation.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SourceLocation.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the SourceLocation object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A formatted string displaying the latitude and longitude of the location.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Latitude: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">latitude</span><span class="si">}</span><span class="s2">, Longitude: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">longitude</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
+
 
 
 
 <div class="viewcode-block" id="SourceInfo">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SourceInfo">[docs]</a>
 <span class="k">class</span> <span class="nc">SourceInfo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the source information, typically used to describe where or from whom a piece of content originates.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source : models.CharField</span>
+<span class="sd">        The name or description of the source, such as a person, organization, or publication.</span>
+<span class="sd">    city : models.CharField</span>
+<span class="sd">        The city where the source is located or relevant to.</span>
+<span class="sd">    country : models.CharField</span>
+<span class="sd">        The country where the source is located or relevant to.</span>
+<span class="sd">    location : models.OneToOneField</span>
+<span class="sd">        A OneToOne relationship to the SourceLocation model, representing the geographical coordinates of the source.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    __str__(self)</span>
+<span class="sd">        Returns a human-readable string representation of the object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">source</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     <span class="n">city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">country</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">location</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">SourceLocation</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
 
+<div class="viewcode-block" id="SourceInfo.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.SourceInfo.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the SourceInfo object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A formatted string displaying the source&#39;s name, city, and country.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
+
 
 
 
 <div class="viewcode-block" id="ContentAnalysis">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.ContentAnalysis">[docs]</a>
 <span class="k">class</span> <span class="nc">ContentAnalysis</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the analysis of content, including detailed descriptions, summaries, and associated keywords.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detailed_description : models.TextField</span>
+<span class="sd">        A detailed description of the content being analyzed.</span>
+<span class="sd">    summary : models.TextField</span>
+<span class="sd">        A summarized version of the content for quick reference.</span>
+<span class="sd">    keywords : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the Keyword model, representing associated keywords related to the content analysis.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    __str__(self)</span>
+<span class="sd">        Returns a human-readable string representation of the object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">detailed_description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
     <span class="n">summary</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
     <span class="n">keywords</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;content_analysis_keywords&#39;</span><span class="p">)</span>
 
+<div class="viewcode-block" id="ContentAnalysis.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.ContentAnalysis.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the ContentAnalysis object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A truncated summary of the content analysis for display.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span></div>
+</div>
+
 
 
 
 <div class="viewcode-block" id="EmotionAnalysis">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.EmotionAnalysis">[docs]</a>
 <span class="k">class</span> <span class="nc">EmotionAnalysis</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the analysis of emotions associated with content.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    associated_emotions : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the AssociatedEmotion model, representing associated emotions related to the analysis.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    __str__(self)</span>
+<span class="sd">        Returns a human-readable string representation of the object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">associated_emotions</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">AssociatedEmotion</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;emotion_analysis_emotions&#39;</span><span class="p">)</span>
 
+<div class="viewcode-block" id="EmotionAnalysis.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.EmotionAnalysis.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the EmotionAnalysis object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A concatenated string of the first three associated emotions followed by an ellipsis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">emotion</span><span class="o">.</span><span class="n">emotion</span> <span class="k">for</span> <span class="n">emotion</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">associated_emotions</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]])</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span></div>
+</div>
 
 
 
 <div class="viewcode-block" id="AIDetection">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AIDetection">[docs]</a>
 <span class="k">class</span> <span class="nc">AIDetection</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the AI detection and analysis of content.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    emotion_analysis : models.OneToOneField</span>
+<span class="sd">        A one-to-one relationship to the EmotionAnalysis model, representing the associated emotion analysis.</span>
+<span class="sd">    object_detection : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the Object model, representing objects detected in the content.</span>
+<span class="sd">    text_extraction : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the TextExtraction model, representing extracted text from the content.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    __str__(self)</span>
+<span class="sd">        Returns a human-readable string representation of the object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">emotion_analysis</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">EmotionAnalysis</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
     <span class="n">object_detection</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Object</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;ai_detection_objects&#39;</span><span class="p">)</span>
     <span class="n">text_extraction</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">TextExtraction</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;ai_detection_texts&#39;</span><span class="p">)</span>
 
+<div class="viewcode-block" id="AIDetection.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AIDetection.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the AIDetection object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A string containing &quot;AIDetection&quot; followed by the object&#39;s ID.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;AIDetection </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
+
 
     
 <div class="viewcode-block" id="AdditionalMetadata">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AdditionalMetadata">[docs]</a>
 <span class="k">class</span> <span class="nc">AdditionalMetadata</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents additional metadata associated with content.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_attributes : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the SourceAttribute model, representing source-specific attributes.</span>
+<span class="sd">    content_themes : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the ContentTheme model, representing content themes.</span>
+<span class="sd">    audience : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the Audience model, representing the target audience types.</span>
+<span class="sd">    geographic_relevance : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the GeographicRelevance model, representing geographic relevance.</span>
+<span class="sd">    temporal_relevance : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the TemporalRelevance model, representing temporal relevance.</span>
+<span class="sd">    technical_level : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the TechnicalLevel model, representing technical levels.</span>
+<span class="sd">    sentiment_trends : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the SentimentTrend model, representing sentiment trends.</span>
+<span class="sd">    influencer_tags : models.ManyToManyField</span>
+<span class="sd">        A ManyToMany relationship to the InfluencerTag model, representing influencer tags.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    __str__(self)</span>
+<span class="sd">        Returns a human-readable string representation of the object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">source_attributes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">SourceAttribute</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_source_attributes&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">content_themes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">ContentTheme</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_content_themes&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -220,13 +652,52 @@
     <span class="n">sentiment_trends</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">SentimentTrend</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_sentiment_trends&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">influencer_tags</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">InfluencerTag</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;additional_metadata_influencer_tags&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<div class="viewcode-block" id="AdditionalMetadata.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.AdditionalMetadata.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the AdditionalMetadata object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A string containing &quot;Metadata&quot; followed by the object&#39;s ID.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Metadata </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
+
 
     
 <div class="viewcode-block" id="InputRecord">
 <a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.InputRecord">[docs]</a>
 <span class="k">class</span> <span class="nc">InputRecord</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents an input record with associated metadata and analyses.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_id : str</span>
+<span class="sd">        A unique identifier for the input record.</span>
+<span class="sd">    input_type : str</span>
+<span class="sd">        The type or category of the input.</span>
+<span class="sd">    timestamp : str</span>
+<span class="sd">        A string representing the timestamp of the input record. </span>
+<span class="sd">        Consider using DateTimeField if the format is consistent.</span>
+<span class="sd">    source_info : SourceInfo</span>
+<span class="sd">        A one-to-one relationship to the SourceInfo model, representing the source information.</span>
+<span class="sd">    content_analysis : ContentAnalysis</span>
+<span class="sd">        A one-to-one relationship to the ContentAnalysis model, representing content analysis data.</span>
+<span class="sd">    ai_analysis : AIDetection</span>
+<span class="sd">        A one-to-one relationship to the AIDetection model, representing AI analysis data.</span>
+<span class="sd">    additional_metadata : AdditionalMetadata</span>
+<span class="sd">        A one-to-one relationship to the AdditionalMetadata model, representing additional metadata.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    __str__(self)</span>
+<span class="sd">        Returns a human-readable string representation of the object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">input_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
     <span class="n">input_type</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">timestamp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># Consider using DateTimeField if the format is consistent</span>
@@ -235,75 +706,48 @@
     <span class="n">ai_analysis</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">AIDetection</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
     <span class="n">additional_metadata</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">AdditionalMetadata</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
 
+<div class="viewcode-block" id="InputRecord.__str__">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.models.InputRecord.__str__">[docs]</a>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the string representation of the InputRecord object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A string containing the input_id, input_type, and timestamp.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_id</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_type</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
+
 
 </pre></div>
 
+           </div>
           </div>
-          
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">test</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../source/api.html">api package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../source/meta_models_management.html">meta_models_management package</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../index.html">Module code</a><ul>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2024, test.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
-      
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
