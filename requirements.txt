@@ -9,3 +9,5 @@ python-decouple
 sphinx_rtd_theme
 sphinxcontrib_django
 sphinxcontrib-napoleon
+django-select2
+django-crispy-forms
