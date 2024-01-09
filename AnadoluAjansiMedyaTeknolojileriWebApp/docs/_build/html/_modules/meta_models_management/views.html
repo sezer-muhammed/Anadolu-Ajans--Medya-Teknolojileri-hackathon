@@ -73,6 +73,9 @@
   <h1>Source code for meta_models_management.views</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
 <span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">View</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+
 <span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">CombinedUploadForm</span><span class="p">,</span> <span class="n">SearchForm</span>
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">InputRecord</span>
 
@@ -214,29 +217,50 @@
 <span class="sd">            re-renders the search page with form errors if the form is invalid.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
-            <span class="n">input_records</span> <span class="o">=</span> <span class="n">InputRecord</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="n">input_records_query</span>  <span class="o">=</span> <span class="n">InputRecord</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-            <span class="c1"># Dynamically build filter arguments based on form input</span>
-            <span class="n">filter_args</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">InputRecord</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
-                        <span class="n">filter_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">__icontains&quot;</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">related_model</span><span class="p">,</span> <span class="n">related_field</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                        <span class="n">filter_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">related_model</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">related_field</span><span class="si">}</span><span class="s2">__icontains&quot;</span>
-                    <span class="n">filter_args</span><span class="p">[</span><span class="n">filter_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">input_records_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_multichoice_filters</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">input_records_query</span><span class="p">)</span>
 
-            <span class="n">input_records</span> <span class="o">=</span> <span class="n">input_records</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">filter_args</span><span class="p">)</span>
-
-            <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
-                <span class="n">request</span><span class="p">,</span>
-                <span class="s2">&quot;smart_search_results.html&quot;</span><span class="p">,</span>
-                <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span> <span class="s2">&quot;input_records&quot;</span><span class="p">:</span> <span class="n">input_records</span><span class="p">},</span>
-            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/smart_search_results.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;input_records&quot;</span><span class="p">:</span> <span class="n">input_records_query</span> <span class="p">})</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;smart_search.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/smart_search.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+
+        
+<div class="viewcode-block" id="SmartSearch.apply_multichoice_filters">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.SmartSearch.apply_multichoice_filters">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">apply_multichoice_filters</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies filters to the queryset based on selected options in multichoice fields of the form.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - form: The submitted Django form with cleaned data.</span>
+<span class="sd">        - queryset: The initial queryset to apply filters on.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - A queryset with applied filters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">):</span>
+                <span class="n">selected_options</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">selected_options</span><span class="p">:</span>
+                    <span class="c1"># Define a mapping from form field names to model field names</span>
+                    <span class="n">field_mapping</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="s1">&#39;content_analysis__keywords&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;emotion&#39;</span><span class="p">:</span> <span class="s1">&#39;ai_analysis__emotion_analysis__associated_emotions&#39;</span><span class="p">,</span>
+                        <span class="c1"># Add other mappings here as needed</span>
+                    <span class="p">}</span>
+                    <span class="n">model_field_name</span> <span class="o">=</span> <span class="n">field_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)</span>
+
+                    <span class="c1"># Constructing the filter argument dynamically</span>
+                    <span class="n">filter_arg</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_field_name</span><span class="si">}</span><span class="s2">__in&quot;</span><span class="p">:</span> <span class="n">selected_options</span><span class="p">}</span>
+
+                    <span class="c1"># Applying the filter</span>
+                    <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">filter_arg</span><span class="p">)</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">queryset</span></div>
 </div>
 
 </pre></div>

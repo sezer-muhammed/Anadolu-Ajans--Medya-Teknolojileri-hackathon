@@ -257,6 +257,11 @@ class InfluencerTag(models.Model):
     """
     Represents a tag associated with an influencer or prominent figure, typically used to categorize or describe the themes and topics they are known for.
 
+    Parameters
+    ----------
+    tag : str
+        The descriptive name or identifier of the influencer tag.
+
     Attributes
     ----------
     tag : models.CharField
