@@ -2,7 +2,7 @@
   "instructions": "Generate a detailed and realistic JSON response for an input record. Each field should contain relevant and contextually appropriate data. Reflect a scenario where the input is an article or a document being analyzed for content, source, sentiment, and other metadata.",
   "template": {
     "input_id": "<Unique Identifier for the Input Record>",
-    "input_type": "<Type of Input (e.g., article, tweet, report)>",
+    "input_type": "<Type of Input (e.g., article, tweet, report, image, voice, )>",
     "timestamp": "<Timestamp of the Input Creation in ISO 8601 format>",
     "source_info": {
       "source": "<Name of the Source (e.g., publication, website, author)>",
