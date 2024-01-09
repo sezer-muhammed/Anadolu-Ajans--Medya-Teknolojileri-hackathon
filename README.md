@@ -1,6 +1,6 @@
 # Mozaik: Revolutionizing Content Creation with AI
 
-[![Django CI](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml/badge.svg)](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml)
+[![Django CI](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml/badge.svg)](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml) [![Documentation Status](https://readthedocs.org/projects/anadolu-ajans-medya-teknolojileri-hackathon/badge/?version=latest)](https://anadolu-ajans-medya-teknolojileri-hackathon.readthedocs.io/en/latest/?badge=latest)
 
 ## Overview
 Mozaik is an innovative platform designed to revolutionize the way we create, search, and interact with text and images. By harnessing the power of advanced AI technologies, Mozaik offers a comprehensive suite of tools that simplifies and enhances the content creation process. Whether you're a journalist, artist, blogger, or developer, Mozaik is your go-to solution for generating and finding content in unexpected and creative ways.
