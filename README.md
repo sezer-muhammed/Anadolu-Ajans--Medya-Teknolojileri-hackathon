@@ -1,16 +1,33 @@
 # Mozaik: Revolutionizing Content Creation with AI
 
-[![Django CI](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml/badge.svg)](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml)
+[![Django CI](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml/badge.svg)](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml) [![Documentation Status](https://readthedocs.org/projects/anadolu-ajans-medya-teknolojileri-hackathon/badge/?version=latest)](https://anadolu-ajans-medya-teknolojileri-hackathon.readthedocs.io/en/latest/?badge=latest)
 
 ## Overview
 Mozaik is an innovative platform designed to revolutionize the way we create, search, and interact with text and images. By harnessing the power of advanced AI technologies, Mozaik offers a comprehensive suite of tools that simplifies and enhances the content creation process. Whether you're a journalist, artist, blogger, or developer, Mozaik is your go-to solution for generating and finding content in unexpected and creative ways.
+
+[Read the full documentation here](https://anadolu-ajans-medya-teknolojileri-hackathon.readthedocs.io/en/latest/index.html)
+
+![Imaginative Text Creation](.images/sezer___text_c1b4134b-5142-49a9-a9f3-ed7324046758.png)
+*AI-powered text generation transforms your creative ideas into vivid narratives.*
+
+---
 
 ## Key Features
 
 ### Advanced AI Integration
 - **Generative AI Models**: Utilize GPT-4, GPT-3.5 Gemini, Stable Diffusion XL, and ControlNet for state-of-the-art text and image generation.
+
+![Photography and Imagery](.images/sezer___photography_image_615e2154-7fd8-4da1-a1f3-46967d42f460.png)
+*Craft stunning visuals with AI that understands the art of photography.*
+
+---
+
 - **Voice Analysis & Synthesis**: Transform and analyze voice data with Whisper, adding emotional context and depth to your projects.
-- **Dynamic Content Generation**: Seamlessly generate blog posts from photos or create vivid images from textual descriptions.
+
+![Voice Analysis & Synthesis](.images/sezer___image_voice_text_0c8f3f00-01f8-4e7a-8f3d-f940869ee8e6.png)
+*From speech to text and back, experience the future of voice interaction.*
+
+---
 
 ### Seamless Integration & Accessibility
 - **RESTful API & Django Backend**: Access Mozaik's capabilities through a robust website and API, built on the reliable Django framework.
