@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Meta Models Management Package Documentation" href="meta_models_management.html" />
-    <link rel="prev" title="Mozaik: Revolutionizing Content Creation with AI" href="../index.html" /> 
+    <link rel="prev" title="ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification" href="../models/comfyui.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,7 +42,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Package Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#admin-module">admin Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api.admin.ImageUploadAdmin"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin</span></code></a></li>
@@ -99,7 +102,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#urls-module">urls Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#validators-module">validators Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validators-module">validators Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api.validators.validate_file_extension"><code class="docutils literal notranslate"><span class="pre">validate_file_extension()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#views-module">views Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api.views.ImageUploadViewSet"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.serializer_class</span></code></a></li>
@@ -380,9 +386,21 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <section id="validators-module">
 <span id="module-api.urls"></span><h2>validators Module<a class="headerlink" href="#validators-module" title="Link to this heading"></a></h2>
 <p>Documentation for the validators module, detailing validation checks and routines.</p>
+<dl class="py function" id="module-api.validators">
+<dt class="sig sig-object py" id="api.validators.validate_file_extension">
+<span class="sig-prename descclassname"><span class="pre">api.validators.</span></span><span class="sig-name descname"><span class="pre">validate_file_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/validators.html#validate_file_extension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.validators.validate_file_extension" title="Link to this definition"></a></dt>
+<dd><p>Validate the file extension of the given file.</p>
+<p>Parameters:
+value (File): The file to be validated.</p>
+<p>Raises:
+ValidationError: If the file extension is not supported.</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
 </section>
 <section id="views-module">
-<span id="module-api.validators"></span><h2>views Module<a class="headerlink" href="#views-module" title="Link to this heading"></a></h2>
+<h2>views Module<a class="headerlink" href="#views-module" title="Link to this heading"></a></h2>
 <p>Documentation for the views module, detailing the views and logic for handling requests.</p>
 <dl class="py class" id="module-api.views">
 <dt class="sig sig-object py" id="api.views.ImageUploadViewSet">
@@ -443,7 +461,7 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Mozaik: Revolutionizing Content Creation with AI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../models/comfyui.html" class="btn btn-neutral float-left" title="ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="meta_models_management.html" class="btn btn-neutral float-right" title="Meta Models Management Package Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
