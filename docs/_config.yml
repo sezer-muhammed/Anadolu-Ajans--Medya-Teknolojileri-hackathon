@@ -1,0 +1,16 @@
+lsi: false
+safe: true
+source: '.' # Represents your repo's top level directory
+incremental: false
+highlighter: rouge
+
+gist:
+  noscript: false
+
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Include any directories that Jekyll should process, which it normally ignores
+include:
+  - '_static' # Add this line to include your _static folder
