@@ -31,11 +31,9 @@ def aggregated_navbar(request):
             try:
                 core_config_data = json.load(file)
                 aggregated_navbar.append(core_config_data)
-                print(aggregated_navbar)
             except json.JSONDecodeError:
                 print(f"Error decoding JSON from {core_config_path}")
-    else:
-        print(f"File {core_config_path} not found")
+
     # Read the navbar.json from each installed app
     for app in settings.INSTALLED_APPS:
         navbar_path = os.path.join(settings.BASE_DIR, app, "config", "navbar.json")
