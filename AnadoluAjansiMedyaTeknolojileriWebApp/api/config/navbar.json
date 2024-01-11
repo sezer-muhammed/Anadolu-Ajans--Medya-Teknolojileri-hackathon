@@ -1,0 +1,30 @@
+{
+  "app_name": "API Reference",
+  "links": [
+      {
+        "title": "API Endpoints",
+        "url": "/api/",
+        "active": false
+      },
+      {
+          "title": "Image Uploads",
+          "url": "/api/images/",
+          "active": false
+      },
+      {
+          "title": "Text Uploads",
+          "url": "/api/texts/",
+          "active": false
+      },
+      {
+          "title": "Voice Uploads",
+          "url": "/api/voices/",
+          "active": false
+      },
+      {
+          "title": "Input Records",
+          "url": "/api/inputrecords/",
+          "active": false
+      }
+  ]
+}
