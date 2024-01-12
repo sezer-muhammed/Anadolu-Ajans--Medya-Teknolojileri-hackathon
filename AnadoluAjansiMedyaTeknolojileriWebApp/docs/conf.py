@@ -42,10 +42,6 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'django': ('http://docs.djangoproject.com/en/dev/', 'http://docs.djangoproject.com/en/dev/_objects/'),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
-    'numpy': ('https://numpy.org/doc/stable/', None),
-    'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
-    'matplotlib': ('https://matplotlib.org/stable/contents.html', None),
-    'pandas': ('https://pandas.pydata.org/docs/', None),
     'requests': ('https://docs.python-requests.org/en/latest/', None),
 }
 

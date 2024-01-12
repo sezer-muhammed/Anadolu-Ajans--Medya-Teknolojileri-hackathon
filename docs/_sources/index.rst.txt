@@ -21,7 +21,16 @@ Mozaik: Revolutionizing Content Creation with AI
    :maxdepth: 1
 
    seramik/intro
-   seramik/api
+
+
+   api/api_text_image_upload
+   api/api_seramik_upload
+
+   api/api_text_image_examples
+   api/api_seramik_examples
+
+   api/api_seramik_faq
+   api/api_text_image_faq
    seramik/releasenotes
 
 Indices and Tables

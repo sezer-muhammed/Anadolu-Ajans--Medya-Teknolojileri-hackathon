@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ for InputRecord API &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FAQ for Text and Image Upload API" href="api_text_image_faq.html" />
+    <link rel="prev" title="InputRecord API Examples" href="api_seramik_examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../seramik/intro.html">Seramik Object Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_text_image_upload.html">Text and Image Upload API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_seramik_upload.html">InputRecord API Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_text_image_examples.html">Text and Image Upload API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_seramik_examples.html">InputRecord API Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ for InputRecord API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#q1-what-is-the-inputrecord-api">Q1: What is the InputRecord API?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q2-how-do-i-authenticate-to-use-the-inputrecord-api">Q2: How do I authenticate to use the InputRecord API?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q3-can-i-upload-images-or-other-media-types">Q3: Can I upload images or other media types?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q4-what-kind-of-analysis-can-i-expect-from-the-ai-analysis-component">Q4: What kind of analysis can I expect from the AI Analysis component?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q5-is-there-a-limit-to-the-size-of-the-content-i-can-analyze">Q5: Is there a limit to the size of the content I can analyze?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q6-how-can-i-update-or-delete-an-existing-record">Q6: How can I update or delete an existing record?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q7-are-there-rate-limits-on-api-usage">Q7: Are there rate limits on API usage?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q8-how-is-the-data-secured-in-the-api">Q8: How is the data secured in the API?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q9-can-i-access-historical-data-or-only-recent-inputs">Q9: Can I access historical data or only recent inputs?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q10-what-should-i-do-if-i-experience-issues-with-the-api">Q10: What should I do if I experience issues with the API?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_text_image_faq.html">FAQ for Text and Image Upload API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FAQ for InputRecord API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/api_seramik_faq.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="faq-for-inputrecord-api">
+<h1>FAQ for InputRecord API<a class="headerlink" href="#faq-for-inputrecord-api" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#q1-what-is-the-inputrecord-api" id="id1">Q1: What is the InputRecord API?</a></p></li>
+<li><p><a class="reference internal" href="#q2-how-do-i-authenticate-to-use-the-inputrecord-api" id="id2">Q2: How do I authenticate to use the InputRecord API?</a></p></li>
+<li><p><a class="reference internal" href="#q3-can-i-upload-images-or-other-media-types" id="id3">Q3: Can I upload images or other media types?</a></p></li>
+<li><p><a class="reference internal" href="#q4-what-kind-of-analysis-can-i-expect-from-the-ai-analysis-component" id="id4">Q4: What kind of analysis can I expect from the AI Analysis component?</a></p></li>
+<li><p><a class="reference internal" href="#q5-is-there-a-limit-to-the-size-of-the-content-i-can-analyze" id="id5">Q5: Is there a limit to the size of the content I can analyze?</a></p></li>
+<li><p><a class="reference internal" href="#q6-how-can-i-update-or-delete-an-existing-record" id="id6">Q6: How can I update or delete an existing record?</a></p></li>
+<li><p><a class="reference internal" href="#q7-are-there-rate-limits-on-api-usage" id="id7">Q7: Are there rate limits on API usage?</a></p></li>
+<li><p><a class="reference internal" href="#q8-how-is-the-data-secured-in-the-api" id="id8">Q8: How is the data secured in the API?</a></p></li>
+<li><p><a class="reference internal" href="#q9-can-i-access-historical-data-or-only-recent-inputs" id="id9">Q9: Can I access historical data or only recent inputs?</a></p></li>
+<li><p><a class="reference internal" href="#q10-what-should-i-do-if-i-experience-issues-with-the-api" id="id10">Q10: What should I do if I experience issues with the API?</a></p></li>
+</ul>
+</nav>
+<section id="q1-what-is-the-inputrecord-api">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Q1: What is the InputRecord API?</a><a class="headerlink" href="#q1-what-is-the-inputrecord-api" title="Link to this heading"></a></h2>
+<p>A: The InputRecord API is designed to manage and analyze various types of input records, including articles, tweets, reports, and images. It provides detailed analysis through fields such as source information, content analysis, AI detection, and additional metadata.</p>
+</section>
+<section id="q2-how-do-i-authenticate-to-use-the-inputrecord-api">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Q2: How do I authenticate to use the InputRecord API?</a><a class="headerlink" href="#q2-how-do-i-authenticate-to-use-the-inputrecord-api" title="Link to this heading"></a></h2>
+<p>A: The API uses session-based authentication. You must first log in to establish a session. This can be done through the <cite>/api-auth/login/</cite> endpoint, using your username and password.</p>
+</section>
+<section id="q3-can-i-upload-images-or-other-media-types">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Q3: Can I upload images or other media types?</a><a class="headerlink" href="#q3-can-i-upload-images-or-other-media-types" title="Link to this heading"></a></h2>
+<p>A: While the primary focus is on textual content, the API can be adapted to handle various input types, including images and multimedia. Ensure your input conforms to the specified <cite>input_type</cite> field when creating a record.</p>
+</section>
+<section id="q4-what-kind-of-analysis-can-i-expect-from-the-ai-analysis-component">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Q4: What kind of analysis can I expect from the AI Analysis component?</a><a class="headerlink" href="#q4-what-kind-of-analysis-can-i-expect-from-the-ai-analysis-component" title="Link to this heading"></a></h2>
+<p>A: The AI Analysis component offers emotion analysis, object detection, and text extraction. It can identify key emotions, detect and analyze objects in media, and extract relevant text segments for further analysis.</p>
+</section>
+<section id="q5-is-there-a-limit-to-the-size-of-the-content-i-can-analyze">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Q5: Is there a limit to the size of the content I can analyze?</a><a class="headerlink" href="#q5-is-there-a-limit-to-the-size-of-the-content-i-can-analyze" title="Link to this heading"></a></h2>
+<p>A: The API is optimized for standard lengths of content such as articles or reports. If you’re dealing with unusually large datasets, consider breaking them down into smaller segments for more efficient processing.</p>
+</section>
+<section id="q6-how-can-i-update-or-delete-an-existing-record">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Q6: How can I update or delete an existing record?</a><a class="headerlink" href="#q6-how-can-i-update-or-delete-an-existing-record" title="Link to this heading"></a></h2>
+<p>A: You can update or delete records using the PUT/PATCH and DELETE HTTP methods, respectively. Make sure you have the necessary permissions and the specific ID of the record you want to modify or delete.</p>
+</section>
+<section id="q7-are-there-rate-limits-on-api-usage">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Q7: Are there rate limits on API usage?</a><a class="headerlink" href="#q7-are-there-rate-limits-on-api-usage" title="Link to this heading"></a></h2>
+<p>A: Currently, there are no strict rate limits. However, excessive or abusive use may lead to limitations being imposed. Please use the API responsibly.</p>
+</section>
+<section id="q8-how-is-the-data-secured-in-the-api">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Q8: How is the data secured in the API?</a><a class="headerlink" href="#q8-how-is-the-data-secured-in-the-api" title="Link to this heading"></a></h2>
+<p>A: Data security is a top priority. The API employs robust security measures including HTTPS for data transmission and rigorous authentication protocols. However, it’s recommended not to upload highly sensitive or personal information.</p>
+</section>
+<section id="q9-can-i-access-historical-data-or-only-recent-inputs">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Q9: Can I access historical data or only recent inputs?</a><a class="headerlink" href="#q9-can-i-access-historical-data-or-only-recent-inputs" title="Link to this heading"></a></h2>
+<p>A: The API provides access to all stored data, regardless of when it was input. You can retrieve historical records as long as they are stored in the system.</p>
+</section>
+<section id="q10-what-should-i-do-if-i-experience-issues-with-the-api">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Q10: What should I do if I experience issues with the API?</a><a class="headerlink" href="#q10-what-should-i-do-if-i-experience-issues-with-the-api" title="Link to this heading"></a></h2>
+<p>A: If you encounter any issues or have questions, please reach out to our support team. Provide detailed information about your issue for a quicker resolution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This FAQ is for general guidance only. For specific use cases or detailed questions, refer to the comprehensive API documentation or contact our support team.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api_seramik_examples.html" class="btn btn-neutral float-left" title="InputRecord API Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api_text_image_faq.html" class="btn btn-neutral float-right" title="FAQ for Text and Image Upload API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
