@@ -18,9 +18,7 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Meta Models Management Package Documentation" href="meta_models_management.html" />
-    <link rel="prev" title="Control Net: Advanced AI-Powered Content Moderation for Mozaik" href="../models/controlnet.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,98 +40,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/whisper.html">Whisper API: Enhancing Mozaik with Advanced Voice Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Package Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#admin-module">admin Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.admin.ImageUploadAdmin"><code class="docutils literal notranslate"><span class="pre">ImageUploadAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#api.admin.TextUploadAdmin"><code class="docutils literal notranslate"><span class="pre">TextUploadAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#api.admin.VoiceUploadAdmin"><code class="docutils literal notranslate"><span class="pre">VoiceUploadAdmin</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#apps-module">apps Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.apps.ApiConfig"><code class="docutils literal notranslate"><span class="pre">ApiConfig</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#models-module">models Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.models.ImageUpload"><code class="docutils literal notranslate"><span class="pre">ImageUpload</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ImageUpload.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ImageUpload.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.ImageUpload.save"><code class="docutils literal notranslate"><span class="pre">ImageUpload.save()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.models.TextUpload"><code class="docutils literal notranslate"><span class="pre">TextUpload</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">TextUpload.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">TextUpload.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.TextUpload.save"><code class="docutils literal notranslate"><span class="pre">TextUpload.save()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.models.VoiceUpload"><code class="docutils literal notranslate"><span class="pre">VoiceUpload</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.models.VoiceUpload.save"><code class="docutils literal notranslate"><span class="pre">VoiceUpload.save()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#serializers-module">serializers Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.serializers.ImageUploadSerializer"><code class="docutils literal notranslate"><span class="pre">ImageUploadSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#api.serializers.TextUploadSerializer"><code class="docutils literal notranslate"><span class="pre">TextUploadSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#api.serializers.VoiceUploadSerializer"><code class="docutils literal notranslate"><span class="pre">VoiceUploadSerializer</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-module">tests Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.tests.ImageUploadTestCase"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.ImageUploadTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase.setUp()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.ImageUploadTestCase.tearDown"><code class="docutils literal notranslate"><span class="pre">ImageUploadTestCase.tearDown()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.tests.TextUploadTestCase"><code class="docutils literal notranslate"><span class="pre">TextUploadTestCase</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.TextUploadTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">TextUploadTestCase.setUp()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.tests.VoiceUploadTestCase"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.VoiceUploadTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase.setUp()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api.tests.VoiceUploadTestCase.tearDown"><code class="docutils literal notranslate"><span class="pre">VoiceUploadTestCase.tearDown()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#urls-module">urls Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#validators-module">validators Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.validators.validate_file_extension"><code class="docutils literal notranslate"><span class="pre">validate_file_extension()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#views-module">views Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api.views.ImageUploadViewSet"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.ImageUploadViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">ImageUploadViewSet.serializer_class</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.views.InputRecordViewSet"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.InputRecordViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">InputRecordViewSet.serializer_class</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.views.TextUploadViewSet"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.TextUploadViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">TextUploadViewSet.serializer_class</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#api.views.VoiceUploadViewSet"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api.views.VoiceUploadViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">VoiceUploadViewSet.serializer_class</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module Contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="meta_models_management.html">Meta Models Management Package Documentation</a></li>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/intro.html">Seramik Object Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/api.html">API Reference: InputRecords Endpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/releasenotes.html">Release Notes for Seramik</a></li>
 </ul>
 
         </div>
@@ -463,10 +382,7 @@ None</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../models/controlnet.html" class="btn btn-neutral float-left" title="Control Net: Advanced AI-Powered Content Moderation for Mozaik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="meta_models_management.html" class="btn btn-neutral float-right" title="Meta Models Management Package Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

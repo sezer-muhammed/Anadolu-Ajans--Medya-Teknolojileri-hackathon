@@ -12,11 +12,17 @@ Mozaik: Revolutionizing Content Creation with AI
 
    models/comfyui
    models/chatgpt
-   models/whisper
    models/gemini
    models/stablediffusion
    models/controlnet
 
+.. toctree::
+   :caption: Contents:
+   :maxdepth: 1
+
+   seramik/intro
+   seramik/api
+   seramik/releasenotes
 
 Indices and Tables
 ==================

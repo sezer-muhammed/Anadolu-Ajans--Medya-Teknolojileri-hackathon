@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference: InputRecords Endpoint &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release Notes for Seramik" href="releasenotes.html" />
+    <link rel="prev" title="Seramik Object Features" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Seramik Object Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference: InputRecords Endpoint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#endpoint-overview">Endpoint Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication-and-permissions">Authentication and Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#json-request-structure-for-post">JSON Request Structure for POST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-usage-for-post">Example Usage for POST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-usage-for-get">Example Usage for GET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#retrieving-a-specific-inputrecord-get">Retrieving a Specific InputRecord (GET)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-usage-for-retrieving-a-specific-record">Example Usage for Retrieving a Specific Record</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference: InputRecords Endpoint</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/seramik/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference-inputrecords-endpoint">
+<h1>API Reference: InputRecords Endpoint<a class="headerlink" href="#api-reference-inputrecords-endpoint" title="Link to this heading"></a></h1>
+<section id="endpoint-overview">
+<h2>Endpoint Overview<a class="headerlink" href="#endpoint-overview" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>URL</strong>: <cite>/api/inputrecords</cite></p></li>
+<li><p><strong>Method</strong>: <cite>GET</cite>, <cite>POST</cite></p></li>
+<li><p><strong>Authentication</strong>: Required (Session Authentication)</p></li>
+<li><p><strong>Permission</strong>: Only Authenticated Users</p></li>
+</ul>
+</section>
+<section id="authentication-and-permissions">
+<h2>Authentication and Permissions<a class="headerlink" href="#authentication-and-permissions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The endpoint requires users to be authenticated using Session Authentication.</p></li>
+<li><p>Only authenticated users with valid permissions can access this endpoint.</p></li>
+</ul>
+</section>
+<section id="json-request-structure-for-post">
+<h2>JSON Request Structure for POST<a class="headerlink" href="#json-request-structure-for-post" title="Link to this heading"></a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;instructions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generate a detailed and realistic JSON response for an input record. Each field should contain relevant and contextually appropriate data. Reflect a scenario where the input is an article or a document being analyzed for content, source, sentiment, and other metadata.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;input_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Unique Identifier for the Input Record&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Type of Input (e.g., article, tweet, report, image, voice, )&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Timestamp of the Input Creation in ISO 8601 format&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;source_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Name of the Source (e.g., publication, website, author)&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;City where the source is located&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Country where the source is located&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Latitude of the Source&gt;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Longitude of the Source&gt;&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;content_analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;detailed_description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;A detailed description of the content&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;A concise summary of the content&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;keywords&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Primary Keyword 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Primary Keyword 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Keep adding primary keywords here...&gt;&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ai_analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;emotion_analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;associated_emotions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;emotion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Primary Emotion Detected&gt;&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;emotion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Secondary Emotion Detected&gt;&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;emotion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Keep adding emotions here...&gt;&quot;</span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;object_detection&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Name of the Detected Object&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Detection Status&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Recommended Action&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Another Detected Object&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Detection Status&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Recommended Action&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding detected objects here...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Detection Status&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Recommended Action&gt;&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;text_extraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Extracted Text Segment 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Extracted Text Segment 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding extracted text segments here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;additional_metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source_attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Attribute of the Source 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Attribute of the Source 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding attributes here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;content_themes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;theme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Main Theme of the Content 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;theme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Main Theme of the Content 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;theme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding themes here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;audience&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;audience_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Intended Audience Type 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;audience_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Intended Audience Type 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;audience_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding audience types here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;geographic_relevance&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;geography&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Geographic Area Relevant to the Content 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;geography&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Geographic Area Relevant to the Content 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;geography&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding geographic areas here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;temporal_relevance&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;temporal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Relevant Time Period or Date 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;temporal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Relevant Time Period or Date 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;temporal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding relevant time periods or dates here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;technical_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Technical Complexity Level of the Content 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Technical Complexity Level of the Content 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding technical complexity levels here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;sentiment_trends&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;trend&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Predominant Sentiment Trend in the Content 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;trend&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Predominant Sentiment Trend in the Content 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;trend&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding sentiment trends here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;influencer_tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Tag Related to Key Influencers or Stakeholders 1&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Tag Related to Key Influencers or Stakeholders 2&gt;&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keep adding tags here...&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="example-usage-for-post">
+<h2>Example Usage for POST<a class="headerlink" href="#example-usage-for-post" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example usage in a Django view</span>
+<span class="n">serializer</span> <span class="o">=</span> <span class="n">InputRecordSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+    <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="example-usage-for-get">
+<h2>Example Usage for GET<a class="headerlink" href="#example-usage-for-get" title="Link to this heading"></a></h2>
+<p>To retrieve existing <cite>InputRecord</cite> data using the API:</p>
+<ol class="arabic simple">
+<li><p>Make a GET request to the endpoint: <cite>/api/inputrecords</cite>.</p></li>
+<li><p>Include appropriate authentication headers based on the Session Authentication method.</p></li>
+</ol>
+<p>Example using <cite>curl</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>http://&lt;your_domain&gt;/api/inputrecords
+</pre></div>
+</div>
+<p>This command sends a GET request to the <cite>/api/inputrecords</cite> endpoint. Replace <cite>YOUR_API_TOKEN</cite> with your actual API token and <cite>&lt;your_domain&gt;</cite> with your API’s domain. The response will be a list of <cite>InputRecord</cite> objects in JSON format, assuming the request is authenticated and authorized.</p>
+</section>
+<section id="retrieving-a-specific-inputrecord-get">
+<h2>Retrieving a Specific InputRecord (GET)<a class="headerlink" href="#retrieving-a-specific-inputrecord-get" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>To retrieve a specific <cite>InputRecord</cite> by its index or ID, make a GET request to <cite>/api/inputrecords/&lt;id&gt;</cite>.</p></li>
+<li><p>The URL parameter <cite>&lt;id&gt;</cite> should be replaced with the actual ID of the <cite>InputRecord</cite>.</p></li>
+<li><p>This request returns a single <cite>InputRecord</cite> object, provided the user has the necessary permissions and is authenticated.</p></li>
+</ul>
+</section>
+<section id="example-usage-for-retrieving-a-specific-record">
+<h2>Example Usage for Retrieving a Specific Record<a class="headerlink" href="#example-usage-for-retrieving-a-specific-record" title="Link to this heading"></a></h2>
+<p>Using <cite>curl</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>http://&lt;your_domain&gt;/api/inputrecords/&lt;id&gt;
+</pre></div>
+</div>
+<p>Replace <cite>&lt;your_domain&gt;</cite> with your API’s domain, and <cite>&lt;id&gt;</cite> with the ID of the specific <cite>InputRecord</cite> you want to retrieve. The response will be the <cite>InputRecord</cite> object in JSON format if the ID is valid and the request is authorized.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Seramik Object Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="releasenotes.html" class="btn btn-neutral float-right" title="Release Notes for Seramik" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

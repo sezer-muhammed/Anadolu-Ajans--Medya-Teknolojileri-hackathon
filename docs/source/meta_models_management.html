@@ -18,8 +18,7 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="API Package Documentation" href="api.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,251 +40,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/whisper.html">Whisper API: Enhancing Mozaik with Advanced Voice Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Package Documentation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Meta Models Management Package Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#admin-module">Admin Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.AIDetectionAdmin"><code class="docutils literal notranslate"><span class="pre">AIDetectionAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.AIDetectionAdmin.emotion_analysis_preview"><code class="docutils literal notranslate"><span class="pre">AIDetectionAdmin.emotion_analysis_preview()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.AIDetectionAdmin.get_search_results"><code class="docutils literal notranslate"><span class="pre">AIDetectionAdmin.get_search_results()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.AdditionalMetadataAdmin"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadataAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.AdditionalMetadataAdmin.get_search_results"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadataAdmin.get_search_results()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.AssociatedEmotionAdmin"><code class="docutils literal notranslate"><span class="pre">AssociatedEmotionAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.AudienceAdmin"><code class="docutils literal notranslate"><span class="pre">AudienceAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.ContentAnalysisAdmin"><code class="docutils literal notranslate"><span class="pre">ContentAnalysisAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.ContentAnalysisAdmin.get_search_results"><code class="docutils literal notranslate"><span class="pre">ContentAnalysisAdmin.get_search_results()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.ContentThemeAdmin"><code class="docutils literal notranslate"><span class="pre">ContentThemeAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.EmotionAnalysisAdmin"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysisAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.EmotionAnalysisAdmin.get_search_results"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysisAdmin.get_search_results()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.GeographicRelevanceAdmin"><code class="docutils literal notranslate"><span class="pre">GeographicRelevanceAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.InfluencerTagAdmin"><code class="docutils literal notranslate"><span class="pre">InfluencerTagAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.InputRecordAdmin"><code class="docutils literal notranslate"><span class="pre">InputRecordAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.InputRecordAdmin.get_search_results"><code class="docutils literal notranslate"><span class="pre">InputRecordAdmin.get_search_results()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.KeywordAdmin"><code class="docutils literal notranslate"><span class="pre">KeywordAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.ObjectAdmin"><code class="docutils literal notranslate"><span class="pre">ObjectAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.SentimentTrendAdmin"><code class="docutils literal notranslate"><span class="pre">SentimentTrendAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.SourceAttributeAdmin"><code class="docutils literal notranslate"><span class="pre">SourceAttributeAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.SourceInfoAdmin"><code class="docutils literal notranslate"><span class="pre">SourceInfoAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.SourceLocationAdmin"><code class="docutils literal notranslate"><span class="pre">SourceLocationAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.TechnicalLevelAdmin"><code class="docutils literal notranslate"><span class="pre">TechnicalLevelAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.TemporalRelevanceAdmin"><code class="docutils literal notranslate"><span class="pre">TemporalRelevanceAdmin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.admin.TextExtractionAdmin"><code class="docutils literal notranslate"><span class="pre">TextExtractionAdmin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.admin.TextExtractionAdmin.text_excerpt"><code class="docutils literal notranslate"><span class="pre">TextExtractionAdmin.text_excerpt()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#apps-module">Apps Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.apps.MetaModelsManagementConfig"><code class="docutils literal notranslate"><span class="pre">MetaModelsManagementConfig</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#forms-module">Forms Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.forms.CombinedUploadForm"><code class="docutils literal notranslate"><span class="pre">CombinedUploadForm</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.forms.CombinedUploadForm.media"><code class="docutils literal notranslate"><span class="pre">CombinedUploadForm.media</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.forms.CombinedUploadForm.save"><code class="docutils literal notranslate"><span class="pre">CombinedUploadForm.save()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.forms.SearchForm"><code class="docutils literal notranslate"><span class="pre">SearchForm</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.forms.SearchForm.media"><code class="docutils literal notranslate"><span class="pre">SearchForm.media</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#models-module">Models Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.AIDetection"><code class="docutils literal notranslate"><span class="pre">AIDetection</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AIDetection.__str__"><code class="docutils literal notranslate"><span class="pre">AIDetection.__str__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AIDetection.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">AIDetection.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AIDetection.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">AIDetection.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">AIDetection.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.AdditionalMetadata"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadata</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AdditionalMetadata.__str__"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadata.__str__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AdditionalMetadata.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadata.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AdditionalMetadata.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadata.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadata.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.AssociatedEmotion"><code class="docutils literal notranslate"><span class="pre">AssociatedEmotion</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AssociatedEmotion.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">AssociatedEmotion.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AssociatedEmotion.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">AssociatedEmotion.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.AssociatedEmotion.__str__"><code class="docutils literal notranslate"><span class="pre">AssociatedEmotion.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.Audience"><code class="docutils literal notranslate"><span class="pre">Audience</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Audience.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Audience.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Audience.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Audience.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Audience.__str__"><code class="docutils literal notranslate"><span class="pre">Audience.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.ContentAnalysis"><code class="docutils literal notranslate"><span class="pre">ContentAnalysis</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.ContentAnalysis.__str__"><code class="docutils literal notranslate"><span class="pre">ContentAnalysis.__str__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.ContentAnalysis.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ContentAnalysis.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.ContentAnalysis.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ContentAnalysis.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">ContentAnalysis.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.ContentTheme"><code class="docutils literal notranslate"><span class="pre">ContentTheme</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.ContentTheme.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ContentTheme.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.ContentTheme.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ContentTheme.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.ContentTheme.__str__"><code class="docutils literal notranslate"><span class="pre">ContentTheme.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.EmotionAnalysis"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysis</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.EmotionAnalysis.__str__"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysis.__str__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.EmotionAnalysis.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysis.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.EmotionAnalysis.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysis.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysis.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.GeographicRelevance"><code class="docutils literal notranslate"><span class="pre">GeographicRelevance</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.GeographicRelevance.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">GeographicRelevance.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.GeographicRelevance.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">GeographicRelevance.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.GeographicRelevance.__str__"><code class="docutils literal notranslate"><span class="pre">GeographicRelevance.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.InfluencerTag"><code class="docutils literal notranslate"><span class="pre">InfluencerTag</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.InfluencerTag.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">InfluencerTag.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.InfluencerTag.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">InfluencerTag.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.InfluencerTag.__str__"><code class="docutils literal notranslate"><span class="pre">InfluencerTag.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.InputRecord"><code class="docutils literal notranslate"><span class="pre">InputRecord</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.InputRecord.__str__"><code class="docutils literal notranslate"><span class="pre">InputRecord.__str__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.InputRecord.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">InputRecord.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.InputRecord.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">InputRecord.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">InputRecord.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.Keyword"><code class="docutils literal notranslate"><span class="pre">Keyword</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Keyword.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Keyword.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Keyword.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Keyword.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Keyword.__str__"><code class="docutils literal notranslate"><span class="pre">Keyword.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.Object"><code class="docutils literal notranslate"><span class="pre">Object</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Object.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Object.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Object.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Object.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.Object.__str__"><code class="docutils literal notranslate"><span class="pre">Object.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.SentimentTrend"><code class="docutils literal notranslate"><span class="pre">SentimentTrend</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SentimentTrend.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">SentimentTrend.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SentimentTrend.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">SentimentTrend.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SentimentTrend.__str__"><code class="docutils literal notranslate"><span class="pre">SentimentTrend.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.SourceAttribute"><code class="docutils literal notranslate"><span class="pre">SourceAttribute</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceAttribute.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">SourceAttribute.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceAttribute.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">SourceAttribute.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceAttribute.__str__"><code class="docutils literal notranslate"><span class="pre">SourceAttribute.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.SourceInfo"><code class="docutils literal notranslate"><span class="pre">SourceInfo</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceInfo.__str__"><code class="docutils literal notranslate"><span class="pre">SourceInfo.__str__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceInfo.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">SourceInfo.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceInfo.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">SourceInfo.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">SourceInfo.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.SourceLocation"><code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceLocation.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">SourceLocation.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceLocation.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">SourceLocation.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.SourceLocation.__str__"><code class="docutils literal notranslate"><span class="pre">SourceLocation.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.TechnicalLevel"><code class="docutils literal notranslate"><span class="pre">TechnicalLevel</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TechnicalLevel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">TechnicalLevel.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TechnicalLevel.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">TechnicalLevel.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TechnicalLevel.__str__"><code class="docutils literal notranslate"><span class="pre">TechnicalLevel.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.TemporalRelevance"><code class="docutils literal notranslate"><span class="pre">TemporalRelevance</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TemporalRelevance.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">TemporalRelevance.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TemporalRelevance.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">TemporalRelevance.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TemporalRelevance.__str__"><code class="docutils literal notranslate"><span class="pre">TemporalRelevance.__str__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.models.TextExtraction"><code class="docutils literal notranslate"><span class="pre">TextExtraction</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TextExtraction.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">TextExtraction.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TextExtraction.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">TextExtraction.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.models.TextExtraction.__str__"><code class="docutils literal notranslate"><span class="pre">TextExtraction.__str__()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#serializers-module">Serializers Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.AIDetectionSerializer"><code class="docutils literal notranslate"><span class="pre">AIDetectionSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.AdditionalMetadataSerializer"><code class="docutils literal notranslate"><span class="pre">AdditionalMetadataSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.AssociatedEmotionSerializer"><code class="docutils literal notranslate"><span class="pre">AssociatedEmotionSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.AudienceSerializer"><code class="docutils literal notranslate"><span class="pre">AudienceSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.ContentAnalysisSerializer"><code class="docutils literal notranslate"><span class="pre">ContentAnalysisSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.ContentThemeSerializer"><code class="docutils literal notranslate"><span class="pre">ContentThemeSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.EmotionAnalysisSerializer"><code class="docutils literal notranslate"><span class="pre">EmotionAnalysisSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.GeographicRelevanceSerializer"><code class="docutils literal notranslate"><span class="pre">GeographicRelevanceSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.InfluencerTagSerializer"><code class="docutils literal notranslate"><span class="pre">InfluencerTagSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.InputRecordSerializer"><code class="docutils literal notranslate"><span class="pre">InputRecordSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.serializers.InputRecordSerializer.create"><code class="docutils literal notranslate"><span class="pre">InputRecordSerializer.create()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">InputRecordSerializer.create()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.KeywordSerializer"><code class="docutils literal notranslate"><span class="pre">KeywordSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.ObjectSerializer"><code class="docutils literal notranslate"><span class="pre">ObjectSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.SentimentTrendSerializer"><code class="docutils literal notranslate"><span class="pre">SentimentTrendSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.SourceAttributeSerializer"><code class="docutils literal notranslate"><span class="pre">SourceAttributeSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.SourceInfoSerializer"><code class="docutils literal notranslate"><span class="pre">SourceInfoSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.SourceLocationSerializer"><code class="docutils literal notranslate"><span class="pre">SourceLocationSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.TechnicalLevelSerializer"><code class="docutils literal notranslate"><span class="pre">TechnicalLevelSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.TemporalRelevanceSerializer"><code class="docutils literal notranslate"><span class="pre">TemporalRelevanceSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.serializers.TextExtractionSerializer"><code class="docutils literal notranslate"><span class="pre">TextExtractionSerializer</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-module">Tests Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.tests.InputRecordSerializerTestCase"><code class="docutils literal notranslate"><span class="pre">InputRecordSerializerTestCase</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.tests.InputRecordSerializerTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">InputRecordSerializerTestCase.setUp()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.tests.InputRecordSerializerTestCase.test_api_create_input_record"><code class="docutils literal notranslate"><span class="pre">InputRecordSerializerTestCase.test_api_create_input_record()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.tests.InputRecordSerializerTestCase.test_save_and_retrieve_record"><code class="docutils literal notranslate"><span class="pre">InputRecordSerializerTestCase.test_save_and_retrieve_record()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#urls-module">URLs Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#views-module">Views Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.views.HomeView"><code class="docutils literal notranslate"><span class="pre">HomeView</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.views.HomeView.get"><code class="docutils literal notranslate"><span class="pre">HomeView.get()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.views.HomeView.post"><code class="docutils literal notranslate"><span class="pre">HomeView.post()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#meta_models_management.views.SmartSearch"><code class="docutils literal notranslate"><span class="pre">SmartSearch</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.views.SmartSearch.apply_multichoice_filters"><code class="docutils literal notranslate"><span class="pre">SmartSearch.apply_multichoice_filters()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.views.SmartSearch.get"><code class="docutils literal notranslate"><span class="pre">SmartSearch.get()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meta_models_management.views.SmartSearch.post"><code class="docutils literal notranslate"><span class="pre">SmartSearch.post()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module Contents</a></li>
-</ul>
-</li>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/intro.html">Seramik Object Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/api.html">API Reference: InputRecords Endpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/releasenotes.html">Release Notes for Seramik</a></li>
 </ul>
 
         </div>
@@ -2054,9 +1821,7 @@ re-renders the search page with form errors if the form is invalid.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="api.html" class="btn btn-neutral float-left" title="API Package Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
+          <footer>
 
   <hr/>
 
