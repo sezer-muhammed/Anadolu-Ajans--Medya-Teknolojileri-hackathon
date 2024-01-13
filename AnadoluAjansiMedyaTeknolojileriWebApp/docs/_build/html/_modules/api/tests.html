@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>api.tests &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/intro.html">Seramik Object Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_upload.html">Text and Image Upload API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_upload.html">InputRecord API Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_examples.html">Text and Image Upload API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_examples.html">InputRecord API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_faq.html">FAQ for InputRecord API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_faq.html">FAQ for Text and Image Upload API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">api.tests</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for api.tests</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">django.core.files</span> <span class="kn">import</span> <span class="n">File</span>  <span class="c1"># Import the File class</span>
+<span class="kn">from</span> <span class="nn">django.core.files.uploadedfile</span> <span class="kn">import</span> <span class="n">SimpleUploadedFile</span>
+<span class="kn">from</span> <span class="nn">rest_framework.test</span> <span class="kn">import</span> <span class="n">APITestCase</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Faker</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">ImageUpload</span><span class="p">,</span> <span class="n">TextUpload</span><span class="p">,</span> <span class="n">VoiceUpload</span>
+
+
+<div class="viewcode-block" id="ImageUploadTestCase">
+<a class="viewcode-back" href="../../source/api.html#api.tests.ImageUploadTestCase">[docs]</a>
+<span class="k">class</span> <span class="nc">ImageUploadTestCase</span><span class="p">(</span><span class="n">APITestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="ImageUploadTestCase.setUp">
+<a class="viewcode-back" href="../../source/api.html#api.tests.ImageUploadTestCase.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;testuser&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;testuser&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Define the path to your sample image</span>
+        <span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="n">image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s2">&quot;api&quot;</span><span class="p">,</span> <span class="s2">&quot;test_media&quot;</span><span class="p">,</span> <span class="s2">&quot;base_test_image.jpg&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Open the sample image and read it</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">SimpleUploadedFile</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;test_image.jpg&quot;</span><span class="p">,</span>
+                <span class="n">content</span><span class="o">=</span><span class="n">image_file</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s2">&quot;image/jpeg&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;/api/images/&quot;</span></div>
+
+
+    <span class="k">def</span> <span class="nf">test_create_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Test creating an image through the API</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">ImageUpload</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_retrieve_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Test retrieving images through the API</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">})</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ImageUploadTestCase.tearDown">
+<a class="viewcode-back" href="../../source/api.html#api.tests.ImageUploadTestCase.tearDown">[docs]</a>
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Define the path to your media/images folder</span>
+        <span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="n">media_image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s2">&quot;media&quot;</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Pattern to match all files starting with &#39;test_&#39; in the media/images directory</span>
+        <span class="n">test_files_pattern</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">media_image_path</span><span class="p">,</span> <span class="s2">&quot;test_*&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Use glob to find all matching files</span>
+        <span class="n">test_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">test_files_pattern</span><span class="p">)</span>
+
+        <span class="c1"># Remove each file</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">test_files</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span>  <span class="c1"># Call the tearDown method of the superclass.</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="TextUploadTestCase">
+<a class="viewcode-back" href="../../source/api.html#api.tests.TextUploadTestCase">[docs]</a>
+<span class="k">class</span> <span class="nc">TextUploadTestCase</span><span class="p">(</span><span class="n">APITestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TextUploadTestCase.setUp">
+<a class="viewcode-back" href="../../source/api.html#api.tests.TextUploadTestCase.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;testuser&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;testuser&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Sample text&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;/api/texts/&quot;</span></div>
+
+
+    <span class="k">def</span> <span class="nf">test_create_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">TextUpload</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_retrieve_texts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">})</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="VoiceUploadTestCase">
+<a class="viewcode-back" href="../../source/api.html#api.tests.VoiceUploadTestCase">[docs]</a>
+<span class="k">class</span> <span class="nc">VoiceUploadTestCase</span><span class="p">(</span><span class="n">APITestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="VoiceUploadTestCase.setUp">
+<a class="viewcode-back" href="../../source/api.html#api.tests.VoiceUploadTestCase.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;testuser&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;testuser&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Initialize Faker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">voice_file</span> <span class="o">=</span> <span class="n">SimpleUploadedFile</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;test_voice.mp3&quot;</span><span class="p">,</span>
+            <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Some audio content&quot;</span><span class="p">,</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s2">&quot;audio/mpeg&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;/api/voices/&quot;</span></div>
+
+
+    <span class="k">def</span> <span class="nf">test_create_voice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Use Faker to generate random text</span>
+        <span class="n">fake_transcript</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fake</span><span class="o">.</span><span class="n">paragraph</span><span class="p">(</span><span class="n">nb_sentences</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;voice_file&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">voice_file</span><span class="p">,</span> <span class="s2">&quot;transcript&quot;</span><span class="p">:</span> <span class="n">fake_transcript</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">VoiceUpload</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">voice_upload</span> <span class="o">=</span> <span class="n">VoiceUpload</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">voice_upload</span><span class="o">.</span><span class="n">transcript</span><span class="p">,</span> <span class="n">fake_transcript</span>
+        <span class="p">)</span>  <span class="c1"># Check if the transcript matches the fake one</span>
+
+    <span class="k">def</span> <span class="nf">test_retrieve_voices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">fake_transcript</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fake</span><span class="o">.</span><span class="n">paragraph</span><span class="p">(</span><span class="n">nb_sentences</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;voice_file&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">voice_file</span><span class="p">,</span> <span class="s2">&quot;transcript&quot;</span><span class="p">:</span> <span class="n">fake_transcript</span><span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VoiceUploadTestCase.tearDown">
+<a class="viewcode-back" href="../../source/api.html#api.tests.VoiceUploadTestCase.tearDown">[docs]</a>
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Define the path to your media/images folder</span>
+        <span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="n">media_image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s2">&quot;media&quot;</span><span class="p">,</span> <span class="s2">&quot;voices&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Pattern to match all files starting with &#39;test_&#39; in the media/images directory</span>
+        <span class="n">test_files_pattern</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">media_image_path</span><span class="p">,</span> <span class="s2">&quot;test_*&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Use glob to find all matching files</span>
+        <span class="n">test_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">test_files_pattern</span><span class="p">)</span>
+
+        <span class="c1"># Remove each file</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">test_files</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span>  <span class="c1"># Call the tearDown method of the superclass.</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

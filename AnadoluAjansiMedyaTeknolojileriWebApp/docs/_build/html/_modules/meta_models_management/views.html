@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>meta_models_management.views &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/intro.html">Seramik Object Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_upload.html">Text and Image Upload API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_upload.html">InputRecord API Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_examples.html">Text and Image Upload API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_examples.html">InputRecord API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_faq.html">FAQ for InputRecord API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_faq.html">FAQ for Text and Image Upload API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">meta_models_management.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for meta_models_management.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">View</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">CombinedUploadForm</span><span class="p">,</span> <span class="n">SearchForm</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">InputRecord</span>
+
+
+<div class="viewcode-block" id="HomeView">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.HomeView">[docs]</a>
+<span class="k">class</span> <span class="nc">HomeView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A view that handles the main page requests for the Meta Models Management module.</span>
+
+<span class="sd">    This view responds to both GET and POST requests.</span>
+<span class="sd">    For GET, it simply displays a form. For POST, it processes submitted data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    View class for the home page.</span>
+
+<span class="sd">    This class handles the GET and POST requests for the home page.</span>
+<span class="sd">    GET request renders the home.html template with a new form instance.</span>
+<span class="sd">    POST request validates the form data, saves the form, and handles file and text uploads.</span>
+<span class="sd">    If the form is valid, it redirects to a new URL or the same URL with a success message.</span>
+<span class="sd">    If the form is not valid, it renders the home.html template with the form and displays errors.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="HomeView.get">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.HomeView.get">[docs]</a>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle GET requests: instantiate a new form instance and render the home page.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        request : HttpRequest</span>
+<span class="sd">            The request object used to generate the HttpResponse.</span>
+<span class="sd">        *args : tuple</span>
+<span class="sd">            Variable length argument list.</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Arbitrary keyword arguments.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        HttpResponse</span>
+<span class="sd">            Rendered web page with the context data (form instance).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CombinedUploadForm</span><span class="p">()</span>  <span class="c1"># Instantiate a new form instance</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/home.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="HomeView.post">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.HomeView.post">[docs]</a>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle POST requests: create a form instance with POST data and files,</span>
+<span class="sd">        then check if it&#39;s valid, save it, and redirect or re-render with errors.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        request : HttpRequest</span>
+<span class="sd">            The request object used to generate the HttpResponse.</span>
+<span class="sd">        *args : tuple</span>
+<span class="sd">            Variable length argument list.</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Arbitrary keyword arguments.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        HttpResponse</span>
+<span class="sd">            Redirects to a new URL on successful form submission or</span>
+<span class="sd">            re-renders the page with form errors if the form is invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CombinedUploadForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># Save the form and handle the file and text uploads</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/meta_models_management/&quot;</span><span class="p">)</span>  <span class="c1"># Redirect to success URL</span>
+
+        <span class="c1"># If the form is not valid, render the page again with the form (errors will show)</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/home.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SmartSearch">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.SmartSearch">[docs]</a>
+<span class="k">class</span> <span class="nc">SmartSearch</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A view that handles smart search requests for input records.</span>
+
+<span class="sd">    It responds to both GET and POST requests. For GET, it displays the search form.</span>
+<span class="sd">    For POST, it processes the form, applies filters based on the input, and returns the search results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SmartSearch.get">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.SmartSearch.get">[docs]</a>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle GET requests: instantiate a new search form instance and render the search page.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        request : HttpRequest</span>
+<span class="sd">            The request object used to generate the HttpResponse.</span>
+<span class="sd">        *args : tuple</span>
+<span class="sd">            Variable length argument list.</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Arbitrary keyword arguments.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        HttpResponse</span>
+<span class="sd">            Rendered web page with the context data (search form instance).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">()</span>  <span class="c1"># Instantiate a new search form instance</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+            <span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/smart_search.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SmartSearch.post">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.SmartSearch.post">[docs]</a>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle POST requests: create a form instance with POST data,</span>
+<span class="sd">        apply dynamic filters based on the form input, and render the results page or re-render with errors.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        request : HttpRequest</span>
+<span class="sd">            The request object used to generate the HttpResponse.</span>
+<span class="sd">        *args : tuple</span>
+<span class="sd">            Variable length argument list.</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Arbitrary keyword arguments.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        HttpResponse</span>
+<span class="sd">            Redirects to the results page with the search results and form data or</span>
+<span class="sd">            re-renders the search page with form errors if the form is invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">input_records_query</span>  <span class="o">=</span> <span class="n">InputRecord</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+            <span class="n">input_records_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_multichoice_filters</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">input_records_query</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/smart_search_results.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;input_records&quot;</span><span class="p">:</span> <span class="n">input_records_query</span> <span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;meta_models_management/smart_search.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+
+        
+<div class="viewcode-block" id="SmartSearch.apply_multichoice_filters">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.views.SmartSearch.apply_multichoice_filters">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">apply_multichoice_filters</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies filters to the queryset based on selected options in multichoice fields of the form.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - form: The submitted Django form with cleaned data.</span>
+<span class="sd">        - queryset: The initial queryset to apply filters on.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - A queryset with applied filters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">):</span>
+                <span class="n">selected_options</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">selected_options</span><span class="p">:</span>
+                    <span class="c1"># Define a mapping from form field names to model field names</span>
+                    <span class="n">field_mapping</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="s1">&#39;content_analysis__keywords&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;emotion&#39;</span><span class="p">:</span> <span class="s1">&#39;ai_analysis__emotion_analysis__associated_emotions&#39;</span><span class="p">,</span>
+                        <span class="c1"># Add other mappings here as needed</span>
+                    <span class="p">}</span>
+                    <span class="n">model_field_name</span> <span class="o">=</span> <span class="n">field_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)</span>
+
+                    <span class="c1"># Constructing the filter argument dynamically</span>
+                    <span class="n">filter_arg</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_field_name</span><span class="si">}</span><span class="s2">__in&quot;</span><span class="p">:</span> <span class="n">selected_options</span><span class="p">}</span>
+
+                    <span class="c1"># Applying the filter</span>
+                    <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">filter_arg</span><span class="p">)</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">queryset</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

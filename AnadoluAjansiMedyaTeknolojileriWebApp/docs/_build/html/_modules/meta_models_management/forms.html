@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>meta_models_management.forms &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/intro.html">Seramik Object Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_upload.html">Text and Image Upload API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_upload.html">InputRecord API Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_examples.html">Text and Image Upload API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_examples.html">InputRecord API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_faq.html">FAQ for InputRecord API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_faq.html">FAQ for Text and Image Upload API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">meta_models_management.forms</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for meta_models_management.forms</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">api.models</span> <span class="kn">import</span> <span class="n">ImageUpload</span><span class="p">,</span> <span class="n">TextUpload</span><span class="p">,</span> <span class="n">VoiceUpload</span>
+<span class="kn">from</span> <span class="nn">django_select2</span> <span class="kn">import</span> <span class="n">forms</span> <span class="k">as</span> <span class="n">s2forms</span>
+<span class="kn">from</span> <span class="nn">django_select2.forms</span> <span class="kn">import</span> <span class="n">Select2MultipleWidget</span><span class="p">,</span> <span class="n">Select2Widget</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Keyword</span><span class="p">,</span>
+    <span class="n">AssociatedEmotion</span><span class="p">,</span>
+    <span class="n">Object</span><span class="p">,</span>
+    <span class="n">TextExtraction</span><span class="p">,</span>
+    <span class="n">SourceAttribute</span><span class="p">,</span>
+    <span class="n">ContentTheme</span><span class="p">,</span>
+    <span class="n">Audience</span><span class="p">,</span>
+    <span class="n">GeographicRelevance</span><span class="p">,</span>
+    <span class="n">TemporalRelevance</span><span class="p">,</span>
+    <span class="n">TechnicalLevel</span><span class="p">,</span>
+    <span class="n">SentimentTrend</span><span class="p">,</span>
+    <span class="n">InfluencerTag</span><span class="p">,</span>
+    <span class="n">SourceInfo</span><span class="p">,</span>
+    <span class="n">ContentAnalysis</span><span class="p">,</span>
+    <span class="n">EmotionAnalysis</span><span class="p">,</span>
+    <span class="n">AIDetection</span><span class="p">,</span>
+    <span class="n">AdditionalMetadata</span><span class="p">,</span>
+    <span class="n">InputRecord</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="CombinedUploadForm">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.forms.CombinedUploadForm">[docs]</a>
+<span class="k">class</span> <span class="nc">CombinedUploadForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A form for handling the combined upload of images, texts, and voice files.</span>
+
+<span class="sd">    This form allows for the upload of multiple files and text blocks, handling each</span>
+<span class="sd">    type of media differently. Images and voices are uploaded as files, while texts</span>
+<span class="sd">    are input as character fields.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    images : FileField</span>
+<span class="sd">        A field for uploading multiple image files. Not required.</span>
+<span class="sd">    texts : CharField</span>
+<span class="sd">        A field for inputting text. Text blocks are split by double new lines. Not required.</span>
+<span class="sd">    voices : FileField</span>
+<span class="sd">        A field for uploading multiple voice files. Not required.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    save(commit=True):</span>
+<span class="sd">        Saves the uploaded files and texts to their respective models. Handles custom</span>
+<span class="sd">        saving logic for multiple files and text blocks.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The actual saving to the database is handled in the custom `save` method, which</span>
+<span class="sd">    needs to be called explicitly after form validation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">images</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">texts</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">voices</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">ImageUpload</span>  <span class="c1"># Just a placeholder, actual save will be custom</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="CombinedUploadForm.save">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.forms.CombinedUploadForm.save">[docs]</a>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Saves the uploaded files and texts to their respective models.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        commit : bool, optional</span>
+<span class="sd">            Whether to commit the save to the database immediately. Default is True.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        object</span>
+<span class="sd">            The instance of the form&#39;s model with the uploaded data saved.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValidationError</span>
+<span class="sd">            If the form is invalid.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method handles custom saving logic for multiple files and text blocks.</span>
+<span class="sd">        Images are saved to the ImageUpload model, texts to the TextUpload model,</span>
+<span class="sd">        and voices to the VoiceUpload model. Texts are split by double new lines</span>
+<span class="sd">        and each non-whitespace block is saved separately.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Custom save method to handle multiple files and texts</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">)</span>
+        <span class="n">texts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;texts&quot;</span><span class="p">)</span>
+        <span class="n">voices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s2">&quot;voices&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Save images</span>
+        <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+            <span class="n">ImageUpload</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">)</span>
+
+        <span class="c1"># Save texts, split by double new lines</span>
+        <span class="k">if</span> <span class="n">texts</span><span class="p">:</span>
+            <span class="n">text_blocks</span> <span class="o">=</span> <span class="n">texts</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_blocks</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>  <span class="c1"># Checking if the text is not just whitespace</span>
+                    <span class="n">TextUpload</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+        <span class="c1"># Save voices</span>
+        <span class="k">for</span> <span class="n">voice</span> <span class="ow">in</span> <span class="n">voices</span><span class="p">:</span>
+            <span class="n">VoiceUpload</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">voice_file</span><span class="o">=</span><span class="n">voice</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SearchForm">
+<a class="viewcode-back" href="../../source/meta_models_management.html#meta_models_management.forms.SearchForm">[docs]</a>
+<span class="k">class</span> <span class="nc">SearchForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A form for conducting complex searches across various related models.</span>
+
+<span class="sd">    This form allows for querying a database using various criteria from different models,</span>
+<span class="sd">    enabling a detailed and refined search process.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_id : CharField</span>
+<span class="sd">        Field for querying by Input ID. Optional.</span>
+<span class="sd">    input_type : CharField</span>
+<span class="sd">        Field for querying by Input Type. Optional.</span>
+<span class="sd">    timestamp : CharField</span>
+<span class="sd">        Field for querying by Timestamp. Optional.</span>
+<span class="sd">    keyword : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting a keyword. Optional.</span>
+<span class="sd">    emotion : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting an associated emotion. Optional.</span>
+<span class="sd">    object_name : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting an object. Optional.</span>
+<span class="sd">    text_extraction : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting text extraction. Optional.</span>
+<span class="sd">    source_attribute : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting a source attribute. Optional.</span>
+<span class="sd">    content_theme : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting a content theme. Optional.</span>
+<span class="sd">    audience_type : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting an audience type. Optional.</span>
+<span class="sd">    geographic_relevance : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting geographic relevance. Optional.</span>
+<span class="sd">    temporal_relevance : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting temporal relevance. Optional.</span>
+<span class="sd">    technical_level : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting a technical level. Optional.</span>
+<span class="sd">    sentiment_trend : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting a sentiment trend. Optional.</span>
+<span class="sd">    influencer_tag : ModelChoiceField</span>
+<span class="sd">        Dropdown for selecting an influencer tag. Optional.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This form does not directly interact with any specific database model but is</span>
+<span class="sd">    designed to facilitate searching across multiple related models. The fields</span>
+<span class="sd">    are meant to correspond with various attributes of the records in the database,</span>
+<span class="sd">    allowing for a multifaceted search.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Fields from InputRecord</span>
+    <span class="n">input_id</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;placeholder&quot;</span><span class="p">:</span> <span class="s2">&quot;Input ID&quot;</span><span class="p">})</span>
+    <span class="p">)</span>
+    <span class="n">input_type</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;placeholder&quot;</span><span class="p">:</span> <span class="s2">&quot;Input Type&quot;</span><span class="p">})</span>
+    <span class="p">)</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;placeholder&quot;</span><span class="p">:</span> <span class="s2">&quot;Timestamp&quot;</span><span class="p">})</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Fields from related models (as examples)</span>
+    <span class="n">keyword</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">Keyword</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> 
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">emotion</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">AssociatedEmotion</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">object_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Object</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span><span class="p">)</span>
+    <span class="n">text_extraction</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">TextExtraction</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">source_attribute</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">SourceAttribute</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">content_theme</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">ContentTheme</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">audience_type</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">Audience</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">geographic_relevance</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">GeographicRelevance</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">temporal_relevance</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">TemporalRelevance</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">technical_level</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">TechnicalLevel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">sentiment_trend</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">SentimentTrend</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span>
+    <span class="n">influencer_tag</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelMultipleChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">InfluencerTag</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">s2forms</span><span class="o">.</span><span class="n">Select2MultipleWidget</span>
+    <span class="p">)</span></div>
+
+
+    <span class="c1"># You can add as many fields as you want from related models.</span>
+    <span class="c1"># Note: If the related fields have many possible values, you might want to use AJAX to load options dynamically.</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
