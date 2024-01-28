@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Keyword, Subcategory, ObjectDetail, Character, NewsContext, VisualElements, StylePreferences, UserCustomizations, ImageGeneration
+from django.db import transaction
 
 class KeywordSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,17 +26,22 @@ class NewsContextSerializer(serializers.ModelSerializer):
     keywords = KeywordSerializer(many=True)
     subcategories = SubcategorySerializer(many=True)
 
+    @transaction.atomic
     def create(self, validated_data):
         keywords_data = validated_data.pop('keywords', [])
         subcategories_data = validated_data.pop('subcategories', [])
         news_context = NewsContext.objects.create(**validated_data)
 
         for keyword_data in keywords_data:
-            keyword, _ = Keyword.objects.get_or_create(**keyword_data)
+            keyword = Keyword.objects.filter(word=keyword_data['word']).first()
+            if not keyword:
+                keyword = Keyword.objects.create(**keyword_data)
             news_context.keywords.add(keyword)
 
         for subcategory_data in subcategories_data:
-            subcategory, _ = Subcategory.objects.get_or_create(**subcategory_data)
+            subcategory = Subcategory.objects.filter(name=subcategory_data['name']).first()
+            if not subcategory:
+                subcategory = Subcategory.objects.create(**subcategory_data)
             news_context.subcategories.add(subcategory)
 
         return news_context
@@ -48,17 +54,22 @@ class VisualElementsSerializer(serializers.ModelSerializer):
     characters = CharacterSerializer(many=True)
     object_details = ObjectDetailSerializer(many=True)
 
+    @transaction.atomic
     def create(self, validated_data):
         characters_data = validated_data.pop('characters', [])
-        objects_data = validated_data.pop('objects', [])
+        object_details_data = validated_data.pop('object_details', [])
         visual_elements = VisualElements.objects.create(**validated_data)
 
         for character_data in characters_data:
-            character, _ = Character.objects.get_or_create(**character_data)
+            character = Character.objects.filter(type=character_data['type'], action=character_data['action']).first()
+            if not character:
+                character = Character.objects.create(**character_data)
             visual_elements.characters.add(character)
 
-        for object_detail_data in objects_data:
-            object_detail, _ = ObjectDetail.objects.get_or_create(**object_detail_data)
+        for object_detail_data in object_details_data:
+            object_detail = ObjectDetail.objects.filter(description=object_detail_data['description']).first()
+            if not object_detail:
+                object_detail = ObjectDetail.objects.create(**object_detail_data)
             visual_elements.object_details.add(object_detail)
 
         return visual_elements

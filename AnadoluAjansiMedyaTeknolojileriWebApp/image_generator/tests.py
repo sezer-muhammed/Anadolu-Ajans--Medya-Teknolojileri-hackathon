@@ -98,3 +98,10 @@ class ImageGenerationTestCase(TestCase):
         # Check relationships in VisualElements
         self.assertEqual(self.visual_elements.characters.count(), 1)
         self.assertEqual(self.visual_elements.object_details.count(), 1)
+
+
+    def test_image_generation_relationships(self):
+        self.assertEqual(self.image_generation.news_context, self.news_context)
+        self.assertEqual(self.image_generation.visual_elements, self.visual_elements)
+        self.assertEqual(self.image_generation.style_preferences, self.style_preferences)
+        self.assertEqual(self.image_generation.user_customizations, self.user_customizations)
