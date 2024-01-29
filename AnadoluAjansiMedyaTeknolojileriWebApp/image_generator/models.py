@@ -1,4 +1,5 @@
 from django.db import models
+from api.models import ImageUpload, TextUpload
 
 # Shared Elements Models
 class Keyword(models.Model):
@@ -69,16 +70,25 @@ class StylePreferences(models.Model):
     def __str__(self):
         return self.artStyle
 
-# User Customizations Model
 class UserCustomizations(models.Model):
-    additionalText = models.TextField()
-    userUploads = models.TextField()
-    specificRequests = models.TextField()
-    feedbackLoop = models.TextField()
-    templates = models.TextField()
+    additionalText = models.TextField(blank=True)
+    userUploads = models.TextField(blank=True)
+    specificRequests = models.TextField(blank=True)
+    feedbackLoop = models.TextField(blank=True)
+    templates = models.TextField(blank=True)
+
+    def save(self, *args, **kwargs):
+        self.additionalText = self.additionalText if self.additionalText.strip() else "Not Available"
+        self.userUploads = self.userUploads if self.userUploads.strip() else "Not Available"
+        self.specificRequests = self.specificRequests if self.specificRequests.strip() else "Not Available"
+        self.feedbackLoop = self.feedbackLoop if self.feedbackLoop.strip() else "Not Available"
+        self.templates = self.templates if self.templates.strip() else "Not Available"
+
+        super(UserCustomizations, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.additionalText
+
 
 # Main Image Generation Model
 class ImageGeneration(models.Model):
@@ -86,6 +96,11 @@ class ImageGeneration(models.Model):
     visual_elements = models.OneToOneField(VisualElements, on_delete=models.CASCADE)
     style_preferences = models.OneToOneField(StylePreferences, on_delete=models.CASCADE)
     user_customizations = models.OneToOneField(UserCustomizations, on_delete=models.CASCADE)
+
+
+    # Adding the optional one-to-one fields
+    image_upload = models.OneToOneField(ImageUpload, on_delete=models.SET_NULL, null=True, blank=True)
+    text_upload = models.OneToOneField(TextUpload, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"Image Generation for {self.news_context.headline}"

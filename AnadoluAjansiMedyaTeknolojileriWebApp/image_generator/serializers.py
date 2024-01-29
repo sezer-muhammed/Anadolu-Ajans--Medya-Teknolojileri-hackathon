@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Keyword, Subcategory, ObjectDetail, Character, NewsContext, VisualElements, StylePreferences, UserCustomizations, ImageGeneration
 from django.db import transaction
+from api.models import ImageUpload, TextUpload
 
 class KeywordSerializer(serializers.ModelSerializer):
     class Meta:
@@ -89,11 +90,24 @@ class UserCustomizationsSerializer(serializers.ModelSerializer):
         model = UserCustomizations
         fields = ['id', 'additionalText', 'userUploads', 'specificRequests', 'feedbackLoop', 'templates']
 
+class ImageUploadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageUpload
+        fields = ['id', 'image']
+
+class TextUploadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TextUpload
+        fields = ['id', 'text']
+
 class ImageGenerationSerializer(serializers.ModelSerializer):
     news_context = NewsContextSerializer()
     visual_elements = VisualElementsSerializer()
     style_preferences = StylePreferencesSerializer()
     user_customizations = UserCustomizationsSerializer()
+
+    image_upload = ImageUploadSerializer(required=False)
+    text_upload = TextUploadSerializer(required=False)
 
     def create(self, validated_data):
         news_context_data = validated_data.pop('news_context', {})
@@ -101,20 +115,31 @@ class ImageGenerationSerializer(serializers.ModelSerializer):
         style_preferences_data = validated_data.pop('style_preferences', {})
         user_customizations_data = validated_data.pop('user_customizations', {})
 
+        image_upload_data = validated_data.pop('image_upload', None)
+        text_upload_data = validated_data.pop('text_upload', None)
+
+
         news_context = NewsContextSerializer().create(news_context_data)
         visual_elements = VisualElementsSerializer().create(visual_elements_data)
         style_preferences = StylePreferencesSerializer().create(style_preferences_data)
         user_customizations = UserCustomizationsSerializer().create(user_customizations_data)
 
+        image_upload = ImageUploadSerializer().create(image_upload_data) if image_upload_data else None
+        text_upload = TextUploadSerializer().create(text_upload_data) if text_upload_data else None
+
+
+        # Create ImageGeneration instance
         image_generation = ImageGeneration.objects.create(
             news_context=news_context,
             visual_elements=visual_elements,
             style_preferences=style_preferences,
-            user_customizations=user_customizations
+            user_customizations=user_customizations,
+            image_upload=image_upload,
+            text_upload=text_upload
         )
 
         return image_generation
 
     class Meta:
         model = ImageGeneration
-        fields = ['id', 'news_context', 'visual_elements', 'style_preferences', 'user_customizations']
+        fields = ['id', 'news_context', 'visual_elements', 'style_preferences', 'user_customizations', 'image_upload', 'text_upload']

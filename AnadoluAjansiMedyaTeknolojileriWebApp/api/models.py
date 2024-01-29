@@ -5,7 +5,6 @@ from .validators import validate_file_extension
 class ImageUpload(models.Model):
     image = models.ImageField(upload_to="images/")
 
-
 class TextUpload(models.Model):
     text = models.TextField()
 
