@@ -3,6 +3,8 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
+sys.path.append(os.path.abspath('./_ext'))  # Adjust './_ext' if you used a different directory name
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'AnadoluAjansiMedyaTeknolojileriWebApp.settings'
 import django
 django.setup()
@@ -24,6 +26,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx_rtd_theme',
     'sphinx.ext.napoleon',  # Add this line for Napoleon
+    'imagefolder'
 ]
 
 # Theme options and customization

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>image_generator.admin &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../generated_images.html">Generated Images</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">image_generator.admin</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for image_generator.admin</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.utils.html</span> <span class="kn">import</span> <span class="n">format_html</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Keyword</span><span class="p">,</span> <span class="n">Subcategory</span><span class="p">,</span> <span class="n">ObjectDetail</span><span class="p">,</span> <span class="n">Character</span><span class="p">,</span> <span class="n">NewsContext</span><span class="p">,</span> <span class="n">VisualElements</span><span class="p">,</span> <span class="n">StylePreferences</span><span class="p">,</span> <span class="n">UserCustomizations</span><span class="p">,</span> <span class="n">ImageGeneration</span><span class="p">,</span> <span class="n">GeneratedImages</span>
+
+<div class="viewcode-block" id="KeywordAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.KeywordAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Keyword</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">KeywordAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;word&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;word&#39;</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="SubcategoryAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.SubcategoryAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Subcategory</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">SubcategoryAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="ObjectDetailAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.ObjectDetailAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">ObjectDetail</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ObjectDetailAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="CharacterAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.CharacterAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Character</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CharacterAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="s1">&#39;appearance&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="s1">&#39;appearance&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NewsContextAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.NewsContextAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">NewsContext</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">NewsContextAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;headline&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;emotionTone&#39;</span><span class="p">,</span> <span class="s1">&#39;emotionalIntensity&#39;</span><span class="p">,</span> <span class="s1">&#39;geographicalContext&#39;</span><span class="p">,</span> <span class="s1">&#39;temporalContext&#39;</span><span class="p">,</span> <span class="s1">&#39;sourceCredibility&#39;</span><span class="p">,</span> <span class="s1">&#39;audienceAgeGroup&#39;</span><span class="p">,</span> <span class="s1">&#39;audienceInterests&#39;</span><span class="p">)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;emotionTone&#39;</span><span class="p">,</span> <span class="s1">&#39;geographicalContext&#39;</span><span class="p">,</span> <span class="s1">&#39;temporalContext&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;headline&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;emotionTone&#39;</span><span class="p">,</span> <span class="s1">&#39;geographicalContext&#39;</span><span class="p">,</span> <span class="s1">&#39;temporalContext&#39;</span><span class="p">)</span>
+    <span class="n">filter_horizontal</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;keywords&#39;</span><span class="p">,</span> <span class="s1">&#39;subcategories&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="VisualElementsAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.VisualElementsAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">VisualElements</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">VisualElementsAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;mainSubject&#39;</span><span class="p">,</span> <span class="s1">&#39;backgroundScene&#39;</span><span class="p">,</span> <span class="s1">&#39;colorPalette&#39;</span><span class="p">,</span> <span class="s1">&#39;texture&#39;</span><span class="p">,</span> <span class="s1">&#39;dynamicElements&#39;</span><span class="p">,</span> <span class="s1">&#39;textOverlayStyle&#39;</span><span class="p">,</span> <span class="s1">&#39;motionEffects&#39;</span><span class="p">)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;mainSubject&#39;</span><span class="p">,</span> <span class="s1">&#39;backgroundScene&#39;</span><span class="p">,</span> <span class="s1">&#39;colorPalette&#39;</span><span class="p">,</span> <span class="s1">&#39;texture&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;mainSubject&#39;</span><span class="p">,</span> <span class="s1">&#39;backgroundScene&#39;</span><span class="p">,</span> <span class="s1">&#39;colorPalette&#39;</span><span class="p">,</span> <span class="s1">&#39;texture&#39;</span><span class="p">,</span> <span class="s1">&#39;dynamicElements&#39;</span><span class="p">,</span> <span class="s1">&#39;textOverlayStyle&#39;</span><span class="p">,</span> <span class="s1">&#39;motionEffects&#39;</span><span class="p">)</span>
+    <span class="n">filter_horizontal</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;characters&#39;</span><span class="p">,</span> <span class="s1">&#39;object_details&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="StylePreferencesAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.StylePreferencesAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">StylePreferences</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">StylePreferencesAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;artStyle&#39;</span><span class="p">,</span> <span class="s1">&#39;composition&#39;</span><span class="p">,</span> <span class="s1">&#39;lighting&#39;</span><span class="p">,</span> <span class="s1">&#39;aspectRatio&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;artStyle&#39;</span><span class="p">,</span> <span class="s1">&#39;composition&#39;</span><span class="p">,</span> <span class="s1">&#39;lighting&#39;</span><span class="p">,</span> <span class="s1">&#39;aspectRatio&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="UserCustomizationsAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.UserCustomizationsAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">UserCustomizations</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserCustomizationsAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;additionalText&#39;</span><span class="p">,</span> <span class="s1">&#39;userUploads&#39;</span><span class="p">,</span> <span class="s1">&#39;specificRequests&#39;</span><span class="p">,</span> <span class="s1">&#39;feedbackLoop&#39;</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;additionalText&#39;</span><span class="p">,</span> <span class="s1">&#39;userUploads&#39;</span><span class="p">,</span> <span class="s1">&#39;specificRequests&#39;</span><span class="p">,</span> <span class="s1">&#39;feedbackLoop&#39;</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ImageGenerationAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.ImageGenerationAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">ImageGeneration</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ImageGenerationAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;news_context&#39;</span><span class="p">,</span> <span class="s1">&#39;generated_images_display&#39;</span><span class="p">)</span>
+    <span class="n">raw_id_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;news_context&#39;</span><span class="p">,</span> <span class="s1">&#39;visual_elements&#39;</span><span class="p">,</span> <span class="s1">&#39;style_preferences&#39;</span><span class="p">,</span> <span class="s1">&#39;user_customizations&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;news_context__headline&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="nf">generated_images_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="n">images_html</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">generated_images</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">image</span><span class="p">:</span>
+                <span class="n">images_html</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;&lt;img src=&quot;</span><span class="si">{</span><span class="n">img</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s1">&quot; style=&quot;max-width: 480px; height: auto;&quot; /&gt; &#39;</span>
+        <span class="k">return</span> <span class="n">format_html</span><span class="p">(</span><span class="n">images_html</span><span class="p">)</span> <span class="k">if</span> <span class="n">images_html</span> <span class="k">else</span> <span class="s1">&#39;No Images&#39;</span>
+    <span class="n">generated_images_display</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Generated Images&#39;</span></div>
+
+
+<div class="viewcode-block" id="GeneratedImagesAdmin">
+<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.admin.GeneratedImagesAdmin">[docs]</a>
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">GeneratedImages</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">GeneratedImagesAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;image_thumbnail&#39;</span><span class="p">,</span> <span class="s1">&#39;image_generation&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;image_generation__news_context__headline&#39;</span><span class="p">,)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;image_generation&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="nf">image_thumbnail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">image</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">format_html</span><span class="p">(</span><span class="s1">&#39;&lt;img src=&quot;</span><span class="si">{}</span><span class="s1">&quot; style=&quot;max-width: 480px; height: auto;&quot;&gt;&#39;</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;No Image&#39;</span>
+    <span class="n">image_thumbnail</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Image&#39;</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

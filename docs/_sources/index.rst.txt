@@ -6,34 +6,11 @@
 Mozaik: Revolutionizing Content Creation with AI
 ================================================
 
-
 .. toctree::
-   :caption: Terminology:
-   :maxdepth: 1
-
-   seramik/intro
-
-
-.. toctree::
-   :caption: Apı Usage:
-   :maxdepth: 1
-
-   api/api_text_image_upload
-   api/api_seramik_upload
-
-   api/api_text_image_examples
-   api/api_seramik_examples
-
-   api/api_seramik_faq
-   api/api_text_image_faq
-   seramik/releasenotes
-
-.. toctree::
-   :caption: Contents
    :maxdepth: 2
+   :caption: Contents:
 
-   models/overview
-
+   generated_images
 
 Indices and Tables
 ==================
