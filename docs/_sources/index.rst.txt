@@ -6,22 +6,17 @@
 Mozaik: Revolutionizing Content Creation with AI
 ================================================
 
-.. toctree::
-   :caption: Models Used in Mozaik
-   :maxdepth: 1
-
-   models/comfyui
-   models/chatgpt
-   models/gemini
-   models/stablediffusion
-   models/controlnet
 
 .. toctree::
-   :caption: Contents:
+   :caption: Terminology:
    :maxdepth: 1
 
    seramik/intro
 
+
+.. toctree::
+   :caption: Apı Usage:
+   :maxdepth: 1
 
    api/api_text_image_upload
    api/api_seramik_upload
@@ -32,6 +27,13 @@ Mozaik: Revolutionizing Content Creation with AI
    api/api_seramik_faq
    api/api_text_image_faq
    seramik/releasenotes
+
+.. toctree::
+   :caption: Contents
+   :maxdepth: 2
+
+   models/overview
+
 
 Indices and Tables
 ==================

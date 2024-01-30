@@ -1,86 +1,17 @@
-Seramik Object Features
-=======================
+InputRecord Object (Seramik)
+============================
 
-The Seramik object encapsulates a rich set of features for content analysis. Below are the key components organized in tabular format.
+The ``InputRecord`` object, referred to as "Seramik", is a comprehensive model designed for storing and managing various types of input data in a structured format. This model is a key component of the system, enabling efficient handling of diverse data inputs ranging from text and images to metadata and AI analyses.
 
-Identification
---------------
+Overview
+--------
 
-+--------------+----------------------------------------------------------+
-| Field        | Description                                              |
-+==============+==========================================================+
-| input_id     | Unique Identifier for the Input Record                    |
-+--------------+----------------------------------------------------------+
-| input_type   | Type of Input (e.g., article, tweet, report, image, etc.) |
-+--------------+----------------------------------------------------------+
-| timestamp    | Timestamp of the Input Creation in ISO 8601 format        |
-+--------------+----------------------------------------------------------+
+Seramik is crafted to encapsulate a wide spectrum of data, including source information, content analysis, AI-generated insights, and additional metadata. It is optimized to work seamlessly with advanced AI models, providing a robust framework for data storage and retrieval in AI-powered applications.
 
-Source Information
-------------------
+Key Components
+---------------
 
-+------------+--------------------------------------+
-| Field      | Description                          |
-+============+======================================+
-| source     | Name of the Source (e.g., publication|
-|            | , website, author)                   |
-+------------+--------------------------------------+
-| city       | City where the source is located     |
-+------------+--------------------------------------+
-| country    | Country where the source is located  |
-+------------+--------------------------------------+
-| location   | Geographical coordinates (latitude,  |
-|            | longitude) of the Source             |
-+------------+--------------------------------------+
-
-Content Analysis
-----------------
-
-+---------------------+---------------------------------------------+
-| Field               | Description                                 |
-+=====================+=============================================+
-| detailed_description| A detailed description of the content       |
-+---------------------+---------------------------------------------+
-| summary             | A concise summary of the content            |
-+---------------------+---------------------------------------------+
-| keywords            | List of primary keywords                    |
-+---------------------+---------------------------------------------+
-
-AI Analysis
------------
-
-+-------------------+--------------------------------------------------+
-| Field             | Description                                      |
-+===================+==================================================+
-| emotion_analysis  | Analysis of primary and secondary emotions       |
-+-------------------+--------------------------------------------------+
-| object_detection  | Details of objects detected (name, status, action|
-|                   | )                                                |
-+-------------------+--------------------------------------------------+
-| text_extraction   | Segments of extracted text                       |
-+-------------------+--------------------------------------------------+
-
-Additional Metadata
--------------------
-
-+----------------------+--------------------------------------------------+
-| Field                | Description                                      |
-+======================+==================================================+
-| source_attributes    | Attributes of the Source                          |
-+----------------------+--------------------------------------------------+
-| content_themes       | Main themes of the Content                        |
-+----------------------+--------------------------------------------------+
-| audience             | Intended Audience Types                          |
-+----------------------+--------------------------------------------------+
-| geographic_relevance | Geographic Areas relevant to the Content         |
-+----------------------+--------------------------------------------------+
-| temporal_relevance   | Relevant Time Periods or Dates                   |
-+----------------------+--------------------------------------------------+
-| technical_level      | Technical Complexity Levels of the Content       |
-+----------------------+--------------------------------------------------+
-| sentiment_trends     | Predominant Sentiment Trends in the Content      |
-+----------------------+--------------------------------------------------+
-| influencer_tags      | Tags related to Key Influencers or Stakeholders  |
-+----------------------+--------------------------------------------------+
-
-Each of these features are designed to provide a comprehensive understanding of the content, making Seramik a versatile tool for content analysis.
+- **Source Information**: Captures the origin and contextual details of the input data.
+- **Content Analysis**: Holds detailed analysis and summary of the content, along with associated keywords.
+- **AI Analysis**: Stores results from AI-driven emotion analysis, object detection, and text extraction.
+- **Additional Metadata**: Encompasses various metadata elements like audience type, geographic relevance, and technical levels.

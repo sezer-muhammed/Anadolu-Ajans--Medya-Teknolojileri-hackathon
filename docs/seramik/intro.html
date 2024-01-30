@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seramik Object Features &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-
-  
+  <title>InputRecord Object (Seramik) &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -22,7 +20,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Text and Image Upload API Documentation" href="../api/api_text_image_upload.html" />
-    <link rel="prev" title="Control Net: Advanced AI-Powered Content Moderation for Mozaik" href="../models/controlnet.html" /> 
+    <link rel="prev" title="Mozaik: Revolutionizing Content Creation with AI" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,24 +42,16 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Terminology:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Seramik Object Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#identification">Identification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-information">Source Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#content-analysis">Content Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ai-analysis">AI Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#additional-metadata">Additional Metadata</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">InputRecord Object (Seramik)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-components">Key Components</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Apı Usage:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_text_image_upload.html">Text and Image Upload API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_seramik_upload.html">InputRecord API Endpoints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_text_image_examples.html">Text and Image Upload API Examples</a></li>
@@ -69,6 +59,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/api_seramik_faq.html">FAQ for InputRecord API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_text_image_faq.html">FAQ for Text and Image Upload API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/overview.html">Models Overview in Mozaik</a></li>
 </ul>
 
         </div>
@@ -85,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Seramik Object Features</li>
+      <li class="breadcrumb-item active">InputRecord Object (Seramik)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/seramik/intro.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,84 +89,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="seramik-object-features">
-<h1>Seramik Object Features<a class="headerlink" href="#seramik-object-features" title="Link to this heading"></a></h1>
-<p>The Seramik object encapsulates a rich set of features for content analysis. Below are the key components organized in tabular format.</p>
-<section id="identification">
-<h2>Identification<a class="headerlink" href="#identification" title="Link to this heading"></a></h2>
+  <section id="inputrecord-object-seramik">
+<h1>InputRecord Object (Seramik)<a class="headerlink" href="#inputrecord-object-seramik" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">InputRecord</span></code> object, referred to as “Seramik”, is a comprehensive model designed for storing and managing various types of input data in a structured format. This model is a key component of the system, enabling efficient handling of diverse data inputs ranging from text and images to metadata and AI analyses.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Seramik is crafted to encapsulate a wide spectrum of data, including source information, content analysis, AI-generated insights, and additional metadata. It is optimized to work seamlessly with advanced AI models, providing a robust framework for data storage and retrieval in AI-powered applications.</p>
 </section>
-<section id="source-information">
-<h2>Source Information<a class="headerlink" href="#source-information" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>source</p></td>
-<td><p>Name of the Source (e.g., publication
-, website, author)</p></td>
-</tr>
-<tr class="row-odd"><td><p>city</p></td>
-<td><p>City where the source is located</p></td>
-</tr>
-<tr class="row-even"><td><p>country</p></td>
-<td><p>Country where the source is located</p></td>
-</tr>
-<tr class="row-odd"><td><p>location</p></td>
-<td><p>Geographical coordinates (latitude,
-longitude) of the Source</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="content-analysis">
-<h2>Content Analysis<a class="headerlink" href="#content-analysis" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>detailed_description</p></td>
-<td><p>A detailed description of the content</p></td>
-</tr>
-<tr class="row-odd"><td><p>summary</p></td>
-<td><p>A concise summary of the content</p></td>
-</tr>
-<tr class="row-even"><td><p>keywords</p></td>
-<td><p>List of primary keywords</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="ai-analysis">
-<h2>AI Analysis<a class="headerlink" href="#ai-analysis" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>emotion_analysis</p></td>
-<td><p>Analysis of primary and secondary emotions</p></td>
-</tr>
-<tr class="row-odd"><td><p>object_detection</p></td>
-<td><p>Details of objects detected (name, status, action
-)</p></td>
-</tr>
-<tr class="row-even"><td><p>text_extraction</p></td>
-<td><p>Segments of extracted text</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="additional-metadata">
-<h2>Additional Metadata<a class="headerlink" href="#additional-metadata" title="Link to this heading"></a></h2>
-<p>Each of these features are designed to provide a comprehensive understanding of the content, making Seramik a versatile tool for content analysis.</p>
+<section id="key-components">
+<h2>Key Components<a class="headerlink" href="#key-components" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Source Information</strong>: Captures the origin and contextual details of the input data.</p></li>
+<li><p><strong>Content Analysis</strong>: Holds detailed analysis and summary of the content, along with associated keywords.</p></li>
+<li><p><strong>AI Analysis</strong>: Stores results from AI-driven emotion analysis, object detection, and text extraction.</p></li>
+<li><p><strong>Additional Metadata</strong>: Encompasses various metadata elements like audience type, geographic relevance, and technical levels.</p></li>
+</ul>
 </section>
 </section>
 
@@ -180,7 +111,7 @@ longitude) of the Source</p></td>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../models/controlnet.html" class="btn btn-neutral float-left" title="Control Net: Advanced AI-Powered Content Moderation for Mozaik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Mozaik: Revolutionizing Content Creation with AI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../api/api_text_image_upload.html" class="btn btn-neutral float-right" title="Text and Image Upload API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>api.admin &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -41,22 +39,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Terminology:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/intro.html">InputRecord Object (Seramik)</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Apı Usage:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../seramik/intro.html">Seramik Object Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../seramik/api.html">API Reference: InputRecords Endpoint</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../seramik/releasenotes.html">Release Notes for Seramik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_upload.html">Text and Image Upload API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_upload.html">InputRecord API Endpoints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_examples.html">Text and Image Upload API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_examples.html">InputRecord API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api_seramik_faq.html">FAQ for InputRecord API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/api_text_image_faq.html">FAQ for Text and Image Upload API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../seramik/releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models/overview.html">Models Overview in Mozaik</a></li>
 </ul>
 
         </div>
@@ -86,26 +85,31 @@
   <h1>Source code for api.admin</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">ImageUpload</span><span class="p">,</span> <span class="n">TextUpload</span><span class="p">,</span> <span class="n">VoiceUpload</span>
+<span class="kn">from</span> <span class="nn">django.utils.html</span> <span class="kn">import</span> <span class="n">mark_safe</span>
 
-
-<span class="c1"># Register your models here.</span>
 <div class="viewcode-block" id="ImageUploadAdmin">
 <a class="viewcode-back" href="../../source/api.html#api.admin.ImageUploadAdmin">[docs]</a>
 <span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">ImageUpload</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">ImageUploadAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">]</span>
-    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span></div>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;display_image&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
 
+    <span class="k">def</span> <span class="nf">display_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">image</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mark_safe</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;img src=&quot;</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s1">&quot; height=&quot;150&quot; /&gt;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;No image&quot;</span>
+    <span class="n">display_image</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s2">&quot;Image&quot;</span>
+    <span class="n">display_image</span><span class="o">.</span><span class="n">allow_tags</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
 <div class="viewcode-block" id="TextUploadAdmin">
 <a class="viewcode-back" href="../../source/api.html#api.admin.TextUploadAdmin">[docs]</a>
 <span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">TextUpload</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">TextUploadAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">]</span>
-    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span></div>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span></div>
 
 
 

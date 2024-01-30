@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>API Package Documentation &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -42,17 +40,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Models Used in Mozaik</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Terminology:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models/comfyui.html">ComfyUI: Enhancing Mozaik with Advanced Image Generation and Modification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/chatgpt.html">GPT-4 and GPT-3.5 APIs: Powering Mozaik with Advanced Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/gemini.html">Gemini Pro API in Mozaik: Enhancing Content Creation with Multimodal AI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/stablediffusion.html">Stable Diffusion XL: Enhancing Mozaik with Advanced Image Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/controlnet.html">Control Net: Advanced AI-Powered Content Moderation for Mozaik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seramik/intro.html">InputRecord Object (Seramik)</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Apı Usage:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../seramik/intro.html">Seramik Object Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_text_image_upload.html">Text and Image Upload API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_seramik_upload.html">InputRecord API Endpoints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_text_image_examples.html">Text and Image Upload API Examples</a></li>
@@ -60,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/api_seramik_faq.html">FAQ for InputRecord API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api_text_image_faq.html">FAQ for Text and Image Upload API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seramik/releasenotes.html">Release Notes for Seramik</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/overview.html">Models Overview in Mozaik</a></li>
 </ul>
 
         </div>
@@ -126,14 +123,21 @@
 <p>Documentation for the models module, detailing the database models used in the API.</p>
 <dl class="py class" id="module-api.models">
 <dt class="sig sig-object py" id="api.models.ImageUpload">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.</span></span><span class="sig-name descname"><span class="pre">ImageUpload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#ImageUpload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.ImageUpload" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.</span></span><span class="sig-name descname"><span class="pre">ImageUpload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#ImageUpload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.ImageUpload" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>id</strong> (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v5.1)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
 <li><p><strong>image</strong> (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.ImageField" title="(in Django v5.1)"><em>ImageField</em></a>) – Image</p></li>
+<li><p><strong>created_at</strong> (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateTimeField" title="(in Django v5.1)"><em>DateTimeField</em></a>) – Created at</p></li>
 </ul>
+</dd>
+</dl>
+<p>Reverse relationships:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>imagegeneration</strong> (Reverse <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGeneration</span></code>) – The image generation of this image upload (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">image_upload</span></code>)</p>
 </dd>
 </dl>
 <dl class="py exception">
@@ -162,14 +166,21 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="api.models.TextUpload">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.</span></span><span class="sig-name descname"><span class="pre">TextUpload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#TextUpload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.TextUpload" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.</span></span><span class="sig-name descname"><span class="pre">TextUpload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#TextUpload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.TextUpload" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>id</strong> (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v5.1)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
 <li><p><strong>text</strong> (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.TextField" title="(in Django v5.1)"><em>TextField</em></a>) – Text</p></li>
+<li><p><strong>created_at</strong> (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateTimeField" title="(in Django v5.1)"><em>DateTimeField</em></a>) – Created at</p></li>
 </ul>
+</dd>
+</dl>
+<p>Reverse relationships:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>imagegeneration</strong> (Reverse <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGeneration</span></code>) – The image generation of this text upload (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">text_upload</span></code>)</p>
 </dd>
 </dl>
 <dl class="py exception">
@@ -219,16 +230,6 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <dt class="sig sig-object py" id="api.models.VoiceUpload.MultipleObjectsReturned">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#api.models.VoiceUpload.MultipleObjectsReturned" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/exceptions/#django.core.exceptions.MultipleObjectsReturned" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></a></p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.models.VoiceUpload.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/models.html#VoiceUpload.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.VoiceUpload.save" title="Link to this definition"></a></dt>
-<dd><p>Save the current instance. Override this in a subclass if you want to
-control the saving process.</p>
-<p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
-that the “save” must be an SQL insert or update (or equivalent for
-non-SQL backends), respectively. Normally, they should not be set.</p>
 </dd></dl>
 
 </dd></dl>
@@ -339,18 +340,6 @@ None</p>
 <dt class="sig sig-object py" id="api.views.ImageUploadViewSet.serializer_class">
 <span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.views.ImageUploadViewSet.serializer_class" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#api.serializers.ImageUploadSerializer" title="api.serializers.ImageUploadSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageUploadSerializer</span></code></a></p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.views.</span></span><span class="sig-name descname"><span class="pre">InputRecordViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/views.html#InputRecordViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.views.InputRecordViewSet" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.views.InputRecordViewSet.serializer_class">
-<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.views.InputRecordViewSet.serializer_class" title="Link to this definition"></a></dt>
-<dd><p>alias of <a class="reference internal" href="meta_models_management.html#meta_models_management.serializers.InputRecordSerializer" title="meta_models_management.serializers.InputRecordSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputRecordSerializer</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
