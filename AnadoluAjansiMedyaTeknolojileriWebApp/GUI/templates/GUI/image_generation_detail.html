@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
 
+{% block extra_css %}
+<style>
+    .generated-images-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .image-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .image-container.enlarged {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        z-index: 1000;
+    }
+
+    .image-container.enlarged img {
+        transform: scale(1);
+    }
+</style>
+
+{% endblock %}
+
 {% block title %}Image Generation Detail{% endblock %}
 
 {% block content %}
@@ -106,20 +138,18 @@
       </div>
   </div>
 
-    <!-- Generated Images -->
-    <h2 class="mb-3">Generated Images</h2>
-    <div class="row g-4">
-        {% for image in generated_images %}
-            <div class="col-md-4">
-                <img src="{{ image.image.url }}" alt="Generated Image" class="img-fluid" style="max-width: 480px; height: auto;">
-            </div>
-        {% empty %}
-            <div class="col-12">
-                <p>No images have been generated for this item.</p>
-            </div>
-        {% endfor %}
-    </div>
+<!-- Generated Images in a 2x2 grid layout -->
+<h2 class="mb-3">Generated Images</h2>
+<div class="generated-images-grid">
+    {% for image in generated_images %}
+        <div class="image-container" onclick="enlargeImage(this);">
+            <img src="{{ image.image.url }}" alt="Generated Image" class="img-fluid">
+        </div>
+    {% empty %}
+        <p>No images have been generated for this item.</p>
+    {% endfor %}
 </div>
+
 
 {% endblock %}
 
@@ -134,5 +164,20 @@
             confirmButtonText: 'Cool'
         });
     }
+
+    function enlargeImage(container) {
+        // If already enlarged, minimize
+        if (container.classList.contains('enlarged')) {
+            container.classList.remove('enlarged');
+        } else {
+            // Remove 'enlarged' class from all other containers
+            document.querySelectorAll('.image-container').forEach(function(c) {
+                c.classList.remove('enlarged');
+            });
+            // Enlarge the clicked container
+            container.classList.add('enlarged');
+        }
+    }
+    
 </script>
 {% endblock %}

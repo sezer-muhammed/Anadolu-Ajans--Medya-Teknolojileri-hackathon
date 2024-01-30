@@ -3,15 +3,72 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ImageUploadForm, TextUploadForm
 from api.models import TextUpload, ImageUpload
 from django.http import HttpResponse
-
+import json
+from io import BytesIO
+from django.core.files.images import ImageFile
 from django.views.generic.list import ListView
 from image_generator.models import ImageGeneration, GeneratedImages
+from image_generator.serializers import ImageGenerationSerializer
+import requests
+from .openai_interface import OpenAIInterface
+
+from .config.openai_prompt import TEXT_PROMPT
+
+def text2img(params: dict) -> dict:
+    """
+    text to image
+    """
+    host = "http://127.0.0.1:8888"
+    result = requests.post(url=f"{host}/v1/generation/text-to-image",
+                           data=json.dumps(params),
+                           headers={"Content-Type": "application/json"})
+    return result.json()
 
 class GenerateImagesView(View):
     def get(self, request, pk):
-        # Placeholder for actual image generation implementation
-        # You would trigger the image generation process here and then redirect or update the response
-        return HttpResponse(f"Generate images for ImageGeneration with id {pk}")
+        try:
+            image_generation = ImageGeneration.objects.get(pk=pk)
+        except ImageGeneration.DoesNotExist:
+            return HttpResponse(f"ImageGeneration object with id {pk} does not exist.", status=404)
+
+        # Serialize the object
+        serializer = ImageGenerationSerializer(image_generation)
+
+        # Convert to Python data structure
+        data = serializer.data
+
+        # Remove 'image_upload' and 'text_upload' fields
+        data.pop('image_upload', None)
+        data.pop('text_upload', None)
+        with open("GUI/config/structure.json", 'r') as file:
+            data_template = json.load(file)
+
+        chatgpt_interface = OpenAIInterface()
+
+        # Convert the data to a formatted string
+        formatted_json_str = json.dumps(data_template, indent=4)
+        # Convert to JSON string with formatting
+        json_data = json.dumps(data, indent=4, ensure_ascii=False)
+
+        prompt = TEXT_PROMPT.format(data=formatted_json_str, text=json_data)
+        result_prompt_for_image_generation = chatgpt_interface.generate_text(prompt)
+
+        result =text2img(result_prompt_for_image_generation)
+
+        for image_data in result:
+            image_url = image_data['url']
+
+            # Download the image
+            response = requests.get(image_url)
+            if response.status_code == 200:
+                # Create a Django File object
+                image_name = image_url.split('/')[-1]  # Extracting the name of the file
+                image_file = ImageFile(BytesIO(response.content), name=image_name)
+
+                # Create and save the GeneratedImages object
+                generated_image = GeneratedImages(image=image_file, image_generation=image_generation)
+                generated_image.save()
+        return redirect('imagegeneration_detail', pk=pk)
 
 class ImageGenerationDetailView(View):
     def get(self, request, pk):
