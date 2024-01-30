@@ -101,6 +101,7 @@ class ImageGenerationListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        queryset = queryset.order_by('-text_upload__created_at')
         form = ImageGenerationSearchForm(self.request.GET)
 
         if form.is_valid():
