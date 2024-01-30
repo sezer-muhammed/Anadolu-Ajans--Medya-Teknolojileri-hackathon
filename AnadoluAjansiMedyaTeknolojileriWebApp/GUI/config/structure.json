@@ -1,0 +1,7 @@
+{
+  "prompt": "Your dynamic prompt text here, REVISE here based on given information",
+  "negative_prompt": "Your dynamic negative prompt text here, REVISE here based on given information",
+  "image_number": 4,
+  "async_process": false,
+  "aspect_ratios_selection": "1344*768"
+}

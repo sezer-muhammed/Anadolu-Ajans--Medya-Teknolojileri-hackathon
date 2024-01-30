@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Keyword, Subcategory, ObjectDetail, Character, NewsContext, VisualElements, StylePreferences, UserCustomizations, ImageGeneration
+from django.utils.html import format_html
+from django.urls import reverse
+from .models import Keyword, Subcategory, ObjectDetail, Character, NewsContext, VisualElements, StylePreferences, UserCustomizations, ImageGeneration, GeneratedImages
 
 @admin.register(Keyword)
 class KeywordAdmin(admin.ModelAdmin):
@@ -45,8 +47,30 @@ class UserCustomizationsAdmin(admin.ModelAdmin):
     list_display = ('id', 'additionalText', 'userUploads', 'specificRequests', 'feedbackLoop', 'templates')
     search_fields = ('additionalText', 'userUploads', 'specificRequests', 'feedbackLoop', 'templates')
 
+
 @admin.register(ImageGeneration)
 class ImageGenerationAdmin(admin.ModelAdmin):
-    list_display = ('id', 'news_context', 'visual_elements', 'style_preferences', 'user_customizations')
+    list_display = ('id', 'news_context', 'generated_images_display')
     raw_id_fields = ('news_context', 'visual_elements', 'style_preferences', 'user_customizations')
     search_fields = ('news_context__headline',)
+
+    def generated_images_display(self, obj):
+        images_html = ''
+        for img in obj.generated_images.all():
+            if img.image:
+                images_html += f'<img src="{img.image.url}" style="max-width: 480px; height: auto;" /> '
+        return format_html(images_html) if images_html else 'No Images'
+    generated_images_display.short_description = 'Generated Images'
+
+@admin.register(GeneratedImages)
+class GeneratedImagesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'image_thumbnail', 'image_generation')
+    search_fields = ('image_generation__news_context__headline',)
+    list_filter = ('image_generation',)
+
+    def image_thumbnail(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" style="max-width: 480px; height: auto;">', obj.image.url)
+        else:
+            return 'No Image'
+    image_thumbnail.short_description = 'Image'

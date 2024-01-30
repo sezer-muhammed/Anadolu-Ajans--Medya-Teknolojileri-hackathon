@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+
+<!-- Filter Form -->
+<div class="row mb-4">
+  <div class="col-md-6">
+      <div class="input-group mb-3">
+          <label class="input-group-text" for="keywordFilter">Keywords</label>
+          <select class="form-select" id="keywordFilter">
+              <option selected>Choose...</option>
+              {% for keyword in all_keywords %}
+                  <option value="{{ keyword.id }}">{{ keyword.word }}</option>
+              {% endfor %}
+          </select>
+      </div>
+  </div>
+  <div class="col-md-6">
+      <div class="input-group mb-3">
+          <label class="input-group-text" for="intensityFilter">Emotional Intensity</label>
+          <input type="number" class="form-control" id="intensityFilter" placeholder="Enter intensity">
+      </div>
+  </div>
+  <div class="col-12 text-center">
+      <button class="btn btn-primary" type="button" id="filterButton">Filter</button>
+  </div>
+</div>
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="imageGenerationList">
+      {% for image_generation in image_generations %}
+      <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ image_generation.news_context.headline }}</h5>
+                <p class="card-text"><strong>Category:</strong> {{ image_generation.news_context.category }}</p>
+                <p class="card-text"><strong>Emotion Tone:</strong> {{ image_generation.news_context.emotionTone }}</p>
+                <p class="card-text"><strong>Emotional Intensity:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
+                <p class="card-text"><strong>Geographical Context:</strong> {{ image_generation.news_context.geographicalContext }}</p>
+                <!-- More details can be added here -->
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal{{ image_generation.id }}">View Details</button>
+                <a href="{% url 'imagegeneration_detail' image_generation.id %}" class="btn btn-secondary">Full Details</a>
+                <button class="btn btn-success" onclick="generateImages({{ image_generation.id }})">Generate Images</button>
+            </div>
+        </div>
+    </div>
+  
+      <!-- Modal for Detailed View -->
+      <div class="modal fade" id="detailModal{{ image_generation.id }}" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="detailModalLabel">{{ image_generation.news_context.headline }}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p><strong>Headline:</strong> {{ image_generation.news_context.headline }}</p>
+                    <p><strong>Category:</strong> {{ image_generation.news_context.category }}</p>
+                    <p><strong>Emotion Tone:</strong> {{ image_generation.news_context.emotionTone }}</p>
+                    <p><strong>Emotional Intensity:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
+                    <p><strong>Geographical Context:</strong> {{ image_generation.news_context.geographicalContext }}</p>
+                    <p><strong>Temporal Context:</strong> {{ image_generation.news_context.temporalContext }}</p>
+                    <p><strong>Source Credibility:</strong> {{ image_generation.news_context.sourceCredibility }}</p>
+                    <p><strong>Audience Age Group:</strong> {{ image_generation.news_context.audienceAgeGroup }}</p>
+                    <p><strong>Audience Interests:</strong> {{ image_generation.news_context.audienceInterests }}</p>
+                
+                    <!-- Display Keywords -->
+                    <h5>Keywords:</h5>
+                    <ul>
+                        {% for keyword in image_generation.news_context.keywords.all %}
+                            <li>{{ keyword.word }}</li>
+                        {% endfor %}
+                    </ul>
+                
+                    <!-- Display Subcategories -->
+                    <h5>Subcategories:</h5>
+                    <ul>
+                        {% for subcategory in image_generation.news_context.subcategories.all %}
+                            <li>{{ subcategory.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p><strong>Category:</strong> {{ image_generation.news_context.category }}</p>
+                    <p><strong>Emotion Tone:</strong> {{ image_generation.news_context.emotionTone }}</p>
+                    <p><strong>Geographical Context:</strong> {{ image_generation.news_context.geographicalContext }}</p>
+                    <p><strong>Temporal Context:</strong> {{ image_generation.news_context.temporalContext }}</p>
+                    
+                    <h5>Visual Elements:</h5>
+                    <p><strong>Background Scene:</strong> {{ image_generation.visual_elements.backgroundScene }}</p>
+                    <p><strong>Color Palette:</strong> {{ image_generation.visual_elements.colorPalette }}</p>
+                    <p><strong>Texture:</strong> {{ image_generation.visual_elements.texture }}</p>
+                
+                    <h5>Characters:</h5>
+                    <ul>
+                        {% for character in image_generation.visual_elements.characters.all %}
+                            <li>{{ character.type }} - {{ character.action }} - {{ character.appearance }}</li>
+                        {% endfor %}
+                    </ul>
+                
+                    <h5>Object Details:</h5>
+                    <ul>
+                        {% for object_detail in image_generation.visual_elements.object_details.all %}
+                            <li>{{ object_detail.description }}</li>
+                        {% endfor %}
+                    </ul>
+                
+                    <h5>Style Preferences:</h5>
+                    <p><strong>Art Style:</strong> {{ image_generation.style_preferences.artStyle }}</p>
+                    <p><strong>Lighting:</strong> {{ image_generation.style_preferences.lighting }}</p>
+                
+                    <h5>User Customizations:</h5>
+                    <p>{{ image_generation.user_customizations.additionalText }}</p>
+                    <!-- More user customization details can be added here -->
+                </div>
+                
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+  
+
+    <!-- Pagination -->
+    <div class="row mt-4">
+        <div class="col">
+            <!-- Placeholder for pagination -->
+            <!-- Use Bootstrap pagination component -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  function generateImages(imageGenerationId) {
+    // JavaScript to handle image generation
+    // Example: Redirect to a view that handles image generation
+    window.location.href = '/GUI/generate-images/' + imageGenerationId;
+}
+</script>
+{% endblock %}

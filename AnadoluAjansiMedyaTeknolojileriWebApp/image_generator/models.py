@@ -1,6 +1,12 @@
 from django.db import models
 from api.models import ImageUpload, TextUpload
 
+class GeneratedImages(models.Model):
+    image = models.ImageField(upload_to='generated_images/')
+    image_generation = models.ForeignKey("ImageGeneration", on_delete=models.SET_NULL, null=True, blank=True, related_name='generated_images')
+    def __str__(self):
+        return f"Generated Image {self.id}"
+
 # Shared Elements Models
 class Keyword(models.Model):
     word = models.CharField(max_length=100)

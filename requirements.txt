@@ -11,3 +11,4 @@ sphinxcontrib_django
 sphinxcontrib-napoleon
 django-select2
 django-crispy-forms
+openai
