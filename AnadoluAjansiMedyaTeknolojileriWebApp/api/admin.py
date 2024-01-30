@@ -4,9 +4,9 @@ from django.utils.html import mark_safe
 
 @admin.register(ImageUpload)
 class ImageUploadAdmin(admin.ModelAdmin):
-    list_display = ["id", "display_image"]
-    list_filter = ["id"]
-    search_fields = ["id"]
+    list_display = ["id", "display_image", "created_at"]
+    list_filter = ["created_at"]
+    search_fields = ["id", "created_at"]
 
     def display_image(self, obj):
         if obj.image:
@@ -15,12 +15,11 @@ class ImageUploadAdmin(admin.ModelAdmin):
     display_image.short_description = "Image"
     display_image.allow_tags = True
 
-
 @admin.register(TextUpload)
 class TextUploadAdmin(admin.ModelAdmin):
-    list_display = ["id", "text"]
-    list_filter = ["id"]
-    search_fields = ["text"]
+    list_display = ["id", "text", "created_at"]
+    list_filter = ["created_at"]
+    search_fields = ["text", "created_at"]
 
 
 @admin.register(VoiceUpload)

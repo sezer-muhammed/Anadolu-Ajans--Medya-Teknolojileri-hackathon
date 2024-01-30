@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django_select2",
     "api",
     'image_generator',
+    "GUI",
 ]
 
 MIDDLEWARE = [

@@ -1,57 +1,57 @@
 {
-  "news_context": {
-      "headline": "{{brief_headline_describing_the_scene}}",
-      "category": "{{genre_of_image_like_abstract_fantasy_sci-fi_etc}}",
-      "emotionTone": "{{emotional_tone_of_image_like_happy_sad_serene_etc}}",
-      "emotionalIntensity": "{{scale_of_emotional_intensity_from_1_to_10}}",
-      "geographicalContext": "{{specific_or_imaginary_location}}",
-      "temporalContext": "{{time_period_or_season}}",
-      "sourceCredibility": "{{scale_of_realism_from_1_to_10}}",
-      "audienceAgeGroup": "{{target_audience_age_group}}",
-      "audienceInterests": "{{themes_or_elements_of_interest_to_audience}}",
-      "keywords": [
-          {
-              "word": "{{keyword_or_element_to_include_in_image}}"
-          }
-      ],
-      "subcategories": [
-          {
-              "name": "{{subcategory_defining_style_or_subject_matter}}"
-          }
-      ]
-  },
-  "visual_elements": {
-      "mainSubject": "{{central_figure_or_subject_of_the_image}}",
-      "backgroundScene": "{{type_of_background_setting_urban_natural_etc}}",
-      "colorPalette": "{{dominant_colors_or_mood_of_the_image}}",
-      "texture": "{{overall_texture_smooth_rough_glossy_etc}}",
-      "dynamicElements": "{{moving_elements_or_actions_in_the_scene}}",
-      "textOverlayStyle": "{{style_of_any_text_overlay}}",
-      "motionEffects": "{{impression_of_movement_or_stillness}}",
-      "characters": [
-          {
-              "type": "{{character_type_human_animal_mythical_etc}}",
-              "action": "{{action_performed_by_the_character}}",
-              "appearance": "{{physical_description_of_the_character}}"
-          }
-      ],
-      "object_details": [
-          {
-              "description": "{{unique_objects_or_items_in_the_scene}}"
-          }
-      ]
-  },
-  "style_preferences": {
-      "artStyle": "{{preferred_artistic_style_like_realistic_cartoonish_etc}}",
-      "composition": "{{layout_or_arrangement_of_elements_in_the_image}}",
-      "lighting": "{{lighting_conditions_bright_dim_mystical_etc}}",
-      "aspectRatio": "{{desired_aspect_ratio_for_the_image}}"
-  },
-  "user_customizations": {
-      "additionalText": "{{additional_instructions_or_details}}",
-      "userUploads": "{{references_to_user_uploaded_images_or_styles}}",
-      "specificRequests": "{{specific_requests_or_requirements_for_the_image}}",
-      "feedbackLoop": "{{feedback_for_iterative_improvement}}",
-      "templates": "{{preferred_templates_or_previous_examples}}"
-  }
+    "news_context": {
+        "headline": "string (brief headline describing the scene)",
+        "category": "string (genre of image like abstract, fantasy, sci-fi, etc.)",
+        "emotionTone": "string (emotional tone of image like happy, sad, serene, etc.)",
+        "emotionalIntensity": "integer (scale of emotional intensity from 1 to 10)",
+        "geographicalContext": "string (specific or imaginary location)",
+        "temporalContext": "string (time period or season)",
+        "sourceCredibility": "integer (scale of realism from 1 to 10)",
+        "audienceAgeGroup": "string (target audience age group)",
+        "audienceInterests": "string (themes or elements of interest to audience)",
+        "keywords": [
+            {
+                "word": "string (keyword or element to include in image)"
+            }
+        ],
+        "subcategories": [
+            {
+                "name": "string (subcategory defining style or subject matter)"
+            }
+        ]
+    },
+    "visual_elements": {
+        "mainSubject": "string (central figure or subject of the image)",
+        "backgroundScene": "string (type of background setting, urban, natural, etc.)",
+        "colorPalette": "string (dominant colors or mood of the image)",
+        "texture": "string (overall texture, smooth, rough, glossy, etc.)",
+        "dynamicElements": "string (moving elements or actions in the scene)",
+        "textOverlayStyle": "string (style of any text overlay)",
+        "motionEffects": "string (impression of movement or stillness)",
+        "characters": [
+            {
+                "type": "string (character type, human, animal, mythical, etc.)",
+                "action": "string (action performed by the character)",
+                "appearance": "string (physical description of the character)"
+            }
+        ],
+        "object_details": [
+            {
+                "description": "string (unique objects or items in the scene)"
+            }
+        ]
+    },
+    "style_preferences": {
+        "artStyle": "string (preferred artistic style, like realistic, cartoonish, etc.)",
+        "composition": "string (layout or arrangement of elements in the image)",
+        "lighting": "string (lighting conditions, bright, dim, mystical, etc.)",
+        "aspectRatio": "string (desired aspect ratio for the image)"
+    },
+    "user_customizations": {
+        "additionalText": "string (additional instructions or details)",
+        "userUploads": "string (references to user uploaded images or styles)",
+        "specificRequests": "string (specific requests or requirements for the image)",
+        "feedbackLoop": "string (feedback for iterative improvement)",
+        "templates": "string (preferred templates or previous examples)"
+    }
 }

@@ -23,4 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
     path("image_generator/", include("image_generator.urls")),
+    path("GUI/", include("GUI.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
