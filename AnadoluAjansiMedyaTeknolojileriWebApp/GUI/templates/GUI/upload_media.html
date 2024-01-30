@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}Media Upload{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Upload Media</h2>
+    <div class="row">
+        <!-- Image Upload Section -->
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data" id="imageUploadForm" class="mb-3">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">{{ image_form.image.label }}</label>
+                    <input type="file" class="form-control" id="imageInput" name="image" multiple>
+                    <div id="imageDropZone" class="border border-dashed p-5 text-center">
+                        Drag and drop images here
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload Images</button>
+            </form>
+            <!-- Image Preview Area -->
+            <div id="imagePreview" class="row"></div>
+        </div>
+
+        <!-- Text Upload Section -->
+        <div class="col-md-6">
+            <form method="post" id="textUploadForm" class="mb-3">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="textInput" class="form-label">{{ text_form.text.label }}</label>
+                    <textarea class="form-control" id="textInput" name="text" rows="3"></textarea>
+                    <small class="form-text text-muted">Enter your text, separate different texts using '%%'.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload Text</button>
+            </form>
+            <!-- Text Preview Area -->
+            <div id="textPreview"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+  var imageDropZone = document.getElementById('imageDropZone');
+  var imageInput = document.getElementById('imageInput');
+
+  // Function to display image previews
+  function displayImages(files) {
+      var imagePreview = document.getElementById('imagePreview');
+      imagePreview.innerHTML = ''; // Clear existing content
+
+      Array.from(files).forEach(function(file) {
+          if (!file.type.match('image.*')) return;
+
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.className = 'img-thumbnail m-1';
+            img.style.maxWidth = '480px';
+            img.style.maxHeight = '480px';
+            img.style.height = 'auto';
+            img.style.width = 'auto';
+            imagePreview.appendChild(img);
+          };
+          reader.readAsDataURL(file);
+      });
+  }
+
+  // Handle drag-and-drop
+  imageDropZone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.classList.add('border-primary');
+  });
+
+  imageDropZone.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.classList.remove('border-primary');
+  });
+
+  imageDropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.classList.remove('border-primary');
+
+      var files = e.dataTransfer.files;
+      displayImages(files); // Display dropped images
+      imageInput.files = files; // Assign dropped files to file input
+  });
+
+  // Handle file selection via file input
+  imageInput.addEventListener('change', function() {
+      displayImages(this.files); // Display selected images
+  });
+
+    // Text Preview Functionality
+    document.getElementById('textInput').addEventListener('input', function() {
+        var texts = this.value.split('%%');
+        var textPreview = document.getElementById('textPreview');
+        textPreview.innerHTML = '';
+        texts.forEach(function(text) {
+            if(text.trim() != '') {
+                var p = document.createElement('p');
+                p.textContent = text.trim();
+                textPreview.appendChild(p);
+            }
+        });
+    });
+
+    // Alert on Successful Upload
+    $('#uploadForm').on('submit', function(event) {
+        event.preventDefault(); // Prevents the default form submission action
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function() {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Your media has been uploaded successfully.',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                });
+            },
+            error: function() {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'There was a problem with the upload.',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -580,3 +580,4 @@ class InputRecord(models.Model):
             A string containing the input_id, input_type, and timestamp.
         """
         return f"{self.input_id} - {self.input_type} at {self.timestamp}"
+

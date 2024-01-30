@@ -7,10 +7,6 @@ from .serializers import (
     VoiceUploadSerializer,
 )
 
-from meta_models_management.models import InputRecord
-from meta_models_management.serializers import InputRecordSerializer
-
-
 class ImageUploadViewSet(viewsets.ModelViewSet):
     queryset = ImageUpload.objects.all()
     serializer_class = ImageUploadSerializer
@@ -26,6 +22,3 @@ class VoiceUploadViewSet(viewsets.ModelViewSet):
     serializer_class = VoiceUploadSerializer
 
 
-class InputRecordViewSet(viewsets.ModelViewSet):
-    queryset = InputRecord.objects.all()
-    serializer_class = InputRecordSerializer

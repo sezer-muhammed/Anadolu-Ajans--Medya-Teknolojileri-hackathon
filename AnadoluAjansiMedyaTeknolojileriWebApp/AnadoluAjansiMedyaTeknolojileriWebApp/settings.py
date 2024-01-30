@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_select2",
     "api",
-    "meta_models_management",
+    'image_generator',
+    "GUI",
 ]
 
 MIDDLEWARE = [
