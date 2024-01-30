@@ -15,7 +15,7 @@ Your role involves:
 The end goal is to create a detailed and accurate JSON file that another model can use to generate a visual.
 
 ONLY write one json response in given format just change prompt and negative_prompt values. write whole json code as code block
-
+Instead of using proper nouns, use the general name of the object that has that proper noun
 
 here is the template that you will fill:
 {data}

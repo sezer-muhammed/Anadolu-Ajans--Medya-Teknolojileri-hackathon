@@ -1,0 +1,15 @@
+{
+  "app_name": "Main User Interface",
+  "links": [
+    {
+      "title": "Upload Media",
+      "url": "/GUI/upload/",
+      "active": false
+    },
+    {
+      "title": "Loaded Media List",
+      "url": "/GUI/image-generations/",
+      "active": false
+    }
+  ]
+}
