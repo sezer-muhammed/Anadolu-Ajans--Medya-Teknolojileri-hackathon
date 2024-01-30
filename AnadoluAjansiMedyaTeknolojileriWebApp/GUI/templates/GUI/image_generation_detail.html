@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Image Generation Detail{% endblock %}
+
+{% block content %}
+<div class="container my-4" data-aos="fade-up">
+    <h1 class="mb-4">Image Generation Detail: {{ image_generation.news_context.headline }}</h1>
+
+
+        <!-- Image Upload or Text Upload -->
+        <div class="card mb-4">
+          <div class="card-body">
+              <h5 class="card-title">Upload Information</h5>
+              <p class="card-text">
+                  {% if upload_info %}
+                      {% if image_generation.image_upload %}
+                          <img src="{{ upload_info }}" class="img-fluid" alt="Generated Image">
+                      {% elif image_generation.text_upload %}
+                          {{ upload_info }}
+                      {% endif %}
+                  {% else %}
+                      No upload information available.
+                  {% endif %}
+              </p>
+          </div>
+      </div>
+    <!-- Image Generation Information -->
+    <div class="card mb-4">
+      <div class="card-body">
+          <h5 class="card-title">News Context Details</h5>
+          <p class="card-text"><strong>Headline:</strong> {{ image_generation.news_context.headline }}</p>
+          <p class="card-text"><strong>Category:</strong> {{ image_generation.news_context.category }}</p>
+          <p class="card-text"><strong>Emotion Tone:</strong> {{ image_generation.news_context.emotionTone }}</p>
+          <p class="card-text"><strong>Emotional Intensity:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
+          <p class="card-text"><strong>Geographical Context:</strong> {{ image_generation.news_context.geographicalContext }}</p>
+          <p class="card-text"><strong>Temporal Context:</strong> {{ image_generation.news_context.temporalContext }}</p>
+          <p class="card-text"><strong>Source Credibility:</strong> {{ image_generation.news_context.sourceCredibility }}</p>
+          <p class="card-text"><strong>Audience Age Group:</strong> {{ image_generation.news_context.audienceAgeGroup }}</p>
+          <p class="card-text"><strong>Audience Interests:</strong> {{ image_generation.news_context.audienceInterests }}</p>
+
+          <!-- Keywords -->
+          <h5 class="mt-3">Keywords:</h5>
+          <ul>
+              {% for keyword in image_generation.news_context.keywords.all %}
+                  <li>{{ keyword.word }}</li>
+              {% endfor %}
+          </ul>
+
+          <!-- Subcategories -->
+          <h5 class="mt-3">Subcategories:</h5>
+          <ul>
+              {% for subcategory in image_generation.news_context.subcategories.all %}
+                  <li>{{ subcategory.name }}</li>
+              {% endfor %}
+          </ul>
+      </div>
+  </div>
+
+  <!-- Visual Elements Information -->
+  <div class="card mb-4">
+      <div class="card-body">
+          <h5 class="card-title">Visual Elements</h5>
+          <p class="card-text"><strong>Main Subject:</strong> {{ image_generation.visual_elements.mainSubject }}</p>
+          <p class="card-text"><strong>Background Scene:</strong> {{ image_generation.visual_elements.backgroundScene }}</p>
+          <p class="card-text"><strong>Color Palette:</strong> {{ image_generation.visual_elements.colorPalette }}</p>
+          <p class="card-text"><strong>Texture:</strong> {{ image_generation.visual_elements.texture }}</p>
+
+          <!-- Characters -->
+          <h5 class="mt-3">Characters:</h5>
+          <ul>
+              {% for character in image_generation.visual_elements.characters.all %}
+                  <li>{{ character.type }} - {{ character.action }} - {{ character.appearance }}</li>
+              {% endfor %}
+          </ul>
+
+          <!-- Object Details -->
+          <h5 class="mt-3">Object Details:</h5>
+          <ul>
+              {% for object_detail in image_generation.visual_elements.object_details.all %}
+                  <li>{{ object_detail.description }}</li>
+              {% endfor %}
+          </ul>
+      </div>
+  </div>
+
+  <!-- Style Preferences -->
+  <div class="card mb-4">
+      <div class="card-body">
+          <h5 class="card-title">Style Preferences</h5>
+          <p class="card-text"><strong>Art Style:</strong> {{ image_generation.style_preferences.artStyle }}</p>
+          <p class="card-text"><strong>Composition:</strong> {{ image_generation.style_preferences.composition }}</p>
+          <p class="card-text"><strong>Lighting:</strong> {{ image_generation.style_preferences.lighting }}</p>
+          <p class="card-text"><strong>Aspect Ratio:</strong> {{ image_generation.style_preferences.aspectRatio }}</p>
+      </div>
+  </div>
+
+  <!-- User Customizations -->
+  <div class="card mb-4">
+      <div class="card-body">
+          <h5 class="card-title">User Customizations</h5>
+          <p class="card-text"><strong>Additional Text:</strong> {{ image_generation.user_customizations.additionalText }}</p>
+          <p class="card-text"><strong>User Uploads:</strong> {{ image_generation.user_customizations.userUploads }}</p>
+          <p class="card-text"><strong>Specific Requests:</strong> {{ image_generation.user_customizations.specificRequests }}</p>
+          <p class="card-text"><strong>Feedback Loop:</strong> {{ image_generation.user_customizations.feedbackLoop }}</p>
+          <p class="card-text"><strong>Templates:</strong> {{ image_generation.user_customizations.templates }}</p>
+      </div>
+  </div>
+
+    <!-- Generated Images -->
+    <h2 class="mb-3">Generated Images</h2>
+    <div class="row g-4">
+        {% for image in generated_images %}
+            <div class="col-md-4">
+                <img src="{{ image.image.url }}" alt="Generated Image" class="img-fluid" style="max-width: 480px; height: auto;">
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <p>No images have been generated for this item.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Example of using SweetAlert for an interactive alert
+    function showAlert() {
+        Swal.fire({
+            title: 'Example Alert',
+            text: 'This is an example alert using SweetAlert.',
+            icon: 'info',
+            confirmButtonText: 'Cool'
+        });
+    }
+</script>
+{% endblock %}
