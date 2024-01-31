@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>image_generator.views &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+  <title>image_generator.views &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,7 +12,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/documentation_options.js?v=7243cef6"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -39,9 +39,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Sınıflandırma Sistemi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../generated_images.html">Generated Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../siniflandirma/kategorizasyon.html">Kategorizasyon Süreci Dokümantasyonu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../siniflandirma/kullanim-senaryolari.html">Kullanım Senaryoları</a></li>
 </ul>
 
         </div>
@@ -82,63 +83,63 @@
                           <span class="n">ImageGenerationSerializer</span><span class="p">)</span>
 
 <div class="viewcode-block" id="KeywordViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.KeywordViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.KeywordViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">KeywordViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">Keyword</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">KeywordSerializer</span></div>
 
 
 <div class="viewcode-block" id="SubcategoryViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.SubcategoryViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.SubcategoryViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">SubcategoryViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">Subcategory</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">SubcategorySerializer</span></div>
 
 
 <div class="viewcode-block" id="ObjectDetailViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.ObjectDetailViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.ObjectDetailViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">ObjectDetailViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">ObjectDetail</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">ObjectDetailSerializer</span></div>
 
 
 <div class="viewcode-block" id="CharacterViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.CharacterViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.CharacterViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">CharacterViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">Character</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">CharacterSerializer</span></div>
 
 
 <div class="viewcode-block" id="NewsContextViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.NewsContextViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.NewsContextViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">NewsContextViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">NewsContext</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">NewsContextSerializer</span></div>
 
 
 <div class="viewcode-block" id="VisualElementsViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.VisualElementsViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.VisualElementsViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">VisualElementsViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">VisualElements</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">VisualElementsSerializer</span></div>
 
 
 <div class="viewcode-block" id="StylePreferencesViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.StylePreferencesViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.StylePreferencesViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">StylePreferencesViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">StylePreferences</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">StylePreferencesSerializer</span></div>
 
 
 <div class="viewcode-block" id="UserCustomizationsViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.UserCustomizationsViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.UserCustomizationsViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">UserCustomizationsViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">UserCustomizations</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserCustomizationsSerializer</span></div>
 
 
 <div class="viewcode-block" id="ImageGenerationViewSet">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.views.ImageGenerationViewSet">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.views.ImageGenerationViewSet">[docs]</a>
 <span class="k">class</span> <span class="nc">ImageGenerationViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">ImageGeneration</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">ImageGenerationSerializer</span></div>

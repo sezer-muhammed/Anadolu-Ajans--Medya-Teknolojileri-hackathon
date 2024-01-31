@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>api.admin &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+  <title>api.admin &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,7 +12,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/documentation_options.js?v=7243cef6"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -39,9 +39,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Sınıflandırma Sistemi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../generated_images.html">Generated Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../siniflandirma/kategorizasyon.html">Kategorizasyon Süreci Dokümantasyonu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../siniflandirma/kullanim-senaryolari.html">Kullanım Senaryoları</a></li>
 </ul>
 
         </div>
@@ -74,23 +75,26 @@
 <span class="kn">from</span> <span class="nn">django.utils.html</span> <span class="kn">import</span> <span class="n">mark_safe</span>
 
 <div class="viewcode-block" id="ImageUploadAdmin">
-<a class="viewcode-back" href="../../source/api.html#api.admin.ImageUploadAdmin">[docs]</a>
+<a class="viewcode-back" href="../../reference/api.html#api.admin.ImageUploadAdmin">[docs]</a>
 <span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">ImageUpload</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">ImageUploadAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
     <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;display_image&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
     <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
     <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
 
+<div class="viewcode-block" id="ImageUploadAdmin.display_image">
+<a class="viewcode-back" href="../../reference/api.html#api.admin.ImageUploadAdmin.display_image">[docs]</a>
     <span class="k">def</span> <span class="nf">display_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">image</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">mark_safe</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;img src=&quot;</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s1">&quot; height=&quot;150&quot; /&gt;&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s2">&quot;No image&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;No image&quot;</span></div>
+
     <span class="n">display_image</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s2">&quot;Image&quot;</span>
     <span class="n">display_image</span><span class="o">.</span><span class="n">allow_tags</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
 <div class="viewcode-block" id="TextUploadAdmin">
-<a class="viewcode-back" href="../../source/api.html#api.admin.TextUploadAdmin">[docs]</a>
+<a class="viewcode-back" href="../../reference/api.html#api.admin.TextUploadAdmin">[docs]</a>
 <span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">TextUpload</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">TextUploadAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
     <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
@@ -100,7 +104,7 @@
 
 
 <div class="viewcode-block" id="VoiceUploadAdmin">
-<a class="viewcode-back" href="../../source/api.html#api.admin.VoiceUploadAdmin">[docs]</a>
+<a class="viewcode-back" href="../../reference/api.html#api.admin.VoiceUploadAdmin">[docs]</a>
 <span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">VoiceUpload</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">VoiceUploadAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
     <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;voice_file&quot;</span><span class="p">]</span>

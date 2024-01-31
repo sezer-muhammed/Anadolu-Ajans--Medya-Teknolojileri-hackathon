@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>image_generator.tests &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+  <title>image_generator.tests &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,7 +12,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../../_static/documentation_options.js?v=7243cef6"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -39,9 +39,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Sınıflandırma Sistemi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../generated_images.html">Generated Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../siniflandirma/kategorizasyon.html">Kategorizasyon Süreci Dokümantasyonu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../siniflandirma/kullanim-senaryolari.html">Kullanım Senaryoları</a></li>
 </ul>
 
         </div>
@@ -76,10 +77,10 @@
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
 
 <div class="viewcode-block" id="ImageGenerationTestCase">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.tests.ImageGenerationTestCase">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.tests.ImageGenerationTestCase">[docs]</a>
 <span class="k">class</span> <span class="nc">ImageGenerationTestCase</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
 <div class="viewcode-block" id="ImageGenerationTestCase.setUp">
-<a class="viewcode-back" href="../../source/meta_models_management.html#image_generator.tests.ImageGenerationTestCase.setUp">[docs]</a>
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.tests.ImageGenerationTestCase.setUp">[docs]</a>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="c1"># Create a user</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;12345&#39;</span><span class="p">)</span>
@@ -150,6 +151,8 @@
 
 
 
+<div class="viewcode-block" id="ImageGenerationTestCase.test_setup_successful">
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.tests.ImageGenerationTestCase.test_setup_successful">[docs]</a>
     <span class="k">def</span> <span class="nf">test_setup_successful</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Check if the user is created successfully</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
@@ -173,14 +176,18 @@
 
         <span class="c1"># Check relationships in VisualElements</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">visual_elements</span><span class="o">.</span><span class="n">characters</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">visual_elements</span><span class="o">.</span><span class="n">object_details</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">visual_elements</span><span class="o">.</span><span class="n">object_details</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="ImageGenerationTestCase.test_image_generation_relationships">
+<a class="viewcode-back" href="../../reference/image_generator.html#image_generator.tests.ImageGenerationTestCase.test_image_generation_relationships">[docs]</a>
     <span class="k">def</span> <span class="nf">test_image_generation_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_generation</span><span class="o">.</span><span class="n">news_context</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">news_context</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_generation</span><span class="o">.</span><span class="n">visual_elements</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">visual_elements</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_generation</span><span class="o">.</span><span class="n">style_preferences</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">style_preferences</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_generation</span><span class="o">.</span><span class="n">user_customizations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_customizations</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 
