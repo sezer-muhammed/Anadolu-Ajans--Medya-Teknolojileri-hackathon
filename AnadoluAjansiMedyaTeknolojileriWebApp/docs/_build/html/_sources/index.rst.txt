@@ -44,31 +44,9 @@ Projemizin sınıflandırma sistemi, haber içeriğini daha etkili bir şekilde 
 
 4. **Görsel Öneriler**: Sınıflandırma sonuçlarına göre, haber için uygun görsel tasarımlar önerilir. Bu, haberin etkisini artırmak ve hedef kitleye daha iyi ulaşmak için kritik öneme sahiptir.
 
-Sistem Kullanım Senaryoları
----------------------------
-
-Bu bölüm, sınıflandırma sisteminin çeşitli kullanım senaryolarını içerir. Pratik uygulamalar ve örnek vakalar, sistemin gerçek dünya senaryolarında nasıl işlediğini gösterir.
-
-Sonuç ve Değerlendirme
------------------------
-
-Sınıflandırma sisteminin projeye katkıları ve performans değerlendirmesi bu bölümde ele alınır. Sistem optimizasyonları ve gelecekteki geliştirme planları hakkında bilgi verilir.
 
 .. toctree::
    :maxdepth: 2
 
    siniflandirma/kategorizasyon
    siniflandirma/kullanim-senaryolari
-
-Görsel Üretim
-=============
-Bu bölüm, haber görsellerinin nasıl üretildiğiyle ilgili teknik detayları içerir. Kullanılan araçlar, görsel kalitesi ve format seçenekleri hakkında bilgi sağlar.
-
-Sıkça Sorulan Sorular (SSS)
-===========================
-Kullanıcıların sıkça karşılaştığı sorunlar ve bu sorunlara yönelik çözümler bu bölümde yer alır.
-
-Destek
-======
-Projeyle ilgili yardım almak için iletişim bilgileri ve destek kanalları bu bölümde bulunur.
-
