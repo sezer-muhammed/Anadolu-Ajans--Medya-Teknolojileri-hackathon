@@ -13,9 +13,6 @@ class TextUploadForm(forms.ModelForm):
         model = TextUpload
         fields = ['text']
 
-
-
-
 class ImageGenerationSearchForm(forms.Form):
     headline = forms.ModelMultipleChoiceField(
         queryset=NewsContext.objects.all(),
