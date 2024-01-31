@@ -1,5 +1,5 @@
 import json
-from .config.openai_prompt import TEXT_PROMPT
+from .config.openai_prompt import TEXT_PROMPT, IMAGE_PROMPT
 from .openai_interface import OpenAIInterface
 import requests  # Import the requests library
 
@@ -7,9 +7,34 @@ import requests  # Import the requests library
 class ImageCallback:
     @staticmethod
     def process_image(image):
-        pass
+        """
+        Process the given image by generating a text based on the image.
 
-        # Code to call OpenAI API with the image
+        Parameters:
+        image (ImageUpload): The image to be processed.
+
+        Returns:
+        None
+        """
+        # Make a POST request to the /image_generator/imagegenerations/ endpoint
+        from image_generator.serializers import ImageGenerationSerializer
+        with open("image_generator/config/image_upload.json", 'r') as file:
+          data = json.load(file)
+          json_template_data = json.dumps(data, indent=4)
+        filled_prompt = IMAGE_PROMPT.format(data=json_template_data)
+
+        open_ai_engine = OpenAIInterface()
+        # response is dumped json
+        response: dict = open_ai_engine.generate_image(filled_prompt, image.image.path)
+        from image_generator.serializers import ImageGenerationSerializer
+        serializer = ImageGenerationSerializer(data=response)
+        if serializer.is_valid():
+          saved_model = serializer.save()
+          saved_model.image_upload = image
+          saved_model.save()
+        else:
+          print(serializer.errors)
+
 
 class TextCallback:
     @staticmethod

@@ -1,5 +1,6 @@
 from django.db import models
 from api.models import ImageUpload, TextUpload
+import random
 
 class GeneratedImages(models.Model):
     image = models.ImageField(upload_to='generated_images/')
@@ -110,3 +111,13 @@ class ImageGeneration(models.Model):
 
     def __str__(self):
         return f"Image Generation for {self.news_context.headline}"
+    
+    @property
+    def random_image_url(self):
+        if self.image_upload and self.image_upload.image:
+            return self.image_upload.image.url
+        else:
+            images = self.generated_images.all()
+            if images:
+                return random.choice(images).image.url
+        return None  # or a default image URL

@@ -1,13 +1,14 @@
 from django.views import View
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ImageUploadForm, TextUploadForm
+from .forms import ImageUploadForm, TextUploadForm, ImageGenerationSearchForm
 from api.models import TextUpload, ImageUpload
 from django.http import HttpResponse
 import json
 from io import BytesIO
 from django.core.files.images import ImageFile
 from django.views.generic.list import ListView
-from image_generator.models import ImageGeneration, GeneratedImages
+from image_generator.models import ImageGeneration, GeneratedImages, Keyword
 from image_generator.serializers import ImageGenerationSerializer
 import requests
 from .openai_interface import OpenAIInterface
@@ -95,13 +96,51 @@ class ImageGenerationDetailView(View):
 
 class ImageGenerationListView(ListView):
     model = ImageGeneration
-    template_name = 'GUI/image_generation_list.html'  # Your template name
+    template_name = 'GUI/image_generation_list.html'
     context_object_name = 'image_generations'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.order_by('-text_upload__created_at')
+        form = ImageGenerationSearchForm(self.request.GET)
+        if form.is_valid():
+            headlines = form.cleaned_data.get('headline')
+            keywords = form.cleaned_data.get('keywords')
+            subcategories = form.cleaned_data.get('subcategories')
+            object_details = form.cleaned_data.get('object_details')
+            characters = form.cleaned_data.get('characters')
+            has_text_upload = form.cleaned_data.get('has_text_upload')
+            has_image_upload = form.cleaned_data.get('has_image_upload')
+
+            if headlines:
+                queryset = queryset.filter(news_context__in=headlines)
+
+            if keywords:
+                queryset = queryset.filter(news_context__keywords__in=keywords).distinct()
+
+            if subcategories:
+                queryset = queryset.filter(news_context__subcategories__in=subcategories).distinct()
+
+            if object_details:
+                queryset = queryset.filter(visual_elements__object_details__in=object_details).distinct()
+
+            if characters:
+                queryset = queryset.filter(visual_elements__characters__in=characters).distinct()
+
+            if has_text_upload:
+                queryset = queryset.exclude(text_upload__isnull=True)
+
+            if has_image_upload:
+                queryset = queryset.exclude(image_upload__isnull=True)
+
+            return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Add any additional context if necessary
+        context['form'] = ImageGenerationSearchForm(self.request.GET or None)  # Initialize the form
         return context
+
+
 
 
 class MediaUploadView(View):
