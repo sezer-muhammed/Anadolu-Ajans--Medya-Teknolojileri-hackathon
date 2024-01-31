@@ -103,67 +103,37 @@ class ImageGenerationListView(ListView):
         queryset = super().get_queryset()
         queryset = queryset.order_by('-text_upload__created_at')
         form = ImageGenerationSearchForm(self.request.GET)
-
         if form.is_valid():
-            # Filtering based on NewsContext
-            if form.cleaned_data['headline']:
-                queryset = queryset.filter(news_context__headline__icontains=form.cleaned_data['headline'])
-            if form.cleaned_data['category']:
-                queryset = queryset.filter(news_context__category__icontains=form.cleaned_data['category'])
-            if form.cleaned_data['emotional_intensity']:
-                queryset = queryset.filter(news_context__emotionalIntensity=form.cleaned_data['emotional_intensity'])
-            if form.cleaned_data['geographical_context']:
-                queryset = queryset.filter(news_context__geographicalContext__icontains=form.cleaned_data['geographical_context'])
-            if form.cleaned_data['temporal_context']:
-                queryset = queryset.filter(news_context__temporalContext__icontains=form.cleaned_data['temporal_context'])
-            if form.cleaned_data['source_credibility']:
-                queryset = queryset.filter(news_context__sourceCredibility=form.cleaned_data['source_credibility'])
-            if form.cleaned_data['audience_age_group']:
-                queryset = queryset.filter(news_context__audienceAgeGroup__icontains=form.cleaned_data['audience_age_group'])
-            if form.cleaned_data['audience_interests']:
-                queryset = queryset.filter(news_context__audienceInterests__icontains=form.cleaned_data['audience_interests'])
-            if form.cleaned_data['keywords']:
-                queryset = queryset.filter(news_context__keywords__in=form.cleaned_data['keywords'])
-            if form.cleaned_data['subcategories']:
-                queryset = queryset.filter(news_context__subcategories__in=form.cleaned_data['subcategories'])
+            headlines = form.cleaned_data.get('headline')
+            keywords = form.cleaned_data.get('keywords')
+            subcategories = form.cleaned_data.get('subcategories')
+            object_details = form.cleaned_data.get('object_details')
+            characters = form.cleaned_data.get('characters')
+            has_text_upload = form.cleaned_data.get('has_text_upload')
+            has_image_upload = form.cleaned_data.get('has_image_upload')
 
-            # Filtering based on VisualElements
-            if form.cleaned_data['main_subject']:
-                queryset = queryset.filter(visual_elements__mainSubject__icontains=form.cleaned_data['main_subject'])
-            if form.cleaned_data['background_scene']:
-                queryset = queryset.filter(visual_elements__backgroundScene__icontains=form.cleaned_data['background_scene'])
-            if form.cleaned_data['color_palette']:
-                queryset = queryset.filter(visual_elements__colorPalette__icontains=form.cleaned_data['color_palette'])
-            if form.cleaned_data['texture']:
-                queryset = queryset.filter(visual_elements__texture__icontains=form.cleaned_data['texture'])
-            if form.cleaned_data['characters']:
-                queryset = queryset.filter(visual_elements__characters__in=form.cleaned_data['characters'])
-            if form.cleaned_data['object_details']:
-                queryset = queryset.filter(visual_elements__object_details__in=form.cleaned_data['object_details'])
+            if headlines:
+                queryset = queryset.filter(news_context__in=headlines)
 
-            # Filtering based on StylePreferences
-            if form.cleaned_data['art_style']:
-                queryset = queryset.filter(style_preferences__artStyle__icontains=form.cleaned_data['art_style'])
-            if form.cleaned_data['composition']:
-                queryset = queryset.filter(style_preferences__composition__icontains=form.cleaned_data['composition'])
-            if form.cleaned_data['lighting']:
-                queryset = queryset.filter(style_preferences__lighting__icontains=form.cleaned_data['lighting'])
-            if form.cleaned_data['aspect_ratio']:
-                queryset = queryset.filter(style_preferences__aspectRatio__icontains=form.cleaned_data['aspect_ratio'])
+            if keywords:
+                queryset = queryset.filter(news_context__keywords__in=keywords).distinct()
 
-            # Filtering based on UserCustomizations
-            if form.cleaned_data['additional_text']:
-                queryset = queryset.filter(user_customizations__additionalText__icontains=form.cleaned_data['additional_text'])
-            if form.cleaned_data['user_uploads']:
-                queryset = queryset.filter(user_customizations__userUploads__icontains=form.cleaned_data['user_uploads'])
-            if form.cleaned_data['specific_requests']:
-                queryset = queryset.filter(user_customizations__specificRequests__icontains=form.cleaned_data['specific_requests'])
-            if form.cleaned_data['feedback_loop']:
-                queryset = queryset.filter(user_customizations__feedbackLoop__icontains=form.cleaned_data['feedback_loop'])
-            if form.cleaned_data['templates']:
-                queryset = queryset.filter(user_customizations__templates__icontains=form.cleaned_data['templates'])
+            if subcategories:
+                queryset = queryset.filter(news_context__subcategories__in=subcategories).distinct()
 
-        return queryset
+            if object_details:
+                queryset = queryset.filter(visual_elements__object_details__in=object_details).distinct()
+
+            if characters:
+                queryset = queryset.filter(visual_elements__characters__in=characters).distinct()
+
+            if has_text_upload:
+                queryset = queryset.exclude(text_upload__isnull=True)
+
+            if has_image_upload:
+                queryset = queryset.exclude(image_upload__isnull=True)
+
+            return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

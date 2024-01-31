@@ -1,6 +1,7 @@
 import openai
 import os
 import json
+import base64
 
 os.environ["OPENAI_API_KEY"] = "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"
 
@@ -43,12 +44,67 @@ class OpenAIInterface:
                 ]
             )
 
-            response = response.choices[0].message.content
-            response = response.split("```json")[1]
-            response = response.split("```")[0]
-            response = response.replace("\n", "")
+            response_content = response.choices[0].message.content
 
-            response_json = json.loads(response)
+            # Extract content between the first and last triple backticks
+            if '```json' in response_content:
+                start = response_content.find('```json') + len('```json')
+            elif '```' in response_content:
+                start = response_content.find('```') + len('```')
+
+            end = response_content.rfind('```')
+
+            response_content = response_content[start:end].strip()
+            response_content = response_content.replace("\n", "")
+
+            response_json = json.loads(response_content)
+
+            return response_json
+        except Exception as e:
+            print(e)
+            return None
+        
+    def generate_image(self, prompt, image_path, model="gpt-4-vision-preview"):
+        def encode_image(image_path):
+            with open(image_path, "rb") as image_file:
+                return base64.b64encode(image_file.read()).decode('utf-8')
+        
+        base64_image = encode_image(image_path)
+
+        client = openai.OpenAI()
+
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": f'{prompt}'},
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64_image}",
+                                    "detail": "low"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                max_tokens=3000,
+            )
+
+            response_content = response.choices[0].message.content
+            if '```json' in response_content:
+                start = response_content.find('```json') + len('```json')
+            elif '```' in response_content:
+                start = response_content.find('```') + len('```')
+
+            end = response_content.rfind('```')
+
+            response_content = response_content[start:end].strip()
+            response_content = response_content.replace("\n", "")
+            response_json = json.loads(response_content)
 
             return response_json
         except Exception as e:

@@ -114,7 +114,10 @@ class ImageGeneration(models.Model):
     
     @property
     def random_image_url(self):
-        images = self.generated_images.all()
-        if images:
-            return random.choice(images).image.url
+        if self.image_upload and self.image_upload.image:
+            return self.image_upload.image.url
+        else:
+            images = self.generated_images.all()
+            if images:
+                return random.choice(images).image.url
         return None  # or a default image URL
