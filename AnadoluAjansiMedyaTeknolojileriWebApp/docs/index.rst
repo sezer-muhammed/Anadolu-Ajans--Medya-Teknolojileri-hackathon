@@ -1,7 +1,7 @@
 .. _index:
 
 ===========================
-Haber Görseli Üretim Projesi
+Haber Görseli Üretim Projesi: Mozaik
 ===========================
 
 .. toctree::
@@ -12,39 +12,62 @@ Haber Görseli Üretim Projesi
    kullanici-kilavuzu
    sınıflandırma-sistemi
 
-
-Genel Bakış
-===========
-Bu projede, haber metinleri veya görselleri, kullanıcı tarafından girilen veriler olarak alınır ve bu veriler çeşitli alanlarda sınıflandırılır. Ardından, algoritma bu girdilere dayanarak haberler için yüksek kaliteli ve paylaşıma uygun görseller üretir. Projenin temel amacı, hızlı ve etkili bir şekilde görsel içerik oluşturarak haber yayıncılığını desteklemektir.
-
-Kullanıcı Kılavuzu
-==================
-Bu bölümde, projenin nasıl kullanılacağına dair adım adım talimatlar yer alır. Kullanıcılar için giriş yapma, veri yükleme ve görsel üretim süreçleri açıklanır.
-
 Sınıflandırma Sistemi
 =====================
 
 Haber Görseli Üretim Projesindeki sınıflandırma sistemi, girdi olarak verilen haber metinleri ve görsellerini analiz ederek, bunları çeşitli kategorilere ayırmak için tasarlanmıştır. Bu bölüm, sistemin genel yapısını ve işlevselliğini detaylandırmaktadır.
 
-Sistem Genel Bakış
-------------------
-
-Projemizin sınıflandırma sistemi, haber içeriğini daha etkili bir şekilde işlemek ve uygun görsel üretimi için gerekli konteksti sağlamak amacıyla, haber metinlerini ve görsellerini çeşitli ölçütler bazında analiz eder. Bu ölçütler arasında konu, dil, duygusal ton, ve görsel içeriğin niteliği bulunur. Sistemin amacı, verinin doğası ve ihtiyaçlarına göre en uygun görsel tasarımı belirlemektir.
-
 İşlevsel Bileşenler
 --------------------
 
-1. **Metin Analizi**: Haber metninin içeriğini, dil yapısını ve tonunu analiz eder. Bu analiz, metnin temel konusunu ve duygusal yönünü belirler.
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
 
-2. **Görsel Analizi**: Girdi olarak verilen görseller, içerik, renk, ve kompozisyon açısından incelenir. Bu analiz, görselin haber metniyle uyumunu ve görsel kalitesini değerlendirir.
-
-3. **Kategorizasyon**: Analiz sonuçlarına dayanarak, haber içeriği belirli kategorilere ayrılır. Bu kategoriler haberin türü, önemi, ve hedef kitlesine göre ayarlanır.
-
-4. **Görsel Öneriler**: Sınıflandırma sonuçlarına göre, haber için uygun görsel tasarımlar önerilir. Bu, haberin etkisini artırmak ve hedef kitleye daha iyi ulaşmak için kritik öneme sahiptir.
+   * - Bileşen
+     - Açıklama
+   * - **Metin Analizi**
+     - Haber metninin içeriğini, dilini ve tonunu analiz ederek temel konuyu ve duygusal yönü belirler.
+   * - **Görsel Analizi**
+     - Görselleri içerik, renk ve kompozisyon açısından inceler, metinle uyumunu ve kalitesini değerlendirir.
+   * - **Kategorizasyon**
+     - Analiz sonuçlarına göre haber içeriğini belirli kategorilere ayırır.
+   * - **Görsel Öneriler**
+     - Sınıflandırma sonuçlarına uygun görsel tasarımlar önerir.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    siniflandirma/kategorizasyon
    siniflandirma/kullanim-senaryolari
+
+Arama ve Filtreleme
+=============================
+
+Projemizdeki arama ve filtreleme özellikleri, kullanıcıların haber görsellerine ve haberlerle ilişkili görsellere daha hızlı ve etkin bir şekilde erişmesini sağlar. Kullanıcılar, başlıklar, anahtar kelimeler, alt kategoriler, nesne detayları, karakterler ve yükleme türüne göre içerikleri filtreleyebilirler. Bu özellik, aradığınız içeriği bulmanızı kolaylaştırır ve keşfetme sürecini kişiselleştirir.
+
+.. toctree::
+   :maxdepth: 1
+
+   filtering/filter
+
+
+
+Üretilen Görseller
+==================
+
+Bu bölüm, sistemimiz tarafından şu ana kadar üretilen görselleri içermektedir. GörüntüÜretimi modelimiz, haber içeriklerine uygun görseller üretmek için tasarlanmıştır. Bu görseller, haberlerin anlatımını güçlendirmekte ve içeriklerin görsel olarak zenginleştirilmesine katkıda bulunmaktadır.
+
+.. toctree::
+   :maxdepth: 1
+
+   generated_images
+
+
+Indices and Tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

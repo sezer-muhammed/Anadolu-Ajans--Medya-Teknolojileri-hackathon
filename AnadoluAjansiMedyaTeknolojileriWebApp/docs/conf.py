@@ -2,8 +2,8 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.abspath('./_ext'))  # Adjust './_ext' if you used a different directory name
+sys.path.insert(0, os.path.abspath('..'))
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'AnadoluAjansiMedyaTeknolojileriWebApp.settings'
 import django
@@ -12,7 +12,7 @@ django.setup()
 project = 'Anadolu Ajansı Medya Teknolojileri Web App'
 copyright = '2024, Muhammed Sezer'
 author = 'Muhammed Sezer, Şevval Belkıs Dikkaya, Ahmet Sezer, Metehan İçöz'
-release = 'Version 1.0'
+release = 'Version 1.1'
 
 # -- General configuration ---------------------------------------------------
 

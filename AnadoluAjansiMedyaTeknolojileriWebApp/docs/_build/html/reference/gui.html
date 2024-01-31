@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUI App Documentation &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7243cef6"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Anadolu Ajansı Medya Teknolojileri Web App
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Sınıflandırma Sistemi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../siniflandirma/kategorizasyon.html">Kategorizasyon Süreci Dokümantasyonu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../siniflandirma/kullanim-senaryolari.html">Kullanım Senaryoları</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Anadolu Ajansı Medya Teknolojileri Web App</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GUI App Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/gui.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gui-app-documentation">
+<h1>GUI App Documentation<a class="headerlink" href="#gui-app-documentation" title="Link to this heading"></a></h1>
+<p>This section provides documentation for the GUI (Graphical User Interface) app, detailing its forms, views, and integrations, particularly focusing on its role in providing a user interface for the Anadolu Ajansi Medya Teknolojileri Web Application.</p>
+<section id="forms">
+<h2>Forms<a class="headerlink" href="#forms" title="Link to this heading"></a></h2>
+<p>The <cite>forms.py</cite> file contains form classes that are used for data input and submissions through the web interface.</p>
+<dl class="py class" id="module-GUI.forms">
+<dt class="sig sig-object py" id="GUI.forms.ImageGenerationSearchForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.forms.</span></span><span class="sig-name descname"><span class="pre">ImageGenerationSearchForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/forms.html#ImageGenerationSearchForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.forms.ImageGenerationSearchForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/api/#django.forms.Form" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<p><strong>Form fields:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">headline</span></code>: Headline (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.ModelMultipleChoiceField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelMultipleChoiceField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keywords</span></code>: Keywords (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.ModelMultipleChoiceField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelMultipleChoiceField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subcategories</span></code>: Subcategories (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.ModelMultipleChoiceField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelMultipleChoiceField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object_details</span></code>: Object Details (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.ModelMultipleChoiceField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelMultipleChoiceField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">characters</span></code>: Characters (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.ModelMultipleChoiceField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelMultipleChoiceField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">has_text_upload</span></code>: Has Text Upload (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.BooleanField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">has_image_upload</span></code>: Has Image Upload (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.BooleanField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="GUI.forms.ImageGenerationSearchForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#GUI.forms.ImageGenerationSearchForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.forms.ImageUploadForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.forms.</span></span><span class="sig-name descname"><span class="pre">ImageUploadForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/forms.html#ImageUploadForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.forms.ImageUploadForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/forms/modelforms/#django.forms.ModelForm" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></a></p>
+<p><strong>Form fields:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image</span></code>: Image (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.ImageField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageField</span></code></a>)</p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="GUI.forms.ImageUploadForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#GUI.forms.ImageUploadForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.forms.TextUploadForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.forms.</span></span><span class="sig-name descname"><span class="pre">TextUploadForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/forms.html#TextUploadForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.forms.TextUploadForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/forms/modelforms/#django.forms.ModelForm" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></a></p>
+<p><strong>Form fields:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Text (<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.CharField" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="GUI.forms.TextUploadForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#GUI.forms.TextUploadForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="views">
+<h2>Views<a class="headerlink" href="#views" title="Link to this heading"></a></h2>
+<p>Views handle the request-response cycle for the GUI, rendering templates and forms as needed.</p>
+<dl class="py class" id="module-GUI.views">
+<dt class="sig sig-object py" id="GUI.views.GenerateImagesView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.views.</span></span><span class="sig-name descname"><span class="pre">GenerateImagesView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#GenerateImagesView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.GenerateImagesView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/class-based-views/base/#django.views.generic.base.View" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">View</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.views.GenerateImagesView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#GenerateImagesView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.GenerateImagesView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationDetailView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.views.</span></span><span class="sig-name descname"><span class="pre">ImageGenerationDetailView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#ImageGenerationDetailView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.ImageGenerationDetailView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/class-based-views/base/#django.views.generic.base.View" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">View</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationDetailView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#ImageGenerationDetailView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.ImageGenerationDetailView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.views.</span></span><span class="sig-name descname"><span class="pre">ImageGenerationListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#ImageGenerationListView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.ImageGenerationListView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/class-based-views/generic-display/#django.views.generic.list.ListView" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationListView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'image_generations'</span></em><a class="headerlink" href="#GUI.views.ImageGenerationListView.context_object_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationListView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#ImageGenerationListView.get_context_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.ImageGenerationListView.get_context_data" title="Link to this definition"></a></dt>
+<dd><p>Get the context for this view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationListView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#ImageGenerationListView.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.ImageGenerationListView.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#GUI.views.ImageGenerationListView.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="image_generator.html#image_generator.models.ImageGeneration" title="image_generator.models.ImageGeneration"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGeneration</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.views.ImageGenerationListView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GUI/image_generation_list.html'</span></em><a class="headerlink" href="#GUI.views.ImageGenerationListView.template_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.views.MediaUploadView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.views.</span></span><span class="sig-name descname"><span class="pre">MediaUploadView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#MediaUploadView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.MediaUploadView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/class-based-views/base/#django.views.generic.base.View" title="(in Django v5.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">View</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.views.MediaUploadView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#MediaUploadView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.MediaUploadView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.views.MediaUploadView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/views.html#MediaUploadView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.MediaUploadView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="GUI.views.text2img">
+<span class="sig-prename descclassname"><span class="pre">GUI.views.</span></span><span class="sig-name descname"><span class="pre">text2img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/GUI/views.html#text2img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.views.text2img" title="Link to this definition"></a></dt>
+<dd><p>text to image</p>
+</dd></dl>
+
+</section>
+<section id="urls">
+<h2>URLs<a class="headerlink" href="#urls" title="Link to this heading"></a></h2>
+<p>The URL configurations map endpoints to their corresponding views within the GUI app.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># GUI.urls</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Define your URL patterns here</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="openai-interface">
+<h2>OpenAI Interface<a class="headerlink" href="#openai-interface" title="Link to this heading"></a></h2>
+<p>This module facilitates interaction with OpenAI’s API, integrating AI functionalities into the GUI components.</p>
+<dl class="py class" id="module-GUI.openai_interface">
+<dt class="sig sig-object py" id="GUI.openai_interface.OpenAIInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.openai_interface.</span></span><span class="sig-name descname"><span class="pre">OpenAIInterface</span></span><a class="reference internal" href="../_modules/GUI/openai_interface.html#OpenAIInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.openai_interface.OpenAIInterface" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A class that provides an interface for generating text using OpenAI models.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>generate_text: Generates text based on a given prompt using the specified OpenAI model.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.openai_interface.OpenAIInterface.generate_text">
+<span class="sig-name descname"><span class="pre">generate_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-3.5-turbo-1106'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/GUI/openai_interface.html#OpenAIInterface.generate_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GUI.openai_interface.OpenAIInterface.generate_text" title="Link to this definition"></a></dt>
+<dd><p>Generates text based on a given prompt using the specified OpenAI model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>prompt (str): The prompt for generating text.
+model (str, optional): The OpenAI model to use for text generation. Defaults to “gpt-3.5-turbo-1106”.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: The generated text as a JSON object.</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: If an error occurs during text generation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Link to this heading"></a></h2>
+<p>The <cite>templates</cite> directory contains HTML files that define the layout and structure of the web interface. While Sphinx does not automatically document these, it’s important to note that templates are closely linked with views, rendering dynamic content served to the user.</p>
+</section>
+<section id="admin">
+<h2>Admin<a class="headerlink" href="#admin" title="Link to this heading"></a></h2>
+<p>While minimal, the admin module can be customized for the GUI app as needed.</p>
+</section>
+<section id="models">
+<span id="module-GUI.admin"></span><h2>Models<a class="headerlink" href="#models" title="Link to this heading"></a></h2>
+<p>Although the GUI app might have minimal model definitions, it’s crucial to document any data structures it defines or interacts with.</p>
+</section>
+<section id="tests">
+<span id="module-GUI.models"></span><h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
+<p>Documentation of tests written for the GUI app’s functionality.</p>
+<span class="target" id="module-GUI.tests"></span></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Muhammed Sezer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

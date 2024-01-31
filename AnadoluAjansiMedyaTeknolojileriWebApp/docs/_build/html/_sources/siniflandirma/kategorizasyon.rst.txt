@@ -1,34 +1,40 @@
-Kategorizasyon Süreci
-=====================
+Sınıflandırma Süreci Dokümantasyonu
+=====================================
 
-Kategorizasyon süreci, `ImageGeneration` modelindeki verileri kullanarak, haber içeriğini ve görsellerini çeşitli kategorilere ayırmak için tasarlanmıştır. Bu süreç, haberin bağlamını, görsel öğelerini ve stil tercihlerini dikkate alarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi belirler.
-
-Amaç
-----
-
-Kategorizasyonun amacı, haber içeriğini anlamak ve ona en uygun görsel temsili bulmaktır. Bu, hem haberin bağlamını hem de görsel ve stilistik öğelerini dikkate alarak gerçekleştirilir.
+Süreç, haberin metin ve görsel öğelerini dikkate alarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi belirleme amacını taşır.
 
 Kullanılan Modeller ve Özellikleri
 -----------------------------------
 
-1. **NewsContext**: Haberin bağlamsal özelliklerini içerir. Bu model, haberin başlığını, kategorisini, duygusal tonunu ve diğer önemli metin bazlı bilgileri içerir.
+Kategorizasyon süreci, aşağıda belirtilen modeller ve özellikleri kullanılarak gerçekleştirilir:
 
-2. **VisualElements**: Haber görselinin tasarımını etkileyen görsel unsurları içerir. Ana konu, arka plan sahnesi, renk paleti ve benzeri görsel ayrıntılar burada belirlenir.
+.. list-table::
+   :widths: 25 75
+   :header-rows: 1
 
-3. **StylePreferences**: Görselin genel stilini ve estetik tercihlerini belirler. Bu, sanat stili, kompozisyon ve aydınlatma gibi unsurları içerir.
-
-4. **UserCustomizations**: Kullanıcının eklediği özel metinler, özel istekler ve geri bildirimler. Bu model, görsel tasarımın kişiselleştirilmesine olanak tanır.
+   * - Model
+     - Açıklama
+   * - **Haber Bağlamı**
+     - Haberin metin bazlı bilgilerini (başlık, kategori, duygusal ton vb.) içeren model. Haber içeriğinin bağlamsal özelliklerini temsil eder.
+   * - **Görsel Unsurlar**
+     - Haber görselinin tasarımını etkileyen ana konu, arka plan, renk paleti gibi görsel unsurları içeren model.
+   * - **Stil Tercihleri**
+     - Görselin genel stilini ve estetik tercihlerini (sanat stili, kompozisyon, aydınlatma vb.) belirleyen model.
+   * - **Kullanıcı Özelleştirmeleri**
+     - Kullanıcı tarafından eklenen özel metinler, istekler ve geri bildirimleri içeren model. Görsel tasarımın kişiselleştirilmesini sağlar.
 
 Kategorizasyon Süreci
 ---------------------
 
-Kategorizasyon süreci, yukarıdaki modellerin sağladığı verileri kullanarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi seçer. Bu seçim, haberin içeriğine, görsel ve stilistik öğelerine ve kullanıcının özelleştirmelerine dayanır. Böylece, her haber için hem içeriğe uygun hem de görsel açıdan çekici sonuçlar elde edilir.
+Kategorizasyon süreci, yukarıda tanımlanan modeller aracılığıyla elde edilen verileri kullanarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi seçer. Bu seçim, haberin içeriğine, görsel ve stilistik öğelerine ve kullanıcının özelleştirmelerine dayanarak yapılır. Süreç, her haber öğesi için içerikle uyumlu ve görsel açıdan çekici sonuçlar elde etmeyi amaçlar.
 
 Kullanım Senaryoları
 --------------------
 
-- Bir politik haber için, haberin önemine ve duygusal tonuna uygun bir görsel tasarım seçilir.
-- Kültürel bir etkinlik haberinde, etkinliğin ruhunu yansıtan renkler ve sanat stili tercih edilir.
-- Spor haberlerinde, dinamik ve hareketli unsurlar ön plana çıkarılır.
+Kategorizasyon sürecinin kullanım senaryoları, haber görsellerinin oluşturulmasının önemini ve yararını vurgular:
 
-Bu süreç, haber görsellerinin oluşturulmasında önemli bir rol oynar ve haberin etkisini maksimize etmeye yardımcı olur.
+- **Politik Haberler**: Haberin önemine ve duygusal tonuna uygun görsel tasarım seçilerek, haberin vurgusu artırılır.
+- **Kültürel Etkinlikler**: Etkinliğin atmosferini yansıtan renkler ve sanat stili ile kültürel habere özgü görseller oluşturulur.
+- **Spor Haberleri**: Dinamik ve hareketli öğelerle spor haberlerinin enerjisi görseller aracılığıyla aktarılır.
+- **Bilim ve Teknoloji**: İnovasyon ve teknolojik gelişmeleri vurgulayan modern ve gelecekçi tasarım elementleri kullanılır.
+- **Doğa ve Çevre**: Doğal güzellikleri ve çevresel konuları ön plana çıkaran, doğa ile uyumlu renk paletleri ve unsurlar kullanılır.

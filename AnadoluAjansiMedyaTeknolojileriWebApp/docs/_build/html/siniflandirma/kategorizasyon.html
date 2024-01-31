@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kategorizasyon Süreci &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.0 documentation</title>
+  <title>Sınıflandırma Süreci Dokümantasyonu &mdash; Anadolu Ajansı Medya Teknolojileri Web App Version 1.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,14 +13,14 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=d63b4aef"></script>
+        <script src="../_static/documentation_options.js?v=7243cef6"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Kullanım Senaryoları" href="kullanim-senaryolari.html" />
-    <link rel="prev" title="Haber Görseli Üretim Projesi" href="../index.html" /> 
+    <link rel="prev" title="Haber Görseli Üretim Projesi: Mozaik" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,10 +43,9 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Kategorizasyon Süreci</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#amac">Amaç</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sınıflandırma Süreci Dokümantasyonu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#kullanilan-modeller-ve-ozellikleri">Kullanılan Modeller ve Özellikleri</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Kategorizasyon Süreci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kategorizasyon-sureci">Kategorizasyon Süreci</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#kullanim-senaryolari">Kullanım Senaryoları</a></li>
 </ul>
 </li>
@@ -67,7 +66,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Kategorizasyon Süreci</li>
+      <li class="breadcrumb-item active">Sınıflandırma Süreci Dokümantasyonu</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/siniflandirma/kategorizasyon.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -77,34 +76,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="kategorizasyon-sureci">
-<h1>Kategorizasyon Süreci<a class="headerlink" href="#kategorizasyon-sureci" title="Link to this heading"></a></h1>
-<p>Kategorizasyon süreci, <cite>ImageGeneration</cite> modelindeki verileri kullanarak, haber içeriğini ve görsellerini çeşitli kategorilere ayırmak için tasarlanmıştır. Bu süreç, haberin bağlamını, görsel öğelerini ve stil tercihlerini dikkate alarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi belirler.</p>
-<section id="amac">
-<h2>Amaç<a class="headerlink" href="#amac" title="Link to this heading"></a></h2>
-<p>Kategorizasyonun amacı, haber içeriğini anlamak ve ona en uygun görsel temsili bulmaktır. Bu, hem haberin bağlamını hem de görsel ve stilistik öğelerini dikkate alarak gerçekleştirilir.</p>
-</section>
+  <section id="siniflandirma-sureci-dokumantasyonu">
+<h1>Sınıflandırma Süreci Dokümantasyonu<a class="headerlink" href="#siniflandirma-sureci-dokumantasyonu" title="Link to this heading"></a></h1>
+<p>Süreç, haberin metin ve görsel öğelerini dikkate alarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi belirleme amacını taşır.</p>
 <section id="kullanilan-modeller-ve-ozellikleri">
 <h2>Kullanılan Modeller ve Özellikleri<a class="headerlink" href="#kullanilan-modeller-ve-ozellikleri" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p><strong>NewsContext</strong>: Haberin bağlamsal özelliklerini içerir. Bu model, haberin başlığını, kategorisini, duygusal tonunu ve diğer önemli metin bazlı bilgileri içerir.</p></li>
-<li><p><strong>VisualElements</strong>: Haber görselinin tasarımını etkileyen görsel unsurları içerir. Ana konu, arka plan sahnesi, renk paleti ve benzeri görsel ayrıntılar burada belirlenir.</p></li>
-<li><p><strong>StylePreferences</strong>: Görselin genel stilini ve estetik tercihlerini belirler. Bu, sanat stili, kompozisyon ve aydınlatma gibi unsurları içerir.</p></li>
-<li><p><strong>UserCustomizations</strong>: Kullanıcının eklediği özel metinler, özel istekler ve geri bildirimler. Bu model, görsel tasarımın kişiselleştirilmesine olanak tanır.</p></li>
-</ol>
+<p>Kategorizasyon süreci, aşağıda belirtilen modeller ve özellikleri kullanılarak gerçekleştirilir:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Açıklama</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Haber Bağlamı</strong></p></td>
+<td><p>Haberin metin bazlı bilgilerini (başlık, kategori, duygusal ton vb.) içeren model. Haber içeriğinin bağlamsal özelliklerini temsil eder.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Görsel Unsurlar</strong></p></td>
+<td><p>Haber görselinin tasarımını etkileyen ana konu, arka plan, renk paleti gibi görsel unsurları içeren model.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Stil Tercihleri</strong></p></td>
+<td><p>Görselin genel stilini ve estetik tercihlerini (sanat stili, kompozisyon, aydınlatma vb.) belirleyen model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Kullanıcı Özelleştirmeleri</strong></p></td>
+<td><p>Kullanıcı tarafından eklenen özel metinler, istekler ve geri bildirimleri içeren model. Görsel tasarımın kişiselleştirilmesini sağlar.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="id1">
-<h2>Kategorizasyon Süreci<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p>Kategorizasyon süreci, yukarıdaki modellerin sağladığı verileri kullanarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi seçer. Bu seçim, haberin içeriğine, görsel ve stilistik öğelerine ve kullanıcının özelleştirmelerine dayanır. Böylece, her haber için hem içeriğe uygun hem de görsel açıdan çekici sonuçlar elde edilir.</p>
+<section id="kategorizasyon-sureci">
+<h2>Kategorizasyon Süreci<a class="headerlink" href="#kategorizasyon-sureci" title="Link to this heading"></a></h2>
+<p>Kategorizasyon süreci, yukarıda tanımlanan modeller aracılığıyla elde edilen verileri kullanarak, her haber öğesi için en uygun görsel tasarımı ve kategoriyi seçer. Bu seçim, haberin içeriğine, görsel ve stilistik öğelerine ve kullanıcının özelleştirmelerine dayanarak yapılır. Süreç, her haber öğesi için içerikle uyumlu ve görsel açıdan çekici sonuçlar elde etmeyi amaçlar.</p>
 </section>
 <section id="kullanim-senaryolari">
 <h2>Kullanım Senaryoları<a class="headerlink" href="#kullanim-senaryolari" title="Link to this heading"></a></h2>
+<p>Kategorizasyon sürecinin kullanım senaryoları, haber görsellerinin oluşturulmasının önemini ve yararını vurgular:</p>
 <ul class="simple">
-<li><p>Bir politik haber için, haberin önemine ve duygusal tonuna uygun bir görsel tasarım seçilir.</p></li>
-<li><p>Kültürel bir etkinlik haberinde, etkinliğin ruhunu yansıtan renkler ve sanat stili tercih edilir.</p></li>
-<li><p>Spor haberlerinde, dinamik ve hareketli unsurlar ön plana çıkarılır.</p></li>
+<li><p><strong>Politik Haberler</strong>: Haberin önemine ve duygusal tonuna uygun görsel tasarım seçilerek, haberin vurgusu artırılır.</p></li>
+<li><p><strong>Kültürel Etkinlikler</strong>: Etkinliğin atmosferini yansıtan renkler ve sanat stili ile kültürel habere özgü görseller oluşturulur.</p></li>
+<li><p><strong>Spor Haberleri</strong>: Dinamik ve hareketli öğelerle spor haberlerinin enerjisi görseller aracılığıyla aktarılır.</p></li>
+<li><p><strong>Bilim ve Teknoloji</strong>: İnovasyon ve teknolojik gelişmeleri vurgulayan modern ve gelecekçi tasarım elementleri kullanılır.</p></li>
+<li><p><strong>Doğa ve Çevre</strong>: Doğal güzellikleri ve çevresel konuları ön plana çıkaran, doğa ile uyumlu renk paletleri ve unsurlar kullanılır.</p></li>
 </ul>
-<p>Bu süreç, haber görsellerinin oluşturulmasında önemli bir rol oynar ve haberin etkisini maksimize etmeye yardımcı olur.</p>
 </section>
 </section>
 
@@ -112,7 +129,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Haber Görseli Üretim Projesi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Haber Görseli Üretim Projesi: Mozaik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="kullanim-senaryolari.html" class="btn btn-neutral float-right" title="Kullanım Senaryoları" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

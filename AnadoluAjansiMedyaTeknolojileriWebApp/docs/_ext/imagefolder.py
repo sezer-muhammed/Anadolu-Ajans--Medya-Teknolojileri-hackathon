@@ -23,7 +23,7 @@ def generate_image_rst(app: Sphinx):
     rst_content = "Generated Images\n================\n\n"
 
     # Query the Django model
-    for image_model in GeneratedImages.objects.all():
+    for image_model in GeneratedImages.objects.all().order_by('?'):
         file_name = os.path.basename(image_model.image.file.name)
         source_file = source_image_folder / file_name
         destination_file = static_image_folder / file_name
@@ -36,19 +36,10 @@ def generate_image_rst(app: Sphinx):
             # Add image and additional info to RST content
             rst_image_path = f"_static/generated_images/{file_name}"
             image_info = image_model.image_generation.news_context.headline
-            keywords = [kw.word for kw in image_model.image_generation.news_context.keywords.all()]
             
             # Using figure directive for images
             rst_content += f".. figure:: {rst_image_path}\n   :alt: {file_name}\n\n   {image_info}\n\n"
             
-            # Adding keywords in a simple table format
-            if keywords:
-                rst_content += "   .. list-table::\n"
-                rst_content += "      :header-rows: 1\n\n"
-                rst_content += "      * - Keywords\n"
-                for keyword in keywords:
-                    rst_content += f"        * - {keyword}\n"
-
             rst_content += "\n"
 
     with open(output_file, 'w', encoding='utf-8') as f:
