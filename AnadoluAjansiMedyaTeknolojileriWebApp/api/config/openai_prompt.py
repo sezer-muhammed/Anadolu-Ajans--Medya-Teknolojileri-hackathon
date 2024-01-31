@@ -1,49 +1,59 @@
 TEXT_PROMPT = """
-You will be provided with a news article and a structured JSON template. Your task is to read and analyze the news article thoroughly to extract key information relevant to the various fields in the JSON template. The template is designed to capture various aspects of the news story, including its context, visual elements, style preferences, and user customizations.
+Your task is to analyze a news article and use your insights to fill a structured JSON template accurately. This process aims to capture the article's essence, focusing on context, visual elements, stylistic preferences, and anticipated user customizations to guide an AI model in generating a relevant image.
 
-Your role involves:
+Steps to follow:
 
-1. Parsing the News Article: Carefully read the news article to identify essential details like the headline, emotional tone, main subjects, geographical and temporal context, audience age group, keywords, and specific actions or appearances of characters mentioned in the story.
+1. **Parsing the News Article**: Carefully read the article to identify crucial information, including the headline, emotional tone, main subjects, geographical and temporal context, intended audience, keywords, and descriptions of characters or actions.
 
-2. Filling the JSON Template: Accurately fill in each section of the JSON template with the identified information from the news article. This includes:
-   - news_context: Populate with the headline, emotional tone, and other context-specific details.
-   - visual_elements: Include descriptions of the main subject, background scene, color palette, and any dynamic elements or characters.
-   - style_preferences: Define the art style, composition, and lighting based on the tone and content of the news.
-   - user_customizations: Add any additional text, specific requests, or feedback loops as per user requirements or based on the news content.
+2. **Filling the JSON Template**: With the information extracted from the news article, fill in the JSON template accordingly. Each section is designed to encapsulate different aspects of the article's content and how it should be visually represented:
 
-3. Ensuring Clarity and Completeness: Make sure the JSON is filled comprehensively and clearly, providing a detailed and accurate representation of the news story. This filled JSON will serve as a guide for another AI model to create an image prompt.
-4. Also use general terms for keywords so we can get same keywrods for different inputs.
+   - `news_context`: Input the headline, categorize the image, and specify the emotional tone and intensity. Include geographical and temporal contexts, assess the source's credibility, identify the target audience age group and interests, and as much as you can, list relevant keywords and subcategories.
+   
+   - `visual_elements`: Detail the main subject and background scene, specify the color palette and texture that match the mood of the article, describe any dynamic elements, motion effects, and characters (including their actions and appearances), and note unique objects or items within the scene.
+   
+   - `style_preferences`: Choose an art style, composition, and lighting that best convey the article's tone and content. Specify the desired aspect ratio to ensure the generated image aligns with the preferred visual presentation.
+   
+   - `user_customizations`: Anticipate additional elements the user might want to include,
+   
+3. **Ensuring Clarity and Completeness**: Your filled JSON should be detailed and clear, enabling the creation of an image that accurately reflects the news article. This comprehensive JSON will guide another AI model in generating an image that captures the story's essence and meets user expectations.
 
-The end goal is to create a detailed and accurate JSON file as code block that another model can use to generate a visual thumbnail or image that represents the essence of the news article. Your analysis and input must be thorough to ensure the final image accurately reflects the content and tone of the news story.
+- Utilize generic terms for consistent keyword extraction.
+- Assess emotional tone with a specific focus, such as considering Turkey's perspective for financial news.
+- Fill all values, if they should be empty write N/A
+- Fill in English
 
+The objective is to develop a detailed JSON file, formatted as a code block, that can direct an AI model to produce a visual thumbnail or image. This visual should not only represent the news article's content and emotional tone accurately but also resonate with potential user preferences and the style that best communicates the story.
 
-
-here is the template that you will fill:
+Template to fill:
 {data}
 
-here is the news article that you will analyze:
+News article to analyze:
 {text}
 """
 
+
 IMAGE_PROMPT = """
-You will be provided with an image. Your task is to closely analyze the image to extract key visual information relevant to the various fields in the JSON template. The template is designed to capture various aspects of the image, including its visual elements, contextual details, perceived emotions, and any notable features.
+You are provided with an image and tasked with dissecting its visual components to populate a structured JSON template accurately. This exercise aims to capture the multifaceted nature of the image, including visual details, contextual nuances, emotional undertones, and distinctive features.
 
-Your role involves:
+Proceed as follows:
 
-1. Analyzing the Image: Examine the image to identify essential details such as the main subject, background elements, color palette, any characters or objects present, and the overall mood or tone.
+1. **Analyzing the Image**: Scrutinize the image to pinpoint key elements such as the primary subject, background scenery, color scheme, any discernible characters or objects, and the overall atmosphere or sentiment it conveys.
 
-2. Filling the JSON Template: Accurately fill in each section of the JSON template with the information identified from the image. This includes:
-   - visual_elements: Describe the main subject, background scene, color palette, objects, characters, and any dynamic elements observed in the image.
-   - contextual_details: Note any contextual clues that can be inferred from the image, such as possible geographical location, temporal context (time of day or historical period), or any text present in the image.
-   - perceived_emotions: Detail any emotions or moods that the image evokes, based on the colors, composition, and subject matter.
-   - notable_features: Mention any unique or striking features in the image that stand out.
+2. **Filling the JSON Template**: Utilize the insights gathered from your analysis to meticulously complete each section of the JSON template, ensuring a holistic representation of the image:
+   - `visual_elements`: Enumerate the principal subject, backdrop, color dynamics, characters, objects, and any motion or activity depicted.
+   - `contextual_details`: Infer and document potential contextual indicators like the geographical setting, time of day, era, or explicit text seen in the image.
+   - `perceived_emotions`: Express the emotions or moods elicited by the image, considering its coloration, layout, and thematic content.
+   - `notable_features`: Highlight peculiar or particularly compelling aspects of the image that capture attention.
 
-3. Ensuring Clarity and Completeness: Ensure that the JSON is filled comprehensively and clearly, providing a detailed and accurate representation of the image. This filled JSON will serve as a guide for understanding the key elements and themes present in the image.
-4. Also use general terms for keywords so we can get same keywrods for different inputs.
+3. **Ensuring Clarity and Completeness**: Your goal is to craft a JSON response that is both comprehensive and precise, offering an in-depth visual and thematic analysis of the image. This document will facilitate a deeper understanding of the image's core elements and storytelling aspects.
 
-The end goal is to create a detailed and accurate JSON file as code block that captures the essence of the image. Your analysis and input must be thorough to ensure a comprehensive understanding of the visual story being told by the image.
+- Employ generalized terminology for consistent keyword identification across various images.
+- When analyzing images with financial themes, interpret emotional tones from a perspective relevant to the context, such as considering Turkey's viewpoint for financial imagery.
+- Fill all values, if they should be empty write N/A
+- Fill in English
 
-Here is the template that you will fill:
+Your comprehensive and detailed JSON documentation will encapsulate the essence of the image, enabling a nuanced appreciation of its visual narrative.
+
+Template to fill:
 {data}
-
 """

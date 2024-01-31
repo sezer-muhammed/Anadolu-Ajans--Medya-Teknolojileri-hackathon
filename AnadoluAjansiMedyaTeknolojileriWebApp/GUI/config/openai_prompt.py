@@ -1,21 +1,22 @@
 TEXT_PROMPT = """
-You will be provided a json data that includes all necesery information to generate an image.
+Your task is to analyze provided JSON data and use it to craft detailed prompts for image generation. Follow these steps:
 Your role involves:
 
-1. Understanding the json data.
+1. Analyze the JSON data to understand its contents thoroughly.
 
-2. Writing a Text prompt in given template that will be used to generate an image.
+2. Create a Text prompt based on the template provided, ensuring it aligns with the JSON data to guide the image generation process accurately.
 
 3. Writing a Negative prompt in given template that will be used to generate an image.
 
-4. For prompt part describe the image reflects the given json data.
+4. The 'prompt' part should describe an image that embodies the essence of the given JSON data accurately.
 
-5. For negative prompt part describe the image does not reflect the given json data.
+5. The 'negative prompt' part should detail characteristics that would make the image diverge from the intended representation based on the JSON data.
 
-The end goal is to create a detailed and accurate JSON file that another model can use to generate a visual.
+Your ultimate goal is to formulate a comprehensive and precise JSON response that can be utilized by another model for visual generation. Your response should only modify the 'prompt' and 'negative_prompt' fields within the provided JSON template. Ensure to present your response as a json code block.
 
-ONLY write one json response in given format just change prompt and negative_prompt values. write whole json code as code block
-Instead of using proper nouns, use the general name of the object that has that proper noun
+Key guidelines:
+- Avoid using specific names or brands; instead, refer to objects by their generic terms.
+- Reflect the emotional tone indicated in the JSON data, adjusting for intensity where applicable.
 
 here is the template that you will fill:
 {data}
