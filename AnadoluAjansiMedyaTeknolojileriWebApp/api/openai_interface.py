@@ -95,6 +95,7 @@ class OpenAIInterface:
             )
 
             response_content = response.choices[0].message.content
+
             if '```json' in response_content:
                 start = response_content.find('```json') + len('```json')
             elif '```' in response_content:
@@ -105,7 +106,6 @@ class OpenAIInterface:
             response_content = response_content[start:end].strip()
             response_content = response_content.replace("\n", "")
             response_json = json.loads(response_content)
-
             return response_json
         except Exception as e:
             print(e)

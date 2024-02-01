@@ -46,8 +46,13 @@ def home(request):
             'description': 'Görsel üretimi ve sınıflandırma için görüntüler veya metin yükleyin.',
             'url': 'upload_media',  # Matches 'name' in the URL pattern
             'image': 'GUI/images/upload_media.png'  # Updated path
+        },
+        {
+            "title": "Arama",
+            "description": "İçerikleri kolayca bulun ve keşfedin.",
+            "url": "image-generation-search",
+            "image": "GUI/images/search.png"
         }
-        # You can add more cards for additional views here
     ]
 
     return render(request, 'GUI/home.html', {'view_cards': view_cards})

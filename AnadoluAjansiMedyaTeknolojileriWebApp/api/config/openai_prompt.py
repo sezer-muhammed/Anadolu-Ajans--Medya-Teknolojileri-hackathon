@@ -21,6 +21,7 @@ Steps to follow:
 - Assess emotional tone with a specific focus, such as considering Turkey's perspective for financial news.
 - Fill all values, if they should be empty write N/A
 - Fill in English
+- Always response as json code block
 
 The objective is to develop a detailed JSON file, formatted as a code block, that can direct an AI model to produce a visual thumbnail or image. This visual should not only represent the news article's content and emotional tone accurately but also resonate with potential user preferences and the style that best communicates the story.
 
@@ -51,6 +52,7 @@ Proceed as follows:
 - When analyzing images with financial themes, interpret emotional tones from a perspective relevant to the context, such as considering Turkey's viewpoint for financial imagery.
 - Fill all values, if they should be empty write N/A
 - Fill in English
+- Always response as json code block
 
 Your comprehensive and detailed JSON documentation will encapsulate the essence of the image, enabling a nuanced appreciation of its visual narrative.
 
