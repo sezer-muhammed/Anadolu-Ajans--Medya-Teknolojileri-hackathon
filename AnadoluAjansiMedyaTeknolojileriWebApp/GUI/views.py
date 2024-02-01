@@ -12,7 +12,8 @@ from image_generator.models import ImageGeneration, GeneratedImages, Keyword
 from image_generator.serializers import ImageGenerationSerializer
 import requests
 from .openai_interface import OpenAIInterface
-
+from django.db.models import Case, When, Value, F
+from django.db.models.functions import Coalesce
 from .config.openai_prompt import TEXT_PROMPT
 
 def text2img(params: dict) -> dict:
@@ -101,7 +102,12 @@ class ImageGenerationListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.order_by('-text_upload__created_at')
+        queryset = queryset.annotate(
+            sort_date=Coalesce(
+                'text_upload__created_at',
+                'image_upload__created_at'
+            )
+        ).order_by('-sort_date')
         form = ImageGenerationSearchForm(self.request.GET)
         if form.is_valid():
             headlines = form.cleaned_data.get('headline')

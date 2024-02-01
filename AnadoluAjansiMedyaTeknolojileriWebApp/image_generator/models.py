@@ -54,12 +54,12 @@ class NewsContext(models.Model):
 
 # Visual Elements Model
 class VisualElements(models.Model):
-    mainSubject = models.CharField(max_length=255)
-    backgroundScene = models.CharField(max_length=100)
-    colorPalette = models.CharField(max_length=100)
-    texture = models.CharField(max_length=100)
-    dynamicElements = models.TextField()
-    textOverlayStyle = models.TextField()
+    mainSubject = models.CharField(max_length=255, blank=True)
+    backgroundScene = models.CharField(max_length=100, blank=True)
+    colorPalette = models.CharField(max_length=100, blank=True)
+    texture = models.CharField(max_length=100, blank=True)
+    dynamicElements = models.TextField(blank=True)
+    textOverlayStyle = models.TextField(blank=True)
     motionEffects = models.TextField()
     characters = models.ManyToManyField(Character)
     object_details = models.ManyToManyField(ObjectDetail)
@@ -69,10 +69,10 @@ class VisualElements(models.Model):
 
 # Style Preferences Model
 class StylePreferences(models.Model):
-    artStyle = models.CharField(max_length=100)
-    composition = models.CharField(max_length=100)
-    lighting = models.CharField(max_length=100)
-    aspectRatio = models.CharField(max_length=50)
+    artStyle = models.CharField(max_length=100, blank=True)
+    composition = models.CharField(max_length=100, blank=True)
+    lighting = models.CharField(max_length=100, blank=True)
+    aspectRatio = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
         return self.artStyle
