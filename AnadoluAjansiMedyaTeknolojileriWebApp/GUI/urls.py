@@ -7,4 +7,5 @@ urlpatterns = [
     path('imagegeneration-detail/<int:pk>/', ImageGenerationDetailView.as_view(), name='imagegeneration_detail'),
     path('generate-images/<int:pk>/', GenerateImagesView.as_view(), name='generate_images'),
     path('', home, name='home'),  # Set the homepage view
+    path('search/', image_generation_search_view, name='image-generation-search'),
 ]

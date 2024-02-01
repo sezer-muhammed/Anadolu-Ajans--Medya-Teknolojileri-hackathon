@@ -1,7 +1,7 @@
 from django.views import View
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ImageUploadForm, TextUploadForm, ImageGenerationSearchForm
+from .forms import *
 from api.models import TextUpload, ImageUpload
 from django.http import HttpResponse
 import json
@@ -16,6 +16,21 @@ from django.db.models import Case, When, Value, F
 from django.db.models.functions import Coalesce
 from .config.openai_prompt import TEXT_PROMPT
 from django.shortcuts import render
+import numpy as np
+from .similarity import find_similar_image_generations  # Assuming your similarity function is in utils.py
+
+def image_generation_search_view(request):
+    form = ImageGenerationSelectForm(request.POST or None)
+    similar_objects_with_scores = []  # Will hold tuples of (ImageGeneration object, similarity score)
+
+    if request.method == 'POST' and form.is_valid():
+        selected_id = form.cleaned_data['image_generation'].id
+        similar_objects_with_scores = find_similar_image_generations(selected_id)
+
+    return render(request, 'GUI/image_generation_search.html', {
+        'form': form,
+        'similar_objects_with_scores': similar_objects_with_scores
+    })
 
 def home(request):
     # Define the views or features you want to showcase

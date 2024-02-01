@@ -14,6 +14,16 @@ class TextUploadForm(forms.ModelForm):
         fields = ['text']
 
 
+class ImageGenerationSelectForm(forms.Form):
+    image_generation = forms.ModelChoiceField(
+        queryset=ImageGeneration.objects.all(),
+        label="Select an News Context",
+        widget=s2forms.Select2Widget(attrs={
+            'data-placeholder': 'Select Headlines', 
+            'data-allow-clear': True,
+            'class': 'select2'
+        })
+    )
 
 
 class ImageGenerationSearchForm(forms.Form):
