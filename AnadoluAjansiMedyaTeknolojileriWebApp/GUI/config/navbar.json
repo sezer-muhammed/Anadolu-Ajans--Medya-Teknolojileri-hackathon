@@ -1,13 +1,18 @@
 {
-  "app_name": "Main User Interface",
+  "app_name": "Ana Kullanıcı Arayüzü",
   "links": [
     {
-      "title": "Upload Media",
+      "title": "Ana Sayfa",
+      "url": "/GUI/",
+      "active": false
+    },
+    {
+      "title": "Medya Yükle",
       "url": "/GUI/upload/",
       "active": false
     },
     {
-      "title": "Loaded Media List",
+      "title": "Oluşturulan Görüntüler",
       "url": "/GUI/image-generations/",
       "active": false
     }

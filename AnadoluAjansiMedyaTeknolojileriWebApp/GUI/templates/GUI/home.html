@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}  <!-- Statik dosyaları işleme sistemini yükleyin -->
+
+{% block title %}Ana Sayfa{% endblock title %}
+
+{% block content %}
+<div class="container mt-4 text-center"> <!-- Merkeze alındı -->
+    <h1 class="mb-4">Anadolu Ajansı Görsel Arayüzü</h1>
+    <div class="row justify-content-center"> <!-- Kartları merkeze al -->
+        {% for card in view_cards %}
+        <div class="col-md-4 mb-4 d-flex align-items-stretch"> <!-- Kartların yüksekliğini eşitlemek için kullanıldı -->
+            <div class="card animate__animated animate__fadeIn" style="cursor: pointer;" onclick="location.href='{% url card.url %}'"> <!-- Tıklanabilir kart -->
+                <!-- Statik etiketi kullanarak görüntü yolunu doğru bir şekilde referans alın -->
+                <img src="{% static card.image %}" class="card-img-top" alt="{{ card.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ card.title }}</h5>
+                    <p class="card-text">{{ card.description }}</p>
+                    <a href="{% url card.url %}" class="btn btn-primary">Sayfaya Git</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

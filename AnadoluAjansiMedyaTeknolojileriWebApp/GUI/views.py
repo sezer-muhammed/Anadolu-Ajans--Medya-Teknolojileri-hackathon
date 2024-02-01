@@ -15,6 +15,28 @@ from .openai_interface import OpenAIInterface
 from django.db.models import Case, When, Value, F
 from django.db.models.functions import Coalesce
 from .config.openai_prompt import TEXT_PROMPT
+from django.shortcuts import render
+
+def home(request):
+    # Define the views or features you want to showcase
+    view_cards = [
+        {
+            'title': 'Sınıflandırılmış Haberler ve Üretilen Görüntülerin Listesi',
+            'description': 'Sınıflandırılmış haberleri ve ilgili üretilen görüntüleri keşfedin.',
+            'url': 'image-generation-list',  # Updated to match 'name' in the URL pattern
+            'image': 'GUI/images/image_generation_list.png'  # Updated path
+        },
+        {
+            'title': 'Medya Yükle',
+            'description': 'Görsel üretimi ve sınıflandırma için görüntüler veya metin yükleyin.',
+            'url': 'upload_media',  # Matches 'name' in the URL pattern
+            'image': 'GUI/images/upload_media.png'  # Updated path
+        }
+        # You can add more cards for additional views here
+    ]
+
+    return render(request, 'GUI/home.html', {'view_cards': view_cards})
+
 
 def text2img(params: dict) -> dict:
     """

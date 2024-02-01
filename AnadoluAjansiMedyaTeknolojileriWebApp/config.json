@@ -1,20 +1,25 @@
 {
-  "app_name": "Main Menu",
-  "links": [
-      {
-          "title": "Admin Panel",
-          "url": "/admin/",
-          "active": false
-      },
-      {
-          "title": "API",
-          "url": "/api/",
-          "active": false
-      },
-      {
-          "title": "Meta Models Management",
-          "url": "/meta_models_management/",
-          "active": false
-      }
-  ]
-}
+    "app_name": "Ana Menü",
+    "links": [
+        {
+            "title": "Yönetici Paneli",
+            "url": "/admin/",
+            "active": false
+        },
+        {
+            "title": "API",
+            "url": "/api/",
+            "active": false
+        },
+        {
+            "title": "Kullanıcı Arayüzü",
+            "url": "/GUI/",
+            "active": false
+        },
+        {
+            "title": "Görüntü Oluşturucu",
+            "url": "/image_generator/",
+            "active": false
+        }
+    ]
+  }
