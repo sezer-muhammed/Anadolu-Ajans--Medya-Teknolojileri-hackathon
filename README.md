@@ -2,76 +2,36 @@
 
 [![Django CI](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml/badge.svg)](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml)
 
-## Overview
-Mozaik is an innovative platform designed to revolutionize the way we create, search, and interact with text and images. By harnessing the power of advanced AI technologies, Mozaik offers a comprehensive suite of tools that simplifies and enhances the content creation process. Whether you're a journalist, artist, blogger, or developer, Mozaik is your go-to solution for generating and finding content in unexpected and creative ways.
+## Usage
 
-[Read the full documentation here](https://anadolu-ajans-medya-teknolojileri-hackathon.readthedocs.io/en/latest/index.html)
+This script is designed for users with a specific setup, including Windows Subsystem for Linux (WSL), Docker, Python, Git installed, and authorized access to a specific GitHub repository. Follow the steps below to use the `AnadoluAjansi.bat` batch script effectively:
 
-![Imaginative Text Creation](.images/sezer___text_c1b4134b-5142-49a9-a9f3-ed7324046758.png)
-*AI-powered text generation transforms your creative ideas into vivid narratives.*
+1. **Pre-requisites:**
+   - Ensure that you have **Windows Subsystem for Linux (WSL)** installed and configured on your Windows machine.
+   - Make sure **Docker** is installed and set up to run on your system. Docker Desktop for Windows is recommended for ease of use.
+   - **Python** must be installed and accessible from the command line. This script assumes Python is added to the system's PATH.
+   - **Git** should be installed and configured for command line use, with access to clone and pull from repositories.
+   - You must have **authorization** to access the `https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon.git` repository, either through SSH keys or HTTPS credentials saved in your Git configuration.
 
----
+2. **Running the Script:**
+   - Locate the `AnadoluAjansi.bat` file. If you do not have it, you may need to download or copy it from the provided source.
+   - Double-click the `AnadoluAjansi.bat` file to run it. Ensure you do this within a user account that has the necessary permissions for all operations the script will attempt (e.g., accessing Docker, modifying files, running network commands).
 
-## Key Features
+3. **What Happens Next:**
+   - The script automatically checks for network connectivity, ensuring you are connected to the internet.
+   - It verifies the installations of Docker, Git, and Python, providing instructions if any are not found.
+   - Docker Desktop is started, and the script waits until it is ready.
+   - The script sets the code page to UTF-8 to handle special characters correctly.
+   - A Docker container is run with specific environment variables and volume mappings.
+   - It checks for the existence of the specified Git repository locally. If not found, it clones the repository; if it exists, it updates it with the latest changes.
+   - The script navigates to the project directory, installs required Python packages, and starts a Django web server.
+   - After waiting a brief period for the server to start, it automatically opens the project's upload page in your default web browser.
 
-### Advanced AI Integration
-- **Generative AI Models**: Utilize GPT-4, GPT-3.5 Gemini, Stable Diffusion XL, and ControlNet for state-of-the-art text and image generation.
+4. **After Execution:**
+   - Wait until your web browser opens the project's upload page automatically. This indicates the script has completed its tasks, and the Django server is running.
+   - If the page does not open, check the command line output for any error messages that might indicate what went wrong.
 
-![Photography and Imagery](.images/sezer___photography_image_615e2154-7fd8-4da1-a1f3-46967d42f460.png)
-*Craft stunning visuals with AI that understands the art of photography.*
-
----
-
-- **Voice Analysis & Synthesis**: Transform and analyze voice data with Whisper, adding emotional context and depth to your projects.
-
-![Voice Analysis & Synthesis](.images/sezer___image_voice_text_0c8f3f00-01f8-4e7a-8f3d-f940869ee8e6.png)
-*From speech to text and back, experience the future of voice interaction.*
-
----
-
-### Seamless Integration & Accessibility
-- **RESTful API & Django Backend**: Access Mozaik's capabilities through a robust website and API, built on the reliable Django framework.
-- **User-Friendly Interface**: Navigate and create with ease, thanks to a straightforward and intuitive user interface.
-
-### Versatile Content Creation
-- **Emotionally Aware Voice Processing**: Convert voice into text with emotional timestamps, retaining the full context and nuance of the original audio.
-- **Creative Content Synthesis**: Combine multiple sets of images and texts to produce uniquely creative results.
-
-### Community & Collaboration
-- **Open Source Platform**: Contribute and customize. Mozaik is an ever-evolving platform, welcoming contributions from its community.
-- **Collaborative Environment**: Share and collaborate on content within a local network, enhancing teamwork and creativity.
-
-## Who Can Benefit?
-
-- **Journalists & Media Professionals**: Discover and create compelling stories with ease.
-- **Bloggers & Content Creators**: Generate engaging posts and visuals in minutes.
-- **Artists & Designers**: Find inspiration and create stunning portfolios.
-- **Educators & Guides**: Develop educational content and interactive guides for museums and tours.
-
-## Getting Started
-
-1. **Quick Setup**: Visit our website and create a user profile to dive into the world of Mozaik.
-2. **Comprehensive Guides**: Explore our tutorials page for detailed guides on making the most of Mozaik.
-
-## Why Mozaik?
-
-| Feature             | Description |
-|---------------------|-------------|
-| Cutting-edge AI     | Stay ahead with continuously updated models and features. |
-| Open Source         | Customize and contribute to a growing platform. |
-| User-Centric Design | A system designed with your needs and feedback in mind. |
-| Community Driven    | Join a vibrant community shaping the future of content creation. |
-
-## Future Developments
-
-- **Mobile Application**: Stay connected and creative on the go.
-- **Video Support**: Expand your creative horizons with video input and output capabilities.
-- **Enhanced Search**: Dive deeper with more extensive search fields and data storage options.
-
-## Community and Support
-
-- **Join the Conversation**: Visit our upcoming community page or post issues and suggestions directly on GitHub.
-- **Regular Updates**: We're committed to improving Mozaik with regular updates and feedback cycles.
+**Note:** This script assumes a certain level of familiarity with command line operations and may require administrative privileges for some operations (such as installing software or starting services). Ensure you understand the actions performed by the script before running it, as it will make changes to your system's configuration and start services automatically.
 
 ## Ethical Considerations
 
