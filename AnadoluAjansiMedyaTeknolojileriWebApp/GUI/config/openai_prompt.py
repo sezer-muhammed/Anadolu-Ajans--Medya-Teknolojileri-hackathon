@@ -17,6 +17,7 @@ Your ultimate goal is to formulate a comprehensive and precise JSON response tha
 Key guidelines:
 - Avoid using specific names or brands; instead, refer to objects by their generic terms.
 - Reflect the emotional tone indicated in the JSON data, adjusting for intensity where applicable.
+- Avoid inserting Text
 
 here is the template that you will fill:
 {data}
