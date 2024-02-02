@@ -6,7 +6,7 @@
         color: white;
     }
 
-    /* Adjust the size and spacing as needed */
+    /* Gerekli olduğunda boyut ve boşluk ayarlaması yapın */
     @media (min-width: 768px) {
         .col-md-4 {
             flex: 0 0 auto;
@@ -14,7 +14,7 @@
         }
     }
     .shadowed-text {
-        text-shadow: 2px 2px 4px #000000; /* Black shadow */
+        text-shadow: 2px 2px 4px #000000; /* Siyah gölge */
     }
     
     .g-2 {
@@ -32,7 +32,7 @@
         width: 100%;
         height: 100%;
         background-size: cover;
-        opacity: 0.95; /* 70% Opaque */
+        opacity: 0.95; /* %70 Opak */
     }
     .aspect-ratio-7-4 {
         position: relative;
@@ -42,55 +42,55 @@
     .aspect-ratio-7-4::before {
         content: '';
         display: block;
-        padding-top: calc(100% * (4 / 7)); /* Corrected Aspect Ratio Calculation */
+        padding-top: calc(100% * (4 / 7)); /* Düzeltildi: Oran Hesaplama */
     }
     
     
     .shadowed-text {
-        text-shadow: 2px 2px 4px #000000; /* Black shadow */
+        text-shadow: 2px 2px 4px #000000; /* Siyah gölge */
     }
     
 </style>
 {% endblock %}
 
-{% block title %}Image Generation Search{% endblock %}
+{% block title %}Görüntü Oluşturma Arama{% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-md-6 offset-md-3">
-        <h2>Find Similar Image Generations</h2>
+        <h2>Benzer Görüntü Oluşturmaları Bul</h2>
         <form method="post">
             {% csrf_token %}
             <div class="mb-3">
                 {{ form.image_generation.label_tag }}
                 {{ form.image_generation }}
             </div>
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary">Ara</button>
         </form>
     </div>
 </div>
 {% if similar_objects_with_scores %}
 <div class="row mt-4">
     <div class="col-md-12">
-        <h3>Similar Image Generations</h3>
+        <h3>Benzer Görüntü Oluşturmalar</h3>
         <div class="row">
             {% for object, score in similar_objects_with_scores %}
             <div class="col-md-6 mb-4">
                 <div class="card ratio ratio-7x4 h-100 custom-card aspect-ratio-7-4" style="background-image: url('{{ object.random_image_url }}'); background-size: cover;">
                     <div class="card-body d-flex flex-column justify-content-end shadowed-text" style="color: white; border: 2px solid black;">
                         <h5 class="card-title">{{ object.news_context.headline }}</h5>
-                        <!-- Display Similarity Score -->
-                        <p class="card-text"><strong>Similarity: {{ score|floatformat:2 }}</strong></p>
+                        <!-- Benzerlik Skoru Görüntüleme -->
+                        <p class="card-text"><strong>Benzerlik: {{ score|floatformat:2 }}</strong></p>
                         <div class="row">
                             <div class="col">
-                                <p class="card-text"><strong>Emotion Tone:</strong> {{ object.news_context.emotionTone }}</p>
+                                <p class="card-text"><strong>Duygu Tonu:</strong> {{ object.news_context.emotionTone }}</p>
                             </div>
                             <div class="col">
-                                <p class="card-text"><strong>Emotional Intensity:</strong> {{ object.news_context.emotionalIntensity }}</p>
+                                <p class="card-text"><strong>Duygusal Yoğunluk:</strong> {{ object.news_context.emotionalIntensity }}</p>
                             </div>
                         </div>
-                        <!-- Full Details Button -->
-                        <a href="{% url 'imagegeneration_detail' object.id %}" class="btn btn-secondary" style="background-color: rgba(108, 117, 125, 0.1);">Full Details</a>
+                        <!-- Tam Detaylar Butonu -->
+                        <a href="{% url 'imagegeneration_detail' object.id %}" class="btn btn-secondary" style="background-color: rgba(108, 117, 125, 0.1);">Tam Detaylar</a>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
         color: white;
     }
 
-    /* Adjust the size and spacing as needed */
+    /* Gerekli olduğunda boyut ve boşluk ayarlaması yapın */
     @media (min-width: 768px) {
         .col-md-4 {
             flex: 0 0 auto;
@@ -14,7 +14,7 @@
         }
     }
     .shadowed-text {
-        text-shadow: 2px 2px 4px #000000; /* Black shadow */
+        text-shadow: 2px 2px 4px #000000; /* Siyah gölge */
     }
     
     .g-2 {
@@ -32,7 +32,7 @@
         width: 100%;
         height: 100%;
         background-size: cover;
-        opacity: 0.95; /* 70% Opaque */
+        opacity: 0.95; /* %70 Opak */
     }
     .aspect-ratio-7-4 {
         position: relative;
@@ -42,12 +42,11 @@
     .aspect-ratio-7-4::before {
         content: '';
         display: block;
-        padding-top: calc(100% * (4 / 7)); /* Corrected Aspect Ratio Calculation */
+        padding-top: calc(100% * (4 / 7)); /* Düzeltildi: Oran Hesaplama */
     }
     
-    
     .shadowed-text {
-        text-shadow: 2px 2px 4px #000000; /* Black shadow */
+        text-shadow: 2px 2px 4px #000000; /* Siyah gölge */
     }
     
 </style>
@@ -58,7 +57,7 @@
 
     <form action="{% url 'image-generation-list' %}" method="get" class="mb-3">
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary">Ara</button>
     </form>
     
 
@@ -68,89 +67,89 @@
             <div class="card ratio ratio-7x4 h-100 custom-card aspect-ratio-7-4" style="background-image: url('{{ image_generation.random_image_url }}'); background-size: cover;">
                 <div class="card-body d-flex flex-column justify-content-end shadowed-text" style="color: white; border: 2px solid black;">
                     <h5 class="card-title">{{ image_generation.news_context.headline }}</h5>
-                    <p class="card-text"><strong>Category:</strong> {{ image_generation.news_context.category }}</p>
+                    <p class="card-text"><strong>Kategori:</strong> {{ image_generation.news_context.category }}</p>
                     <div class="row">
                         <div class="col">
-                            <p class="card-text"><strong>Emotion Tone:</strong> {{ image_generation.news_context.emotionTone }}</p>
+                            <p class="card-text"><strong>Duygu Tonu:</strong> {{ image_generation.news_context.emotionTone }}</p>
                         </div>
                         <div class="col">
-                            <p class="card-text"><strong>Emotional Intensity:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
+                            <p class="card-text"><strong>Duygusal Yoğunluk:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
                         </div>
                     </div>
-                    <p class="card-text"><strong>Geographical Context:</strong> {{ image_generation.news_context.geographicalContext }}</p>
-                    <button class="btn btn-primary" style="background-color: rgba(0, 123, 255, 0.1);" data-bs-toggle="modal" data-bs-target="#detailModal{{ image_generation.id }}">View Details</button>
-                    <a href="{% url 'imagegeneration_detail' image_generation.id %}" class="btn btn-secondary" style="background-color: rgba(108, 117, 125, 0.1);">Full Details</a>
-                    <button class="btn btn-success" style="background-color: rgba(40, 167, 69, 0.1);" onclick="generateImages({{ image_generation.id }})">Generate Images</button>
+                    <p class="card-text"><strong>Coğrafi Bağlam:</strong> {{ image_generation.news_context.geographicalContext }}</p>
+                    <button class="btn btn-primary" style="background-color: rgba(0, 123, 255, 0.1);" data-bs-toggle="modal" data-bs-target="#detailModal{{ image_generation.id }}">Detayları Gör</button>
+                    <a href="{% url 'imagegeneration_detail' image_generation.id %}" class="btn btn-secondary" style="background-color: rgba(108, 117, 125, 0.1);">Tam Detaylar</a>
+                    <button class="btn btn-success" style="background-color: rgba(40, 167, 69, 0.1);" onclick="generateImages({{ image_generation.id }})">Görüntüleri Oluştur</button>
                     
                 </div>
             </div>
         </div>
   
-      <!-- Modal for Detailed View -->
+      <!-- Detay Görünümü için Modal -->
       <div class="modal fade" id="detailModal{{ image_generation.id }}" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-header">
                       <h5 class="modal-title" id="detailModalLabel">{{ image_generation.news_context.headline }}</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
                   </div>
                   <div class="modal-body">
-                    <p><strong>Headline:</strong> {{ image_generation.news_context.headline }}</p>
-                    <p><strong>Category:</strong> {{ image_generation.news_context.category }}</p>
-                    <p><strong>Emotion Tone:</strong> {{ image_generation.news_context.emotionTone }}</p>
-                    <p><strong>Emotional Intensity:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
-                    <p><strong>Geographical Context:</strong> {{ image_generation.news_context.geographicalContext }}</p>
-                    <p><strong>Temporal Context:</strong> {{ image_generation.news_context.temporalContext }}</p>
-                    <p><strong>Source Credibility:</strong> {{ image_generation.news_context.sourceCredibility }}</p>
-                    <p><strong>Audience Age Group:</strong> {{ image_generation.news_context.audienceAgeGroup }}</p>
-                    <p><strong>Audience Interests:</strong> {{ image_generation.news_context.audienceInterests }}</p>
+                    <p><strong>Başlık:</strong> {{ image_generation.news_context.headline }}</p>
+                    <p><strong>Kategori:</strong> {{ image_generation.news_context.category }}</p>
+                    <p><strong>Duygu Tonu:</strong> {{ image_generation.news_context.emotionTone }}</p>
+                    <p><strong>Duygusal Yoğunluk:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
+                    <p><strong>Coğrafi Bağlam:</strong> {{ image_generation.news_context.geographicalContext }}</p>
+                    <p><strong>Zamansal Bağlam:</strong> {{ image_generation.news_context.temporalContext }}</p>
+                    <p><strong>Kaynak Güvenilirliği:</strong> {{ image_generation.news_context.sourceCredibility }}</p>
+                    <p><strong>Hedef Kitle Yaş Grubu:</strong> {{ image_generation.news_context.audienceAgeGroup }}</p>
+                    <p><strong>Hedef Kitle İlgileri:</strong> {{ image_generation.news_context.audienceInterests }}</p>
                 
-                    <!-- Display Keywords -->
-                    <h5>Keywords:</h5>
+                    <!-- Anahtar Kelimeleri Göster -->
+                    <h5>Anahtar Kelimeler:</h5>
                     <ul>
                         {% for keyword in image_generation.news_context.keywords.all %}
                             <li>{{ keyword.word }}</li>
                         {% endfor %}
                     </ul>
                 
-                    <!-- Display Subcategories -->
-                    <h5>Subcategories:</h5>
+                    <!-- Alt Kategorileri Göster -->
+                    <h5>Alt Kategoriler:</h5>
                     <ul>
                         {% for subcategory in image_generation.news_context.subcategories.all %}
                             <li>{{ subcategory.name }}</li>
                         {% endfor %}
                     </ul>
-                    <p><strong>Category:</strong> {{ image_generation.news_context.category }}</p>
-                    <p><strong>Emotion Tone:</strong> {{ image_generation.news_context.emotionTone }}</p>
-                    <p><strong>Geographical Context:</strong> {{ image_generation.news_context.geographicalContext }}</p>
-                    <p><strong>Temporal Context:</strong> {{ image_generation.news_context.temporalContext }}</p>
+                    <p><strong>Kategori:</strong> {{ image_generation.news_context.category }}</p>
+                    <p><strong>Duygu Tonu:</strong> {{ image_generation.news_context.emotionTone }}</p>
+                    <p><strong>Coğrafi Bağlam:</strong> {{ image_generation.news_context.geographicalContext }}</p>
+                    <p><strong>Zamansal Bağlam:</strong> {{ image_generation.news_context.temporalContext }}</p>
                     
-                    <h5>Visual Elements:</h5>
-                    <p><strong>Background Scene:</strong> {{ image_generation.visual_elements.backgroundScene }}</p>
-                    <p><strong>Color Palette:</strong> {{ image_generation.visual_elements.colorPalette }}</p>
-                    <p><strong>Texture:</strong> {{ image_generation.visual_elements.texture }}</p>
+                    <h5>Görsel Öğeler:</h5>
+                    <p><strong>Arka Plan Sahnesi:</strong> {{ image_generation.visual_elements.backgroundScene }}</p>
+                    <p><strong>Renk Paleti:</strong> {{ image_generation.visual_elements.colorPalette }}</p>
+                    <p><strong>Doku:</strong> {{ image_generation.visual_elements.texture }}</p>
                 
-                    <h5>Characters:</h5>
+                    <h5>Karakterler:</h5>
                     <ul>
                         {% for character in image_generation.visual_elements.characters.all %}
                             <li>{{ character.type }} - {{ character.action }} - {{ character.appearance }}</li>
                         {% endfor %}
                     </ul>
                 
-                    <h5>Object Details:</h5>
+                    <h5>Nesne Detayları:</h5>
                     <ul>
                         {% for object_detail in image_generation.visual_elements.object_details.all %}
                             <li>{{ object_detail.description }}</li>
                         {% endfor %}
                     </ul>
                 
-                    <h5>Style Preferences:</h5>
-                    <p><strong>Art Style:</strong> {{ image_generation.style_preferences.artStyle }}</p>
-                    <p><strong>Lighting:</strong> {{ image_generation.style_preferences.lighting }}</p>
+                    <h5>Stil Tercihleri:</h5>
+                    <p><strong>Sanat Stili:</strong> {{ image_generation.style_preferences.artStyle }}</p>
+                    <p><strong>Aydınlatma:</strong> {{ image_generation.style_preferences.lighting }}</p>
                 
-                    <h5>User Customizations:</h5>
+                    <h5>Kullanıcı Özelleştirmeleri:</h5>
                     <p>{{ image_generation.user_customizations.additionalText }}</p>
-                    <!-- More user customization details can be added here -->
+                    <!-- Buraya daha fazla kullanıcı özelleştirme detayı eklenebilir -->
                 </div>
                 
               </div>
@@ -166,15 +165,15 @@
 {% block extra_js %}
 <script>
   function generateImages(imageGenerationId) {
-    // JavaScript to handle image generation
-    // Example: Redirect to a view that handles image generation
+    // Görüntü oluşturma işlemini yönetecek JavaScript
+    // Örnek: Görüntü oluşturma işlemini ele alan bir görünüme yönlendirme
     window.location.href = '/GUI/generate-images/' + imageGenerationId;
 }
 $(document).ready(function() {
     $('.select2').select2({
-        placeholder: "Select options",
+        placeholder: "Seçenekleri Seçin",
         allowClear: true,
-        width: '100%'  // Adjust as needed
+        width: '100%'  // Gerektiği gibi ayarlayın
     });
 });
 </script>
