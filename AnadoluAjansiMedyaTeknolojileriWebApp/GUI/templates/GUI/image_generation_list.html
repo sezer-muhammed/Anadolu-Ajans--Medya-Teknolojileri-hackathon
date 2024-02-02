@@ -55,6 +55,23 @@
 {% block content %}
 <div class="container-fluid my-4">
 
+    <div id="styleSelection">
+        {% for category, styles in styles.items %}
+        <h4>{{ category }}</h4>
+        <div>
+            {% for style in styles %}
+            <label>
+                <!-- Update the value to style.1, which is the identifier according to your JSON structure -->
+                <input type="checkbox" class="style-checkbox" value="{{ style.1 }}" onclick="updateSelectedStyles();"> {{ style.0 }}
+            </label>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    
+
+    <input type="hidden" id="selectedStylesInput" name="selectedStyles">
+
     <form action="{% url 'image-generation-list' %}" method="get" class="mb-3">
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Ara</button>
@@ -164,11 +181,24 @@
 
 {% block extra_js %}
 <script>
-  function generateImages(imageGenerationId) {
-    // Görüntü oluşturma işlemini yönetecek JavaScript
-    // Örnek: Görüntü oluşturma işlemini ele alan bir görünüme yönlendirme
-    window.location.href = '/GUI/generate-images/' + imageGenerationId;
+function generateImages(imageGenerationId) {
+    // Collect all selected style checkboxes
+    var selectedStyleIdentifiers = [];
+    document.querySelectorAll('.style-checkbox:checked').forEach(function(checkbox) {
+        // Assuming the value of the checkbox is set to the style identifier (1st index)
+        selectedStyleIdentifiers.push(checkbox.value);
+    });
+
+    // Create a query string with the selected style identifiers
+    var queryString = selectedStyleIdentifiers.map(function(styleIdentifier) {
+        return 'styles=' + encodeURIComponent(styleIdentifier);
+    }).join('&');
+
+    // Redirect to the image generation view with the selected style identifiers as a query string
+    window.location.href = '/GUI/generate-images/' + imageGenerationId + '?' + queryString;
 }
+
+
 $(document).ready(function() {
     $('.select2').select2({
         placeholder: "Seçenekleri Seçin",
@@ -176,5 +206,14 @@ $(document).ready(function() {
         width: '100%'  // Gerektiği gibi ayarlayın
     });
 });
+
+function updateSelectedStyles() {
+    var selectedStyles = [];
+    document.querySelectorAll('.style-checkbox:checked').forEach(function(checkbox) {
+        selectedStyles.push(checkbox.value);
+    });
+    // Update hidden input or make AJAX request here
+    document.getElementById('selectedStylesInput').value = JSON.stringify(selectedStyles);
+}
 </script>
 {% endblock %}

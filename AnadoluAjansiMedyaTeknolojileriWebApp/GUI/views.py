@@ -77,7 +77,7 @@ class GenerateImagesView(View):
 
         # Serialize the object
         serializer = ImageGenerationSerializer(image_generation)
-
+        style_selections = request.GET.getlist('styles')
         # Convert to Python data structure
         data = serializer.data
 
@@ -94,8 +94,11 @@ class GenerateImagesView(View):
         # Convert to JSON string with formatting
         json_data = json.dumps(data, indent=4, ensure_ascii=False)
 
-        prompt = TEXT_PROMPT.format(data=formatted_json_str, text=json_data)
+        prompt = TEXT_PROMPT.format(data=formatted_json_str, text=json_data, style_selections=style_selections)
         result_prompt_for_image_generation = chatgpt_interface.generate_text(prompt)
+        result_prompt_for_image_generation["style_selections"] =  ["Fooocus V2", "Fooocus Enhance", "Fooocus Sharp"] + style_selections
+
+        print(result_prompt_for_image_generation)
 
         result =text2img(result_prompt_for_image_generation)
 
@@ -134,7 +137,7 @@ class ImageGenerationDetailView(View):
         return render(request, 'GUI/image_generation_detail.html', {
             'image_generation': image_generation,
             'upload_info': upload_info,
-            'generated_images': generated_images,
+            'generated_images': generated_images
         })
 
 class ImageGenerationListView(ListView):
@@ -186,6 +189,9 @@ class ImageGenerationListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = ImageGenerationSearchForm(self.request.GET or None)  # Initialize the form
+        with open("GUI/config/styles.json", 'r', encoding='utf-8') as file:
+            styles_json = json.load(file)
+        context['styles'] = styles_json
         return context
 
 
