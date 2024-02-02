@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Media Upload{% endblock %}
+{% block title %}Medya Yükle{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
-    <h2 class="mb-4">Upload Media</h2>
+    <h2 class="mb-4">Medya Yükle</h2>
     <div class="row">
-        <!-- Image Upload Section -->
+        <!-- Görüntü Yükleme Bölümü -->
         <div class="col-md-6">
             <form method="post" enctype="multipart/form-data" id="imageUploadForm" class="mb-3">
                 {% csrf_token %}
@@ -14,27 +14,27 @@
                     <label for="imageInput" class="form-label">{{ image_form.image.label }}</label>
                     <input type="file" class="form-control" id="imageInput" name="image" multiple>
                     <div id="imageDropZone" class="border border-dashed p-5 text-center">
-                        Drag and drop images here
+                        Buraya sürükleyip bırakın
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Upload Images</button>
+                <button type="submit" class="btn btn-primary">Görüntüleri Yükle</button>
             </form>
-            <!-- Image Preview Area -->
+            <!-- Görüntü Önizleme Alanı -->
             <div id="imagePreview" class="row"></div>
         </div>
 
-        <!-- Text Upload Section -->
+        <!-- Metin Yükleme Bölümü -->
         <div class="col-md-6">
             <form method="post" id="textUploadForm" class="mb-3">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="textInput" class="form-label">{{ text_form.text.label }}</label>
                     <textarea class="form-control" id="textInput" name="text" rows="3"></textarea>
-                    <small class="form-text text-muted">Enter your text, separate different texts using '%%'.</small>
+                    <small class="form-text text-muted">Metninizi girin, farklı metinleri '%%' kullanarak ayırın.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Upload Text</button>
+                <button type="submit" class="btn btn-primary">Metni Yükle</button>
             </form>
-            <!-- Text Preview Area -->
+            <!-- Metin Önizleme Alanı -->
             <div id="textPreview"></div>
         </div>
     </div>
@@ -44,10 +44,10 @@
   var imageDropZone = document.getElementById('imageDropZone');
   var imageInput = document.getElementById('imageInput');
 
-  // Function to display image previews
+  // Görüntü önizlemelerini gösterme fonksiyonu
   function displayImages(files) {
       var imagePreview = document.getElementById('imagePreview');
-      imagePreview.innerHTML = ''; // Clear existing content
+      imagePreview.innerHTML = ''; // Mevcut içeriği temizleyin
 
       Array.from(files).forEach(function(file) {
           if (!file.type.match('image.*')) return;
@@ -67,7 +67,7 @@
       });
   }
 
-  // Handle drag-and-drop
+  // Sürükle ve bırak işlemini ele alma
   imageDropZone.addEventListener('dragover', function(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -86,16 +86,16 @@
       this.classList.remove('border-primary');
 
       var files = e.dataTransfer.files;
-      displayImages(files); // Display dropped images
-      imageInput.files = files; // Assign dropped files to file input
+      displayImages(files); // Bırakılan görüntüleri göster
+      imageInput.files = files; // Bırakılan dosyaları dosya girişine atayın
   });
 
-  // Handle file selection via file input
+  // Dosya girişi aracılığıyla dosya seçimini ele alma
   imageInput.addEventListener('change', function() {
-      displayImages(this.files); // Display selected images
+      displayImages(this.files); // Seçilen görüntüleri göster
   });
 
-    // Text Preview Functionality
+    // Metin Önizleme İşlevselliği
     document.getElementById('textInput').addEventListener('input', function() {
         var texts = this.value.split('%%');
         var textPreview = document.getElementById('textPreview');
@@ -109,9 +109,9 @@
         });
     });
 
-    // Alert on Successful Upload
+    // Başarılı Yükleme Üzerine Uyarı
     $('#uploadForm').on('submit', function(event) {
-        event.preventDefault(); // Prevents the default form submission action
+        event.preventDefault(); // Varsayılan form gönderme eylemini önler
         var formData = new FormData(this);
 
         $.ajax({
@@ -122,18 +122,18 @@
             processData: false,
             success: function() {
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Your media has been uploaded successfully.',
+                    title: 'Başarılı!',
+                    text: 'Medyanız başarıyla yüklendi.',
                     icon: 'success',
-                    confirmButtonText: 'Cool'
+                    confirmButtonText: 'Harika'
                 });
             },
             error: function() {
                 Swal.fire({
-                    title: 'Error!',
-                    text: 'There was a problem with the upload.',
+                    title: 'Hata!',
+                    text: 'Yükleme sırasında bir sorun oluştu.',
                     icon: 'error',
-                    confirmButtonText: 'Ok'
+                    confirmButtonText: 'Tamam'
                 });
             }
         });
