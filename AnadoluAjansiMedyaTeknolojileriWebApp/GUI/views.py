@@ -94,11 +94,12 @@ class GenerateImagesView(View):
         # Convert to JSON string with formatting
         json_data = json.dumps(data, indent=4, ensure_ascii=False)
 
-        prompt = TEXT_PROMPT.format(data=formatted_json_str, text=json_data, style_selections=style_selections)
+        prompt = TEXT_PROMPT.format(data=formatted_json_str, text=json_data)
         result_prompt_for_image_generation = chatgpt_interface.generate_text(prompt)
-        result_prompt_for_image_generation["style_selections"] =  ["Fooocus V2", "Fooocus Enhance", "Fooocus Sharp"] + style_selections
-
-        print(result_prompt_for_image_generation)
+        if len(style_selections) == 0:
+            result_prompt_for_image_generation["style_selections"] = ["Fooocus V2"]
+        else:
+            result_prompt_for_image_generation["style_selections"] =  style_selections
 
         result =text2img(result_prompt_for_image_generation)
 

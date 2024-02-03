@@ -2,6 +2,8 @@ from django import forms
 from api.models import ImageUpload, TextUpload
 from image_generator.models import *
 from django_select2 import forms as s2forms
+from django.db.models.functions import Coalesce
+from django.db.models import F
 
 class ImageUploadForm(forms.ModelForm):
     class Meta:
@@ -16,7 +18,11 @@ class TextUploadForm(forms.ModelForm):
 
 class ImageGenerationSelectForm(forms.Form):
     image_generation = forms.ModelChoiceField(
-        queryset=ImageGeneration.objects.all(),
+        queryset = ImageGeneration.objects.filter(
+            text_upload__isnull=False  # Exclude ImageGenerations without a TextUpload
+        ).annotate(
+            sort_date=F('text_upload__created_at')  # Use the created_at date from TextUpload for sorting
+        ).order_by('-sort_date'),
         label="Select an News Context",
         widget=s2forms.Select2Widget(attrs={
             'data-placeholder': 'Select Headlines', 
