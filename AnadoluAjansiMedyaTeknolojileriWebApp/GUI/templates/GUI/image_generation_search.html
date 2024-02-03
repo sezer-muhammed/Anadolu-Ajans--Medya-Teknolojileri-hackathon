@@ -56,6 +56,31 @@
 {% block title %}Görüntü Oluşturma Arama{% endblock %}
 
 {% block content %}
+{% if selected_generation %}
+<div class="container mt-5"> <!-- Add a top margin and wrap in a container -->
+    <div class="row justify-content-center"> <!-- Center the content row -->
+        <div class="col-lg-8 mb-4"> <!-- Increase the column size for a bigger card and add margin bottom -->
+            <div class="card bg-dark text-white border-0 shadow"> <!-- Use Bootstrap classes for styling -->
+                <img src="{{ selected_generation.random_image_url }}" class="card-img" alt="..." style="opacity: 0.95;"> <!-- Use an img tag for the background image -->
+                <div class="card-img-overlay d-flex flex-column justify-content-end" style="background: rgba(0, 0, 0, 0.1);"> <!-- Overlay for text visibility -->
+                    <h5 class="card-title">{{ selected_generation.news_context.headline }}</h5>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text"><strong>Duygu Tonu:</strong> {{ selected_generation.news_context.emotionTone }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><strong>Duygusal Yoğunluk:</strong> {{ selected_generation.news_context.emotionalIntensity }}</p>
+                        </div>
+                    </div>
+                    <a href="{% url 'imagegeneration_detail' selected_generation.id %}" class="btn btn-light btn-sm" style="background-color: rgba(255, 255, 255, 0.8);">Tam Detaylar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <h2>Benzer Görüntü Oluşturmaları Bul</h2>

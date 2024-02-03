@@ -113,61 +113,29 @@
                   <div class="modal-body">
                     <p><strong>Başlık:</strong> {{ image_generation.news_context.headline }}</p>
                     <p><strong>Kategori:</strong> {{ image_generation.news_context.category }}</p>
-                    <p><strong>Duygu Tonu:</strong> {{ image_generation.news_context.emotionTone }}</p>
-                    <p><strong>Duygusal Yoğunluk:</strong> {{ image_generation.news_context.emotionalIntensity }}</p>
+                    <p><strong>Duygu Tonu ve Yoğunluğu:</strong> {{ image_generation.news_context.emotionTone }} - {{ image_generation.news_context.emotionalIntensity }}</p>
                     <p><strong>Coğrafi Bağlam:</strong> {{ image_generation.news_context.geographicalContext }}</p>
-                    <p><strong>Zamansal Bağlam:</strong> {{ image_generation.news_context.temporalContext }}</p>
-                    <p><strong>Kaynak Güvenilirliği:</strong> {{ image_generation.news_context.sourceCredibility }}</p>
-                    <p><strong>Hedef Kitle Yaş Grubu:</strong> {{ image_generation.news_context.audienceAgeGroup }}</p>
-                    <p><strong>Hedef Kitle İlgileri:</strong> {{ image_generation.news_context.audienceInterests }}</p>
-                
-                    <!-- Anahtar Kelimeleri Göster -->
-                    <h5>Anahtar Kelimeler:</h5>
-                    <ul>
-                        {% for keyword in image_generation.news_context.keywords.all %}
-                            <li>{{ keyword.word }}</li>
-                        {% endfor %}
-                    </ul>
-                
-                    <!-- Alt Kategorileri Göster -->
-                    <h5>Alt Kategoriler:</h5>
-                    <ul>
-                        {% for subcategory in image_generation.news_context.subcategories.all %}
-                            <li>{{ subcategory.name }}</li>
-                        {% endfor %}
-                    </ul>
-                    <p><strong>Kategori:</strong> {{ image_generation.news_context.category }}</p>
-                    <p><strong>Duygu Tonu:</strong> {{ image_generation.news_context.emotionTone }}</p>
-                    <p><strong>Coğrafi Bağlam:</strong> {{ image_generation.news_context.geographicalContext }}</p>
-                    <p><strong>Zamansal Bağlam:</strong> {{ image_generation.news_context.temporalContext }}</p>
                     
-                    <h5>Görsel Öğeler:</h5>
-                    <p><strong>Arka Plan Sahnesi:</strong> {{ image_generation.visual_elements.backgroundScene }}</p>
-                    <p><strong>Renk Paleti:</strong> {{ image_generation.visual_elements.colorPalette }}</p>
-                    <p><strong>Doku:</strong> {{ image_generation.visual_elements.texture }}</p>
+                    <!-- Anahtar Kelimeleri Virgülle Ayrılmış Liste Olarak Göster -->
+                    <p><strong>Anahtar Kelimeler:</strong> 
+                        {% for keyword in image_generation.news_context.keywords.all %}
+                            {{ keyword.word }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
                 
-                    <h5>Karakterler:</h5>
-                    <ul>
+                    <!-- Karakterler ve Nesne Detayları -->
+                    <p><strong>Karakterler:</strong> 
                         {% for character in image_generation.visual_elements.characters.all %}
-                            <li>{{ character.type }} - {{ character.action }} - {{ character.appearance }}</li>
+                            {{ character.type }} - {{ character.action }} - {{ character.appearance }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
-                    </ul>
-                
-                    <h5>Nesne Detayları:</h5>
-                    <ul>
+                    </p>
+                    <p><strong>Nesne Detayları:</strong> 
                         {% for object_detail in image_generation.visual_elements.object_details.all %}
-                            <li>{{ object_detail.description }}</li>
+                            {{ object_detail.description }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
-                    </ul>
-                
-                    <h5>Stil Tercihleri:</h5>
-                    <p><strong>Sanat Stili:</strong> {{ image_generation.style_preferences.artStyle }}</p>
-                    <p><strong>Aydınlatma:</strong> {{ image_generation.style_preferences.lighting }}</p>
-                
-                    <h5>Kullanıcı Özelleştirmeleri:</h5>
-                    <p>{{ image_generation.user_customizations.additionalText }}</p>
-                    <!-- Buraya daha fazla kullanıcı özelleştirme detayı eklenebilir -->
+                    </p>
                 </div>
+                
                 
               </div>
           </div>

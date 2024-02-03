@@ -22,14 +22,17 @@ from .similarity import find_similar_image_generations  # Assuming your similari
 def image_generation_search_view(request):
     form = ImageGenerationSelectForm(request.POST or None)
     similar_objects_with_scores = []  # Will hold tuples of (ImageGeneration object, similarity score)
+    selected_generation = None
 
     if request.method == 'POST' and form.is_valid():
         selected_id = form.cleaned_data['image_generation'].id
         similar_objects_with_scores = find_similar_image_generations(selected_id)
+        selected_generation = ImageGeneration.objects.get(id=selected_id)
 
     return render(request, 'GUI/image_generation_search.html', {
         'form': form,
-        'similar_objects_with_scores': similar_objects_with_scores
+        'similar_objects_with_scores': similar_objects_with_scores,
+        'selected_generation': selected_generation
     })
 
 def home(request):

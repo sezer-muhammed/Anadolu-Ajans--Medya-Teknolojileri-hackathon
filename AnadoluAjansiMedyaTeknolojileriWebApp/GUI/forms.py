@@ -15,21 +15,30 @@ class TextUploadForm(forms.ModelForm):
         model = TextUpload
         fields = ['text']
 
-
 class ImageGenerationSelectForm(forms.Form):
     image_generation = forms.ModelChoiceField(
-        queryset = ImageGeneration.objects.filter(
-            text_upload__isnull=False  # Exclude ImageGenerations without a TextUpload
+        queryset=ImageGeneration.objects.filter(
+            text_upload__isnull=False
         ).annotate(
-            sort_date=F('text_upload__created_at')  # Use the created_at date from TextUpload for sorting
+            sort_date=F('text_upload__created_at')
         ).order_by('-sort_date'),
-        label="Select an News Context",
+        label="Select a News Context",
         widget=s2forms.Select2Widget(attrs={
             'data-placeholder': 'Select Headlines', 
             'data-allow-clear': True,
-            'class': 'select2'
+            'class': 'select2-large',  # Modified class name for larger size
+            'style': 'width: 100%;'  # Ensure the select box takes full width
         })
     )
+
+    def __init__(self, *args, **kwargs):
+        super(ImageGenerationSelectForm, self).__init__(*args, **kwargs)
+        self.fields['image_generation'].label_from_instance = self.label_from_instance
+
+    def label_from_instance(self, obj):
+        # Customizing the display of each dropdown item with more details
+        return f"{obj.news_context.headline} - {obj.news_context.category} - {obj.news_context.emotionTone} - {obj.text_upload.created_at.strftime('%Y-%m-%d')}"
+
 
 
 class ImageGenerationSearchForm(forms.Form):
