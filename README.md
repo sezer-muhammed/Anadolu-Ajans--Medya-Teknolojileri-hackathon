@@ -1,34 +1,93 @@
-# Mozaik: Revolutionizing Content Creation with AI
+# Mozaik: Content Creation with AI for News
 
-[![Django CI](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml/badge.svg)](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/actions/workflows/django.yml)
+# ![Mozaik Main Visual](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/blob/main/.images/8.jpg)
 
-## Usage
+---
 
-This script is designed for users with a specific setup, including Windows Subsystem for Linux (WSL), Docker, Python, Git installed, and authorized access to a specific GitHub repository. Follow the steps below to use the `AnadoluAjansi.bat` batch script effectively:
+## 🚀 Overview
 
-1. **Pre-requisites:**
-   - Ensure that you have **Windows Subsystem for Linux (WSL)** installed and configured on your Windows machine.
-   - Make sure **Docker** is installed and set up to run on your system. Docker Desktop for Windows is recommended for ease of use.
-   - **Python** must be installed and accessible from the command line. This script assumes Python is added to the system's PATH.
-   - **Git** should be installed and configured for command line use, with access to clone and pull from repositories.
-   - You must have **authorization** to access the `https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon.git` repository, either through SSH keys or HTTPS credentials saved in your Git configuration.
+**Mozaik** is an AI-powered media content generation platform built for **automated, ethical, and contextually relevant visual production**. Developed as part of the Anadolu Ajansı Medya Teknolojileri Hackathon, Mozaik leverages advanced models to produce:
 
-2. **Running the Script:**
-   - Locate the `AnadoluAjansi.bat` file. You are Done!.
-   - Double-click the `AnadoluAjansi.bat` file to run it. You are Done!.
-   - After waiting a brief period for the server to start, it automatically opens the project's upload page in your default web browser.
+- 🎯 Accurate visuals for news content  
+- 🧠 Emotion-aware media suggestions  
+- 🗺️ Rich infographics tailored for broadcast and publishing environments
 
+---
 
-## Ethical Considerations
+## 🧭 Features
 
-At Mozaik, we're committed to ethical AI use. We continually monitor our models to prevent the generation of content that includes unacceptable levels of violence or sexual content. Our goal is to foster a positive and creative environment for all users.
+### 🖼️ 1. News-Aligned Image Generation
+Automatically create or fetch visuals that match article tone and subject.
 
-## Mozaik License Agreement
+![News Matching Visuals](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/blob/main/.images/9.jpg)
 
-Mozaik is free for personal use. For commercial applications, please contact us to discuss licensing arrangements. We're committed to fair use and fostering a creative and collaborative community.
+> Contextual visual retrieval and generation based on emotion, keywords, and semantic similarity.
 
-## Acknowledgments
+---
 
-Special thanks to the Anadolu Agency Hackathon for the inspiration and opportunity to develop Mozaik. We're excited to contribute to the future of AI-driven content creation and distribution.
+### 🧰 2. Infographic Background Production  
+Transform tabular or textual data into stylized infographic backdrops.
 
-Join us in revolutionizing content creation with Mozaik - your platform for creativity and innovation.
+![Infographic Backgrounds](https://github.com/sezer-muhammed/Anadolu-Ajans--Medya-Teknolojileri-hackathon/blob/main/.images/12.jpg)
+
+> Automatically convert numerical datasets into illustration-rich environments.
+
+---
+
+### 🧠 3. Visual Consistency with Military-grade Application
+Delivers consistent visual assets even for sensitive or high-security domains.
+
+> Demonstrates integration with enhanced AR/MR pipelines, such as Microsoft HoloLens for defense scenarios.
+
+---
+
+## 🧑‍💻 Usage Guide
+
+> **Requirements**
+
+Ensure the following components are installed and configured on your Windows machine:
+
+- ✅ Windows Subsystem for Linux (WSL)
+- ✅ Docker Desktop for Windows
+- ✅ Python (added to PATH)
+- ✅ Git with SSH/HTTPS repo access
+
+> **Steps**
+
+1. Clone or download the project.
+2. Locate and double-click `AnadoluAjansi.bat`.
+3. Wait for the backend services to initialize.
+4. The browser will open the upload interface automatically.
+
+---
+
+## 🤖 Ethical Considerations
+
+At **Mozaik**, we are committed to:
+- Preventing generation of violent or explicit visuals
+- Promoting responsible AI usage
+- Fostering safe, creative ecosystems
+
+---
+
+## 📜 Mozaik License Agreement
+
+- ✅ Free for personal and non-commercial use
+- 💼 For commercial licensing, contact us directly
+- 🤝 Collaboration and research partnerships encouraged
+
+---
+
+## 🙏 Acknowledgments
+
+Special thanks to:
+- **Anadolu Agency Hackathon** for the platform
+- **Bilişim Vadisi** for collaboration
+- All contributors and testers
+
+---
+
+Join us in revolutionizing content creation with **Mozaik** –  
+Your platform for **creativity** and **innovation**.
+
+> 🌐 [hackathon.aa.com.tr](http://hackathon.aa.com.tr)
